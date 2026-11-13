@@ -22,11 +22,6 @@ export default function AboutSection() {
       id="tentang"
       className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-[#F3EDE2] rounded-full blur-3xl opacity-70 pointer-events-none -z-10" />
-      <div className="absolute top-10 left-10 w-72 h-72 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#C8A98E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
-
       <div className="max-w-5xl mx-auto px-5 sm:px-8">
         {/* ========================================================================= */}
         {/* 1. CERITA FILOSOFI "NALAR NANTI" SEJAK TITIK AWAL */}

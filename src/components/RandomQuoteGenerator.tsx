@@ -86,10 +86,6 @@ export default function RandomQuoteGenerator() {
       id="pengingat"
       className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[500px] h-[340px] sm:h-[500px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-2 sm:right-12 w-44 sm:w-64 h-44 sm:h-64 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
-
       <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
         {/* Header Bagian */}
         <div className="max-w-xl mx-auto mb-6 sm:mb-8 text-center">

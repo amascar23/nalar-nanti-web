@@ -4,6 +4,7 @@ import "./globals.css";
 import { SavedQuotesProvider } from "@/context/SavedQuotesContext";
 import SavedQuotesModal from "@/components/SavedQuotesModal";
 import AmbientSoundToggle from "@/components/AmbientSoundToggle";
+import ThemeBackground from "@/components/ThemeBackground";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -87,9 +88,10 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${lora.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
       <body
-        className="font-sans bg-[#FAF7F2] text-[#3E362E] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] touch-manipulation"
+        className="font-sans bg-[#FAF7F2] text-[#3E362E] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] touch-manipulation relative"
         suppressHydrationWarning
       >
+        <ThemeBackground />
         <SavedQuotesProvider>
           {children}
           <SavedQuotesModal />

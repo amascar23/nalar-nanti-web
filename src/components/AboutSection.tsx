@@ -12,10 +12,6 @@ import {
   Sparkles,
 } from "lucide-react";
 
-/**
- * 💡 PANDUAN TAUTAN KOMUNITAS:
- * Ubah URL di bawah ini dengan tautan saluran WhatsApp resmi Anda saat sudah siap.
- */
 const WA_CHANNEL_URL = "https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y";
 const IG_PROFILE_URL = "https://instagram.com/nalarnanti";
 
@@ -25,36 +21,36 @@ export default function AboutSection() {
       id="tentang"
       className="py-20 sm:py-28 bg-[#FAF7F2] border-t border-[#E5DDD0]/70 relative overflow-hidden"
     >
-      {/* Background ambient light */}
+      {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-[#F3EDE2] rounded-full blur-3xl opacity-70 pointer-events-none -z-10" />
       <div className="absolute top-10 left-10 w-72 h-72 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#C8A98E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ========================================================================= */}
-        {/* 1. CERITA FILOSOFI "NALAR NANTI" */}
+        {/* 1. CERITA FILOSOFI "NALAR NANTI" SEJAK TITIK AWAL */}
         {/* ========================================================================= */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2.5">
             <Compass className="w-3.5 h-3.5" />
-            <span>Filosofi {"&"} Ruang Teduh</span>
+            <span>Filosofi & Ruang Teduh</span>
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-4">
-            Tentang Nalar Nanti {"&"} Ruang Terhubung
+            Tentang Nalar Nanti & Ruang Terhubung
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#7A6F64] leading-relaxed">
-            Sebuah rumah singgah digital untuk merawat akal budi dan keteduhan batin, di tengah dunia yang tak henti menuntut kita untuk selalu lekas.
+            Bermula dari sebuah Titik Awal sederhana untuk Menata Nalar, Merakit Asa—sebuah rumah singgah digital untuk merawat ketenangan hati dan kejernihan pikiran.
           </p>
         </div>
 
         {/* Narrative Box Filosofi */}
-        <div className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-8 sm:p-12 mb-16 shadow-soft relative overflow-hidden">
+        <div className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-7 sm:p-12 mb-16 shadow-soft relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Kolom Narasi Kiri */}
             <div className="lg:col-span-7 space-y-4 text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#886950]">
                 <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
-                <span>Makna di Balik Nama</span>
+                <span>Bermula dari Titik Awal</span>
               </div>
 
               <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] leading-snug">
@@ -66,44 +62,51 @@ export default function AboutSection() {
               </h3>
 
               <p className="font-sans text-sm sm:text-base text-[#7A6F64] leading-relaxed">
-                Di tengah linimasa yang bergerak serba cepat dan menuntut kepastian instan, 
-                <strong> Nalar Nanti</strong> hadir sebagai jeda yang ramah. Ada hari-hari di mana isi kepala kita terasa bising dan hati diliputi cemas. Di sanalah kita diingatkan bahwa akal manusia tidak dirancang untuk memikul seluruh beban esok hari sekaligus.
+                Perjalanan <strong>Nalar Nanti</strong> bermula dari sebuah <em>Titik Awal</em> sederhana: keberanian untuk berhenti sejenak dari keriuhan dunia, menata isi kepala yang penuh, dan melangkah kembali dengan niat yang jujur.
               </p>
 
               <p className="font-sans text-sm sm:text-base text-[#7A6F64] leading-relaxed">
-                Ada hal-hal yang perlu <strong>dinalar perlahan dengan hati yang tenang</strong>, dipeluk dengan <strong>doa yang cukup</strong>, dan dilalui dengan <strong>langkah yang ikhlas</strong>.
+                Kami meyakini esensi <strong>Menata Nalar, Merakit Asa</strong>—bahwa ada hal-hal dalam hidup yang tidak perlu dipaksa terjawab hari ini. Ada hal-hal yang perlu <strong>dinalar perlahan dengan hati yang tenang</strong>, dipeluk dengan <strong>doa yang cukup</strong>, dan dilalui dengan <strong>rasa ikhlas</strong>.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                 <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0]/80">
                   <span className="font-serif text-base font-semibold text-[#3E362E] block mb-1">
-                    🌿 Nalar
+                    🌿 Menata Nalar
                   </span>
                   <p className="text-xs text-[#7A6F64] leading-relaxed">
-                    Kejernihan akal sehat untuk memilah mana yang berada dalam kuasamu dan mana yang sebaiknya dipasrahkan.
+                    Kejernihan akal dan kelapangan hati untuk memilah mana yang berada dalam kuasamu, melepaskan beban yang bukan milikmu, dan bertindak dengan tenang.
                   </p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0]/80">
                   <span className="font-serif text-base font-semibold text-[#3E362E] block mb-1">
-                    🕊️ Nanti
+                    🕊️ Merakit Asa
                   </span>
                   <p className="text-xs text-[#7A6F64] leading-relaxed">
-                    Izin welas asih untuk menunda kepanikan, menghormati proses, dan percaya bahwa setiap bunga memiliki musim mekarnya masing-masing.
+                    Harapan baik yang dirawat perlahan lewat doa dan prasangka baik, percaya bahwa ketetapan-Nya selalu mekar pada waktu yang paling tepat.
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Kolom Refleksi Kanan (Quote Card Estetik) */}
+            {/* Kolom Refleksi Kanan (Quote Postingan Pertama: Titik Awal) */}
             <div className="lg:col-span-5">
-              <div className="bg-[#FAF7F2] border border-[#E5DDD0] rounded-2xl p-7 shadow-soft relative text-left">
+              <div className="bg-[#FAF7F2] border border-[#E5DDD0] rounded-2xl p-7 sm:p-8 shadow-soft relative text-left">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#E5DDD0]/70">
+                  <span className="text-[11px] font-semibold text-[#8E9B8E] uppercase tracking-wider">
+                    Jejak Awal Nalar Nanti
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3]">
+                    Postingan #1
+                  </span>
+                </div>
                 <Feather className="w-8 h-8 text-[#C8A98E]/40 mb-3" />
                 <blockquote className="font-serif italic text-base sm:text-lg text-[#3E362E] leading-relaxed mb-4">
-                  “Ketika kamu merasa lelah dan arah jalanmu belum terlihat jelas, jangan memaksakan jawaban. Duduklah sejenak, rapikan napasmu, dan biarkan hatimu beristirahat di pelukan doa.”
+                  “Setiap perjalanan panjang selalu dimulai dari satu titik awal yang sederhana: keberanian untuk berhenti sejenak, menata pikiran, dan melangkah dengan niat yang jujur.”
                 </blockquote>
                 <div className="pt-3 border-t border-[#E5DDD0]/70 flex items-center justify-between text-xs text-[#7A6F64]">
-                  <span className="font-medium">— Catatan Teduh Nalar Nanti</span>
+                  <span className="font-medium font-serif italic">— Titik Awal (Nalar Nanti)</span>
                   <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]" />
                 </div>
               </div>
@@ -112,17 +115,17 @@ export default function AboutSection() {
         </div>
 
         {/* ========================================================================= */}
-        {/* 2. DUA KARTU AJAKAN BERGABUNG (COMMUNITY CARDS) */}
+        {/* 2. DUA KARTU KOMUNITAS: INSTAGRAM & SALURAN WHATSAPP */}
         {/* ========================================================================= */}
         <div className="mb-8 text-center max-w-xl mx-auto">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 block">
             Ruang Terhubung
           </span>
           <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] tracking-tight mb-2">
-            Mari Bertumbuh {"&"} Singgah Bersama
+            Mari Bertumbuh & Singgah Bersama
           </h3>
           <p className="font-sans text-xs sm:text-sm text-[#7A6F64]">
-            Pilih cara yang paling nyaman untuk menghadirkan ketenangan di harimu.
+            Pilih ruang yang paling nyaman untuk menghadirkan ketenangan di keseharianmu.
           </p>
         </div>
 
@@ -130,7 +133,7 @@ export default function AboutSection() {
           {/* ----------------------------------------------------------------------- */}
           {/* KARTU 1: INSTAGRAM (@nalarnanti) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="flex flex-col justify-between p-8 sm:p-9 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
+          <div className="flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
             <div>
               {/* Top Tag & Icon */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80">
@@ -138,7 +141,7 @@ export default function AboutSection() {
                   <Instagram className="w-6 h-6" />
                 </div>
                 <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] text-[#886950] border border-[#E5DDD0]">
-                  Visual {"&"} Carousel
+                  Visual & Carousel
                 </span>
               </div>
 
@@ -147,26 +150,26 @@ export default function AboutSection() {
                 Instagram @nalarnanti
               </h4>
               <p className="text-xs text-[#C8A98E] font-medium mb-4">
-                Ruang visual kutipan {"&"} renungan harian
+                Arsip visual desain kartu soft cream & seri kutipan lengkap
               </p>
 
               <p className="font-sans text-sm text-[#7A6F64] leading-relaxed mb-6">
-                Ikuti akun Instagram <strong>@nalarnanti</strong> untuk menikmati visual kutipan harian yang estetik, carousel refleksi mendalam, dan tulisan penyejuk yang siap menemani linimasamu setiap petang.
+                Ikuti akun Instagram <strong>@nalarnanti</strong> untuk melihat arsip visual desain kartu cream yang estetik, membaca seri carousel kutipan dan renungan dari postingan awal hingga terbaru, serta bertukar cerita di kolom komentar.
               </p>
 
               {/* Keunggulan / Fitur */}
               <ul className="space-y-2.5 mb-8 text-xs text-[#3E362E] font-medium">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#8E9B8E] shrink-0" />
-                  <span>Kutipan visual estetik dan menenangkan di feed</span>
+                  <span>Arsip visual desain kartu cream yang tenang dan rapi di feed</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#8E9B8E] shrink-0" />
-                  <span>Carousel renungan bertema tawakal, sabar, dan proses hidup</span>
+                  <span>Carousel renungan mendalam bertema ikhlas, sabar, dan bertumbuh</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#8E9B8E] shrink-0" />
-                  <span>Ruang berbagi dan saling menguatkan di kolom komentar</span>
+                  <span>Ruang saling mendoakan dan menguatkan di kolom komentar</span>
                 </li>
               </ul>
             </div>
@@ -179,7 +182,7 @@ export default function AboutSection() {
               className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 px-6 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group/btn"
             >
               <Instagram className="w-4 h-4 text-[#FAF7F2]" />
-              <span>Ikuti di Instagram @nalarnanti</span>
+              <span>Kunjungi Instagram @nalarnanti</span>
               <ExternalLink className="w-3.5 h-3.5 opacity-80 group-hover/btn:translate-x-0.5 transition-transform" />
             </a>
           </div>
@@ -187,7 +190,7 @@ export default function AboutSection() {
           {/* ----------------------------------------------------------------------- */}
           {/* KARTU 2: SALURAN WHATSAPP (@NalarNanti) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="flex flex-col justify-between p-8 sm:p-9 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
+          <div className="flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
             <div>
               {/* Top Tag & Icon */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80">
@@ -195,7 +198,7 @@ export default function AboutSection() {
                   <MessageCircle className="w-6 h-6" />
                 </div>
                 <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] text-[#637063] border border-[#E5DDD0]">
-                  Pesan Langsung
+                  Pengingat Langsung
                 </span>
               </div>
 
@@ -204,11 +207,11 @@ export default function AboutSection() {
                 Saluran WhatsApp @NalarNanti
               </h4>
               <p className="text-xs text-[#8E9B8E] font-medium mb-4">
-                Pengingat teduh langsung di aplikasi WhatsApp-mu
+                Pengingat harian langsung di notifikasi ponselmu
               </p>
 
               <p className="font-sans text-sm text-[#7A6F64] leading-relaxed mb-6">
-                Bergabunglah ke Saluran WhatsApp <strong>@NalarNanti</strong> untuk menerima pesan refleksi singkat dan kutipan penyejuk hati setiap hari. Hening tanpa dering notifikasi berisik, tanpa spam, dan nomor teleponmu tetap terjaga aman.
+                Bergabunglah ke Saluran WhatsApp <strong>@NalarNanti</strong> untuk menerima satu pesan pengingat penyejuk hati setiap hari langsung di ponselmu. Hening tanpa notifikasi berisik, tanpa spam, dan nomor teleponmu tetap 100% terjaga aman.
               </p>
 
               {/* Keunggulan / Fitur */}
@@ -219,11 +222,11 @@ export default function AboutSection() {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#8E9B8E] shrink-0" />
-                  <span>100% privasi terjaga (nomor kontak tidak terlihat anggota lain)</span>
+                  <span>100% privasi terjaga (nomor telepon tidak terlihat oleh siapapun)</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#8E9B8E] shrink-0" />
-                  <span>Mudah dibagikan langsung ke status atau keluarga tercinta</span>
+                  <span>Praktis dibagikan ke status WhatsApp atau orang-orang terdekat</span>
                 </li>
               </ul>
             </div>

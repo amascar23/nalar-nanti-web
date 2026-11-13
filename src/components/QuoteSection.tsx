@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { QUOTES_DATA, QuoteItem, QuoteCategory } from "@/data/quotes";
 import {
   Quote,
@@ -209,9 +210,15 @@ export default function QuoteSection() {
                       title="Kunjungi profil Instagram @nalarnanti"
                       className="flex items-center gap-1.5 group/ig hover:text-[#C8A98E] transition-colors"
                     >
-                      <span className="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E] group-hover/ig:border-[#C8A98E] transition-colors">
-                        <Instagram className="w-3.5 h-3.5" />
-                      </span>
+                      <div className="w-6 h-6 rounded-full overflow-hidden border border-[#E5DDD0] bg-[#FAF7F2] shrink-0 group-hover/ig:border-[#C8A98E] transition-colors">
+                        <Image
+                          src="/images/logo.jpg"
+                          alt="Nalar Nanti"
+                          width={24}
+                          height={24}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                       <span className="text-[11px] font-semibold text-[#7A6F64] group-hover/ig:text-[#C8A98E] tracking-tight transition-colors">
                         @nalarnanti
                       </span>
@@ -337,9 +344,15 @@ export default function QuoteSection() {
                   title="Kunjungi profil Instagram @nalarnanti"
                   className="flex items-center gap-2 group/modalig"
                 >
-                  <span className="w-7 h-7 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E] group-hover/modalig:border-[#C8A98E] transition-all">
-                    <Instagram className="w-4 h-4" />
-                  </span>
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5DDD0] bg-[#FAF7F2] shrink-0 group-hover/modalig:border-[#C8A98E] transition-all">
+                    <Image
+                      src="/images/logo.jpg"
+                      alt="Nalar Nanti"
+                      width={32}
+                      height={32}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-semibold text-[#3E362E] group-hover/modalig:text-[#C8A98E] transition-colors">
                       @nalarnanti

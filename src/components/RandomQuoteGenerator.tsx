@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
 import {
   Sparkles,
@@ -123,9 +124,15 @@ export default function RandomQuoteGenerator() {
             {/* Header Kartu: Label Kategori, Nomor Urut & Judul Tema */}
             <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A98E]/20 text-[#886950] shrink-0">
-                  <Sparkles className="w-4 h-4 text-[#C8A98E]" />
-                </span>
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
+                  <Image
+                    src="/images/logo.jpg"
+                    alt="Logo Nalar Nanti"
+                    width={36}
+                    height={36}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                     <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E]">

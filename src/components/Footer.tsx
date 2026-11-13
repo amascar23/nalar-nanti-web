@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram, MessageCircle, Heart } from "lucide-react";
 
 /**
@@ -15,8 +16,16 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-[#E5DDD0]">
           {/* Brand Info */}
           <div className="max-w-md">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#C8A98E]" />
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Logo Nalar Nanti"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <span className="font-serif text-2xl font-semibold tracking-tight text-[#3E362E]">
                 Nalar Nanti
               </span>

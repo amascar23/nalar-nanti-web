@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Sparkles, Instagram } from "lucide-react";
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==";
@@ -42,15 +43,26 @@ export default function Navbar() {
         {/* Brand Logo */}
         <Link
           href="#beranda"
-          className="group flex items-center gap-2 sm:gap-2.5 transition-opacity hover:opacity-85 active:scale-98"
+          className="group flex items-center gap-2.5 sm:gap-3 transition-opacity hover:opacity-90 active:scale-98"
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-[#C8A98E] group-hover:scale-125 transition-transform" />
-          <span className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-[#3E362E]">
-            Nalar Nanti
-          </span>
-          <span className="hidden xs:inline-block text-[11px] font-sans px-2 py-0.5 rounded-full bg-[#8E9B8E]/15 text-[#637063] font-medium ml-0.5">
-            ruang teduh
-          </span>
+          <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft group-hover:scale-105 transition-transform bg-[#F3EDE2] shrink-0">
+            <Image
+              src="/images/logo.jpg"
+              alt="Logo Nalar Nanti"
+              width={36}
+              height={36}
+              className="w-full h-full object-cover"
+              priority
+            />
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-[#3E362E]">
+              Nalar Nanti
+            </span>
+            <span className="hidden xs:inline-block text-[10px] font-sans px-2 py-0.5 rounded-full bg-[#8E9B8E]/15 text-[#637063] font-medium">
+              ruang teduh
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

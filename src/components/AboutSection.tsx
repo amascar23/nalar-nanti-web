@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   Instagram,
   MessageCircle,
@@ -101,7 +102,25 @@ export default function AboutSection() {
                     Postingan #1
                   </span>
                 </div>
-                <Feather className="w-8 h-8 text-[#C8A98E]/40 mb-3" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-11 h-11 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
+                    <Image
+                      src="/images/logo.jpg"
+                      alt="Logo Nalar Nanti"
+                      width={44}
+                      height={44}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="font-serif text-sm font-semibold text-[#3E362E] block">
+                      Nalar Nanti
+                    </span>
+                    <span className="text-[11px] text-[#8E9B8E] font-medium block">
+                      menata nalar, merakit rasa.
+                    </span>
+                  </div>
+                </div>
                 <blockquote className="font-serif italic text-base sm:text-lg text-[#3E362E] leading-relaxed mb-4">
                   “Setiap perjalanan panjang selalu dimulai dari satu titik awal yang sederhana: keberanian untuk berhenti sejenak, menata pikiran, dan melangkah dengan niat yang jujur.”
                 </blockquote>

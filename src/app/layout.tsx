@@ -42,6 +42,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://nalarnanti.com",
   },
+  icons: {
+    icon: "/logo.jpg",
+    shortcut: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
   openGraph: {
     title: "Nalar Nanti — Menata Nalar, Merakit Asa",
     description:
@@ -50,6 +55,14 @@ export const metadata: Metadata = {
     siteName: "Nalar Nanti",
     locale: "id_ID",
     type: "website",
+    images: [
+      {
+        url: "/logo.jpg",
+        width: 1024,
+        height: 576,
+        alt: "Logo Nalar Nanti",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -57,6 +70,7 @@ export const metadata: Metadata = {
     description:
       "Ruang singgah digital untuk Menata Nalar, Merakit Asa. Rumah digital resmi dari akun Instagram @nalarnanti dan Saluran WhatsApp @NalarNanti berisi kata motivasi Islami, pengingat harian, dan refleksi ketenangan diri.",
     creator: "@nalarnanti",
+    images: ["/logo.jpg"],
   },
   robots: {
     index: true,

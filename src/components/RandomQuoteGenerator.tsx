@@ -14,8 +14,10 @@ import {
   Feather,
   Download,
   Loader2,
+  Bookmark,
 } from "lucide-react";
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
+import { useSavedQuotes } from "@/context/SavedQuotesContext";
 
 export default function RandomQuoteGenerator() {
   // Inisialisasi deterministik agar SSR & Client render identik 100% tanpa hydration mismatch
@@ -23,6 +25,7 @@ export default function RandomQuoteGenerator() {
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
+  const { isSaved, toggleSave } = useSavedQuotes();
   const [shuffleCount, setShuffleCount] = useState<number>(1);
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -268,6 +271,24 @@ export default function RandomQuoteGenerator() {
                       <span>Simpan Gambar</span>
                     </>
                   )}
+                </button>
+
+                {/* Tombol Simpan ke Saku Hati */}
+                <button
+                  onClick={() => toggleSave(currentQuote.id)}
+                  className={`w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2.5 rounded-full border text-xs font-semibold transition-all shadow-soft active:scale-95 ${
+                    isSaved(currentQuote.id)
+                      ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
+                      : "bg-[#FAF7F2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
+                  }`}
+                  title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                >
+                  <Bookmark
+                    className={`w-3.5 h-3.5 ${
+                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
+                    }`}
+                  />
+                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Simpan"}</span>
                 </button>
               </div>
 

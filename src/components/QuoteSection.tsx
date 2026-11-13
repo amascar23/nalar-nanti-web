@@ -17,8 +17,10 @@ import {
   Instagram,
   Download,
   Loader2,
+  Bookmark,
 } from "lucide-react";
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
+import { useSavedQuotes } from "@/context/SavedQuotesContext";
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
@@ -31,6 +33,7 @@ export default function QuoteSection() {
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
   const [isModalCopied, setIsModalCopied] = useState<boolean>(false);
   const [isModalDownloading, setIsModalDownloading] = useState<boolean>(false);
+  const { isSaved, toggleSave } = useSavedQuotes();
 
   // Tab filter kategori sesuai data asli @nalarnanti
   const categories: ("Semua" | QuoteCategory)[] = [
@@ -321,6 +324,25 @@ export default function QuoteSection() {
                         <Download className="w-3.5 h-3.5" />
                       )}
                     </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleSave(item.id);
+                      }}
+                      title={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                      aria-label="Simpan ke Saku Hati"
+                      className={`p-1.5 rounded-lg transition-all active:scale-95 ${
+                        isSaved(item.id)
+                          ? "text-[#C8A98E] bg-[#FAF7F2]"
+                          : "text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#FAF7F2]"
+                      }`}
+                    >
+                      <Bookmark
+                        className={`w-3.5 h-3.5 ${
+                          isSaved(item.id) ? "fill-[#C8A98E]" : ""
+                        }`}
+                      />
+                    </button>
                   </div>
                 </div>
 
@@ -503,6 +525,24 @@ export default function QuoteSection() {
                       <span>Simpan Gambar</span>
                     </>
                   )}
+                </button>
+
+                {/* Tombol Simpan ke Saku Hati */}
+                <button
+                  onClick={() => toggleSave(selectedModalQuote.id)}
+                  className={`w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border text-xs font-semibold transition-all shadow-soft active:scale-95 ${
+                    isSaved(selectedModalQuote.id)
+                      ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
+                      : "bg-[#F3EDE2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
+                  }`}
+                  title={isSaved(selectedModalQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                >
+                  <Bookmark
+                    className={`w-3.5 h-3.5 ${
+                      isSaved(selectedModalQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
+                    }`}
+                  />
+                  <span>{isSaved(selectedModalQuote.id) ? "Tersimpan" : "Simpan"}</span>
                 </button>
               </div>
 

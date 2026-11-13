@@ -3,13 +3,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Sparkles, Instagram } from "lucide-react";
+import { Menu, X, Sparkles, Instagram, Bookmark } from "lucide-react";
+import { useSavedQuotes } from "@/context/SavedQuotesContext";
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { savedCount, openDrawer } = useSavedQuotes();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,6 +83,22 @@ export default function Navbar() {
 
         {/* Action Button & Mobile Menu Toggle */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Tombol Saku Hati */}
+          <button
+            onClick={openDrawer}
+            aria-label="Buka Saku Hati"
+            title="Kutipan Tersimpan di Saku Hati"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group"
+          >
+            <Bookmark className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20 group-hover:fill-[#C8A98E] transition-colors" />
+            <span className="hidden xs:inline">Saku Hati</span>
+            {savedCount > 0 && (
+              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[10px] font-bold">
+                {savedCount}
+              </span>
+            )}
+          </button>
+
           {/* Instagram Direct Link Icon */}
           <a
             href={IG_PROFILE_URL}
@@ -126,6 +144,22 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-2 space-y-2">
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                openDrawer();
+              }}
+              className="flex items-center justify-between w-full px-4 py-3 rounded-2xl text-xs font-semibold text-[#3E362E] bg-[#F3EDE2] border border-[#E5DDD0] hover:border-[#C8A98E] transition-all shadow-soft active:scale-98"
+            >
+              <div className="flex items-center gap-2">
+                <Bookmark className="w-4 h-4 text-[#C8A98E] fill-[#C8A98E]" />
+                <span>Buka Saku Hati</span>
+              </div>
+              <span className="px-2 py-0.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[11px] font-bold">
+                {savedCount} tersimpan
+              </span>
+            </button>
+
             <a
               href="#pengingat"
               onClick={() => setIsOpen(false)}

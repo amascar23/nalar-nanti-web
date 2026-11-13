@@ -18,7 +18,9 @@ import {
   Wind,
   Shield,
   Smile,
+  Bookmark,
 } from "lucide-react";
+import { useSavedQuotes } from "@/context/SavedQuotesContext";
 
 interface MoodOption {
   id: string;
@@ -75,6 +77,7 @@ export default function MoodGuideSection() {
   const [selectedMoodId, setSelectedMoodId] = useState<string>("penuh-lelah");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const { isSaved, toggleSave } = useSavedQuotes();
 
   const activeMood =
     MOOD_OPTIONS.find((m) => m.id === selectedMoodId) || MOOD_OPTIONS[0];
@@ -190,9 +193,23 @@ export default function MoodGuideSection() {
                   <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[#8E9B8E]">
                     {quote.category}
                   </span>
-                  <span className="text-[10px] font-bold text-[#886950] bg-[#FAF7F2] px-2 py-0.5 rounded-full border border-[#E5DDD0]">
-                    #{quote.id}
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[10px] font-bold text-[#886950] bg-[#FAF7F2] px-2 py-0.5 rounded-full border border-[#E5DDD0]">
+                      #{quote.id}
+                    </span>
+                    <button
+                      onClick={() => toggleSave(quote.id)}
+                      title={isSaved(quote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                      className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border transition-all active:scale-95 ${
+                        isSaved(quote.id)
+                          ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
+                          : "bg-[#FAF7F2] text-[#7A6F64] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#3E362E]"
+                      }`}
+                    >
+                      <Bookmark className={`w-3 h-3 ${isSaved(quote.id) ? "fill-[#FAF7F2]" : ""}`} />
+                      <span>{isSaved(quote.id) ? "Tersimpan" : "Simpan"}</span>
+                    </button>
+                  </div>
                 </div>
 
                 <h3 className="font-serif text-lg sm:text-xl font-semibold text-[#3E362E] mb-3 group-hover:text-[#886950] transition-colors leading-snug">
@@ -276,3 +293,4 @@ export default function MoodGuideSection() {
     </section>
   );
 }
+

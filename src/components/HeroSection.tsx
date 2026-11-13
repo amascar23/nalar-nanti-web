@@ -14,8 +14,10 @@ import {
   Feather,
   Download,
   Loader2,
+  Bookmark,
 } from "lucide-react";
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
+import { useSavedQuotes } from "@/context/SavedQuotesContext";
 
 export default function HeroSection() {
   // Ambil kutipan-kutipan yang ditandai isFeatured: true
@@ -23,6 +25,7 @@ export default function HeroSection() {
   const [activeFeaturedIndex, setActiveFeaturedIndex] = useState(0);
   const [isCopied, setIsCopied] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+  const { isSaved, toggleSave } = useSavedQuotes();
 
   // Fallback jika tidak ada featured
   const currentQuote: QuoteItem =
@@ -246,6 +249,24 @@ export default function HeroSection() {
                       <span>Simpan Gambar</span>
                     </>
                   )}
+                </button>
+
+                {/* Tombol Simpan ke Saku Hati */}
+                <button
+                  onClick={() => toggleSave(currentQuote.id)}
+                  className={`w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-3 sm:py-2.5 rounded-full border text-xs font-semibold transition-all shadow-soft active:scale-95 ${
+                    isSaved(currentQuote.id)
+                      ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
+                      : "bg-[#FAF7F2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
+                  }`}
+                  title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                >
+                  <Bookmark
+                    className={`w-4 h-4 ${
+                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
+                    }`}
+                  />
+                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Simpan"}</span>
                 </button>
               </div>
 

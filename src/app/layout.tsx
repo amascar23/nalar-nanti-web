@@ -3,6 +3,7 @@ import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SavedQuotesProvider } from "@/context/SavedQuotesContext";
 import SavedQuotesModal from "@/components/SavedQuotesModal";
+import AmbientSoundToggle from "@/components/AmbientSoundToggle";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -101,6 +102,7 @@ export default function RootLayout({
         <SavedQuotesProvider>
           {children}
           <SavedQuotesModal />
+          <AmbientSoundToggle />
         </SavedQuotesProvider>
       </body>
     </html>

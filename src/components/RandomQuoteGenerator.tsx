@@ -12,13 +12,17 @@ import {
   RefreshCw,
   Heart,
   Feather,
+  Download,
+  Loader2,
 } from "lucide-react";
+import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 
 export default function RandomQuoteGenerator() {
   // Inisialisasi deterministik agar SSR & Client render identik 100% tanpa hydration mismatch
   const [currentQuote, setCurrentQuote] = useState<QuoteItem>(QUOTES_DATA[0]);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [shuffleCount, setShuffleCount] = useState<number>(1);
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -61,6 +65,17 @@ export default function RandomQuoteGenerator() {
       `🌿 *Pengingat Nalar Nanti — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source} (Nalar Nanti)\n\n_${currentQuote.reflection}_\n\n— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
+  };
+
+  const handleDownloadCard = async () => {
+    try {
+      setIsDownloading(true);
+      await downloadQuoteAsImage(currentQuote);
+    } catch (err) {
+      console.error("Gagal mengunduh kartu pengingat:", err);
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   return (
@@ -233,6 +248,26 @@ export default function RandomQuoteGenerator() {
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>WhatsApp</span>
+                </button>
+
+                {/* Tombol Simpan Gambar */}
+                <button
+                  onClick={handleDownloadCard}
+                  disabled={isDownloading}
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group"
+                  title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
+                >
+                  {isDownloading ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
+                      <span>Menyiapkan...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Download className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
+                      <span>Simpan Gambar</span>
+                    </>
+                  )}
                 </button>
               </div>
 

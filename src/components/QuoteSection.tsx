@@ -15,7 +15,10 @@ import {
   BookOpen,
   Compass,
   Instagram,
+  Download,
+  Loader2,
 } from "lucide-react";
+import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
@@ -25,7 +28,9 @@ export default function QuoteSection() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedModalQuote, setSelectedModalQuote] = useState<QuoteItem | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
   const [isModalCopied, setIsModalCopied] = useState<boolean>(false);
+  const [isModalDownloading, setIsModalDownloading] = useState<boolean>(false);
 
   // Tab filter kategori sesuai data asli @nalarnanti
   const categories: ("Semua" | QuoteCategory)[] = [
@@ -105,6 +110,29 @@ export default function QuoteSection() {
       `— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
+  };
+
+  const handleDownloadCard = async (quote: QuoteItem, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    try {
+      setDownloadingId(quote.id);
+      await downloadQuoteAsImage(quote);
+    } catch (err) {
+      console.error("Gagal mengunduh kartu kutipan:", err);
+    } finally {
+      setDownloadingId(null);
+    }
+  };
+
+  const handleDownloadModalQuote = async (quote: QuoteItem) => {
+    try {
+      setIsModalDownloading(true);
+      await downloadQuoteAsImage(quote);
+    } catch (err) {
+      console.error("Gagal mengunduh kartu refleksi:", err);
+    } finally {
+      setIsModalDownloading(false);
+    }
   };
 
   return (
@@ -280,6 +308,19 @@ export default function QuoteSection() {
                     >
                       <Share2 className="w-3.5 h-3.5" />
                     </button>
+                    <button
+                      onClick={(e) => handleDownloadCard(item, e)}
+                      disabled={downloadingId === item.id}
+                      title="Unduh Kartu Gambar (9:16 Story/Status)"
+                      aria-label="Unduh gambar kutipan"
+                      className="p-1.5 rounded-lg text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#FAF7F2] active:scale-95 transition-all disabled:opacity-50"
+                    >
+                      {downloadingId === item.id ? (
+                        <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
+                      ) : (
+                        <Download className="w-3.5 h-3.5" />
+                      )}
+                    </button>
                   </div>
                 </div>
 
@@ -442,6 +483,26 @@ export default function QuoteSection() {
                 >
                   <Share2 className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>Bagikan ke WhatsApp</span>
+                </button>
+
+                {/* Tombol Simpan Gambar */}
+                <button
+                  onClick={() => handleDownloadModalQuote(selectedModalQuote)}
+                  disabled={isModalDownloading}
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group"
+                  title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
+                >
+                  {isModalDownloading ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
+                      <span>Menyiapkan...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Download className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
+                      <span>Simpan Gambar</span>
+                    </>
+                  )}
                 </button>
               </div>
 

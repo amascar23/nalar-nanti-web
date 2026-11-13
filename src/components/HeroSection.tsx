@@ -12,13 +12,17 @@ import {
   ArrowDown,
   RefreshCw,
   Feather,
+  Download,
+  Loader2,
 } from "lucide-react";
+import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 
 export default function HeroSection() {
   // Ambil kutipan-kutipan yang ditandai isFeatured: true
   const featuredQuotes = QUOTES_DATA.filter((q) => q.isFeatured);
   const [activeFeaturedIndex, setActiveFeaturedIndex] = useState(0);
   const [isCopied, setIsCopied] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   // Fallback jika tidak ada featured
   const currentQuote: QuoteItem =
@@ -38,6 +42,17 @@ export default function HeroSection() {
     const message = `🌿 *Nalar Hari Ini — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source} (Nalar Nanti)\n\n_${currentQuote.reflection}_\n\n— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`;
     const waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
+  };
+
+  const handleDownloadCard = async () => {
+    try {
+      setIsDownloading(true);
+      await downloadQuoteAsImage(currentQuote);
+    } catch (err) {
+      console.error("Gagal mengunduh kartu kutipan:", err);
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   const handleNextFeatured = () => {
@@ -211,6 +226,26 @@ export default function HeroSection() {
                 >
                   <MessageCircle className="w-4 h-4 text-[#FAF7F2]" />
                   <span>Bagikan ke WhatsApp</span>
+                </button>
+
+                {/* Tombol Simpan Gambar (Unduh untuk Story & Status) */}
+                <button
+                  onClick={handleDownloadCard}
+                  disabled={isDownloading}
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group"
+                  title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
+                >
+                  {isDownloading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-[#C8A98E]" />
+                      <span>Menyiapkan...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Download className="w-4 h-4 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
+                      <span>Simpan Gambar</span>
+                    </>
+                  )}
                 </button>
               </div>
 

@@ -6,7 +6,7 @@ import { Instagram, MessageCircle, Heart } from "lucide-react";
  * 💡 Tautan media sosial Nalar Nanti
  */
 const WA_CHANNEL_URL = "https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y";
-const IG_PROFILE_URL = "https://instagram.com/nalarnanti";
+const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==";
 
 export default function Footer() {
   return (

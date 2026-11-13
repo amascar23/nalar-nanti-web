@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Sparkles, Compass } from "lucide-react";
+import { Menu, X, Sparkles, Instagram } from "lucide-react";
+
+const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,6 +68,18 @@ export default function Navbar() {
 
         {/* Action Button & Mobile Menu Toggle */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Instagram Direct Link Icon */}
+          <a
+            href={IG_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Kunjungi Instagram @nalarnanti"
+            aria-label="Kunjungi profil Instagram @nalarnanti"
+            className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[#7A6F64] hover:text-[#C8A98E] hover:border-[#C8A98E] transition-all shadow-soft active:scale-95 group"
+          >
+            <Instagram className="w-4 h-4 text-[#7A6F64] group-hover:text-[#C8A98E] group-hover:scale-110 transition-all" />
+          </a>
+
           <a
             href="#pengingat"
             className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
@@ -98,7 +112,7 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <div className="pt-2">
+          <div className="pt-2 space-y-2">
             <a
               href="#pengingat"
               onClick={() => setIsOpen(false)}
@@ -106,6 +120,17 @@ export default function Navbar() {
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Ambil Satu Pengingat</span>
+            </a>
+
+            <a
+              href={IG_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center gap-2 w-full text-center text-xs font-semibold px-4 py-3 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-98"
+            >
+              <Instagram className="w-4 h-4 text-[#C8A98E]" />
+              <span>Kunjungi Instagram @nalarnanti</span>
             </a>
           </div>
         </div>

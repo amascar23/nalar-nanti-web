@@ -13,7 +13,10 @@ import {
   ArrowRight,
   BookOpen,
   Compass,
+  Instagram,
 } from "lucide-react";
+
+const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==";
 
 export default function QuoteSection() {
   const [selectedType, setSelectedType] = useState<"Semua" | "Islami" | "Umum">("Semua");
@@ -198,12 +201,21 @@ export default function QuoteSection() {
                 {/* Header Kartu: Label Kategori Kecil & Identitas Feed Instagram @nalarnanti */}
                 <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[#E5DDD0]/70">
                   <div className="flex items-center gap-1.5 sm:gap-2">
-                    <span className="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E]">
-                      <Compass className="w-3.5 h-3.5" />
-                    </span>
-                    <span className="text-[11px] font-semibold text-[#7A6F64] tracking-tight">
-                      @nalarnanti
-                    </span>
+                    <a
+                      href={IG_PROFILE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      title="Kunjungi profil Instagram @nalarnanti"
+                      className="flex items-center gap-1.5 group/ig hover:text-[#C8A98E] transition-colors"
+                    >
+                      <span className="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E] group-hover/ig:border-[#C8A98E] transition-colors">
+                        <Instagram className="w-3.5 h-3.5" />
+                      </span>
+                      <span className="text-[11px] font-semibold text-[#7A6F64] group-hover/ig:text-[#C8A98E] tracking-tight transition-colors">
+                        @nalarnanti
+                      </span>
+                    </a>
                     <span className="text-[10px] text-[#886950] font-bold bg-[#FAF7F2] px-1.5 py-0.5 rounded-full border border-[#E5DDD0]">
                       #{item.orderNumber}
                     </span>
@@ -318,12 +330,18 @@ export default function QuoteSection() {
             {/* Modal Header */}
             <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0]">
               <div className="flex items-center gap-2">
-                <span className="w-7 h-7 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E]">
-                  <Compass className="w-4 h-4" />
-                </span>
-                <div>
+                <a
+                  href={IG_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Kunjungi profil Instagram @nalarnanti"
+                  className="flex items-center gap-2 group/modalig"
+                >
+                  <span className="w-7 h-7 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E] group-hover/modalig:border-[#C8A98E] transition-all">
+                    <Instagram className="w-4 h-4" />
+                  </span>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-semibold text-[#3E362E]">
+                    <span className="text-xs font-semibold text-[#3E362E] group-hover/modalig:text-[#C8A98E] transition-colors">
                       @nalarnanti
                     </span>
                     <span className="text-[10px] text-[#886950] font-bold bg-[#F3EDE2] px-2 py-0.5 rounded-full border border-[#E5DDD0]">
@@ -333,7 +351,7 @@ export default function QuoteSection() {
                       {selectedModalQuote.category}
                     </span>
                   </div>
-                </div>
+                </a>
               </div>
 
               {/* Tombol Tutup - Touch friendly */}

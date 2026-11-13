@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 const WA_CHANNEL_URL = "https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y";
-const IG_PROFILE_URL = "https://instagram.com/nalarnanti";
+const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==";
 
 export default function AboutSection() {
   return (
@@ -137,9 +137,15 @@ export default function AboutSection() {
             <div>
               {/* Top Tag & Icon */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80">
-                <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E] shadow-soft group-hover:scale-105 transition-transform">
+                <a
+                  href={IG_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E] shadow-soft group-hover:scale-105 hover:border-[#C8A98E] transition-all"
+                  aria-label="Kunjungi profil Instagram @nalarnanti"
+                >
                   <Instagram className="w-6 h-6" />
-                </div>
+                </a>
                 <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] text-[#886950] border border-[#E5DDD0]">
                   Visual & Carousel
                 </span>
@@ -147,14 +153,30 @@ export default function AboutSection() {
 
               {/* Title & Description */}
               <h4 className="font-serif text-2xl font-semibold text-[#3E362E] mb-1">
-                Instagram @nalarnanti
+                <a
+                  href={IG_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#C8A98E] transition-colors"
+                >
+                  Instagram @nalarnanti
+                </a>
               </h4>
               <p className="text-xs text-[#C8A98E] font-medium mb-4">
                 Arsip visual desain kartu soft cream & seri kutipan lengkap
               </p>
 
               <p className="font-sans text-sm text-[#7A6F64] leading-relaxed mb-6">
-                Ikuti akun Instagram <strong>@nalarnanti</strong> untuk melihat arsip visual desain kartu cream yang estetik, membaca seri carousel kutipan dan renungan dari postingan awal hingga terbaru, serta bertukar cerita di kolom komentar.
+                Ikuti akun Instagram{" "}
+                <a
+                  href={IG_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#3E362E] hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
+                >
+                  @nalarnanti
+                </a>{" "}
+                untuk melihat arsip visual desain kartu cream yang estetik, membaca seri carousel kutipan dan renungan dari postingan awal hingga terbaru, serta bertukar cerita di kolom komentar.
               </p>
 
               {/* Keunggulan / Fitur */}

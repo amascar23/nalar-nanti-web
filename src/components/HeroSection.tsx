@@ -75,7 +75,7 @@ export default function HeroSection() {
         <p className="font-sans text-xs sm:text-base lg:text-lg text-[#7A6F64] max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12">
           Selamat datang di <strong className="text-[#3E362E] font-medium">Nalar Nanti</strong>, rumah digital dari akun Instagram{" "}
           <a
-            href="https://instagram.com/nalarnanti"
+            href="https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg=="
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
@@ -210,9 +210,16 @@ export default function HeroSection() {
               </div>
 
               {/* Tag Penutup Kredit */}
-              <span className="text-[11px] text-[#7A6F64] text-center sm:text-right italic font-serif mt-1 sm:mt-0">
-                — Nalar Nanti
-              </span>
+              <a
+                href="https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Kunjungi Instagram @nalarnanti"
+                className="text-[11px] text-[#7A6F64] hover:text-[#C8A98E] text-center sm:text-right italic font-serif mt-1 sm:mt-0 transition-colors inline-flex items-center justify-center sm:justify-end gap-1"
+              >
+                <span>— Nalar Nanti</span>
+                <span className="not-italic font-sans font-medium text-[10px] text-[#C8A98E] hover:underline">(@nalarnanti)</span>
+              </a>
             </div>
 
             {/* Pesan Feedback Kecil ketika Berhasil Disalin */}

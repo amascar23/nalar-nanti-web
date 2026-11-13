@@ -229,9 +229,17 @@ export default function RandomQuoteGenerator() {
                 </button>
               </div>
 
-              <span className="text-[11px] text-[#7A6F64] text-center sm:text-right italic font-serif mt-1 sm:mt-0">
-                — Nalar Nanti
-              </span>
+              {/* Tag Penutup Kredit */}
+              <a
+                href="https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Kunjungi Instagram @nalarnanti"
+                className="text-[11px] text-[#7A6F64] hover:text-[#C8A98E] text-center sm:text-right italic font-serif mt-1 sm:mt-0 transition-colors inline-flex items-center justify-center sm:justify-end gap-1"
+              >
+                <span>— Nalar Nanti</span>
+                <span className="not-italic font-sans font-medium text-[10px] text-[#C8A98E] hover:underline">(@nalarnanti)</span>
+              </a>
             </div>
 
             {/* Feedback Salin */}

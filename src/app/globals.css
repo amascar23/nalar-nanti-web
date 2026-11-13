@@ -16,6 +16,7 @@ html {
   scroll-behavior: smooth;
   background-color: #FAF7F2;
   color: #3E362E;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -25,11 +26,13 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -43,6 +46,27 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #C8A98E;
+}
+
+/* Touch & transition improvements */
+button, a {
+  touch-action: manipulation;
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Calming Breathing Pulse Animation */
@@ -60,4 +84,3 @@ body {
 .animate-breathe {
   animation: breathGlow 6s ease-in-out infinite;
 }
-

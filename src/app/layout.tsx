@@ -17,27 +17,47 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Nalar Nanti — Ruang Teduh untuk Berpikir & Merasa",
+  metadataBase: new URL("https://nalarnanti.com"),
+  title: "Nalar Nanti — Kata Motivasi Islami & Refleksi Hati",
   description:
-    "Ruang teduh untuk berpikir dan merasa. Temukan jeda, kutipan menenangkan, dan pengingat acak untuk menemani hari-harimu di tengah dunia yang serba lekas.",
+    "Ruang teduh untuk berpikir dan merasa. Kumpulan kata-kata motivasi Islami, kutipan penyejuk hati, pengingat acak harian, dan refleksi kehidupan sehari-hari.",
   keywords: [
     "Nalar Nanti",
+    "Kata Motivasi Islami",
+    "Refleksi Hati",
     "Ruang Teduh",
     "Kutipan Ketenangan",
     "Pengingat Acak",
-    "Refleksi Diri",
+    "Tawakal dan Sabar",
+    "Self Healing Islami",
     "Mindfulness Indonesia",
-    "Jeda",
+    "Jeda Kehidupan",
   ],
-  authors: [{ name: "Nalar Nanti" }],
+  authors: [{ name: "Nalar Nanti", url: "https://instagram.com/nalarnanti" }],
+  creator: "Nalar Nanti",
+  publisher: "Nalar Nanti",
+  alternates: {
+    canonical: "https://nalarnanti.com",
+  },
   openGraph: {
-    title: "Nalar Nanti — Ruang Teduh untuk Berpikir & Merasa",
+    title: "Nalar Nanti — Kata Motivasi Islami & Refleksi Hati",
     description:
-      "Temukan jeda, kutipan menenangkan, dan pengingat acak untuk menemani hari-harimu.",
+      "Ruang teduh untuk berpikir dan merasa. Kumpulan kata-kata motivasi Islami, kutipan penyejuk hati, pengingat acak harian, dan refleksi kehidupan sehari-hari.",
     url: "https://nalarnanti.com",
     siteName: "Nalar Nanti",
     locale: "id_ID",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nalar Nanti — Kata Motivasi Islami & Refleksi Hati",
+    description:
+      "Ruang teduh untuk berpikir dan merasa. Kumpulan kata-kata motivasi Islami, kutipan penyejuk hati, pengingat acak harian, dan refleksi kehidupan sehari-hari.",
+    creator: "@nalarnanti",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -45,6 +65,7 @@ export const viewport: Viewport = {
   themeColor: "#FAF7F2",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -54,10 +75,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${lora.variable} ${plusJakartaSans.variable}`}>
-      <body className="font-sans bg-cream text-cream-dark min-h-screen flex flex-col antialiased selection:bg-cream-accent/30 selection:text-cream-dark">
+      <body className="font-sans bg-[#FAF7F2] text-[#3E362E] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] touch-manipulation">
         {children}
       </body>
     </html>
   );
 }
-

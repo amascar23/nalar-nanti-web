@@ -1,4 +1,3 @@
-"useClient";
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -18,14 +17,14 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
     { label: "Beranda", href: "#beranda" },
-    { label: "Kutipan", href: "#kutipan" },
     { label: "Pengingat Acak", href: "#pengingat" },
+    { label: "Koleksi Nalar", href: "#kutipan" },
     { label: "Tentang", href: "#tentang" },
   ];
 
@@ -33,27 +32,27 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#FAF7F2]/90 backdrop-blur-md shadow-soft border-b border-[#E5DDD0]/70 py-3.5"
-          : "bg-[#FAF7F2]/60 backdrop-blur-sm border-b border-transparent py-5"
+          ? "bg-[#FAF7F2]/90 backdrop-blur-md shadow-soft border-b border-[#E5DDD0]/80 py-3 sm:py-3.5"
+          : "bg-[#FAF7F2]/70 backdrop-blur-sm border-b border-transparent py-4 sm:py-5"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <Link
           href="#beranda"
-          className="group flex items-center gap-2.5 transition-opacity hover:opacity-85"
+          className="group flex items-center gap-2 sm:gap-2.5 transition-opacity hover:opacity-85 active:scale-98"
         >
           <span className="w-2.5 h-2.5 rounded-full bg-[#C8A98E] group-hover:scale-125 transition-transform" />
-          <span className="font-serif text-2xl font-semibold tracking-tight text-[#3E362E]">
+          <span className="font-serif text-xl sm:text-2xl font-semibold tracking-tight text-[#3E362E]">
             Nalar Nanti
           </span>
-          <span className="hidden sm:inline-block text-xs font-sans px-2 py-0.5 rounded-full bg-[#8E9B8E]/15 text-[#637063] font-medium ml-1">
+          <span className="hidden xs:inline-block text-[11px] font-sans px-2 py-0.5 rounded-full bg-[#8E9B8E]/15 text-[#637063] font-medium ml-0.5">
             ruang teduh
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7 lg:gap-8">
           {navLinks.map((item) => (
             <Link
               key={item.href}
@@ -66,7 +65,7 @@ export default function Navbar() {
         </nav>
 
         {/* Action Button & Mobile Menu Toggle */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a
             href="#pengingat"
             className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
@@ -75,11 +74,11 @@ export default function Navbar() {
             <span>Tarik Napas</span>
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - min 44px tap target */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Buka menu navigasi"
-            className="md:hidden p-2 rounded-lg text-[#3E362E] hover:bg-[#F3EDE2] transition-colors"
+            className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl text-[#3E362E] hover:bg-[#F3EDE2] active:bg-[#E5DDD0]/50 transition-colors"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -88,13 +87,13 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="md:hidden bg-[#FAF7F2] border-b border-[#E5DDD0] px-4 pt-2 pb-6 space-y-3 shadow-card animate-fadeIn">
+        <div className="md:hidden bg-[#FAF7F2] border-b border-[#E5DDD0] px-4 pt-3 pb-6 space-y-2 shadow-card animate-fadeIn">
           {navLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="block px-3 py-2.5 rounded-lg text-sm font-medium text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#F3EDE2] transition-colors"
+              className="block px-3.5 py-3 rounded-xl text-sm font-medium text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#F3EDE2] active:bg-[#E5DDD0]/60 transition-colors"
             >
               {item.label}
             </Link>
@@ -103,10 +102,10 @@ export default function Navbar() {
             <a
               href="#pengingat"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-2 w-full text-center text-xs font-semibold px-4 py-3 rounded-full bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-colors shadow-soft"
+              className="flex items-center justify-center gap-2 w-full text-center text-xs font-semibold px-4 py-3.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-soft active:scale-98"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Ambil Pengingat Hari Ini</span>
+              <span>Ambil Satu Pengingat</span>
             </a>
           </div>
         </div>
@@ -114,4 +113,3 @@ export default function Navbar() {
     </header>
   );
 }
-

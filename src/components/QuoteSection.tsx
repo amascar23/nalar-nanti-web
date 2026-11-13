@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { QUOTES_DATA, QuoteItem, QuoteCategory } from "@/data/quotes";
-import { formatIndonesianDate } from "@/lib/utils";
 import {
   Quote,
   Copy,
   Check,
   Share2,
-  Calendar,
+  Feather,
   Search,
   X,
   ArrowRight,
@@ -29,7 +28,7 @@ export default function QuoteSection() {
     "Refleksi Islami",
     "Tenang & Hati",
     "Proses & Bertumbuh",
-    "Pengingat Diri",
+    "Jejak Awal Nalar Nanti",
   ];
 
   // Kunci scroll body saat modal aktif
@@ -65,14 +64,16 @@ export default function QuoteSection() {
       !query ||
       item.quote.toLowerCase().includes(query) ||
       item.reflection.toLowerCase().includes(query) ||
-      item.category.toLowerCase().includes(query);
+      item.category.toLowerCase().includes(query) ||
+      item.themeTitle.toLowerCase().includes(query) ||
+      item.source.toLowerCase().includes(query);
 
     return matchType && matchCat && matchSearch;
   });
 
   const handleCopy = (quote: QuoteItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
-    const textToCopy = `“${quote.quote}”\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
+    const textToCopy = `“${quote.quote}”\n— ${quote.source}\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
     navigator.clipboard.writeText(textToCopy);
     setCopiedId(quote.id);
     setTimeout(() => {
@@ -81,7 +82,7 @@ export default function QuoteSection() {
   };
 
   const handleCopyInModal = (quote: QuoteItem) => {
-    const textToCopy = `“${quote.quote}”\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
+    const textToCopy = `“${quote.quote}”\n— ${quote.source}\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
     navigator.clipboard.writeText(textToCopy);
     setIsModalCopied(true);
     setTimeout(() => {
@@ -92,16 +93,13 @@ export default function QuoteSection() {
   const handleShareWa = (quote: QuoteItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     const text = encodeURIComponent(
-      `🌿 *Nalar Nanti — Ruang Teduh untuk Berpikir & Merasa*\n\n` +
-      `“${quote.quote}”\n\n` +
+      `🌿 *Nalar Nanti — ${quote.themeTitle}*\n\n` +
+      `“${quote.quote}”\n` +
+      `— ${quote.source}\n\n` +
       `*Refleksi:* ${quote.reflection}\n\n` +
       `— Baca selengkapnya di https://nalarnanti.com atau IG: @nalarnanti`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
-  };
-
-  const formatDate = (dateString: string) => {
-    return formatIndonesianDate(dateString, true);
   };
 
   return (
@@ -197,19 +195,29 @@ export default function QuoteSection() {
             >
               <div>
                 {/* Header Kartu Bergaya Feed Instagram @nalarnanti */}
-                <div className="flex items-center justify-between gap-2 mb-4 sm:mb-5 pb-3 border-b border-[#E5DDD0]/70">
-                  <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[#E5DDD0]/70">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
                     <span className="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E]">
                       <Compass className="w-3.5 h-3.5" />
                     </span>
                     <span className="text-[11px] font-semibold text-[#7A6F64] tracking-tight">
                       @nalarnanti
                     </span>
+                    <span className="text-[10px] text-[#C8A98E] font-bold bg-[#FAF7F2] px-1.5 py-0.5 rounded-full border border-[#E5DDD0]">
+                      #{item.orderNumber}
+                    </span>
                   </div>
 
                   <span className="text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[#8E9B8E]">
                     {item.category}
                   </span>
+                </div>
+
+                {/* Judul Tema Khas Postingan */}
+                <div className="mb-2">
+                  <h3 className="font-sans font-semibold text-xs sm:text-sm text-[#3E362E] line-clamp-1">
+                    {item.themeTitle}
+                  </h3>
                 </div>
 
                 {/* Teks Kutipan Utama (Lora Serif) */}
@@ -224,9 +232,9 @@ export default function QuoteSection() {
               {/* Footer Kartu & Petunjuk Klik Refleksi */}
               <div className="pt-3.5 border-t border-[#E5DDD0]/70 flex flex-col gap-2.5">
                 <div className="flex items-center justify-between text-xs text-[#7A6F64]">
-                  <span className="inline-flex items-center gap-1.5 text-[11px]">
-                    <Calendar className="w-3 h-3 text-[#8E9B8E]" />
-                    {formatDate(item.date)}
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#7A6F64]">
+                    <Feather className="w-3 h-3 text-[#C8A98E]" />
+                    <span className="truncate max-w-[140px] sm:max-w-[170px]">{item.source}</span>
                   </span>
 
                   <div className="flex items-center gap-1">
@@ -314,9 +322,11 @@ export default function QuoteSection() {
                       {selectedModalQuote.category}
                     </span>
                   </div>
-                  <span className="text-[11px] text-[#7A6F64]">
-                    {formatDate(selectedModalQuote.date)}
-                  </span>
+                  <div className="flex items-center gap-1.5 text-[11px] text-[#7A6F64] mt-0.5 font-medium">
+                    <span className="font-semibold text-[#8E9B8E]">#{selectedModalQuote.orderNumber}</span>
+                    <span>•</span>
+                    <span>{selectedModalQuote.themeTitle}</span>
+                  </div>
                 </div>
               </div>
 
@@ -336,6 +346,10 @@ export default function QuoteSection() {
               <blockquote className="font-serif italic text-lg sm:text-2xl text-[#3E362E] leading-relaxed">
                 “{selectedModalQuote.quote}”
               </blockquote>
+              <div className="mt-3 flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-[#7A6F64]">
+                <Feather className="w-3.5 h-3.5 text-[#C8A98E]" />
+                <span>{selectedModalQuote.source}</span>
+              </div>
             </div>
 
             {/* Catatan Refleksi Panjang */}

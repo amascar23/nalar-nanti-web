@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
-import { formatIndonesianDate } from "@/lib/utils";
 import {
   Sparkles,
   Copy,
@@ -11,7 +10,7 @@ import {
   Quote as QuoteIcon,
   RefreshCw,
   Heart,
-  Calendar,
+  Feather,
 } from "lucide-react";
 
 export default function RandomQuoteGenerator() {
@@ -43,7 +42,7 @@ export default function RandomQuoteGenerator() {
   };
 
   const handleCopy = () => {
-    const textToCopy = `“${currentQuote.quote}”\n\n${currentQuote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
+    const textToCopy = `“${currentQuote.quote}”\n— ${currentQuote.source}\n\n${currentQuote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
     navigator.clipboard.writeText(textToCopy);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2200);
@@ -51,7 +50,7 @@ export default function RandomQuoteGenerator() {
 
   const handleShareWhatsApp = () => {
     const text = encodeURIComponent(
-      `🌿 *Pengingat Nalar Nanti*\n\n“${currentQuote.quote}”\n\n_${currentQuote.reflection}_\n\n— https://nalarnanti.com`
+      `🌿 *Pengingat Nalar Nanti — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source}\n\n_${currentQuote.reflection}_\n\n— https://nalarnanti.com`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };
@@ -125,10 +124,11 @@ export default function RandomQuoteGenerator() {
 
               <span
                 suppressHydrationWarning
-                className="inline-flex items-center gap-1.5 text-xs text-[#7A6F64] font-sans"
+                className="inline-flex items-center gap-1.5 text-xs text-[#7A6F64] font-sans font-medium"
               >
-                <Calendar className="w-3 h-3 text-[#8E9B8E]" />
-                {formatIndonesianDate(currentQuote.date, true)}
+                <span className="text-[#8E9B8E] font-semibold">#{currentQuote.orderNumber}</span>
+                <span>•</span>
+                <span className="max-w-[120px] sm:max-w-[200px] truncate">{currentQuote.themeTitle}</span>
               </span>
             </div>
 
@@ -141,6 +141,10 @@ export default function RandomQuoteGenerator() {
               >
                 “{currentQuote.quote}”
               </blockquote>
+              <div className="mt-3 pl-2 flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-[#7A6F64]">
+                <Feather className="w-3.5 h-3.5 text-[#C8A98E]" />
+                <span suppressHydrationWarning>{currentQuote.source}</span>
+              </div>
             </div>
 
             {/* Teks Refleksi Singkat */}

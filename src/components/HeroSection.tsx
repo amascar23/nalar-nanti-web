@@ -2,16 +2,15 @@
 
 import React, { useState } from "react";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
-import { formatIndonesianDate } from "@/lib/utils";
 import {
   Sparkles,
   Copy,
   Check,
   MessageCircle,
   Quote as QuoteIcon,
-  Calendar,
   ArrowDown,
   RefreshCw,
+  Feather,
 } from "lucide-react";
 
 export default function HeroSection() {
@@ -25,7 +24,7 @@ export default function HeroSection() {
     featuredQuotes[activeFeaturedIndex] || QUOTES_DATA[0];
 
   const handleCopyQuote = () => {
-    const textToCopy = `“${currentQuote.quote}” — Nalar Nanti`;
+    const textToCopy = `“${currentQuote.quote}” (${currentQuote.source}) — Nalar Nanti`;
     navigator.clipboard.writeText(textToCopy);
     setIsCopied(true);
     setTimeout(() => {
@@ -34,7 +33,7 @@ export default function HeroSection() {
   };
 
   const handleShareWhatsApp = () => {
-    const message = `🌿 *Nalar Hari Ini — Nalar Nanti*\n\n“${currentQuote.quote}”\n\n_${currentQuote.reflection}_\n\n— Nalar Nanti (Ruang Singgah untuk Hati & Pikiran)\nhttps://nalarnanti.com`;
+    const message = `🌿 *Nalar Hari Ini — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source}\n\n_${currentQuote.reflection}_\n\n— Nalar Nanti (Ruang Singgah untuk Hati & Pikiran)\nhttps://nalarnanti.com`;
     const waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };
@@ -44,10 +43,6 @@ export default function HeroSection() {
       setActiveFeaturedIndex((prev) => (prev + 1) % featuredQuotes.length);
       setIsCopied(false);
     }
-  };
-
-  const formatDate = (dateString: string) => {
-    return formatIndonesianDate(dateString);
   };
 
   return (
@@ -103,9 +98,10 @@ export default function HeroSection() {
                       {currentQuote.category}
                     </span>
                   </div>
-                  <p className="text-[11px] text-[#7A6F64] flex items-center gap-1 mt-0.5 font-sans">
-                    <Calendar className="w-3 h-3 text-[#8E9B8E]" />
-                    <span suppressHydrationWarning>{formatDate(currentQuote.date)}</span>
+                  <p className="text-[11px] text-[#7A6F64] flex items-center gap-1.5 mt-0.5 font-sans">
+                    <span className="font-semibold text-[#8E9B8E]">#{currentQuote.orderNumber}</span>
+                    <span>•</span>
+                    <span suppressHydrationWarning className="line-clamp-1">{currentQuote.themeTitle}</span>
                   </p>
                 </div>
               </div>
@@ -132,6 +128,10 @@ export default function HeroSection() {
               >
                 “{currentQuote.quote}”
               </blockquote>
+              <div className="mt-3 pl-2 flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-[#7A6F64]">
+                <Feather className="w-3.5 h-3.5 text-[#C8A98E]" />
+                <span suppressHydrationWarning>{currentQuote.source}</span>
+              </div>
             </div>
 
             {/* Catatan Refleksi */}

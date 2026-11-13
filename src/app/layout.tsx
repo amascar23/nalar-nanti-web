@@ -18,11 +18,14 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nalarnanti.com"),
-  title: "Nalar Nanti — Kata Motivasi Islami & Refleksi Hati",
+  title: "Nalar Nanti — Menata Nalar, Merakit Asa",
   description:
-    "Ruang teduh untuk berpikir dan merasa. Kumpulan kata-kata motivasi Islami, kutipan penyejuk hati, pengingat acak harian, dan refleksi kehidupan sehari-hari.",
+    "Ruang singgah digital untuk Menata Nalar, Merakit Asa. Rumah digital resmi dari akun Instagram @nalarnanti dan Saluran WhatsApp @NalarNanti berisi kata motivasi Islami, pengingat harian, dan refleksi ketenangan diri.",
   keywords: [
     "Nalar Nanti",
+    "Menata Nalar Merakit Asa",
+    "@nalarnanti",
+    "@NalarNanti",
     "Kata Motivasi Islami",
     "Refleksi Hati",
     "Ruang Teduh",
@@ -40,9 +43,9 @@ export const metadata: Metadata = {
     canonical: "https://nalarnanti.com",
   },
   openGraph: {
-    title: "Nalar Nanti — Kata Motivasi Islami & Refleksi Hati",
+    title: "Nalar Nanti — Menata Nalar, Merakit Asa",
     description:
-      "Ruang teduh untuk berpikir dan merasa. Kumpulan kata-kata motivasi Islami, kutipan penyejuk hati, pengingat acak harian, dan refleksi kehidupan sehari-hari.",
+      "Ruang singgah digital untuk Menata Nalar, Merakit Asa. Rumah digital resmi dari akun Instagram @nalarnanti dan Saluran WhatsApp @NalarNanti berisi kata motivasi Islami, pengingat harian, dan refleksi ketenangan diri.",
     url: "https://nalarnanti.com",
     siteName: "Nalar Nanti",
     locale: "id_ID",
@@ -50,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nalar Nanti — Kata Motivasi Islami & Refleksi Hati",
+    title: "Nalar Nanti — Menata Nalar, Merakit Asa",
     description:
-      "Ruang teduh untuk berpikir dan merasa. Kumpulan kata-kata motivasi Islami, kutipan penyejuk hati, pengingat acak harian, dan refleksi kehidupan sehari-hari.",
+      "Ruang singgah digital untuk Menata Nalar, Merakit Asa. Rumah digital resmi dari akun Instagram @nalarnanti dan Saluran WhatsApp @NalarNanti berisi kata motivasi Islami, pengingat harian, dan refleksi ketenangan diri.",
     creator: "@nalarnanti",
   },
   robots: {

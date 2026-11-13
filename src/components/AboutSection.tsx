@@ -44,7 +44,7 @@ export default function AboutSection() {
         </div>
 
         {/* Narrative Box Filosofi */}
-        <div className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-7 sm:p-12 mb-16 shadow-soft relative overflow-hidden">
+        <div className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 mb-14 sm:mb-16 shadow-soft relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Kolom Narasi Kiri */}
             <div className="lg:col-span-7 space-y-4 text-left">
@@ -133,7 +133,7 @@ export default function AboutSection() {
           {/* ----------------------------------------------------------------------- */}
           {/* KARTU 1: INSTAGRAM (@nalarnanti) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
+          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
             <div>
               {/* Top Tag & Icon */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80">
@@ -190,7 +190,7 @@ export default function AboutSection() {
           {/* ----------------------------------------------------------------------- */}
           {/* KARTU 2: SALURAN WHATSAPP (@NalarNanti) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="flex flex-col justify-between p-7 sm:p-9 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
+          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
             <div>
               {/* Top Tag & Icon */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80">

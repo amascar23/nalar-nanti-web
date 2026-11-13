@@ -385,11 +385,11 @@ export default function QuoteSection() {
 
             {/* Tombol Aksi di Modal (Salin Kutipan & Bagikan ke WhatsApp) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-[#E5DDD0]">
-              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
                 {/* Tombol Salin Kutipan */}
                 <button
                   onClick={() => handleCopyInModal(selectedModalQuote)}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95"
                 >
                   {isModalCopied ? (
                     <>
@@ -407,7 +407,7 @@ export default function QuoteSection() {
                 {/* Tombol Bagikan ke WhatsApp */}
                 <button
                   onClick={() => handleShareWa(selectedModalQuote)}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
                 >
                   <Share2 className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>Bagikan ke WhatsApp</span>
@@ -417,7 +417,7 @@ export default function QuoteSection() {
               {/* Tombol Tutup Tambahan */}
               <button
                 onClick={() => setSelectedModalQuote(null)}
-                className="text-xs text-[#7A6F64] hover:text-[#3E362E] py-1 transition-colors text-center"
+                className="text-xs text-[#7A6F64] hover:text-[#3E362E] py-2 transition-colors text-center"
               >
                 Tutup jendela
               </button>

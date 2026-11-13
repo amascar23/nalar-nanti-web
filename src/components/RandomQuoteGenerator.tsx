@@ -68,8 +68,8 @@ export default function RandomQuoteGenerator() {
       className="py-14 sm:py-24 bg-[#FAF7F2] border-t border-[#E5DDD0]/70 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] sm:w-[500px] h-[450px] sm:h-[500px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-8 sm:right-12 w-52 sm:w-64 h-52 sm:h-64 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[500px] h-[340px] sm:h-[500px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-2 sm:right-12 w-44 sm:w-64 h-44 sm:h-64 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Header Bagian */}
@@ -91,7 +91,7 @@ export default function RandomQuoteGenerator() {
           <button
             onClick={handleGetRandomQuote}
             disabled={isAnimating}
-            className="inline-flex items-center justify-center gap-2.5 px-7 py-3 sm:px-9 sm:py-4 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-base hover:bg-[#B9967A] transition-all duration-300 shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:opacity-70 group"
+            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-9 sm:py-4 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-base hover:bg-[#B9967A] transition-all duration-300 shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:opacity-70 group min-h-[48px]"
           >
             <Sparkles
               className={`w-4 h-4 sm:w-5 sm:h-5 text-[#FAF7F2] ${
@@ -114,21 +114,21 @@ export default function RandomQuoteGenerator() {
         {/* Kartu Soft Cream dengan Format Selaras Kartu @nalarnanti */}
         <div className="max-w-2xl mx-auto text-left">
           <div
-            className={`bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-6 sm:p-10 shadow-card transition-all duration-300 relative group overflow-hidden ${
+            className={`bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-card transition-all duration-300 relative group overflow-hidden ${
               isAnimating
                 ? "opacity-30 scale-[0.98] blur-[1px]"
                 : "opacity-100 scale-100 blur-0"
             }`}
           >
             {/* Header Kartu: Label Kategori, Nomor Urut & Judul Tema */}
-            <div className="flex items-center justify-between gap-3 mb-5 sm:mb-6 pb-4 border-b border-[#E5DDD0]/80">
+            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80">
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A98E]/20 text-[#886950] shrink-0">
                   <Sparkles className="w-4 h-4 text-[#C8A98E]" />
                 </span>
                 <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E]">
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E]">
                       Pengingat Acak
                     </span>
                     <span
@@ -148,7 +148,7 @@ export default function RandomQuoteGenerator() {
                   {/* Judul Tema Kartu */}
                   <h3
                     suppressHydrationWarning
-                    className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] mt-0.5"
+                    className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] mt-1 leading-snug"
                   >
                     {currentQuote.themeTitle}
                   </h3>
@@ -165,29 +165,29 @@ export default function RandomQuoteGenerator() {
 
             {/* Teks Kutipan Utama (Lora Serif) */}
             <div className="relative mb-5 sm:mb-6">
-              <QuoteIcon className="w-7 h-7 sm:w-8 sm:h-8 text-[#C8A98E]/30 absolute -top-3 -left-1 sm:-left-2 -z-0" />
+              <QuoteIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#C8A98E]/30 absolute -top-2.5 -left-1 sm:-left-2 -z-0" />
               <blockquote
                 suppressHydrationWarning
-                className="font-serif italic text-base sm:text-2xl text-[#3E362E] leading-relaxed relative z-10 pl-2"
+                className="font-serif italic text-base sm:text-xl md:text-2xl text-[#3E362E] leading-relaxed relative z-10 pl-2"
               >
                 “{currentQuote.quote}”
               </blockquote>
 
               {/* Badge Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
-              <div className="mt-4 pl-2 flex items-center">
+              <div className="mt-3.5 pl-2 flex items-center">
                 <span
                   suppressHydrationWarning
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3.5 py-1.5 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft"
                 >
-                  <Feather className="w-3.5 h-3.5 text-[#886950]" />
+                  <Feather className="w-3.5 h-3.5 text-[#886950] shrink-0" />
                   <span>{currentQuote.source}</span>
                 </span>
               </div>
             </div>
 
             {/* Catatan Refleksi */}
-            <div className="bg-[#FAF7F2] rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 mb-6 sm:mb-7">
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1.5">
+            <div className="bg-[#FAF7F2] rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 mb-5 sm:mb-7">
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1">
                 Catatan Refleksi
               </p>
               <p
@@ -200,11 +200,11 @@ export default function RandomQuoteGenerator() {
 
             {/* Footer Kartu: Tombol Salin Kutipan dan Bagikan ke WhatsApp */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2 border-t border-[#E5DDD0]/70">
-              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
                 {/* Tombol Salin */}
                 <button
                   onClick={handleCopy}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group"
                 >
                   {isCopied ? (
                     <>
@@ -222,7 +222,7 @@ export default function RandomQuoteGenerator() {
                 {/* Tombol Bagikan ke WhatsApp */}
                 <button
                   onClick={handleShareWhatsApp}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>WhatsApp</span>

@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import RandomQuoteGenerator from "@/components/RandomQuoteGenerator";
 import QuoteSection from "@/components/QuoteSection";
-import RandomReminderSection from "@/components/RandomReminderSection";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 
@@ -11,12 +11,11 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
+        <RandomQuoteGenerator />
         <QuoteSection />
-        <RandomReminderSection />
         <AboutSection />
       </main>
       <Footer />
     </div>
   );
 }
-

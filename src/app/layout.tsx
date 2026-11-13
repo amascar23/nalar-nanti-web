@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "Mindfulness Indonesia",
     "Jeda Kehidupan",
   ],
-  authors: [{ name: "Nalar Nanti", url: "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==" }],
+  authors: [{ name: "Nalar Nanti", url: "https://www.instagram.com/nalarnanti/" }],
   creator: "Nalar Nanti",
   publisher: "Nalar Nanti",
   alternates: {

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Sparkles, Instagram } from "lucide-react";
 
-const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==";
+const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

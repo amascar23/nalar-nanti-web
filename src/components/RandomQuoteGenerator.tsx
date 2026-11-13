@@ -238,7 +238,7 @@ export default function RandomQuoteGenerator() {
 
               {/* Tag Penutup Kredit */}
               <a
-                href="https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg=="
+                href="https://www.instagram.com/nalarnanti/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Kunjungi Instagram @nalarnanti"

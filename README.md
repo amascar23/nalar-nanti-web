@@ -51,7 +51,7 @@ Website modern, hangat, dan minimalis untuk brand **Nalar Nanti**, dibangun meng
 6. **Footer Bersih & Terhubung**:
    * Identitas resmi: **"Nalar Nanti — Ruang Teduh untuk Berpikir & Merasa"**.
    * Tautan langsung ke media sosial:
-     * **Instagram**: [@nalarnanti](https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==)
+     * **Instagram**: [@nalarnanti](https://www.instagram.com/nalarnanti/)
      * **Saluran WhatsApp**: [@NalarNanti](https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y)
 
 ---

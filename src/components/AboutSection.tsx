@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 const WA_CHANNEL_URL = "https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y";
-const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==";
+const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
 export default function AboutSection() {
   return (

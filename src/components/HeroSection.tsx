@@ -89,7 +89,7 @@ export default function HeroSection() {
           <p className="relative z-10 font-sans text-xs sm:text-base lg:text-lg text-[#7A6F64] max-w-2xl mx-auto leading-relaxed">
             Selamat datang di <strong className="text-[#3E362E] font-medium">Nalar Nanti</strong>, rumah digital dari akun Instagram{" "}
             <a
-              href="https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg=="
+              href="https://www.instagram.com/nalarnanti/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
@@ -232,7 +232,7 @@ export default function HeroSection() {
 
               {/* Tag Penutup Kredit */}
               <a
-                href="https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg=="
+                href="https://www.instagram.com/nalarnanti/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Kunjungi Instagram @nalarnanti"

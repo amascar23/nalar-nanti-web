@@ -17,7 +17,7 @@ import {
   Instagram,
 } from "lucide-react";
 
-const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg==";
+const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
 export default function QuoteSection() {
   const [selectedType, setSelectedType] = useState<"Semua" | "Islami" | "Umum">("Semua");

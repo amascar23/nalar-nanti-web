@@ -50,3 +50,4 @@ export const REMINDERS_DATA: ReminderItem[] = [
     actionPrompt: "Fokuskan pandangan pada satu titik di luar jendela dan nikmati pemandangan sejenak.",
   },
 ];
+

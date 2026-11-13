@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import RandomQuoteGenerator from "@/components/RandomQuoteGenerator";
 import QuoteSection from "@/components/QuoteSection";
+import RequestSection from "@/components/RequestSection";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -14,6 +15,7 @@ export default function HomePage() {
         <HeroSection />
         <RandomQuoteGenerator />
         <QuoteSection />
+        <RequestSection />
         <AboutSection />
       </main>
       <Footer />

@@ -23,6 +23,7 @@ export default function QuoteSection() {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [isModalCopied, setIsModalCopied] = useState<boolean>(false);
 
+  // Tab filter kategori sesuai data asli @nalarnanti
   const categories: ("Semua" | QuoteCategory)[] = [
     "Semua",
     "Refleksi Islami",
@@ -54,26 +55,26 @@ export default function QuoteSection() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Filter kutipan berdasarkan tipe, kategori, dan kata kunci pencarian
+  // Filter kutipan cerdas: berdasarkan tipe, kategori, dan kata kunci (isi, judul tema, atau tokoh/sumber)
   const filteredQuotes = QUOTES_DATA.filter((item) => {
     const matchType = selectedType === "Semua" || item.type === selectedType;
     const matchCat = selectedCategory === "Semua" || item.category === selectedCategory;
-    
+
     const query = searchQuery.toLowerCase().trim();
     const matchSearch =
       !query ||
       item.quote.toLowerCase().includes(query) ||
-      item.reflection.toLowerCase().includes(query) ||
-      item.category.toLowerCase().includes(query) ||
       item.themeTitle.toLowerCase().includes(query) ||
-      item.source.toLowerCase().includes(query);
+      item.source.toLowerCase().includes(query) ||
+      item.reflection.toLowerCase().includes(query) ||
+      item.category.toLowerCase().includes(query);
 
     return matchType && matchCat && matchSearch;
   });
 
   const handleCopy = (quote: QuoteItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
-    const textToCopy = `“${quote.quote}”\n— ${quote.source}\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
+    const textToCopy = `“${quote.quote}” — ${quote.source} (Nalar Nanti)\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
     navigator.clipboard.writeText(textToCopy);
     setCopiedId(quote.id);
     setTimeout(() => {
@@ -82,7 +83,7 @@ export default function QuoteSection() {
   };
 
   const handleCopyInModal = (quote: QuoteItem) => {
-    const textToCopy = `“${quote.quote}”\n— ${quote.source}\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
+    const textToCopy = `“${quote.quote}” — ${quote.source} (Nalar Nanti)\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
     navigator.clipboard.writeText(textToCopy);
     setIsModalCopied(true);
     setTimeout(() => {
@@ -95,9 +96,9 @@ export default function QuoteSection() {
     const text = encodeURIComponent(
       `🌿 *Nalar Nanti — ${quote.themeTitle}*\n\n` +
       `“${quote.quote}”\n` +
-      `— ${quote.source}\n\n` +
+      `— ${quote.source} (Nalar Nanti)\n\n` +
       `*Refleksi:* ${quote.reflection}\n\n` +
-      `— Baca selengkapnya di https://nalarnanti.com atau IG: @nalarnanti`
+      `— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };
@@ -114,20 +115,20 @@ export default function QuoteSection() {
             Koleksi Nalar
           </h2>
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed">
-            Kumpulan kata-kata penenang, motivasi Islami, dan renungan kehidupan. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya.
+            Kumpulan kata-kata penenang, motivasi Islami, dan renungan kehidupan dari seluruh 18 postingan asli @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya.
           </p>
         </div>
 
         {/* Search Bar & Quick Filters */}
         <div className="max-w-3xl mx-auto mb-8 sm:mb-10 space-y-3.5 sm:space-y-4">
-          {/* Kolom Pencarian Sederhana (font-size 16px di mobile mencegah auto-zoom iOS) */}
+          {/* Kolom Pencarian Cerdas (mencari kutipan, judul tema, atau tokoh/sumber) */}
           <div className="relative">
             <Search className="w-4 h-4 text-[#7A6F64] absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Cari kutipan (contoh: sabar, doa, lelah, mekar)..."
+              placeholder="Cari kutipan, judul tema, atau tokoh (contoh: Rumi, Syafi'i, Ali, Bukhari, waktu)..."
               className="w-full pl-10 sm:pl-11 pr-10 py-3 sm:py-3.5 rounded-2xl bg-[#F3EDE2] border border-[#E5DDD0] text-base sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/70 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
             />
             {searchQuery && (
@@ -141,7 +142,7 @@ export default function QuoteSection() {
             )}
           </div>
 
-          {/* Filter Cepat Nuansa (Islami & Umum) */}
+          {/* Filter Cepat Tipe Kutipan: "Semua Tipe", "Islami", dan "Umum" */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
             <div className="inline-flex items-center p-1 bg-[#F3EDE2] border border-[#E5DDD0] rounded-full shadow-soft">
               {(["Semua", "Islami", "Umum"] as const).map((type) => (
@@ -154,13 +155,13 @@ export default function QuoteSection() {
                       : "text-[#7A6F64] hover:text-[#3E362E]"
                   }`}
                 >
-                  {type === "Semua" ? "Semua Nuansa" : `Nuansa ${type}`}
+                  {type === "Semua" ? "Semua Tipe" : type}
                 </button>
               ))}
             </div>
 
             <p className="text-xs text-[#7A6F64] font-medium">
-              Menampilkan {filteredQuotes.length} kutipan
+              Menampilkan {filteredQuotes.length} dari {QUOTES_DATA.length} kutipan
             </p>
           </div>
 
@@ -194,7 +195,7 @@ export default function QuoteSection() {
               className="flex flex-col justify-between p-5 sm:p-7 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 relative group cursor-pointer text-left overflow-hidden"
             >
               <div>
-                {/* Header Kartu Bergaya Feed Instagram @nalarnanti */}
+                {/* Header Kartu: Label Kategori Kecil & Identitas Feed Instagram @nalarnanti */}
                 <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[#E5DDD0]/70">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <span className="w-6 h-6 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E]">
@@ -203,7 +204,7 @@ export default function QuoteSection() {
                     <span className="text-[11px] font-semibold text-[#7A6F64] tracking-tight">
                       @nalarnanti
                     </span>
-                    <span className="text-[10px] text-[#C8A98E] font-bold bg-[#FAF7F2] px-1.5 py-0.5 rounded-full border border-[#E5DDD0]">
+                    <span className="text-[10px] text-[#886950] font-bold bg-[#FAF7F2] px-1.5 py-0.5 rounded-full border border-[#E5DDD0]">
                       #{item.orderNumber}
                     </span>
                   </div>
@@ -213,30 +214,32 @@ export default function QuoteSection() {
                   </span>
                 </div>
 
-                {/* Judul Tema Khas Postingan */}
-                <div className="mb-2">
-                  <h3 className="font-sans font-semibold text-xs sm:text-sm text-[#3E362E] line-clamp-1">
+                {/* Bagian Atas Kartu: Judul Tema Kartu (themeTitle) */}
+                <div className="mb-3">
+                  <h3 className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] group-hover:text-[#886950] transition-colors leading-snug">
                     {item.themeTitle}
                   </h3>
                 </div>
 
-                {/* Teks Kutipan Utama (Lora Serif) */}
+                {/* Bagian Tengah: Teks Kutipan Utama dengan Font Lora */}
                 <div className="relative mb-5">
                   <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A98E]/40 mb-2 group-hover:text-[#C8A98E] transition-colors" />
-                  <p className="font-serif italic text-base sm:text-lg leading-relaxed text-[#3E362E] line-clamp-4">
+                  <p className="font-serif italic text-sm sm:text-base leading-relaxed text-[#3E362E] line-clamp-4">
                     “{item.quote}”
                   </p>
                 </div>
               </div>
 
-              {/* Footer Kartu & Petunjuk Klik Refleksi */}
+              {/* Bagian Bawah Kartu: Pill/Kotak Sumber (source), Aksi Cepat, dan Petunjuk "Baca refleksi →" */}
               <div className="pt-3.5 border-t border-[#E5DDD0]/70 flex flex-col gap-2.5">
-                <div className="flex items-center justify-between text-xs text-[#7A6F64]">
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#7A6F64]">
-                    <Feather className="w-3 h-3 text-[#C8A98E]" />
-                    <span className="truncate max-w-[140px] sm:max-w-[170px]">{item.source}</span>
+                <div className="flex items-center justify-between text-xs text-[#7A6F64] gap-2">
+                  {/* Pill Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
+                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft shrink-0">
+                    <Feather className="w-3 h-3 text-[#886950]" />
+                    <span className="truncate max-w-[130px] sm:max-w-[160px]">{item.source}</span>
                   </span>
 
+                  {/* Tombol Salin & Bagikan Mini */}
                   <div className="flex items-center gap-1">
                     <button
                       onClick={(e) => handleCopy(item, e)}
@@ -261,10 +264,15 @@ export default function QuoteSection() {
                   </div>
                 </div>
 
-                {/* Petunjuk kecil: "Klik untuk baca refleksi →" */}
-                <div className="flex items-center gap-1 text-xs font-semibold text-[#C8A98E] group-hover:text-[#B9967A] transition-colors pt-0.5">
-                  <span>Klik untuk baca refleksi</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                {/* Petunjuk "Baca refleksi →" */}
+                <div className="flex items-center justify-between pt-1">
+                  <div className="flex items-center gap-1 text-xs font-semibold text-[#C8A98E] group-hover:text-[#B9967A] transition-colors">
+                    <span>Baca refleksi</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <span className="text-[10px] text-[#7A6F64]/70 font-sans">
+                    Nuansa {item.type}
+                  </span>
                 </div>
               </div>
             </div>
@@ -279,7 +287,7 @@ export default function QuoteSection() {
               Tidak ada kutipan yang sesuai
             </p>
             <p className="text-xs text-[#7A6F64] max-w-xs mx-auto mb-5 leading-relaxed">
-              Coba gunakan kata kunci lain atau kembalikan pilihan ke semua kategori.
+              Coba gunakan kata kunci lain (misal: Rumi, Syafi'i, sabar) atau kembalikan pilihan ke semua kategori.
             </p>
             <button
               onClick={() => {
@@ -296,7 +304,7 @@ export default function QuoteSection() {
       </div>
 
       {/* ========================================================================= */}
-      {/* MODAL / POP-UP BACA REFLEKSI (Nuansa Soft Cream) */}
+      {/* MODAL / POP-UP BACA REFLEKSI (Nuansa Cream Lembut Khas @nalarnanti) */}
       {/* ========================================================================= */}
       {selectedModalQuote && (
         <div
@@ -308,7 +316,7 @@ export default function QuoteSection() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between mb-5 pb-3.5 border-b border-[#E5DDD0]">
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0]">
               <div className="flex items-center gap-2">
                 <span className="w-7 h-7 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E]">
                   <Compass className="w-4 h-4" />
@@ -318,14 +326,12 @@ export default function QuoteSection() {
                     <span className="text-xs font-semibold text-[#3E362E]">
                       @nalarnanti
                     </span>
+                    <span className="text-[10px] text-[#886950] font-bold bg-[#F3EDE2] px-2 py-0.5 rounded-full border border-[#E5DDD0]">
+                      #{selectedModalQuote.orderNumber}
+                    </span>
                     <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#8E9B8E]/15 text-[#637063]">
                       {selectedModalQuote.category}
                     </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-[#7A6F64] mt-0.5 font-medium">
-                    <span className="font-semibold text-[#8E9B8E]">#{selectedModalQuote.orderNumber}</span>
-                    <span>•</span>
-                    <span>{selectedModalQuote.themeTitle}</span>
                   </div>
                 </div>
               </div>
@@ -340,19 +346,33 @@ export default function QuoteSection() {
               </button>
             </div>
 
+            {/* Judul Tema Kartu (themeTitle) di Modal */}
+            <div className="mt-4 mb-3">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] block mb-1">
+                Tema Refleksi
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] leading-snug">
+                {selectedModalQuote.themeTitle}
+              </h3>
+            </div>
+
             {/* Kutipan Utama dalam Modal (Lora Font) */}
-            <div className="mb-5 sm:mb-6">
+            <div className="mb-5 sm:mb-6 relative">
               <Quote className="w-6 h-6 sm:w-7 sm:h-7 text-[#C8A98E]/50 mb-2" />
               <blockquote className="font-serif italic text-lg sm:text-2xl text-[#3E362E] leading-relaxed">
                 “{selectedModalQuote.quote}”
               </blockquote>
-              <div className="mt-3 flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-[#7A6F64]">
-                <Feather className="w-3.5 h-3.5 text-[#C8A98E]" />
-                <span>{selectedModalQuote.source}</span>
+
+              {/* Pill/Badge Sumber (source) */}
+              <div className="mt-4 flex items-center">
+                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3.5 py-1.5 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft">
+                  <Feather className="w-3.5 h-3.5 text-[#886950]" />
+                  <span>{selectedModalQuote.source}</span>
+                </span>
               </div>
             </div>
 
-            {/* Catatan Refleksi Panjang */}
+            {/* Catatan Refleksi Lengkap */}
             <div className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl p-4 sm:p-6 mb-6">
               <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-2">
                 <BookOpen className="w-3.5 h-3.5" />
@@ -363,13 +383,13 @@ export default function QuoteSection() {
               </p>
             </div>
 
-            {/* Tombol Aksi di Modal (Mobile Friendly 2 Kolom) */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2 border-t border-[#E5DDD0]">
-              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 w-full sm:w-auto">
-                {/* Tombol Salin */}
+            {/* Tombol Aksi di Modal (Salin Kutipan & Bagikan ke WhatsApp) */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-[#E5DDD0]">
+              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto">
+                {/* Tombol Salin Kutipan */}
                 <button
                   onClick={() => handleCopyInModal(selectedModalQuote)}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95"
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95"
                 >
                   {isModalCopied ? (
                     <>
@@ -379,7 +399,7 @@ export default function QuoteSection() {
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5 text-[#7A6F64]" />
-                      <span>Salin</span>
+                      <span>Salin Kutipan</span>
                     </>
                   )}
                 </button>
@@ -387,10 +407,10 @@ export default function QuoteSection() {
                 {/* Tombol Bagikan ke WhatsApp */}
                 <button
                   onClick={() => handleShareWa(selectedModalQuote)}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
                 >
                   <Share2 className="w-3.5 h-3.5 text-[#FAF7F2]" />
-                  <span>WhatsApp</span>
+                  <span>Bagikan ke WhatsApp</span>
                 </button>
               </div>
 

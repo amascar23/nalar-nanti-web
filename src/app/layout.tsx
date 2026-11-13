@@ -74,8 +74,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${lora.variable} ${plusJakartaSans.variable}`}>
-      <body className="font-sans bg-[#FAF7F2] text-[#3E362E] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] touch-manipulation">
+    <html lang="id" className={`${lora.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
+      <body
+        className="font-sans bg-[#FAF7F2] text-[#3E362E] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] touch-manipulation"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>

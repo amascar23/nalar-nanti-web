@@ -109,15 +109,24 @@ export default function RandomQuoteGenerator() {
             {/* Header Kartu: Label Kategori Kecil & Tanggal */}
             <div className="flex items-center justify-between mb-5 sm:mb-6 pb-3 sm:pb-3.5 border-b border-[#E5DDD0]/80">
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]">
+                <span
+                  suppressHydrationWarning
+                  className="text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]"
+                >
                   {currentQuote.category}
                 </span>
-                <span className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#C8A98E]/15 text-[#886950]">
+                <span
+                  suppressHydrationWarning
+                  className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#C8A98E]/15 text-[#886950]"
+                >
                   {currentQuote.type}
                 </span>
               </div>
 
-              <span className="inline-flex items-center gap-1.5 text-xs text-[#7A6F64] font-sans">
+              <span
+                suppressHydrationWarning
+                className="inline-flex items-center gap-1.5 text-xs text-[#7A6F64] font-sans"
+              >
                 <Calendar className="w-3 h-3 text-[#8E9B8E]" />
                 {formatIndonesianDate(currentQuote.date, true)}
               </span>
@@ -126,7 +135,10 @@ export default function RandomQuoteGenerator() {
             {/* Teks Kutipan Utama (Lora Serif) */}
             <div className="relative mb-5 sm:mb-6">
               <QuoteIcon className="w-7 h-7 sm:w-8 sm:h-8 text-[#C8A98E]/30 absolute -top-3 -left-1 sm:-left-2 -z-0" />
-              <blockquote className="font-serif italic text-base sm:text-2xl text-[#3E362E] leading-relaxed relative z-10 pl-2">
+              <blockquote
+                suppressHydrationWarning
+                className="font-serif italic text-base sm:text-2xl text-[#3E362E] leading-relaxed relative z-10 pl-2"
+              >
                 “{currentQuote.quote}”
               </blockquote>
             </div>
@@ -136,7 +148,10 @@ export default function RandomQuoteGenerator() {
               <p className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1.5">
                 Catatan Refleksi
               </p>
-              <p className="font-sans text-xs sm:text-sm text-[#7A6F64] leading-relaxed">
+              <p
+                suppressHydrationWarning
+                className="font-sans text-xs sm:text-sm text-[#7A6F64] leading-relaxed"
+              >
                 {currentQuote.reflection}
               </p>
             </div>

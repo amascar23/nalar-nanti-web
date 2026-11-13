@@ -37,10 +37,10 @@ export default function AboutSection() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2.5">
             <Compass className="w-3.5 h-3.5" />
-            <span>Filosofi &amp; Ruang Teduh</span>
+            <span>Filosofi {"&"} Ruang Teduh</span>
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-4">
-            Tentang Nalar Nanti &amp; Ruang Terhubung
+            Tentang Nalar Nanti {"&"} Ruang Terhubung
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#7A6F64] leading-relaxed">
             Sebuah rumah singgah digital untuk merawat akal budi dan keteduhan batin, di tengah dunia yang tak henti menuntut kita untuk selalu lekas.
@@ -119,7 +119,7 @@ export default function AboutSection() {
             Ruang Terhubung
           </span>
           <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] tracking-tight mb-2">
-            Mari Bertumbuh &amp; Singgah Bersama
+            Mari Bertumbuh {"&"} Singgah Bersama
           </h3>
           <p className="font-sans text-xs sm:text-sm text-[#7A6F64]">
             Pilih cara yang paling nyaman untuk menghadirkan ketenangan di harimu.
@@ -138,7 +138,7 @@ export default function AboutSection() {
                   <Instagram className="w-6 h-6" />
                 </div>
                 <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] text-[#886950] border border-[#E5DDD0]">
-                  Visual &amp; Carousel
+                  Visual {"&"} Carousel
                 </span>
               </div>
 
@@ -147,7 +147,7 @@ export default function AboutSection() {
                 Instagram @nalarnanti
               </h4>
               <p className="text-xs text-[#C8A98E] font-medium mb-4">
-                Ruang visual kutipan &amp; renungan harian
+                Ruang visual kutipan {"&"} renungan harian
               </p>
 
               <p className="font-sans text-sm text-[#7A6F64] leading-relaxed mb-6">

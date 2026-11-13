@@ -193,14 +193,6 @@ export default function QuoteSection() {
                 setSelectedModalQuote(item);
                 setIsModalCopied(false);
               }}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setSelectedModalQuote(item);
-                  setIsModalCopied(false);
-                }
-              }}
               className="flex flex-col justify-between p-5 sm:p-7 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 relative group cursor-pointer text-left overflow-hidden"
             >
               <div>
@@ -289,7 +281,7 @@ export default function QuoteSection() {
               }}
               className="text-xs font-semibold px-5 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
             >
-              Reset Filter &amp; Pencarian
+              Reset Filter {"&"} Pencarian
             </button>
           </div>
         )}

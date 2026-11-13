@@ -64,7 +64,7 @@ export default function HeroSection() {
         {/* 1. Tagline kecil yang hangat di atas judul */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-6 sm:mb-8 shadow-soft">
           <span className="w-2 h-2 rounded-full bg-[#8E9B8E] animate-pulse" />
-          <span>Ruang Singgah untuk Hati &amp; Pikiran</span>
+          <span>Ruang Singgah untuk Hati {"&"} Pikiran</span>
         </div>
 
         {/* 2. Judul utama yang menenangkan & deskripsi singkat */}
@@ -96,13 +96,16 @@ export default function HeroSection() {
                     <span className="font-serif text-base sm:text-lg font-semibold text-[#3E362E]">
                       Nalar Hari Ini
                     </span>
-                    <span className="text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]">
+                    <span
+                      suppressHydrationWarning
+                      className="text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]"
+                    >
                       {currentQuote.category}
                     </span>
                   </div>
                   <p className="text-[11px] text-[#7A6F64] flex items-center gap-1 mt-0.5 font-sans">
                     <Calendar className="w-3 h-3 text-[#8E9B8E]" />
-                    <span>{formatDate(currentQuote.date)}</span>
+                    <span suppressHydrationWarning>{formatDate(currentQuote.date)}</span>
                   </p>
                 </div>
               </div>
@@ -123,7 +126,10 @@ export default function HeroSection() {
             {/* Kutipan Utama */}
             <div className="relative mb-5 sm:mb-6">
               <QuoteIcon className="w-7 h-7 sm:w-8 sm:h-8 text-[#C8A98E]/30 absolute -top-3 -left-1 sm:-left-2 -z-0" />
-              <blockquote className="font-serif italic text-lg sm:text-2xl text-[#3E362E] leading-relaxed relative z-10 pl-2">
+              <blockquote
+                suppressHydrationWarning
+                className="font-serif italic text-lg sm:text-2xl text-[#3E362E] leading-relaxed relative z-10 pl-2"
+              >
                 “{currentQuote.quote}”
               </blockquote>
             </div>
@@ -133,7 +139,10 @@ export default function HeroSection() {
               <p className="text-[11px] uppercase tracking-wider text-[#8E9B8E] font-semibold mb-1.5">
                 Renungan Singkat
               </p>
-              <p className="font-sans text-xs sm:text-sm text-[#7A6F64] leading-relaxed">
+              <p
+                suppressHydrationWarning
+                className="font-sans text-xs sm:text-sm text-[#7A6F64] leading-relaxed"
+              >
                 {currentQuote.reflection}
               </p>
             </div>

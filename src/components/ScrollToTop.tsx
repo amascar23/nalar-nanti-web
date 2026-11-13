@@ -4,9 +4,11 @@ import React, { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 
 export default function ScrollToTop() {
+  const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const toggleVisibility = () => {
       if (window.scrollY > 350) {
         setIsVisible(true);
@@ -19,12 +21,7 @@ export default function ScrollToTop() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  if (!mounted) return null;
 
   return (
     <div
@@ -35,7 +32,7 @@ export default function ScrollToTop() {
       }`}
     >
       <button
-        onClick={scrollToTop}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Kembali ke atas halaman"
         title="Kembali ke atas"
         className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:text-[#FAF7F2] hover:bg-[#C8A98E] hover:border-[#C8A98E] shadow-card hover:shadow-floating flex items-center justify-center transition-all duration-300 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50"
@@ -45,4 +42,3 @@ export default function ScrollToTop() {
     </div>
   );
 }
-

@@ -22,7 +22,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="font-sans text-sm text-[#7A6F64] leading-relaxed">
-              Ruang Teduh untuk Berpikir &amp; Merasa. Sebuah oase hening untuk menemani langkah-langkahmu menuju ketenangan batin, keikhlasan hati, dan pikiran yang jernih.
+              Ruang Teduh untuk Berpikir {"&"} Merasa. Sebuah oase hening untuk menemani langkah-langkahmu menuju ketenangan batin, keikhlasan hati, dan pikiran yang jernih.
             </p>
           </div>
 

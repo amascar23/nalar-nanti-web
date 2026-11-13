@@ -19,10 +19,11 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-3">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
                 <Image
-                  src="/images/logo.jpg"
+                  src="/images/logo-hd.png"
                   alt="Logo Nalar Nanti"
-                  width={40}
-                  height={40}
+                  width={80}
+                  height={80}
+                  unoptimized
                   className="w-full h-full object-cover"
                 />
               </div>

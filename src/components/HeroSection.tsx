@@ -105,10 +105,11 @@ export default function HeroSection() {
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
                   <Image
-                    src="/images/logo.jpg"
+                    src="/images/logo-hd.png"
                     alt="Logo Nalar Nanti"
-                    width={36}
-                    height={36}
+                    width={72}
+                    height={72}
+                    unoptimized
                     className="w-full h-full object-cover"
                   />
                 </div>

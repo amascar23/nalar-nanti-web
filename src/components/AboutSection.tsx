@@ -100,10 +100,11 @@ export default function AboutSection() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-11 h-11 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
                     <Image
-                      src="/images/logo.jpg"
+                      src="/images/logo-hd.png"
                       alt="Logo Nalar Nanti"
-                      width={44}
-                      height={44}
+                      width={88}
+                      height={88}
+                      unoptimized
                       className="w-full h-full object-cover"
                     />
                   </div>

@@ -19,14 +19,14 @@ export default function ThemeBackground() {
       aria-hidden="true"
       className="fixed inset-0 pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center"
     >
-      {/* Gambar Logo Lingkaran Nalar Nanti Tepat di Tengah Layar */}
-      <div className="relative w-[340px] h-[340px] sm:w-[480px] sm:h-[480px] md:w-[580px] md:h-[580px] lg:w-[640px] lg:h-[640px] opacity-[0.11] sm:opacity-[0.13] mix-blend-multiply">
+      {/* Gambar Logo Lingkaran Nalar Nanti Tepat di Tengah Layar (HD Lossless) */}
+      <div className="relative w-[340px] h-[340px] sm:w-[480px] sm:h-[480px] md:w-[580px] md:h-[580px] lg:w-[640px] lg:h-[640px] opacity-[0.12] sm:opacity-[0.14] mix-blend-multiply">
         <Image
-          src="/images/logo.jpg"
+          src="/images/logo-hd.png"
           alt="Watermark Logo Nalar Nanti"
           fill
-          sizes="(max-width: 640px) 340px, (max-width: 768px) 480px, 640px"
-          className="object-cover"
+          unoptimized
+          className="object-contain"
           priority
         />
       </div>

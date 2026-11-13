@@ -243,10 +243,11 @@ export default function QuoteSection() {
                     >
                       <div className="w-6 h-6 rounded-full overflow-hidden border border-[#E5DDD0] bg-[#FAF7F2] shrink-0 group-hover/ig:border-[#C8A98E] transition-colors">
                         <Image
-                          src="/images/logo.jpg"
+                          src="/images/logo-hd.png"
                           alt="Nalar Nanti"
-                          width={24}
-                          height={24}
+                          width={48}
+                          height={48}
+                          unoptimized
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -409,10 +410,11 @@ export default function QuoteSection() {
                 >
                   <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5DDD0] bg-[#FAF7F2] shrink-0 group-hover/modalig:border-[#C8A98E] transition-all">
                     <Image
-                      src="/images/logo.jpg"
+                      src="/images/logo-hd.png"
                       alt="Nalar Nanti"
-                      width={32}
-                      height={32}
+                      width={64}
+                      height={64}
+                      unoptimized
                       className="w-full h-full object-cover"
                     />
                   </div>

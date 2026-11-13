@@ -137,11 +137,11 @@ export async function downloadQuoteAsImage(
   ctx.lineWidth = 1.5;
   ctx.stroke();
 
-  // 3. Ornamen & Logo Bagian Atas
-  // Coba muat logo Nalar Nanti
+  // 3. Ornamen & Logo Bagian Atas (HD Square)
+  // Coba muat logo Nalar Nanti dalam resolusi tinggi
   const logoImage = new Image();
   logoImage.crossOrigin = "anonymous";
-  logoImage.src = "/images/logo.jpg";
+  logoImage.src = "/images/logo-hd.png";
   await new Promise((resolve) => {
     logoImage.onload = resolve;
     logoImage.onerror = resolve;
@@ -149,12 +149,13 @@ export async function downloadQuoteAsImage(
 
   const logoCenterX = 540;
   const logoCenterY = cardY + 115;
-  const logoRadius = 42;
+  const logoRadius = 45;
 
   if (logoImage.complete && logoImage.naturalWidth > 0) {
     ctx.save();
     ctx.beginPath();
     ctx.arc(logoCenterX, logoCenterY, logoRadius, 0, Math.PI * 2);
+    ctx.closePath();
     ctx.clip();
     ctx.drawImage(
       logoImage,

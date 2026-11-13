@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     canonical: "https://nalarnanti.com",
   },
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/logo-hd.png",
+    shortcut: "/logo-square.png",
+    apple: "/logo-hd.png",
   },
   openGraph: {
     title: "Nalar Nanti — Menata Nalar, Merakit Asa",

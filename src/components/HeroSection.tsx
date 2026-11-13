@@ -68,9 +68,9 @@ export default function HeroSection() {
   return (
     <section
       id="beranda"
-      className="relative pt-24 pb-14 sm:pt-36 sm:pb-24 overflow-hidden bg-transparent"
+      className="relative pt-24 pb-14 sm:pt-36 sm:pb-20 overflow-hidden bg-transparent"
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
         {/* Area Teks Hero */}
         <div className="relative max-w-3xl mx-auto mb-8 sm:mb-12">
           {/* 1. Tagline kecil yang hangat di atas judul */}

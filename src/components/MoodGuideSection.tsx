@@ -121,11 +121,11 @@ export default function MoodGuideSection() {
   return (
     <section
       id="suasana-hati"
-      className="py-16 sm:py-24 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
         {/* 1. Header Seksi */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+        <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#886950] mb-3 shadow-soft">
             <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
             <span>Teman Bicara Hati</span>
@@ -135,7 +135,7 @@ export default function MoodGuideSection() {
             Lagi Merasa Apa Hari Ini?
           </h2>
 
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
             Pilih suasana hatimu saat ini, biarkan Nalar Nanti menyuguhkan pengingat yang paling pas untuk menemanimu.
           </p>
         </div>
@@ -169,23 +169,23 @@ export default function MoodGuideSection() {
         {/* 3. Kotak Sapaan Empatik yang Hangat */}
         <div
           key={activeMood.id}
-          className="p-5 sm:p-7 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft mb-8 sm:mb-12 text-center max-w-3xl mx-auto relative overflow-hidden animate-fadeIn"
+          className="p-5 sm:p-7 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft mb-8 sm:mb-12 text-center max-w-2xl mx-auto relative overflow-hidden animate-fadeIn"
         >
           <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-2.5">
             <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
             <span>Pesan Hangat untukmu</span>
           </div>
-          <p className="font-serif italic text-base sm:text-xl text-[#3E362E] leading-relaxed max-w-2xl mx-auto">
+          <p className="font-serif italic text-base sm:text-lg text-[#3E362E] leading-relaxed max-w-xl mx-auto">
             “{activeMood.empathyMessage}”
           </p>
         </div>
 
-        {/* 4. Tiga Kartu Kutipan Rekomendasi */}
+        {/* 4. Tiga Kartu Kutipan Rekomendasi (Tinggi Seragam & Hierarki Rapi) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {recommendedQuotes.map((quote) => (
             <div
               key={quote.id}
-              className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-5 sm:p-6 shadow-soft hover:shadow-card hover:border-[#C8A98E]/50 transition-all duration-300 flex flex-col justify-between group"
+              className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-6 sm:p-7 shadow-soft hover:shadow-card hover:border-[#C8A98E]/50 transition-all duration-300 flex flex-col justify-between h-full group"
             >
               <div>
                 {/* Header Kartu: Judul Tema & Kategori */}
@@ -212,20 +212,21 @@ export default function MoodGuideSection() {
                   </div>
                 </div>
 
-                <h3 className="font-serif text-lg sm:text-xl font-semibold text-[#3E362E] mb-3 group-hover:text-[#886950] transition-colors leading-snug">
+                {/* Judul Tema Kartu */}
+                <h3 className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] mb-3 group-hover:text-[#886950] transition-colors leading-snug">
                   {quote.themeTitle}
                 </h3>
 
                 {/* Teks Kutipan Utama */}
-                <div className="relative mb-5">
+                <div className="relative mb-4">
                   <QuoteIcon className="w-5 h-5 text-[#C8A98E]/40 mb-2 group-hover:text-[#C8A98E] transition-colors" />
-                  <p className="font-serif italic text-sm sm:text-base leading-relaxed text-[#3E362E]">
+                  <p className="font-serif italic text-base sm:text-[17px] leading-[1.75] text-[#3E362E]">
                     “{quote.quote}”
                   </p>
                 </div>
 
                 {/* Pill Sumber */}
-                <div className="mb-4">
+                <div className="mb-2">
                   <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft">
                     <Feather className="w-3 h-3 text-[#886950]" />
                     <span className="truncate max-w-[200px]">{quote.source}</span>
@@ -234,7 +235,7 @@ export default function MoodGuideSection() {
               </div>
 
               {/* Tiga Tombol Aksi Lengkap: Salin, Bagikan WA, dan Simpan Gambar */}
-              <div className="pt-3.5 border-t border-[#E5DDD0]/70 flex flex-col gap-2">
+              <div className="mt-6 pt-4 border-t border-[#E5DDD0] flex flex-col gap-2">
                 <div className="grid grid-cols-2 gap-2">
                   {/* Tombol Salin */}
                   <button

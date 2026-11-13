@@ -84,15 +84,15 @@ export default function RandomQuoteGenerator() {
   return (
     <section
       id="pengingat"
-      className="py-14 sm:py-24 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[500px] h-[340px] sm:h-[500px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />
       <div className="absolute bottom-0 right-2 sm:right-12 w-44 sm:w-64 h-44 sm:h-64 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
         {/* Header Bagian */}
-        <div className="max-w-xl mx-auto mb-6 sm:mb-8">
+        <div className="max-w-xl mx-auto mb-6 sm:mb-8 text-center">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 sm:mb-2.5">
             <Heart className="w-3.5 h-3.5 fill-[#8E9B8E]" />
             <span>Pesan untuk Jiwamu</span>
@@ -100,7 +100,7 @@ export default function RandomQuoteGenerator() {
           <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-2.5 sm:mb-3">
             Butuh Satu Pengingat Hari Ini?
           </h2>
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
             Klik tombol di bawah untuk mengambil satu pesan acak yang mungkin sedang hatimu butuhkan.
           </p>
         </div>

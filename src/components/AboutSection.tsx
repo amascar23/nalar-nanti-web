@@ -20,26 +20,26 @@ export default function AboutSection() {
   return (
     <section
       id="tentang"
-      className="py-20 sm:py-28 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-[#F3EDE2] rounded-full blur-3xl opacity-70 pointer-events-none -z-10" />
       <div className="absolute top-10 left-10 w-72 h-72 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#C8A98E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
         {/* ========================================================================= */}
         {/* 1. CERITA FILOSOFI "NALAR NANTI" SEJAK TITIK AWAL */}
         {/* ========================================================================= */}
-        <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+        <div className="text-center max-w-xl mx-auto mb-12 sm:mb-14">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2.5">
             <Compass className="w-3.5 h-3.5" />
             <span>Filosofi & Ruang Teduh</span>
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-4">
+          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-3">
             Tentang Nalar Nanti & Ruang Terhubung
           </h2>
-          <p className="font-sans text-sm sm:text-base text-[#7A6F64] leading-relaxed">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
             Bermula dari sebuah Titik Awal sederhana untuk Menata Nalar, Merakit Asa—sebuah rumah singgah digital untuk merawat ketenangan hati dan kejernihan pikiran.
           </p>
         </div>

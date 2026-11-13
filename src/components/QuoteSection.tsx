@@ -139,17 +139,17 @@ export default function QuoteSection() {
   };
 
   return (
-    <section id="kutipan" className="py-16 sm:py-28 bg-transparent border-t border-[#E5DDD0]/60 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="kutipan" className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+        <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 block">
             Ruang Refleksi
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-3">
             Koleksi Nalar
           </h2>
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
             Kumpulan kata-kata penenang, motivasi Islami, dan renungan kehidupan dari seluruh 18 postingan asli @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya.
           </p>
         </div>
@@ -227,7 +227,7 @@ export default function QuoteSection() {
                 setSelectedModalQuote(item);
                 setIsModalCopied(false);
               }}
-              className="flex flex-col justify-between p-5 sm:p-7 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 relative group cursor-pointer text-left overflow-hidden"
+              className="flex flex-col justify-between h-full p-6 sm:p-7 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 relative group cursor-pointer text-left overflow-hidden"
             >
               <div>
                 {/* Header Kartu: Label Kategori Kecil & Identitas Feed Instagram @nalarnanti */}
@@ -274,14 +274,14 @@ export default function QuoteSection() {
                 {/* Bagian Tengah: Teks Kutipan Utama dengan Font Lora */}
                 <div className="relative mb-5">
                   <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A98E]/40 mb-2 group-hover:text-[#C8A98E] transition-colors" />
-                  <p className="font-serif italic text-sm sm:text-base leading-relaxed text-[#3E362E] line-clamp-4">
+                  <p className="font-serif italic text-base sm:text-[17px] leading-[1.75] text-[#3E362E] line-clamp-4">
                     “{item.quote}”
                   </p>
                 </div>
               </div>
 
               {/* Bagian Bawah Kartu: Pill/Kotak Sumber (source), Aksi Cepat, dan Petunjuk "Baca refleksi →" */}
-              <div className="pt-3.5 border-t border-[#E5DDD0]/70 flex flex-col gap-2.5">
+              <div className="mt-6 pt-4 border-t border-[#E5DDD0] flex flex-col gap-2.5">
                 <div className="flex items-center justify-between text-xs text-[#7A6F64] gap-2">
                   {/* Pill Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
                   <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft shrink-0">

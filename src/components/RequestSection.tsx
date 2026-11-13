@@ -96,16 +96,16 @@ export default function RequestSection() {
   return (
     <section
       id="titip-nalar"
-      className="py-16 sm:py-24 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[550px] h-[340px] sm:h-[550px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />
       <div className="absolute top-10 right-4 sm:right-12 w-48 sm:w-64 h-48 sm:h-64 bg-[#C8A98E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-4 sm:left-12 w-48 sm:w-64 h-48 sm:h-64 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8">
         {/* Header Seksi */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+        <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
           {/* Badge Kecil */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-3 sm:mb-4 shadow-soft">
             <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
@@ -118,7 +118,7 @@ export default function RequestSection() {
           </h2>
 
           {/* Subjudul Singkat */}
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
             Punya tema yang ingin dibahas atau kalimat refleksi yang ingin
             dititipkan? Kirimkan secara privat ke ruang admin Nalar Nanti.
           </p>

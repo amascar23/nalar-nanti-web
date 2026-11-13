@@ -42,7 +42,7 @@ export default function Navbar() {
           : "bg-[#FAF7F2]/70 backdrop-blur-sm border-b border-transparent py-4 sm:py-5"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <Link
           href="#beranda"

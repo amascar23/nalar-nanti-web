@@ -26,6 +26,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Beranda", href: "#beranda" },
+    { label: "Suasana Hati", href: "#suasana-hati" },
     { label: "Pengingat Acak", href: "#pengingat" },
     { label: "Koleksi Nalar", href: "#kutipan" },
     { label: "Tentang", href: "#tentang" },

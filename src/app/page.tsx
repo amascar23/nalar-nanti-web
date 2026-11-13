@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import MoodGuideSection from "@/components/MoodGuideSection";
 import RandomQuoteGenerator from "@/components/RandomQuoteGenerator";
 import QuoteSection from "@/components/QuoteSection";
 import RequestSection from "@/components/RequestSection";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-grow relative z-10">
         <HeroSection />
+        <MoodGuideSection />
         <RandomQuoteGenerator />
         <QuoteSection />
         <RequestSection />

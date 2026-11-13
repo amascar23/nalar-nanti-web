@@ -74,40 +74,26 @@ export default function HeroSection() {
         {/* Area Teks Hero */}
         <div className="relative max-w-3xl mx-auto mb-8 sm:mb-12">
           {/* 1. Tagline kecil yang hangat di atas judul */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2]/90 backdrop-blur-xs border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-5 sm:mb-8 shadow-soft">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2]/90 backdrop-blur-xs border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-5 sm:mb-7 shadow-soft">
             <span className="w-2 h-2 rounded-full bg-[#8E9B8E] animate-pulse shrink-0" />
-            <span>Ruang Singgah untuk Menata Nalar {"&"} Merakit Asa</span>
+            <span>Ruang Teduh • Menata Nalar, Merakit Asa</span>
           </div>
 
           {/* 2. Judul utama yang puitis dengan font Lora & deskripsi singkat */}
-          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.2] mb-4 sm:mb-6">
-            Beri jeda sejenak, biarkan nalar dan hati menemukan{" "}
-            <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 sm:underline-offset-8">
-              keteduhannya
+          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.25] mb-4 sm:mb-6">
+            <span className="block">Beri jeda sejenak,</span>
+            <span className="block mt-1 sm:mt-1.5">
+              biarkan nalar dan hati menemukan{" "}
+              <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 sm:underline-offset-8">
+                keteduhannya
+              </span>
+              .
             </span>
-            .
           </h1>
 
-          <p className="font-sans text-xs sm:text-base lg:text-lg text-[#7A6F64] max-w-2xl mx-auto leading-relaxed">
-            Selamat datang di <strong className="text-[#3E362E] font-medium">Nalar Nanti</strong>, rumah digital dari akun Instagram{" "}
-            <a
-              href="https://www.instagram.com/nalarnanti/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
-            >
-              @nalarnanti
-            </a>{" "}
-            dan Saluran WhatsApp{" "}
-            <a
-              href="https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
-            >
-              @NalarNanti
-            </a>
-            . Ruang singgah hangat yang berisi kutipan motivasi Islami serta refleksi ketenangan diri untuk menemanimu bernapas lebih lega, menerima proses, dan berprasangka baik pada setiap ketetapan.
+          {/* 3. Paragraf Pengenalan Ringkas & Hangat */}
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] max-w-xl mx-auto leading-relaxed">
+            Tidak semua hal harus dipahami terburu-buru hari ini. Singgahlah sejenak untuk membaca pengingat Islami dan refleksi kehidupan—menemani langkahmu bernapas lebih lega, menerima proses, dan berprasangka baik pada setiap ketetapan.
           </p>
         </div>
 

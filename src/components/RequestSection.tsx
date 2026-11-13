@@ -205,7 +205,7 @@ export default function RequestSection() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Contoh: Annisa / @username / Hamba Allah"
+                  placeholder="Contoh: Sahabat Nalar / @username / Hamba Allah"
                   className="w-full px-4 py-3 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] text-base sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
                 />
                 <p className="text-[11px] text-[#7A6F64]/80 mt-1.5">

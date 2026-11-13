@@ -1,6 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { Instagram, MessageCircle, Heart, ArrowUp } from "lucide-react";
+import { Instagram, MessageCircle, Heart } from "lucide-react";
+
+/**
+ * 💡 Tautan media sosial Nalar Nanti
+ */
+const WA_CHANNEL_URL = "https://whatsapp.com/channel/ISI_LINK_SALURAN_WA";
+const IG_PROFILE_URL = "https://instagram.com/nalarnanti";
 
 export default function Footer() {
   return (
@@ -16,7 +22,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="font-sans text-sm text-[#7A6F64] leading-relaxed">
-              Ruang Teduh untuk Berpikir &amp; Merasa. Sebuah oase hening untuk menemani langkah-langkahmu menuju ketenangan batin dan pikiran yang jernih.
+              Ruang Teduh untuk Berpikir &amp; Merasa. Sebuah oase hening untuk menemani langkah-langkahmu menuju ketenangan batin, keikhlasan hati, dan pikiran yang jernih.
             </p>
           </div>
 
@@ -24,7 +30,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
             {/* Instagram Link */}
             <a
-              href="https://instagram.com/nalarnanti"
+              href={IG_PROFILE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft group"
@@ -35,7 +41,7 @@ export default function Footer() {
 
             {/* WhatsApp Channel Link */}
             <a
-              href="https://whatsapp.com/channel/NalarNanti"
+              href={WA_CHANNEL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#8E9B8E] hover:text-[#8E9B8E] transition-all shadow-soft group"
@@ -58,14 +64,14 @@ export default function Footer() {
             <Link href="#beranda" className="hover:text-[#3E362E] transition-colors">
               Beranda
             </Link>
-            <Link href="#kutipan" className="hover:text-[#3E362E] transition-colors">
-              Kutipan
-            </Link>
             <Link href="#pengingat" className="hover:text-[#3E362E] transition-colors">
               Pengingat Acak
             </Link>
+            <Link href="#kutipan" className="hover:text-[#3E362E] transition-colors">
+              Koleksi Nalar
+            </Link>
             <Link href="#tentang" className="hover:text-[#3E362E] transition-colors">
-              Tentang
+              Tentang Kami
             </Link>
           </div>
         </div>
@@ -73,4 +79,3 @@ export default function Footer() {
     </footer>
   );
 }
-

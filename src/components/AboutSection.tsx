@@ -16,7 +16,7 @@ import {
  * 💡 PANDUAN TAUTAN KOMUNITAS:
  * Ubah URL di bawah ini dengan tautan saluran WhatsApp resmi Anda saat sudah siap.
  */
-const WA_CHANNEL_URL = "https://whatsapp.com/channel/ISI_LINK_SALURAN_WA";
+const WA_CHANNEL_URL = "https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y";
 const IG_PROFILE_URL = "https://instagram.com/nalarnanti";
 
 export default function AboutSection() {

@@ -45,3 +45,4 @@ export function formatIndonesianDate(dateString: string, isShort = false): strin
   }
   return dateString;
 }
+

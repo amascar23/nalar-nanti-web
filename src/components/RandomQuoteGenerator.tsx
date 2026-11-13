@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
 import {
   Sparkles,
@@ -14,17 +14,23 @@ import {
 } from "lucide-react";
 
 export default function RandomQuoteGenerator() {
-  // Gunakan kutipan awal yang deterministik agar SSR & Client Hydration cocok 100%
+  // Inisialisasi deterministik agar SSR & Client render identik 100% tanpa hydration mismatch
   const [currentQuote, setCurrentQuote] = useState<QuoteItem>(QUOTES_DATA[0]);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isCopied, setIsCopied] = useState(false);
-  const [shuffleCount, setShuffleCount] = useState(1);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [shuffleCount, setShuffleCount] = useState<number>(1);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  // Menandai bahwa komponen telah ter-mount di client
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleGetRandomQuote = () => {
     if (isAnimating) return;
     setIsAnimating(true);
 
-    // Pastikan tidak mengulang kutipan yang sama persis berturut-turut
+    // Pastikan tidak mengulang kutipan yang sama persis berturut-turut dari 18 kutipan asli
     let nextIndex = 0;
     do {
       nextIndex = Math.floor(Math.random() * QUOTES_DATA.length);
@@ -38,19 +44,20 @@ export default function RandomQuoteGenerator() {
       setIsAnimating(false);
       setIsCopied(false);
       setShuffleCount((prev) => prev + 1);
-    }, 240);
+    }, 220);
   };
 
   const handleCopy = () => {
-    const textToCopy = `“${currentQuote.quote}”\n— ${currentQuote.source}\n\n${currentQuote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
+    // Format selaras dengan kartu @nalarnanti: "<kutipan>" — <source> (Nalar Nanti)
+    const textToCopy = `“${currentQuote.quote}” — ${currentQuote.source} (Nalar Nanti)\n\n${currentQuote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
     navigator.clipboard.writeText(textToCopy);
     setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2200);
+    setTimeout(() => setIsCopied(false), 2500);
   };
 
   const handleShareWhatsApp = () => {
     const text = encodeURIComponent(
-      `🌿 *Pengingat Nalar Nanti — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source}\n\n_${currentQuote.reflection}_\n\n— https://nalarnanti.com`
+      `🌿 *Pengingat Nalar Nanti — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source} (Nalar Nanti)\n\n_${currentQuote.reflection}_\n\n— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };
@@ -60,7 +67,7 @@ export default function RandomQuoteGenerator() {
       id="pengingat"
       className="py-14 sm:py-24 bg-[#FAF7F2] border-t border-[#E5DDD0]/70 relative overflow-hidden"
     >
-      {/* Subtle background blur rings */}
+      {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] sm:w-[500px] h-[450px] sm:h-[500px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />
       <div className="absolute bottom-0 right-8 sm:right-12 w-52 sm:w-64 h-52 sm:h-64 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
 
@@ -86,17 +93,25 @@ export default function RandomQuoteGenerator() {
             disabled={isAnimating}
             className="inline-flex items-center justify-center gap-2.5 px-7 py-3 sm:px-9 sm:py-4 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-base hover:bg-[#B9967A] transition-all duration-300 shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:opacity-70 group"
           >
-            <Sparkles className={`w-4 h-4 sm:w-5 sm:h-5 text-[#FAF7F2] ${isAnimating ? "animate-spin" : "group-hover:rotate-12 transition-transform"}`} />
+            <Sparkles
+              className={`w-4 h-4 sm:w-5 sm:h-5 text-[#FAF7F2] ${
+                isAnimating ? "animate-spin" : "group-hover:rotate-12 transition-transform"
+              }`}
+            />
             <span>Ambil Satu Pengingat</span>
-            <RefreshCw className={`w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FAF7F2]/80 ml-0.5 sm:ml-1 ${isAnimating ? "animate-spin" : ""}`} />
+            <RefreshCw
+              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FAF7F2]/80 ml-0.5 sm:ml-1 ${
+                isAnimating ? "animate-spin" : ""
+              }`}
+            />
           </button>
-          
+
           <p className="text-[11px] text-[#7A6F64]/70 mt-2 font-sans">
             Telah diambil {shuffleCount} kali sesi hening
           </p>
         </div>
 
-        {/* Kartu Soft Cream dengan Animasi Fade-in yang Lembut */}
+        {/* Kartu Soft Cream dengan Format Selaras Kartu @nalarnanti */}
         <div className="max-w-2xl mx-auto text-left">
           <div
             className={`bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-6 sm:p-10 shadow-card transition-all duration-300 relative group overflow-hidden ${
@@ -105,30 +120,46 @@ export default function RandomQuoteGenerator() {
                 : "opacity-100 scale-100 blur-0"
             }`}
           >
-            {/* Header Kartu: Label Kategori Kecil & Tanggal */}
-            <div className="flex items-center justify-between mb-5 sm:mb-6 pb-3 sm:pb-3.5 border-b border-[#E5DDD0]/80">
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <span
-                  suppressHydrationWarning
-                  className="text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]"
-                >
-                  {currentQuote.category}
+            {/* Header Kartu: Label Kategori, Nomor Urut & Judul Tema */}
+            <div className="flex items-center justify-between gap-3 mb-5 sm:mb-6 pb-4 border-b border-[#E5DDD0]/80">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A98E]/20 text-[#886950] shrink-0">
+                  <Sparkles className="w-4 h-4 text-[#C8A98E]" />
                 </span>
-                <span
-                  suppressHydrationWarning
-                  className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#C8A98E]/15 text-[#886950]"
-                >
-                  {currentQuote.type}
-                </span>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E]">
+                      Pengingat Acak
+                    </span>
+                    <span
+                      suppressHydrationWarning
+                      className="text-[10px] text-[#886950] font-bold bg-[#FAF7F2] px-2 py-0.5 rounded-full border border-[#E5DDD0]"
+                    >
+                      #{currentQuote.orderNumber}
+                    </span>
+                    <span
+                      suppressHydrationWarning
+                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]"
+                    >
+                      {currentQuote.category}
+                    </span>
+                  </div>
+
+                  {/* Judul Tema Kartu */}
+                  <h3
+                    suppressHydrationWarning
+                    className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] mt-0.5"
+                  >
+                    {currentQuote.themeTitle}
+                  </h3>
+                </div>
               </div>
 
               <span
                 suppressHydrationWarning
-                className="inline-flex items-center gap-1.5 text-xs text-[#7A6F64] font-sans font-medium"
+                className="hidden sm:inline-block text-[10px] font-medium px-2.5 py-1 rounded-full bg-[#C8A98E]/15 text-[#886950] shrink-0"
               >
-                <span className="text-[#8E9B8E] font-semibold">#{currentQuote.orderNumber}</span>
-                <span>•</span>
-                <span className="max-w-[120px] sm:max-w-[200px] truncate">{currentQuote.themeTitle}</span>
+                Nuansa {currentQuote.type}
               </span>
             </div>
 
@@ -141,13 +172,20 @@ export default function RandomQuoteGenerator() {
               >
                 “{currentQuote.quote}”
               </blockquote>
-              <div className="mt-3 pl-2 flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-[#7A6F64]">
-                <Feather className="w-3.5 h-3.5 text-[#C8A98E]" />
-                <span suppressHydrationWarning>{currentQuote.source}</span>
+
+              {/* Badge Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
+              <div className="mt-4 pl-2 flex items-center">
+                <span
+                  suppressHydrationWarning
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3.5 py-1.5 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft"
+                >
+                  <Feather className="w-3.5 h-3.5 text-[#886950]" />
+                  <span>{currentQuote.source}</span>
+                </span>
               </div>
             </div>
 
-            {/* Teks Refleksi Singkat */}
+            {/* Catatan Refleksi */}
             <div className="bg-[#FAF7F2] rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 mb-6 sm:mb-7">
               <p className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1.5">
                 Catatan Refleksi
@@ -160,13 +198,13 @@ export default function RandomQuoteGenerator() {
               </p>
             </div>
 
-            {/* Footer Kartu: Tombol Salin dan Bagikan ke WhatsApp */}
+            {/* Footer Kartu: Tombol Salin Kutipan dan Bagikan ke WhatsApp */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2 border-t border-[#E5DDD0]/70">
-              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2 w-full sm:w-auto">
+              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto">
                 {/* Tombol Salin */}
                 <button
                   onClick={handleCopy}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group"
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group"
                 >
                   {isCopied ? (
                     <>
@@ -176,7 +214,7 @@ export default function RandomQuoteGenerator() {
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-                      <span>Salin</span>
+                      <span>Salin Kutipan</span>
                     </>
                   )}
                 </button>
@@ -184,9 +222,9 @@ export default function RandomQuoteGenerator() {
                 {/* Tombol Bagikan ke WhatsApp */}
                 <button
                   onClick={handleShareWhatsApp}
-                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 sm:py-2 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#8E9B8E] hover:text-[#8E9B8E] transition-all shadow-soft active:scale-95 group"
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-[#8E9B8E] group-hover:scale-110 transition-transform" />
+                  <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>WhatsApp</span>
                 </button>
               </div>
@@ -199,7 +237,7 @@ export default function RandomQuoteGenerator() {
             {/* Feedback Salin */}
             {isCopied && (
               <p className="mt-3 text-xs text-[#8E9B8E] font-medium text-center sm:text-left animate-fadeIn">
-                ✓ Kutipan dan refleksi berhasil disalin ke papan klip!
+                ✓ Kutipan berhasil disalin ke papan klip! Siap dibagikan ke status atau catatanmu.
               </p>
             )}
           </div>

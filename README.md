@@ -48,11 +48,30 @@ Website modern, hangat, dan minimalis untuk brand **Nalar Nanti**, dibangun meng
    * Eksplorasi filosofi makna *Nalar* (kejernihan akal sehat) dan *Nanti* (izin welas asih untuk menunda kepanikan dan menghormati waktu).
    * 3 Pilar Refleksi: *Beri Jeda*, *Ruang Rasa*, dan *Nalar yang Jernih*.
 
-6. **Footer Bersih & Terhubung**:
-   * Identitas resmi: **"Nalar Nanti — Ruang Teduh untuk Berpikir & Merasa"**.
-   * Tautan langsung ke media sosial:
-     * **Instagram**: [@nalarnanti](https://www.instagram.com/nalarnanti/)
-     * **Saluran WhatsApp**: [@NalarNanti](https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y)
+6. **Pemandu Suasana Hati (Mood Guide)**:
+   * Fitur interaktif untuk memilih suasana hati saat ini: *Kepala Lagi Penuh & Lelah*, *Cemas Soal Masa Depan*, *Butuh Penguat Sabar*, *Belajar Mengikhlaskan*, dan *Ingin Lebih Bersyukur*.
+   * Menyuguhkan sapaan empatik yang hangat serta 3 kutipan rekomendasi relevan.
+
+7. **Saku Hati (Bookmark Favorit Offline)**:
+   * Pengunjung dapat menandai dan menyimpan kutipan favorit tanpa perlu akun / login (tersimpan di `localStorage`).
+   * Tombol pintas "Saku Hati" dengan lencana hitungan pada navigasi dan laci (*drawer*) bernuansa Soft Cream.
+
+8. **Unduh Kartu Kutipan (PNG 9:16 Story & Status)**:
+   * Menggambar kartu kutipan estetik beresolusi 1080 x 1920 piksel langsung di browser menggunakan HTML5 Canvas native (ringan tanpa dependensi luar).
+   * Siap dibagikan langsung ke Instagram Story maupun Status WhatsApp.
+
+9. **Suara Teduh (Ambient Audio)**:
+   * Menghasilkan audio rintik hujan lembut dan dengung ambient menenangkan menggunakan Web Audio API native tanpa file audio eksternal.
+   * Dilengkapi kontrol toggle di pojok kiri bawah dengan transisi *fade-in* dan *fade-out* yang halus.
+
+10. **Pratinjau Tautan Dinamis (OpenGraph & Social Share)**:
+    * Kartu pratinjau sosial otomatis berukuran 1200 x 630 piksel via `next/og` saat dibagikan ke WhatsApp, Instagram DM, dan media sosial lainnya.
+
+11. **Footer Bersih & Terhubung**:
+    * Identitas resmi: **"Nalar Nanti — Ruang Teduh untuk Berpikir & Merasa"**.
+    * Tautan langsung ke media sosial:
+      * **Instagram**: [@nalarnanti](https://www.instagram.com/nalarnanti/)
+      * **Saluran WhatsApp**: [@NalarNanti](https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y)
 
 ---
 

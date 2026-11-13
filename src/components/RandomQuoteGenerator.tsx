@@ -66,7 +66,7 @@ export default function RandomQuoteGenerator() {
   return (
     <section
       id="pengingat"
-      className="py-14 sm:py-24 bg-[#FAF7F2] border-t border-[#E5DDD0]/70 relative overflow-hidden"
+      className="py-14 sm:py-24 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[500px] h-[340px] sm:h-[500px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />

@@ -96,7 +96,7 @@ export default function RequestSection() {
   return (
     <section
       id="titip-nalar"
-      className="py-16 sm:py-24 bg-[#FAF7F2] border-t border-[#E5DDD0]/70 relative overflow-hidden"
+      className="py-16 sm:py-24 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[550px] h-[340px] sm:h-[550px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />

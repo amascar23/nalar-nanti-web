@@ -20,7 +20,7 @@ export default function AboutSection() {
   return (
     <section
       id="tentang"
-      className="py-20 sm:py-28 bg-[#FAF7F2] border-t border-[#E5DDD0]/70 relative overflow-hidden"
+      className="py-20 sm:py-28 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px] bg-[#F3EDE2] rounded-full blur-3xl opacity-70 pointer-events-none -z-10" />

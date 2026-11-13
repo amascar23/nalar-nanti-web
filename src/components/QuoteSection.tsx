@@ -108,7 +108,7 @@ export default function QuoteSection() {
   };
 
   return (
-    <section id="kutipan" className="py-16 sm:py-28 bg-[#FAF7F2] border-t border-[#E5DDD0]/70">
+    <section id="kutipan" className="py-16 sm:py-28 bg-transparent border-t border-[#E5DDD0]/60 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">

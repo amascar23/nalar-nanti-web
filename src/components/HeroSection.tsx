@@ -50,35 +50,19 @@ export default function HeroSection() {
   return (
     <section
       id="beranda"
-      className="relative pt-24 pb-14 sm:pt-36 sm:pb-24 overflow-hidden bg-[#FAF7F2]"
+      className="relative pt-24 pb-14 sm:pt-36 sm:pb-24 overflow-hidden bg-transparent"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[650px] h-[340px] sm:h-[650px] bg-[#F3EDE2] rounded-full blur-3xl opacity-80 pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-2 sm:right-8 w-44 sm:w-72 h-44 sm:h-72 bg-[#8E9B8E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-2 sm:left-8 w-44 sm:w-72 h-44 sm:h-72 bg-[#C8A98E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
-
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Area Teks Hero dengan Background Watermark Logo Nalar Nanti */}
+        {/* Area Teks Hero */}
         <div className="relative max-w-3xl mx-auto mb-8 sm:mb-12">
-          {/* Background Watermark Logo */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[420px] md:w-[480px] h-[280px] sm:h-[420px] md:h-[480px] rounded-full overflow-hidden opacity-10 sm:opacity-[0.14] pointer-events-none select-none -z-0">
-            <Image
-              src="/images/logo.jpg"
-              alt="Watermark Logo Nalar Nanti"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-
           {/* 1. Tagline kecil yang hangat di atas judul */}
-          <div className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2]/90 backdrop-blur-xs border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-5 sm:mb-8 shadow-soft">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2]/90 backdrop-blur-xs border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-5 sm:mb-8 shadow-soft">
             <span className="w-2 h-2 rounded-full bg-[#8E9B8E] animate-pulse shrink-0" />
             <span>Ruang Singgah untuk Menata Nalar {"&"} Merakit Asa</span>
           </div>
 
           {/* 2. Judul utama yang puitis dengan font Lora & deskripsi singkat */}
-          <h1 className="relative z-10 font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.2] mb-4 sm:mb-6">
+          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.2] mb-4 sm:mb-6">
             Beri jeda sejenak, biarkan nalar dan hati menemukan{" "}
             <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 sm:underline-offset-8">
               keteduhannya
@@ -86,7 +70,7 @@ export default function HeroSection() {
             .
           </h1>
 
-          <p className="relative z-10 font-sans text-xs sm:text-base lg:text-lg text-[#7A6F64] max-w-2xl mx-auto leading-relaxed">
+          <p className="font-sans text-xs sm:text-base lg:text-lg text-[#7A6F64] max-w-2xl mx-auto leading-relaxed">
             Selamat datang di <strong className="text-[#3E362E] font-medium">Nalar Nanti</strong>, rumah digital dari akun Instagram{" "}
             <a
               href="https://www.instagram.com/nalarnanti/"

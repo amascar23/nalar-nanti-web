@@ -24,7 +24,8 @@ export default function HeroSection() {
     featuredQuotes[activeFeaturedIndex] || QUOTES_DATA[0];
 
   const handleCopyQuote = () => {
-    const textToCopy = `“${currentQuote.quote}” (${currentQuote.source}) — Nalar Nanti`;
+    // Format: "<kutipan>" — <source> (Nalar Nanti)
+    const textToCopy = `“${currentQuote.quote}” — ${currentQuote.source} (Nalar Nanti)`;
     navigator.clipboard.writeText(textToCopy);
     setIsCopied(true);
     setTimeout(() => {
@@ -33,7 +34,7 @@ export default function HeroSection() {
   };
 
   const handleShareWhatsApp = () => {
-    const message = `🌿 *Nalar Hari Ini — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source}\n\n_${currentQuote.reflection}_\n\n— Nalar Nanti (Ruang Singgah untuk Hati & Pikiran)\nhttps://nalarnanti.com`;
+    const message = `🌿 *Nalar Hari Ini — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source} (Nalar Nanti)\n\n_${currentQuote.reflection}_\n\n— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`;
     const waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };
@@ -59,12 +60,12 @@ export default function HeroSection() {
         {/* 1. Tagline kecil yang hangat di atas judul */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-6 sm:mb-8 shadow-soft">
           <span className="w-2 h-2 rounded-full bg-[#8E9B8E] animate-pulse" />
-          <span>Ruang Singgah untuk Hati {"&"} Pikiran</span>
+          <span>Ruang Singgah untuk Menata Nalar {"&"} Merakit Asa</span>
         </div>
 
-        {/* 2. Judul utama yang menenangkan & deskripsi singkat */}
+        {/* 2. Judul utama yang puitis dengan font Lora & deskripsi singkat */}
         <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#3E362E] max-w-3xl mx-auto leading-[1.28] sm:leading-[1.2] mb-5 sm:mb-6">
-          Beri jeda sejenak, biarkan hati dan nalar menemukan{" "}
+          Beri jeda sejenak, biarkan nalar dan hati menemukan{" "}
           <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-8">
             keteduhannya
           </span>
@@ -72,37 +73,58 @@ export default function HeroSection() {
         </h1>
 
         <p className="font-sans text-sm sm:text-lg text-[#7A6F64] max-w-2xl mx-auto leading-relaxed mb-10 sm:mb-12">
-          Selamat datang di <strong className="text-[#3E362E] font-medium">Nalar Nanti</strong>. 
-          Sebuah ruang berbagi kata-kata motivasi Islami dan refleksi kehidupan sehari-hari, 
-          menemani setiap langkahmu untuk bernapas lebih tenang, menerima proses, dan berprasangka baik pada setiap ketetapan.
+          Selamat datang di <strong className="text-[#3E362E] font-medium">Nalar Nanti</strong>, rumah digital dari akun Instagram{" "}
+          <a
+            href="https://instagram.com/nalarnanti"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
+          >
+            @nalarnanti
+          </a>{" "}
+          dan Saluran WhatsApp{" "}
+          <a
+            href="https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
+          >
+            @NalarNanti
+          </a>
+          . Ruang singgah hangat yang berisi kutipan motivasi Islami serta refleksi ketenangan diri untuk menemanimu bernapas lebih lega, menerima proses, dan berprasangka baik pada setiap ketetapan.
         </p>
 
         {/* 3. Kartu Sorotan Utama: "Nalar Hari Ini" */}
         <div className="max-w-2xl mx-auto text-left relative">
           <div className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-6 sm:p-10 shadow-card transition-all duration-300 relative group overflow-hidden">
-            {/* Header Kartu */}
-            <div className="flex items-center justify-between gap-3 mb-5 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80">
-              <div className="flex items-center gap-2 sm:gap-2.5">
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A98E]/20 text-[#886950]">
+            {/* Header Kartu: Judul Tema di Bagian Atas Kartu */}
+            <div className="flex items-center justify-between gap-3 mb-5 sm:mb-6 pb-4 border-b border-[#E5DDD0]/80">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#C8A98E]/20 text-[#886950] shrink-0">
                   <Sparkles className="w-4 h-4 text-[#C8A98E]" />
                 </span>
                 <div>
-                  <div className="flex items-center gap-1.5 sm:gap-2">
-                    <span className="font-serif text-base sm:text-lg font-semibold text-[#3E362E]">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E]">
                       Nalar Hari Ini
+                    </span>
+                    <span className="text-[10px] text-[#886950] font-bold bg-[#FAF7F2] px-2 py-0.5 rounded-full border border-[#E5DDD0]">
+                      #{currentQuote.orderNumber}
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]"
+                      className="hidden sm:inline-block text-[10px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]"
                     >
                       {currentQuote.category}
                     </span>
                   </div>
-                  <p className="text-[11px] text-[#7A6F64] flex items-center gap-1.5 mt-0.5 font-sans">
-                    <span className="font-semibold text-[#8E9B8E]">#{currentQuote.orderNumber}</span>
-                    <span>•</span>
-                    <span suppressHydrationWarning className="line-clamp-1">{currentQuote.themeTitle}</span>
-                  </p>
+                  {/* Judul Tema Kartu */}
+                  <h2
+                    suppressHydrationWarning
+                    className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] mt-0.5"
+                  >
+                    {currentQuote.themeTitle}
+                  </h2>
                 </div>
               </div>
 
@@ -111,7 +133,7 @@ export default function HeroSection() {
                   onClick={handleNextFeatured}
                   title="Lihat kutipan pilihan lainnya"
                   aria-label="Lihat kutipan pilihan berikutnya"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#7A6F64] hover:text-[#3E362E] px-3 py-1.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] hover:border-[#C8A98E] active:scale-95 transition-all"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#7A6F64] hover:text-[#3E362E] px-3 py-1.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] hover:border-[#C8A98E] active:scale-95 transition-all shadow-soft shrink-0"
                 >
                   <RefreshCw className="w-3 h-3" />
                   <span className="hidden sm:inline">Pilihan Lain</span>
@@ -119,7 +141,7 @@ export default function HeroSection() {
               )}
             </div>
 
-            {/* Kutipan Utama */}
+            {/* Kutipan Utama dengan Font Lora */}
             <div className="relative mb-5 sm:mb-6">
               <QuoteIcon className="w-7 h-7 sm:w-8 sm:h-8 text-[#C8A98E]/30 absolute -top-3 -left-1 sm:-left-2 -z-0" />
               <blockquote
@@ -128,9 +150,16 @@ export default function HeroSection() {
               >
                 “{currentQuote.quote}”
               </blockquote>
-              <div className="mt-3 pl-2 flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium text-[#7A6F64]">
-                <Feather className="w-3.5 h-3.5 text-[#C8A98E]" />
-                <span suppressHydrationWarning>{currentQuote.source}</span>
+
+              {/* Badge Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
+              <div className="mt-4 pl-2 flex items-center">
+                <span
+                  suppressHydrationWarning
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3.5 py-1.5 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft"
+                >
+                  <Feather className="w-3.5 h-3.5 text-[#886950]" />
+                  <span>{currentQuote.source}</span>
+                </span>
               </div>
             </div>
 

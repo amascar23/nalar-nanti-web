@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
+import { formatIndonesianDate } from "@/lib/utils";
 import {
   Sparkles,
   Copy,
@@ -46,16 +47,7 @@ export default function HeroSection() {
   };
 
   const formatDate = (dateString: string) => {
-    try {
-      const options: Intl.DateTimeFormatOptions = {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      };
-      return new Date(dateString).toLocaleDateString("id-ID", options);
-    } catch {
-      return dateString;
-    }
+    return formatIndonesianDate(dateString);
   };
 
   return (

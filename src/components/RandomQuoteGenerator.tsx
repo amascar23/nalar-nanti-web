@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
+import { formatIndonesianDate } from "@/lib/utils";
 import {
   Sparkles,
   Copy,
@@ -14,12 +15,8 @@ import {
 } from "lucide-react";
 
 export default function RandomQuoteGenerator() {
-  // Pilih kutipan acak awal yang siap dibaca
-  const [currentQuote, setCurrentQuote] = useState<QuoteItem>(() => {
-    const initialIndex = Math.floor(Math.random() * QUOTES_DATA.length);
-    return QUOTES_DATA[initialIndex];
-  });
-
+  // Gunakan kutipan awal yang deterministik agar SSR & Client Hydration cocok 100%
+  const [currentQuote, setCurrentQuote] = useState<QuoteItem>(QUOTES_DATA[0]);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [shuffleCount, setShuffleCount] = useState(1);
@@ -57,19 +54,6 @@ export default function RandomQuoteGenerator() {
       `🌿 *Pengingat Nalar Nanti*\n\n“${currentQuote.quote}”\n\n_${currentQuote.reflection}_\n\n— https://nalarnanti.com`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
-  };
-
-  const formatDate = (dateString: string) => {
-    try {
-      const options: Intl.DateTimeFormatOptions = {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      };
-      return new Date(dateString).toLocaleDateString("id-ID", options);
-    } catch {
-      return dateString;
-    }
   };
 
   return (
@@ -135,7 +119,7 @@ export default function RandomQuoteGenerator() {
 
               <span className="inline-flex items-center gap-1.5 text-xs text-[#7A6F64] font-sans">
                 <Calendar className="w-3 h-3 text-[#8E9B8E]" />
-                {formatDate(currentQuote.date)}
+                {formatIndonesianDate(currentQuote.date, true)}
               </span>
             </div>
 

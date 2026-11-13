@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { QUOTES_DATA, QuoteItem, QuoteCategory } from "@/data/quotes";
+import { formatIndonesianDate } from "@/lib/utils";
 import {
   Quote,
   Copy,
@@ -100,16 +101,7 @@ export default function QuoteSection() {
   };
 
   const formatDate = (dateString: string) => {
-    try {
-      const options: Intl.DateTimeFormatOptions = {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      };
-      return new Date(dateString).toLocaleDateString("id-ID", options);
-    } catch {
-      return dateString;
-    }
+    return formatIndonesianDate(dateString, true);
   };
 
   return (

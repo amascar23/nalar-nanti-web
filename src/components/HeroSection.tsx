@@ -58,58 +58,56 @@ export default function HeroSection() {
       <div className="absolute bottom-10 left-2 sm:left-8 w-44 sm:w-72 h-44 sm:h-72 bg-[#C8A98E]/10 rounded-full blur-2xl pointer-events-none -z-10" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Logo Lingkaran Resmi Nalar Nanti */}
-        <div className="mb-5 sm:mb-6 flex justify-center animate-fadeIn">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-[#F3EDE2] border border-[#E5DDD0] shadow-card hover:scale-105 transition-transform duration-300">
-            <div className="w-full h-full rounded-full overflow-hidden bg-[#FAF7F2]">
-              <Image
-                src="/images/logo.jpg"
-                alt="Logo Nalar Nanti"
-                width={96}
-                height={96}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
+        {/* Area Teks Hero dengan Background Watermark Logo Nalar Nanti */}
+        <div className="relative max-w-3xl mx-auto mb-8 sm:mb-12">
+          {/* Background Watermark Logo */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[420px] md:w-[480px] h-[280px] sm:h-[420px] md:h-[480px] rounded-full overflow-hidden opacity-10 sm:opacity-[0.14] pointer-events-none select-none -z-0">
+            <Image
+              src="/images/logo.jpg"
+              alt="Watermark Logo Nalar Nanti"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
+
+          {/* 1. Tagline kecil yang hangat di atas judul */}
+          <div className="relative z-10 inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2]/90 backdrop-blur-xs border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-5 sm:mb-8 shadow-soft">
+            <span className="w-2 h-2 rounded-full bg-[#8E9B8E] animate-pulse shrink-0" />
+            <span>Ruang Singgah untuk Menata Nalar {"&"} Merakit Asa</span>
+          </div>
+
+          {/* 2. Judul utama yang puitis dengan font Lora & deskripsi singkat */}
+          <h1 className="relative z-10 font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.2] mb-4 sm:mb-6">
+            Beri jeda sejenak, biarkan nalar dan hati menemukan{" "}
+            <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 sm:underline-offset-8">
+              keteduhannya
+            </span>
+            .
+          </h1>
+
+          <p className="relative z-10 font-sans text-xs sm:text-base lg:text-lg text-[#7A6F64] max-w-2xl mx-auto leading-relaxed">
+            Selamat datang di <strong className="text-[#3E362E] font-medium">Nalar Nanti</strong>, rumah digital dari akun Instagram{" "}
+            <a
+              href="https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
+            >
+              @nalarnanti
+            </a>{" "}
+            dan Saluran WhatsApp{" "}
+            <a
+              href="https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
+            >
+              @NalarNanti
+            </a>
+            . Ruang singgah hangat yang berisi kutipan motivasi Islami serta refleksi ketenangan diri untuk menemanimu bernapas lebih lega, menerima proses, dan berprasangka baik pada setiap ketetapan.
+          </p>
         </div>
-
-        {/* 1. Tagline kecil yang hangat di atas judul */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-5 sm:mb-8 shadow-soft">
-          <span className="w-2 h-2 rounded-full bg-[#8E9B8E] animate-pulse shrink-0" />
-          <span>Ruang Singgah untuk Menata Nalar {"&"} Merakit Asa</span>
-        </div>
-
-        {/* 2. Judul utama yang puitis dengan font Lora & deskripsi singkat */}
-        <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.2] mb-4 sm:mb-6">
-          Beri jeda sejenak, biarkan nalar dan hati menemukan{" "}
-          <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 sm:underline-offset-8">
-            keteduhannya
-          </span>
-          .
-        </h1>
-
-        <p className="font-sans text-xs sm:text-base lg:text-lg text-[#7A6F64] max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12">
-          Selamat datang di <strong className="text-[#3E362E] font-medium">Nalar Nanti</strong>, rumah digital dari akun Instagram{" "}
-          <a
-            href="https://www.instagram.com/nalarnanti?exln=MXJsOHM5bDVkb2F1Zg=="
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
-          >
-            @nalarnanti
-          </a>{" "}
-          dan Saluran WhatsApp{" "}
-          <a
-            href="https://whatsapp.com/channel/0029VbBLknC7IUYPlfksIh0Y"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#3E362E] font-semibold hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
-          >
-            @NalarNanti
-          </a>
-          . Ruang singgah hangat yang berisi kutipan motivasi Islami serta refleksi ketenangan diri untuk menemanimu bernapas lebih lega, menerima proses, dan berprasangka baik pada setiap ketetapan.
-        </p>
 
         {/* 3. Kartu Sorotan Utama: "Nalar Hari Ini" (Mobile-friendly Padding) */}
         <div className="max-w-2xl mx-auto text-left relative">

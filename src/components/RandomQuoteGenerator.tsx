@@ -86,6 +86,7 @@ export default function RandomQuoteGenerator() {
       id="pengingat"
       className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
     >
+      <span id="pengingat-acak" className="sr-only" />
       <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
         {/* Header Bagian */}
         <div className="max-w-xl mx-auto mb-6 sm:mb-8 text-center">

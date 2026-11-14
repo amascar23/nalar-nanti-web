@@ -13,12 +13,12 @@ export default function Navbar() {
   const { savedCount, openDrawer, isLoaded } = useSavedQuotes();
 
   const navLinks = [
-    { label: "Beranda", href: "#beranda" },
-    { label: "Suasana Hati", href: "#suasana-hati" },
-    { label: "Pengingat Acak", href: "#pengingat" },
-    { label: "Koleksi Nalar", href: "#kutipan" },
-    { label: "Titip Nalar", href: "#titip-nalar" },
-    { label: "Tentang", href: "#tentang" },
+    { label: "Beranda", href: "/#beranda" },
+    { label: "Suasana Hati", href: "/#suasana-hati" },
+    { label: "Pengingat Acak", href: "/#pengingat" },
+    { label: "Koleksi Nalar", href: "/koleksi" },
+    { label: "Titip Nalar", href: "/#titip-nalar" },
+    { label: "Tentang", href: "/#tentang" },
   ];
 
   return (
@@ -26,7 +26,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-4">
         {/* 1. Zona Kiri: Identitas Brand */}
         <Link
-          href="#beranda"
+          href="/#beranda"
           className="flex items-center gap-2.5 sm:gap-3 transition-opacity hover:opacity-90 active:scale-98 shrink-0"
         >
           <div className="w-9 h-9 rounded-xl bg-[#EAE1D3] border border-[#E5DDD0] flex items-center justify-center overflow-hidden shrink-0 shadow-soft">
@@ -53,7 +53,7 @@ export default function Navbar() {
               href={item.href}
               className="whitespace-nowrap hover:text-[#3E362E] transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#C8A98E] hover:after:w-full after:transition-all"
             >
-              {item.label}
+              <span className="whitespace-nowrap">{item.label}</span>
             </Link>
           ))}
         </nav>
@@ -65,12 +65,12 @@ export default function Navbar() {
             onClick={openDrawer}
             aria-label="Buka Saku Hati"
             title="Kutipan Tersimpan di Saku Hati"
-            className="h-9 px-3 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] text-[#3E362E] text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all shadow-soft active:scale-95"
+            className="h-9 px-3 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] text-[#3E362E] text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all shadow-soft active:scale-95 shrink-0"
           >
-            <Bookmark className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
-            <span>Saku Hati</span>
+            <Bookmark className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20 shrink-0" />
+            <span className="whitespace-nowrap">Saku Hati</span>
             {isLoaded && savedCount > 0 && (
-              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[10px] font-bold">
+              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[10px] font-bold shrink-0">
                 {savedCount}
               </span>
             )}
@@ -89,13 +89,13 @@ export default function Navbar() {
           </a>
 
           {/* Tombol CTA Utama ("Tarik Napas") */}
-          <a
-            href="#pengingat"
-            className="h-9 px-4 rounded-xl bg-[#C8A98E] hover:bg-[#b8977a] text-[#FAF7F2] text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap shadow-soft transition-all active:scale-95"
+          <Link
+            href="/#pengingat"
+            className="h-9 px-4 rounded-xl bg-[#C8A98E] hover:bg-[#b8977a] text-[#FAF7F2] text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap shadow-soft transition-all active:scale-95 shrink-0"
           >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Tarik Napas</span>
-          </a>
+            <Sparkles className="w-3.5 h-3.5 shrink-0" />
+            <span className="whitespace-nowrap">Tarik Napas</span>
+          </Link>
         </div>
 
         {/* 4. Tampilan Mobile & Tablet (lg:hidden) */}
@@ -105,12 +105,12 @@ export default function Navbar() {
             onClick={openDrawer}
             aria-label="Buka Saku Hati"
             title="Kutipan Tersimpan di Saku Hati"
-            className="h-9 px-2.5 sm:px-3 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] text-[#3E362E] text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all shadow-soft active:scale-95"
+            className="h-9 px-2.5 sm:px-3 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] text-[#3E362E] text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all shadow-soft active:scale-95 shrink-0"
           >
-            <Bookmark className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
-            <span className="hidden xs:inline">Saku Hati</span>
+            <Bookmark className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20 shrink-0" />
+            <span className="hidden xs:inline whitespace-nowrap">Saku Hati</span>
             {isLoaded && savedCount > 0 && (
-              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[10px] font-bold">
+              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[10px] font-bold shrink-0">
                 {savedCount}
               </span>
             )}
@@ -120,7 +120,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
-            className="w-9 h-9 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] flex items-center justify-center text-[#3E362E] transition-colors active:scale-95"
+            className="w-9 h-9 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] flex items-center justify-center text-[#3E362E] transition-colors active:scale-95 shrink-0"
           >
             {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -138,21 +138,21 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="block px-3.5 py-2.5 rounded-xl text-sm font-medium text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#F3EDE2] active:bg-[#E5DDD0]/60 transition-colors whitespace-nowrap"
               >
-                {item.label}
+                <span className="whitespace-nowrap">{item.label}</span>
               </Link>
             ))}
           </nav>
 
           <div className="pt-2 space-y-2 border-t border-[#E5DDD0]/70 mt-2">
             {/* Tombol CTA Tarik Napas */}
-            <a
-              href="#pengingat"
+            <Link
+              href="/#pengingat"
               onClick={() => setIsOpen(false)}
               className="flex items-center justify-center gap-2 w-full text-center text-xs font-semibold px-4 py-3 rounded-xl bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#b8977a] transition-all shadow-soft active:scale-98 whitespace-nowrap"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Tarik Napas — Ambil Pengingat</span>
-            </a>
+              <Sparkles className="w-3.5 h-3.5 shrink-0" />
+              <span className="whitespace-nowrap">Tarik Napas — Ambil Pengingat</span>
+            </Link>
 
             {/* Link Instagram */}
             <a
@@ -162,8 +162,8 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="flex items-center justify-center gap-2 w-full text-center text-xs font-semibold px-4 py-2.5 rounded-xl bg-[#F3EDE2]/70 border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-98 whitespace-nowrap"
             >
-              <Instagram className="w-4 h-4 text-[#C8A98E]" />
-              <span>Kunjungi Instagram @nalarnanti</span>
+              <Instagram className="w-4 h-4 text-[#C8A98E] shrink-0" />
+              <span className="whitespace-nowrap">Kunjungi Instagram @nalarnanti</span>
             </a>
           </div>
         </div>

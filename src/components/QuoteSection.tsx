@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { QUOTES_DATA, QuoteItem, QuoteCategory } from "@/data/quotes";
 import {
@@ -24,7 +25,11 @@ import { useSavedQuotes } from "@/context/SavedQuotesContext";
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
-export default function QuoteSection() {
+interface QuoteSectionProps {
+  isPreview?: boolean;
+}
+
+export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
   const [selectedType, setSelectedType] = useState<"Semua" | "Islami" | "Umum">("Semua");
   const [selectedCategory, setSelectedCategory] = useState<string>("Semua");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -84,6 +89,9 @@ export default function QuoteSection() {
     return matchType && matchCat && matchSearch;
   });
 
+  // Tampilkan 3 kutipan terbaru untuk mode preview landing page, atau hasil filter untuk halaman penuh
+  const displayedQuotes = isPreview ? QUOTES_DATA.slice(0, 3) : filteredQuotes;
+
   const handleCopy = (quote: QuoteItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     const textToCopy = `“${quote.quote}” — ${quote.source} (Nalar Nanti)\n\n${quote.reflection}\n\n— Nalar Nanti (@nalarnanti)`;
@@ -140,6 +148,7 @@ export default function QuoteSection() {
 
   return (
     <section id="kutipan" className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative">
+      <span id="koleksi" className="sr-only" />
       <div className="max-w-5xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
@@ -150,77 +159,87 @@ export default function QuoteSection() {
             Koleksi Nalar
           </h2>
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
-            Kumpulan kata-kata penenang, motivasi Islami, dan renungan kehidupan dari seluruh 18 postingan asli @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya.
+            {isPreview
+              ? "Kumpulan kata penenang, motivasi Islami, dan renungan kehidupan dari postingan pilihan @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya."
+              : "Kumpulan kata-kata penenang, motivasi Islami, dan renungan kehidupan dari seluruh 18 postingan asli @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya."}
           </p>
         </div>
 
-        {/* Search Bar & Quick Filters */}
-        <div className="max-w-3xl mx-auto mb-8 sm:mb-10 space-y-3.5 sm:space-y-4">
-          {/* Kolom Pencarian Cerdas (mencari kutipan, judul tema, atau tokoh/sumber) */}
-          <div className="relative">
-            <Search className="w-4 h-4 text-[#7A6F64] absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Cari kutipan, judul tema, atau tokoh (contoh: Rumi, Syafi'i, Ali, Bukhari, waktu)..."
-              className="w-full pl-10 sm:pl-11 pr-10 py-3 sm:py-3.5 rounded-2xl bg-[#F3EDE2] border border-[#E5DDD0] text-base sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/70 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                aria-label="Bersihkan pencarian"
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#FAF7F2] active:scale-95 transition-all"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
-          </div>
-
-          {/* Filter Cepat Tipe Kutipan: "Semua Tipe", "Islami", dan "Umum" */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
-            <div className="inline-flex items-center p-1 bg-[#F3EDE2] border border-[#E5DDD0] rounded-full shadow-soft">
-              {(["Semua", "Islami", "Umum"] as const).map((type) => (
+        {/* Search Bar & Quick Filters (Hanya muncul di halaman penuh /koleksi) */}
+        {!isPreview && (
+          <div className="max-w-3xl mx-auto mb-8 sm:mb-10 space-y-3.5 sm:space-y-4">
+            {/* Kolom Pencarian Cerdas (mencari kutipan, judul tema, atau tokoh/sumber) */}
+            <div className="relative">
+              <Search className="w-4 h-4 text-[#7A6F64] absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Cari kutipan, judul tema, atau tokoh (contoh: Rumi, Syafi'i, Ali, Bukhari, waktu)..."
+                className="w-full pl-10 sm:pl-11 pr-10 py-3 sm:py-3.5 rounded-2xl bg-[#F3EDE2] border border-[#E5DDD0] text-base sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/70 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+              />
+              {searchQuery && (
                 <button
-                  key={type}
-                  onClick={() => setSelectedType(type)}
-                  className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all active:scale-95 ${
-                    selectedType === type
-                      ? "bg-[#C8A98E] text-[#FAF7F2] shadow-soft"
-                      : "text-[#7A6F64] hover:text-[#3E362E]"
+                  onClick={() => setSearchQuery("")}
+                  aria-label="Bersihkan pencarian"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#FAF7F2] active:scale-95 transition-all"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Filter Cepat Tipe Kutipan: "Semua Tipe", "Islami", dan "Umum" */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
+              <div className="inline-flex items-center p-1 bg-[#F3EDE2] border border-[#E5DDD0] rounded-full shadow-soft">
+                {(["Semua", "Islami", "Umum"] as const).map((type) => (
+                  <button
+                    key={type}
+                    onClick={() => setSelectedType(type)}
+                    className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all active:scale-95 ${
+                      selectedType === type
+                        ? "bg-[#C8A98E] text-[#FAF7F2] shadow-soft"
+                        : "text-[#7A6F64] hover:text-[#3E362E]"
+                    }`}
+                  >
+                    {type === "Semua" ? "Semua Tipe" : type}
+                  </button>
+                ))}
+              </div>
+
+              <p className="text-xs text-[#7A6F64] font-medium">
+                Menampilkan {filteredQuotes.length} dari {QUOTES_DATA.length} kutipan
+              </p>
+            </div>
+
+            {/* Tab Filter Kategori */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all active:scale-95 ${
+                    selectedCategory === cat
+                      ? "bg-[#3E362E] text-[#FAF7F2] shadow-soft"
+                      : "bg-[#F3EDE2] text-[#7A6F64] border border-[#E5DDD0] hover:text-[#3E362E] hover:border-[#C8A98E]/60"
                   }`}
                 >
-                  {type === "Semua" ? "Semua Tipe" : type}
+                  {cat}
                 </button>
               ))}
             </div>
-
-            <p className="text-xs text-[#7A6F64] font-medium">
-              Menampilkan {filteredQuotes.length} dari {QUOTES_DATA.length} kutipan
-            </p>
           </div>
+        )}
 
-          {/* Tab Filter Kategori */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all active:scale-95 ${
-                  selectedCategory === cat
-                    ? "bg-[#3E362E] text-[#FAF7F2] shadow-soft"
-                    : "bg-[#F3EDE2] text-[#7A6F64] border border-[#E5DDD0] hover:text-[#3E362E] hover:border-[#C8A98E]/60"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Grid Kartu Koleksi Nalar: 3 kolom di laptop, 2 kolom di tablet, 1 kolom di HP */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
-          {filteredQuotes.map((item) => (
+        {/* Grid Kartu Koleksi Nalar: 3 kolom di laptop saat preview (1 baris), atau 3/2/1 kolom saat halaman penuh */}
+        <div
+          className={`grid gap-5 sm:gap-7 ${
+            isPreview
+              ? "grid-cols-1 md:grid-cols-3"
+              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          }`}
+        >
+          {displayedQuotes.map((item) => (
             <div
               key={item.id}
               onClick={() => {
@@ -362,8 +381,21 @@ export default function QuoteSection() {
           ))}
         </div>
 
-        {/* Empty State bila pencarian tidak ditemukan */}
-        {filteredQuotes.length === 0 && (
+        {/* Tombol Lihat Selengkapnya (Hanya Tampil di Mode Preview Landing Page) */}
+        {isPreview && (
+          <div className="mt-10 sm:mt-12 text-center">
+            <Link
+              href="/koleksi"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] font-semibold text-xs sm:text-sm shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all group whitespace-nowrap"
+            >
+              <span>Lihat Selengkapnya ({QUOTES_DATA.length} Kutipan)</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        )}
+
+        {/* Empty State bila pencarian tidak ditemukan (Hanya di mode halaman penuh) */}
+        {!isPreview && filteredQuotes.length === 0 && (
           <div className="text-center py-14 sm:py-16 bg-[#F3EDE2] rounded-3xl border border-[#E5DDD0] max-w-md mx-auto mt-6 p-6">
             <BookOpen className="w-8 h-8 text-[#C8A98E] mx-auto mb-3" />
             <p className="font-serif text-lg text-[#3E362E] mb-2 font-medium">

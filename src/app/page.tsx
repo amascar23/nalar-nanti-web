@@ -16,7 +16,7 @@ export default function HomePage() {
         <HeroSection />
         <MoodGuideSection />
         <RandomQuoteGenerator />
-        <QuoteSection />
+        <QuoteSection isPreview={true} />
         <RequestSection />
         <AboutSection />
       </main>

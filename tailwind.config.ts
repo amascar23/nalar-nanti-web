@@ -38,6 +38,9 @@ const config: Config = {
         card: "0 8px 30px -4px rgba(62, 54, 46, 0.08)",
         floating: "0 14px 40px -6px rgba(62, 54, 46, 0.12)",
       },
+      screens: {
+        xs: "480px",
+      },
     },
   },
   plugins: [],

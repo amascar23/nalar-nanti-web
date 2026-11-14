@@ -11,7 +11,7 @@ const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { savedCount, openDrawer } = useSavedQuotes();
+  const { savedCount, openDrawer, isLoaded } = useSavedQuotes();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,7 +93,7 @@ export default function Navbar() {
           >
             <Bookmark className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20 group-hover:fill-[#C8A98E] transition-colors" />
             <span className="hidden xs:inline">Saku Hati</span>
-            {savedCount > 0 && (
+            {isLoaded && savedCount > 0 && (
               <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[10px] font-bold">
                 {savedCount}
               </span>
@@ -157,7 +157,7 @@ export default function Navbar() {
                 <span>Buka Saku Hati</span>
               </div>
               <span className="px-2 py-0.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[11px] font-bold">
-                {savedCount} tersimpan
+                {isLoaded ? `${savedCount} tersimpan` : "Buka"}
               </span>
             </button>
 

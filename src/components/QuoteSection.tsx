@@ -287,7 +287,7 @@ export default function QuoteSection() {
                   {/* Pill Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
                   <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft shrink-0">
                     <Feather className="w-3 h-3 text-[#886950]" />
-                    <span className="truncate max-w-[130px] sm:max-w-[160px]">{item.source}</span>
+                    <span className="truncate max-w-[105px] xs:max-w-[130px] sm:max-w-[160px]">{item.source}</span>
                   </span>
 
                   {/* Tombol Salin & Bagikan Mini */}
@@ -479,13 +479,13 @@ export default function QuoteSection() {
               </p>
             </div>
 
-            {/* Tombol Aksi di Modal (Salin Kutipan & Bagikan ke WhatsApp) */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-[#E5DDD0]">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
+            {/* Tombol Aksi di Modal (Responsif & Rapi Tanpa Overflow) */}
+            <div className="flex flex-col gap-3 pt-3.5 border-t border-[#E5DDD0]">
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 w-full">
                 {/* Tombol Salin Kutipan */}
                 <button
                   onClick={() => handleCopyInModal(selectedModalQuote)}
-                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95"
                 >
                   {isModalCopied ? (
                     <>
@@ -495,7 +495,7 @@ export default function QuoteSection() {
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5 text-[#7A6F64]" />
-                      <span>Salin Kutipan</span>
+                      <span>Salin</span>
                     </>
                   )}
                 </button>
@@ -503,17 +503,17 @@ export default function QuoteSection() {
                 {/* Tombol Bagikan ke WhatsApp */}
                 <button
                   onClick={() => handleShareWa(selectedModalQuote)}
-                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
                 >
                   <Share2 className="w-3.5 h-3.5 text-[#FAF7F2]" />
-                  <span>Bagikan ke WhatsApp</span>
+                  <span>WhatsApp</span>
                 </button>
 
                 {/* Tombol Simpan Gambar */}
                 <button
                   onClick={() => handleDownloadModalQuote(selectedModalQuote)}
                   disabled={isModalDownloading}
-                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group"
                   title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
                 >
                   {isModalDownloading ? (
@@ -532,7 +532,7 @@ export default function QuoteSection() {
                 {/* Tombol Simpan ke Saku Hati */}
                 <button
                   onClick={() => toggleSave(selectedModalQuote.id)}
-                  className={`w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border text-xs font-semibold transition-all shadow-soft active:scale-95 ${
+                  className={`min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2.5 rounded-full border text-xs font-semibold transition-all shadow-soft active:scale-95 ${
                     isSaved(selectedModalQuote.id)
                       ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
                       : "bg-[#F3EDE2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
@@ -544,16 +544,16 @@ export default function QuoteSection() {
                       isSaved(selectedModalQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
                     }`}
                   />
-                  <span>{isSaved(selectedModalQuote.id) ? "Tersimpan" : "Simpan"}</span>
+                  <span>{isSaved(selectedModalQuote.id) ? "Tersimpan" : "Saku Hati"}</span>
                 </button>
               </div>
 
               {/* Tombol Tutup Tambahan */}
               <button
                 onClick={() => setSelectedModalQuote(null)}
-                className="text-xs text-[#7A6F64] hover:text-[#3E362E] py-2 transition-colors text-center"
+                className="text-xs text-[#7A6F64] hover:text-[#3E362E] pt-1 pb-0.5 transition-colors text-center"
               >
-                Tutup jendela
+                Tutup jendela refleksi
               </button>
             </div>
           </div>

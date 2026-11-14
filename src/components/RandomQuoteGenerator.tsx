@@ -220,23 +220,23 @@ export default function RandomQuoteGenerator() {
               </p>
             </div>
 
-            {/* Footer Kartu: Tombol Salin Kutipan dan Bagikan ke WhatsApp */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2 border-t border-[#E5DDD0]/70">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
+            {/* Footer Kartu: Tombol Aksi Responsif & Kredit Kartu */}
+            <div className="pt-3.5 border-t border-[#E5DDD0]/80 flex flex-col gap-3">
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 w-full">
                 {/* Tombol Salin */}
                 <button
                   onClick={handleCopy}
-                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group"
                 >
                   {isCopied ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-[#8E9B8E]" />
-                      <span className="text-[#8E9B8E]">Tersalin!</span>
+                      <span className="text-[#8E9B8E] font-semibold">Tersalin!</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-                      <span>Salin Kutipan</span>
+                      <span>Salin</span>
                     </>
                   )}
                 </button>
@@ -244,7 +244,7 @@ export default function RandomQuoteGenerator() {
                 {/* Tombol Bagikan ke WhatsApp */}
                 <button
                   onClick={handleShareWhatsApp}
-                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>WhatsApp</span>
@@ -254,7 +254,7 @@ export default function RandomQuoteGenerator() {
                 <button
                   onClick={handleDownloadCard}
                   disabled={isDownloading}
-                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group"
                   title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
                 >
                   {isDownloading ? (
@@ -273,7 +273,7 @@ export default function RandomQuoteGenerator() {
                 {/* Tombol Simpan ke Saku Hati */}
                 <button
                   onClick={() => toggleSave(currentQuote.id)}
-                  className={`w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2.5 rounded-full border text-xs font-semibold transition-all shadow-soft active:scale-95 ${
+                  className={`min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 rounded-full border text-xs font-semibold transition-all shadow-soft active:scale-95 ${
                     isSaved(currentQuote.id)
                       ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
                       : "bg-[#FAF7F2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
@@ -285,29 +285,31 @@ export default function RandomQuoteGenerator() {
                       isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
                     }`}
                   />
-                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Simpan"}</span>
+                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Saku Hati"}</span>
                 </button>
               </div>
 
-              {/* Tag Penutup Kredit */}
-              <a
-                href="https://www.instagram.com/nalarnanti/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Kunjungi Instagram @nalarnanti"
-                className="text-[11px] text-[#7A6F64] hover:text-[#C8A98E] text-center sm:text-right italic font-serif mt-1 sm:mt-0 transition-colors inline-flex items-center justify-center sm:justify-end gap-1"
-              >
-                <span>— Nalar Nanti</span>
-                <span className="not-italic font-sans font-medium text-[10px] text-[#C8A98E] hover:underline">(@nalarnanti)</span>
-              </a>
+              {/* Tag Penutup Kredit & Feedback */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-1.5 text-[11px] text-[#7A6F64] pt-1">
+                <span className="text-[10px] sm:text-[11px] text-[#8E9B8E] font-medium text-center sm:text-left">
+                  {isCopied
+                    ? "✓ Kutipan berhasil disalin ke papan klip!"
+                    : "Ketuk untuk menyalin, berbagi, atau menyimpan kartu"}
+                </span>
+                <a
+                  href="https://www.instagram.com/nalarnanti/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Kunjungi Instagram @nalarnanti"
+                  className="hover:text-[#C8A98E] italic font-serif transition-colors inline-flex items-center gap-1 shrink-0"
+                >
+                  <span>— Nalar Nanti</span>
+                  <span className="not-italic font-sans font-medium text-[10px] text-[#C8A98E] hover:underline">
+                    (@nalarnanti)
+                  </span>
+                </a>
+              </div>
             </div>
-
-            {/* Feedback Salin */}
-            {isCopied && (
-              <p className="mt-3 text-xs text-[#8E9B8E] font-medium text-center sm:text-left animate-fadeIn">
-                ✓ Kutipan berhasil disalin ke papan klip! Siap dibagikan ke status atau catatanmu.
-              </p>
-            )}
           </div>
         </div>
       </div>

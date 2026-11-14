@@ -133,7 +133,7 @@ class ContemplativeSoundEngine {
     },
   ];
 
-  public start() {
+  public async start() {
     if (this.stopTimeout) {
       clearTimeout(this.stopTimeout);
       this.stopTimeout = null;
@@ -146,14 +146,19 @@ class ContemplativeSoundEngine {
           .webkitAudioContext;
       if (!AudioCtx) return;
 
-      this.ctx = new AudioCtx();
+      // Inisialisasi atau aktifkan kembali AudioContext
+      if (!this.ctx || this.ctx.state === "closed") {
+        this.ctx = new AudioCtx();
+      }
+
+      // Pastikan AudioContext aktif (atasi pemblokiran autoplay browser saat klik pertama)
       if (this.ctx.state === "suspended") {
-        this.ctx.resume();
+        await this.ctx.resume();
       }
 
       const now = this.ctx.currentTime;
 
-      // 1. Master Output Gain dengan Fade-In Lembut
+      // 1. Master Output Gain dengan Fade-In Lembut dan Responsif
       this.masterGain = this.ctx.createGain();
       this.masterGain.gain.setValueAtTime(0.0001, now);
       this.masterGain.connect(this.ctx.destination);
@@ -225,16 +230,19 @@ class ContemplativeSoundEngine {
       this.droneOsc2.start(now);
       this.lfoOsc.start(now);
 
-      // 4. Mulai Penjadwalan Progresi 64 Detik
+      // 4. Mulai Penjadwalan Progresi Segera (50ms dari sekarang)
       this.currentPatternIndex = 0;
-      this.nextNoteTime = now + 0.15;
+      this.nextNoteTime = now + 0.05;
+
+      // Jadwalkan nada pertama langsung agar suara piano segera terdengar pada klik pertama
+      this.scheduleNotes();
 
       this.timerId = setInterval(() => {
         this.scheduleNotes();
-      }, 300);
+      }, 250);
 
-      // Fade-In Naik Perlahan Selama 2.5 Detik
-      this.masterGain.gain.exponentialRampToValueAtTime(0.5, now + 2.5);
+      // Fade-In Naik Hangat Selama 1.2 Detik (Langsung terdengar nyaman)
+      this.masterGain.gain.exponentialRampToValueAtTime(0.5, now + 1.2);
     } catch (err) {
       console.error("Gagal memulai Contemplative Sound Engine:", err);
     }
@@ -359,23 +367,31 @@ class ContemplativeSoundEngine {
   }
 
   public stop() {
-    if (!this.ctx || !this.masterGain) return;
-
     if (this.timerId) {
       clearInterval(this.timerId);
       this.timerId = null;
     }
 
+    if (this.stopTimeout) {
+      clearTimeout(this.stopTimeout);
+      this.stopTimeout = null;
+    }
+
+    if (!this.ctx || !this.masterGain) {
+      this.cleanup();
+      return;
+    }
+
     try {
       const now = this.ctx.currentTime;
-      // Fade-Out Halus Turun Selama 1.5 Detik
+      // Fade-Out Halus Turun Selama 1.0 Detik
       const currentGain = Math.max(0.0001, this.masterGain.gain.value);
       this.masterGain.gain.setValueAtTime(currentGain, now);
-      this.masterGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+      this.masterGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.0);
 
       this.stopTimeout = setTimeout(() => {
         this.cleanup();
-      }, 1550);
+      }, 1050);
     } catch {
       this.cleanup();
     }
@@ -385,6 +401,11 @@ class ContemplativeSoundEngine {
     if (this.timerId) {
       clearInterval(this.timerId);
       this.timerId = null;
+    }
+
+    if (this.stopTimeout) {
+      clearTimeout(this.stopTimeout);
+      this.stopTimeout = null;
     }
 
     try {
@@ -427,15 +448,20 @@ export default function AmbientSoundToggle() {
     };
   }, []);
 
-  const handleToggle = () => {
+  const handleToggle = async () => {
     if (!engineRef.current) return;
 
     if (!isPlaying) {
-      engineRef.current.start();
-      setIsPlaying(true);
+      try {
+        setIsPlaying(true);
+        await engineRef.current.start();
+      } catch (err) {
+        console.error("Gagal memulai instrumen teduh:", err);
+        setIsPlaying(false);
+      }
     } else {
-      engineRef.current.stop();
       setIsPlaying(false);
+      engineRef.current.stop();
     }
   };
 

@@ -283,15 +283,15 @@ export default function QuoteSection() {
 
               {/* Bagian Bawah Kartu: Pill/Kotak Sumber (source), Aksi Cepat, dan Petunjuk "Baca refleksi →" */}
               <div className="mt-6 pt-4 border-t border-[#E5DDD0] flex flex-col gap-2.5">
-                <div className="flex items-center justify-between text-xs text-[#7A6F64] gap-2">
+                <div className="flex items-center justify-between text-xs text-[#7A6F64] gap-2 min-w-0">
                   {/* Pill Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
-                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft shrink-0">
-                    <Feather className="w-3 h-3 text-[#886950]" />
-                    <span className="truncate max-w-[105px] xs:max-w-[130px] sm:max-w-[160px]">{item.source}</span>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft shrink min-w-0">
+                    <Feather className="w-3 h-3 text-[#886950] shrink-0" />
+                    <span className="truncate max-w-[85px] xs:max-w-[125px] sm:max-w-[160px]">{item.source}</span>
                   </span>
 
                   {/* Tombol Salin & Bagikan Mini */}
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 shrink-0">
                     <button
                       onClick={(e) => handleCopy(item, e)}
                       title="Salin kutipan"
@@ -485,7 +485,7 @@ export default function QuoteSection() {
                 {/* Tombol Salin Kutipan */}
                 <button
                   onClick={() => handleCopyInModal(selectedModalQuote)}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 whitespace-nowrap"
                 >
                   {isModalCopied ? (
                     <>
@@ -503,7 +503,7 @@ export default function QuoteSection() {
                 {/* Tombol Bagikan ke WhatsApp */}
                 <button
                   onClick={() => handleShareWa(selectedModalQuote)}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[11px] xs:text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 whitespace-nowrap"
                 >
                   <Share2 className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>WhatsApp</span>
@@ -513,7 +513,7 @@ export default function QuoteSection() {
                 <button
                   onClick={() => handleDownloadModalQuote(selectedModalQuote)}
                   disabled={isModalDownloading}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group"
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group whitespace-nowrap"
                   title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
                 >
                   {isModalDownloading ? (
@@ -532,7 +532,7 @@ export default function QuoteSection() {
                 {/* Tombol Simpan ke Saku Hati */}
                 <button
                   onClick={() => toggleSave(selectedModalQuote.id)}
-                  className={`min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 py-2.5 rounded-full border text-xs font-semibold transition-all shadow-soft active:scale-95 ${
+                  className={`min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-4 py-2.5 rounded-full border text-[11px] xs:text-xs font-semibold transition-all shadow-soft active:scale-95 whitespace-nowrap ${
                     isSaved(selectedModalQuote.id)
                       ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
                       : "bg-[#F3EDE2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"

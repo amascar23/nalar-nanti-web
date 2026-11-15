@@ -6,7 +6,7 @@ export const LIVE_SITE_URL = "https://nalar-nanti-web.vercel.app";
  */
 export const GOOGLE_SHEETS_JEDA_WEBHOOK_URL =
   process.env.GOOGLE_SHEETS_JEDA_WEBHOOK_URL ||
-  "";
+  "https://script.google.com/macros/s/AKfycbzwoHFg39SAg5_Rlq2U8bWs8eAoHWVwxdjHUqgZd1QgFekRFs0SR_5VIFH93NSFuQ-ToA/exec";
 
 /**
  * Menghasilkan base URL untuk tautan berbagi (WhatsApp, Amplop, Salin).

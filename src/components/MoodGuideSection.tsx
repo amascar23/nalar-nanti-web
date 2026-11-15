@@ -19,8 +19,10 @@ import {
   Shield,
   Smile,
   Bookmark,
+  Mail,
 } from "lucide-react";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
+import SendEnvelopeModal from "@/components/SendEnvelopeModal";
 
 interface MoodOption {
   id: string;
@@ -77,6 +79,7 @@ export default function MoodGuideSection() {
   const [selectedMoodId, setSelectedMoodId] = useState<string>("penuh-lelah");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const [envelopeQuote, setEnvelopeQuote] = useState<QuoteItem | null>(null);
   const { isSaved, toggleSave } = useSavedQuotes();
 
   const activeMood =
@@ -267,30 +270,49 @@ export default function MoodGuideSection() {
                   </button>
                 </div>
 
-                {/* Tombol Simpan Gambar (Unduh PNG 9:16) */}
-                <button
-                  onClick={() => handleDownload(quote)}
-                  disabled={downloadingId === quote.id}
-                  className="w-full min-h-[40px] inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-50 group/download whitespace-nowrap"
-                  title="Unduh Kartu Gambar untuk Story & Status"
-                >
-                  {downloadingId === quote.id ? (
-                    <>
-                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
-                      <span>Menyiapkan Gambar...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-3.5 h-3.5 text-[#7A6F64] group-hover/download:text-[#C8A98E] transition-colors" />
-                      <span>Simpan Gambar</span>
-                    </>
-                  )}
-                </button>
+                <div className="grid grid-cols-2 gap-2">
+                  {/* Tombol Simpan Gambar (Unduh PNG 9:16) */}
+                  <button
+                    onClick={() => handleDownload(quote)}
+                    disabled={downloadingId === quote.id}
+                    className="min-h-[40px] inline-flex items-center justify-center gap-1.5 px-2.5 xs:px-3 py-2 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-50 group/download whitespace-nowrap"
+                    title="Unduh Kartu Gambar untuk Story & Status"
+                  >
+                    {downloadingId === quote.id ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
+                        <span>Menyiapkan...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-3.5 h-3.5 text-[#7A6F64] group-hover/download:text-[#C8A98E] transition-colors" />
+                        <span>Simpan Gambar</span>
+                      </>
+                    )}
+                  </button>
+
+                  {/* Tombol Kirim Amplop */}
+                  <button
+                    onClick={() => setEnvelopeQuote(quote)}
+                    className="min-h-[40px] inline-flex items-center justify-center gap-1.5 px-2.5 xs:px-3 py-2 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group/envelope whitespace-nowrap"
+                    title="Kirim amplop pengingat ke teman atau orang tersayang"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-[#7A6F64] group-hover/envelope:text-[#C8A98E] transition-colors" />
+                    <span>Kirim Amplop</span>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Modal Kirim Amplop Pengingat */}
+      <SendEnvelopeModal
+        quoteItem={envelopeQuote}
+        isOpen={Boolean(envelopeQuote)}
+        onClose={() => setEnvelopeQuote(null)}
+      />
     </section>
   );
 }

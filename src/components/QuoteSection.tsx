@@ -19,9 +19,11 @@ import {
   Download,
   Loader2,
   Bookmark,
+  Mail,
 } from "lucide-react";
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
+import SendEnvelopeModal from "@/components/SendEnvelopeModal";
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
@@ -38,6 +40,7 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
   const [isModalCopied, setIsModalCopied] = useState<boolean>(false);
   const [isModalDownloading, setIsModalDownloading] = useState<boolean>(false);
+  const [envelopeQuote, setEnvelopeQuote] = useState<QuoteItem | null>(null);
   const { isSaved, toggleSave } = useSavedQuotes();
 
   // Tab filter kategori sesuai data asli @nalarnanti
@@ -363,6 +366,17 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                         }`}
                       />
                     </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setEnvelopeQuote(item);
+                      }}
+                      title="Kirim Amplop Pengingat"
+                      aria-label="Kirim amplop pengingat"
+                      className="p-1.5 rounded-lg text-[#7A6F64] hover:text-[#C8A98E] hover:bg-[#FAF7F2] active:scale-95 transition-all"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </div>
 
@@ -578,6 +592,16 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                   />
                   <span>{isSaved(selectedModalQuote.id) ? "Tersimpan" : "Saku Hati"}</span>
                 </button>
+
+                {/* Tombol Kirim Amplop */}
+                <button
+                  onClick={() => setEnvelopeQuote(selectedModalQuote)}
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-4 py-2.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group whitespace-nowrap"
+                  title="Kirim amplop pengingat ke teman atau orang tersayang"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
+                  <span>Kirim Amplop</span>
+                </button>
               </div>
 
               {/* Tombol Tutup Tambahan */}
@@ -591,6 +615,13 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
           </div>
         </div>
       )}
+
+      {/* Modal Kirim Amplop Pengingat */}
+      <SendEnvelopeModal
+        quoteItem={envelopeQuote}
+        isOpen={Boolean(envelopeQuote)}
+        onClose={() => setEnvelopeQuote(null)}
+      />
     </section>
   );
 }

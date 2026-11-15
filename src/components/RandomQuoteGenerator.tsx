@@ -15,9 +15,11 @@ import {
   Download,
   Loader2,
   Bookmark,
+  Mail,
 } from "lucide-react";
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
+import SendEnvelopeModal from "@/components/SendEnvelopeModal";
 
 export default function RandomQuoteGenerator() {
   // Inisialisasi deterministik agar SSR & Client render identik 100% tanpa hydration mismatch
@@ -25,6 +27,7 @@ export default function RandomQuoteGenerator() {
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
+  const [isEnvelopeModalOpen, setIsEnvelopeModalOpen] = useState<boolean>(false);
   const { isSaved, toggleSave } = useSavedQuotes();
   const [shuffleCount, setShuffleCount] = useState<number>(1);
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -288,6 +291,16 @@ export default function RandomQuoteGenerator() {
                   />
                   <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Saku Hati"}</span>
                 </button>
+
+                {/* Tombol Kirim Amplop */}
+                <button
+                  onClick={() => setIsEnvelopeModalOpen(true)}
+                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group whitespace-nowrap"
+                  title="Kirim Amplop Pengingat ke teman atau orang tersayang"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
+                  <span>Kirim Amplop</span>
+                </button>
               </div>
 
               {/* Tag Penutup Kredit & Feedback */}
@@ -314,6 +327,13 @@ export default function RandomQuoteGenerator() {
           </div>
         </div>
       </div>
+
+      {/* Modal Kirim Amplop Pengingat */}
+      <SendEnvelopeModal
+        quoteItem={currentQuote}
+        isOpen={isEnvelopeModalOpen}
+        onClose={() => setIsEnvelopeModalOpen(false)}
+      />
     </section>
   );
 }

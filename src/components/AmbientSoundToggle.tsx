@@ -510,8 +510,8 @@ export default function AmbientSoundToggle() {
         }
         className={`group h-10 flex items-center gap-2 px-3.5 rounded-full border transition-all duration-300 shadow-card hover:shadow-floating active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50 select-none ${
           isPlaying
-            ? "bg-[#C8A98E] border-[#C8A98E] text-[#FAF7F2] shadow-soft"
-            : "bg-[#FAF7F2] dark:bg-[#26221F] border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] dark:hover:border-[#C8A98E] hover:text-[#C8A98E] dark:hover:text-[#C8A98E]"
+            ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] border-[#C8A98E] text-[#FAF7F2] shadow-soft"
+            : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1C1917] border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] dark:hover:border-[#C8A98E] hover:text-[#C8A98E] dark:hover:text-[#C8A98E]"
         }`}
       >
         {isPlaying ? (

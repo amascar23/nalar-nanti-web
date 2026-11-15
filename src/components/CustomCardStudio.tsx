@@ -599,7 +599,7 @@ export default function CustomCardStudio() {
     <div className="w-full max-w-5xl mx-auto">
       {/* Header Pengantar Studio */}
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
+        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
           <Sparkles className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
           <span>Studio Racik Kartu Nalar Nanti</span>
         </span>
@@ -619,7 +619,7 @@ export default function CustomCardStudio() {
         {/* PANEL EDITOR DI SISI KIRI (lg:col-span-6) */}
         {/* ========================================================================= */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl p-6 sm:p-8 shadow-floating">
+          <div className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-6 sm:p-8 shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none">
             <div className="flex items-center justify-between pb-4 border-b border-[#E5DDD0] dark:border-[#3A332E] mb-5">
               <div className="flex items-center gap-2">
                 <Sliders className="w-4 h-4 text-[#C8A98E]" />
@@ -656,7 +656,7 @@ export default function CustomCardStudio() {
                       setTitle(preset.title);
                       setQuoteText(preset.text);
                     }}
-                    className="text-xs px-3 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-[#1E1B18] hover:bg-[#EAE1D3] dark:hover:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] transition-all active:scale-95 shadow-soft"
+                    className="text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:bg-[#1E1B18] hover:brightness-105 text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] transition-all active:scale-95 shadow-soft"
                   >
                     + {preset.label}
                   </button>
@@ -680,7 +680,7 @@ export default function CustomCardStudio() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Contoh: Catatan Malam Ini / Ruang Doa"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
                 />
               </div>
 
@@ -712,7 +712,7 @@ export default function CustomCardStudio() {
                   value={quoteText}
                   onChange={(e) => setQuoteText(e.target.value)}
                   placeholder="Tuliskan renungan, kalimat penguat, atau bait doa yang ingin kamu simpan..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-none"
                 />
               </div>
 
@@ -731,7 +731,7 @@ export default function CustomCardStudio() {
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
                   placeholder="Contoh: Sahabat Nalar / [Namamu]"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
                 />
                 <p className="text-[10px] text-[#7A6F64]/80 dark:text-[#A89F94]/80 mt-1">
                   Default jika kosong: <em>"Sahabat Nalar"</em>
@@ -922,7 +922,7 @@ export default function CustomCardStudio() {
               type="button"
               onClick={handleDownloadCard}
               disabled={isDownloading || !quoteText.trim()}
-              className="w-full min-h-[46px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:bg-[#B9967A] transition-all shadow-floating active:scale-98 disabled:opacity-50"
+              className="w-full min-h-[46px] inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:brightness-105 transition-all shadow-floating active:scale-98 disabled:opacity-50"
             >
               {isDownloading ? (
                 <>
@@ -941,7 +941,7 @@ export default function CustomCardStudio() {
               type="button"
               onClick={handleCopyText}
               disabled={!quoteText.trim()}
-              className="w-full min-h-[42px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-98 disabled:opacity-50"
+              className="w-full min-h-[42px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-98 disabled:opacity-50"
             >
               {isCopied ? (
                 <>

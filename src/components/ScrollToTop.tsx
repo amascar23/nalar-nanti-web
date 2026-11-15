@@ -35,7 +35,7 @@ export default function ScrollToTop() {
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Kembali ke atas halaman"
         title="Kembali ke atas"
-        className="w-10 h-10 rounded-full bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:text-[#FAF7F2] hover:bg-[#C8A98E] hover:border-[#C8A98E] shadow-card hover:shadow-floating flex items-center justify-center transition-all duration-300 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50"
+        className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:text-[#FAF7F2] hover:bg-gradient-to-r hover:from-[#D4B59D] hover:via-[#C8A98E] hover:to-[#B9967A] hover:border-[#C8A98E] shadow-card hover:shadow-floating flex items-center justify-center transition-all duration-300 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50"
       >
         <ArrowUp className="w-4 h-4 text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#FAF7F2] group-hover:-translate-y-0.5 transition-all" />
       </button>

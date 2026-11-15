@@ -119,12 +119,12 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
           </p>
         </div>
 
-        {/* Tombol Bergaya Pill dengan Warna Aksen #C8A98E */}
+        {/* Tombol Bergaya Pill dengan Warna Aksen Gradasi Terracotta */}
         <div className="mb-8 sm:mb-10">
           <button
             onClick={handleGetRandomQuote}
             disabled={isAnimating}
-            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-9 sm:py-4 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-base hover:bg-[#B9967A] transition-all duration-300 shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:opacity-70 group min-h-[48px]"
+            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-9 sm:py-4 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] font-semibold text-xs sm:text-base hover:brightness-105 transition-all duration-300 shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:opacity-70 group min-h-[48px]"
           >
             <Sparkles
               className={`w-4 h-4 sm:w-5 sm:h-5 text-[#FAF7F2] ${isAnimating ? "animate-spin" : "group-hover:rotate-12 transition-transform"
@@ -145,15 +145,15 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
         {/* Kartu Soft Cream dengan Format Selaras Kartu @nalarnanti */}
         <div className="max-w-2xl mx-auto text-left">
           <div
-            className={`bg-gradient-to-br from-[#FFFDF8] via-[#F7ECDA] to-[#EDD9BC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-8 md:p-9 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none hover:-translate-y-1 hover:shadow-[0_16px_36px_-10px_rgba(184,149,110,0.28)] transition-all duration-300 relative group overflow-hidden ${isAnimating
+            className={`bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-5 sm:p-8 md:p-9 shadow-[0_10px_30px_-10px_rgba(200,169,142,0.18)] dark:shadow-none hover:-translate-y-1 hover:shadow-[0_16px_36px_-10px_rgba(200,169,142,0.28)] transition-all duration-300 relative group overflow-hidden ${isAnimating
               ? "opacity-30 scale-[0.98] blur-[1px]"
               : "opacity-100 scale-100 blur-0"
               }`}
           >
             {/* Header Kartu: Label Kategori, Nomor Urut & Judul Tema */}
-            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
+            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5D3B8] dark:border-[#3A332E] shadow-soft shrink-0 bg-white/80 dark:bg-[#1C1917]">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs shrink-0 bg-white/90 dark:bg-[#1C1917]">
                   <Image
                     src="/images/logo-hd.png"
                     alt="Logo Nalar Nanti"
@@ -170,13 +170,13 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap"
+                      className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5DDD0]/70 dark:border-[#3A332E] whitespace-nowrap"
                     >
                       #{currentQuote.orderNumber}
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm text-[#8E9B8E] border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap"
+                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm text-[#8E9B8E] border border-[#E5DDD0]/70 dark:border-[#3A332E] whitespace-nowrap"
                     >
                       {currentQuote.category}
                     </span>
@@ -194,7 +194,7 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
 
               <span
                 suppressHydrationWarning
-                className="hidden sm:inline-block text-[10px] font-medium px-2.5 py-1 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm text-[#886950] dark:text-[#C8A98E] border border-[#E5D3B8]/60 dark:border-[#3A332E] shrink-0 whitespace-nowrap"
+                className="hidden sm:inline-block text-[10px] font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/70 dark:to-[#26221F]/70 backdrop-blur-sm text-[#886950] dark:text-[#C8A98E] border border-[#E5DDD0]/70 dark:border-[#3A332E] shrink-0 whitespace-nowrap"
               >
                 Nuansa {currentQuote.type}
               </span>
@@ -212,7 +212,7 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
             </div>
 
             {/* Catatan Refleksi */}
-            <div className="bg-white/60 dark:bg-[#1E1B18]/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-[#E5D3B8]/70 dark:border-[#3A332E] mb-5 sm:mb-6">
+            <div className="bg-gradient-to-br from-white/70 to-[#FAF7F2]/60 dark:from-[#1E1B18]/70 dark:to-[#141210]/60 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/70 dark:border-[#3A332E] mb-5 sm:mb-6">
               <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1">
                 Catatan Refleksi
               </p>
@@ -225,12 +225,12 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
             </div>
 
             {/* Footer Kartu: Satu Baris Sejajar Sumber & 5 Tombol Ikon */}
-            <div className="pt-3.5 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex flex-col gap-2.5">
+            <div className="pt-3.5 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex flex-col gap-2.5">
               <div className="flex items-center justify-between gap-2 min-w-0">
                 {/* Sisi Kiri: Source Pill Ringkas */}
                 <span
                   suppressHydrationWarning
-                  className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36] shadow-xs shrink min-w-0"
+                  className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink min-w-0"
                 >
                   <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                   <span className="truncate max-w-[135px] sm:max-w-[160px]">{currentQuote.source}</span>

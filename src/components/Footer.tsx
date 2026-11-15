@@ -11,13 +11,13 @@ const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F3EDE2] dark:bg-[#1E1B18] border-t border-[#E5DDD0] dark:border-[#3A332E] pt-14 pb-12 text-[#7A6F64] dark:text-[#A89F94]">
+    <footer className="bg-gradient-to-b from-[#F3EDE2] via-[#EFE8DC] to-[#EAE1D3] dark:from-[#1E1B18] dark:via-[#1A1715] dark:to-[#161412] border-t border-[#E5DDD0] dark:border-[#3A332E] pt-14 pb-12 text-[#7A6F64] dark:text-[#A89F94]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-[#E5DDD0] dark:border-[#3A332E]">
           {/* Brand Info */}
           <div className="max-w-md">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft shrink-0 bg-[#FAF7F2] dark:bg-[#1C1917]">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft shrink-0 bg-white/80 dark:bg-[#1C1917]">
                 <Image
                   src="/images/logo-hd.png"
                   alt="Logo Nalar Nanti"
@@ -43,7 +43,7 @@ export default function Footer() {
               href={IG_PROFILE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft group"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-br from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft group"
             >
               <Instagram className="w-4 h-4 text-[#C8A98E] group-hover:scale-110 transition-transform" />
               <span>Instagram: @nalarnanti</span>
@@ -54,7 +54,7 @@ export default function Footer() {
               href={WA_CHANNEL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#8E9B8E] hover:text-[#8E9B8E] transition-all shadow-soft group"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-br from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#8E9B8E] hover:text-[#8E9B8E] transition-all shadow-soft group"
             >
               <MessageCircle className="w-4 h-4 text-[#8E9B8E] group-hover:scale-110 transition-transform" />
               <span>Saluran WhatsApp: @NalarNanti</span>

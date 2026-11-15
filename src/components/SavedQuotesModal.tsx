@@ -100,11 +100,11 @@ export default function SavedQuotesModal() {
 
       {/* Laci / Panel Drawer Sisi Kanan */}
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
-        <div className="w-screen max-w-md bg-[#FAF7F2] dark:bg-[#1C1917] border-l border-[#E5DDD0] dark:border-[#3A332E] shadow-floating flex flex-col h-full animate-fadeIn">
+        <div className="w-screen max-w-md bg-gradient-to-b from-[#FAF7F2] via-[#FAF7F2] to-[#F5EFE5] dark:from-[#1C1917] dark:via-[#191614] dark:to-[#141210] border-l border-[#E5DDD0] dark:border-[#3A332E] shadow-floating flex flex-col h-full animate-fadeIn">
           {/* 1. Header Drawer */}
-          <div className="p-5 sm:p-6 border-b border-[#E5DDD0] dark:border-[#3A332E] bg-[#F3EDE2]/60 dark:bg-[#26221F] flex items-center justify-between">
+          <div className="p-5 sm:p-6 border-b border-[#E5DDD0] dark:border-[#3A332E] bg-gradient-to-r from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft shrink-0">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-white/90 to-[#FAF7F2]/90 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft shrink-0">
                 <Bookmark className="w-5 h-5 fill-[#C8A98E]" />
               </div>
               <div>
@@ -112,7 +112,7 @@ export default function SavedQuotesModal() {
                   <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] tracking-tight">
                     Saku Hati
                   </h2>
-                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#C8A98E] text-[#FAF7F2]">
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2]">
                     {savedQuotes.length}
                   </span>
                 </div>
@@ -125,7 +125,7 @@ export default function SavedQuotesModal() {
             <button
               onClick={closeDrawer}
               aria-label="Tutup Saku Hati"
-              className="w-9 h-9 rounded-full bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E] flex items-center justify-center transition-all active:scale-95 shadow-soft"
+              className="w-9 h-9 rounded-full bg-gradient-to-r from-white/90 to-[#FAF7F2]/90 dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E] flex items-center justify-center transition-all active:scale-95 shadow-soft"
             >
               <X className="w-4 h-4" />
             </button>
@@ -135,8 +135,8 @@ export default function SavedQuotesModal() {
           <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
             {savedQuotes.length === 0 ? (
               // Tampilan jika Saku Hati masih kosong
-              <div className="h-full min-h-[360px] flex flex-col items-center justify-center text-center p-6 rounded-3xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 my-auto shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none">
-                <div className="w-14 h-14 rounded-full bg-white/80 dark:bg-[#1C1917] border border-[#E5D3B8] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft mb-4">
+              <div className="h-full min-h-[360px] flex flex-col items-center justify-center text-center p-6 rounded-3xl bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 my-auto shadow-[0_10px_30px_-10px_rgba(200,169,142,0.18)] dark:shadow-none">
+                <div className="w-14 h-14 rounded-full bg-white/90 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft mb-4">
                   <Bookmark className="w-6 h-6 stroke-[1.5]" />
                 </div>
                 <h3 className="font-serif text-lg font-medium text-[#3E362E] dark:text-[#EDE6DC] mb-2">
@@ -151,7 +151,7 @@ export default function SavedQuotesModal() {
                     const el = document.getElementById("kutipan") || document.getElementById("suasana-hati");
                     el?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] text-xs font-semibold hover:brightness-105 transition-all shadow-soft active:scale-95"
                 >
                   <span>Jelajahi Kutipan</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -162,7 +162,7 @@ export default function SavedQuotesModal() {
               savedQuotes.map((quote) => (
                 <div
                   key={quote.id}
-                  className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-2xl p-4 sm:p-5 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-10px_rgba(184,149,110,0.25)] transition-all"
+                  className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-2xl p-4 sm:p-5 shadow-[0_8px_24px_-8px_rgba(200,169,142,0.16)] dark:shadow-none hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-10px_rgba(200,169,142,0.25)] transition-all"
                 >
                   {/* Top: Judul Tema & Tombol Hapus */}
                   <div className="flex items-start justify-between gap-2 mb-2">
@@ -193,19 +193,19 @@ export default function SavedQuotesModal() {
 
                   {/* Source Pill */}
                   <div className="mb-3.5">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-sans font-medium px-2.5 py-0.5 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36]">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-sans font-medium px-2.5 py-0.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36]">
                       <Feather className="w-2.5 h-2.5 text-[#886950] dark:text-[#C8A98E]" />
                       <span className="truncate max-w-[180px]">{quote.source}</span>
                     </span>
                   </div>
 
                   {/* Actions: Salin, Bagikan WA, Simpan Gambar */}
-                  <div className="pt-2.5 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex items-center justify-between gap-2">
+                  <div className="pt-2.5 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex items-center justify-between gap-2">
                     <div className="flex items-center gap-1.5">
                       {/* Salin */}
                       <button
                         onClick={() => handleCopy(quote)}
-                        className="px-2.5 py-1.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[11px] font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all flex items-center gap-1 active:scale-95"
+                        className="px-2.5 py-1.5 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-[11px] font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all flex items-center gap-1 active:scale-95 shadow-xs"
                       >
                         {copiedId === quote.id ? (
                           <>
@@ -223,7 +223,7 @@ export default function SavedQuotesModal() {
                       {/* WhatsApp */}
                       <button
                         onClick={() => handleShareWa(quote)}
-                        className="px-2.5 py-1.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[11px] font-semibold hover:bg-[#B9967A] transition-all flex items-center gap-1 active:scale-95"
+                        className="px-2.5 py-1.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] text-[11px] font-semibold hover:brightness-105 transition-all flex items-center gap-1 active:scale-95 shadow-xs"
                       >
                         <MessageCircle className="w-3 h-3 text-[#FAF7F2]" />
                         <span>WA</span>
@@ -234,7 +234,7 @@ export default function SavedQuotesModal() {
                     <button
                       onClick={() => handleDownload(quote)}
                       disabled={downloadingId === quote.id}
-                      className="px-2.5 py-1.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[11px] font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all flex items-center gap-1 active:scale-95 disabled:opacity-50"
+                      className="px-2.5 py-1.5 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-[11px] font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all flex items-center gap-1 active:scale-95 disabled:opacity-50 shadow-xs"
                       title="Unduh Kartu Gambar"
                     >
                       {downloadingId === quote.id ? (
@@ -257,7 +257,7 @@ export default function SavedQuotesModal() {
 
           {/* 3. Footer Drawer */}
           {savedQuotes.length > 0 && (
-            <div className="p-4 sm:p-5 border-t border-[#E5DDD0] dark:border-[#3A332E] bg-[#F3EDE2]/60 dark:bg-[#26221F] flex items-center justify-between text-xs text-[#7A6F64] dark:text-[#A89F94]">
+            <div className="p-4 sm:p-5 border-t border-[#E5DDD0] dark:border-[#3A332E] bg-gradient-to-r from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:to-[#1C1917] flex items-center justify-between text-xs text-[#7A6F64] dark:text-[#A89F94]">
               <div className="flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
                 <span>Tersimpan di browser ini</span>

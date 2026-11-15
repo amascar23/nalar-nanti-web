@@ -102,7 +102,7 @@ export default function RequestSection() {
         {/* Header Seksi */}
         <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
           {/* Badge Kecil */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] mb-3 sm:mb-4 shadow-soft">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] mb-3 sm:mb-4 shadow-soft">
             <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
             <span>Ruang Berbagi Cerita</span>
           </div>
@@ -120,7 +120,7 @@ export default function RequestSection() {
         </div>
 
         {/* Kartu Formulir Utama */}
-        <div className="max-w-2xl mx-auto bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-6 sm:p-10 shadow-[0_12px_36px_-10px_rgba(184,149,110,0.20)] dark:shadow-none relative">
+        <div className="max-w-2xl mx-auto bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-6 sm:p-10 shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none relative">
           {isSubmitted ? (
             /* Kotak Konfirmasi Lembut (Success State) */
             <div className="py-8 sm:py-10 text-center animate-fadeIn">
@@ -144,7 +144,7 @@ export default function RequestSection() {
 
               <button
                 onClick={handleReset}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:brightness-105 transition-all shadow-soft active:scale-95"
               >
                 <RefreshCw className="w-4 h-4" />
                 <span>Kirim Pesan Lainnya</span>
@@ -158,13 +158,13 @@ export default function RequestSection() {
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#7A6F64] dark:text-[#A89F94] mb-2.5">
                   Pilih Jenis Kiriman
                 </label>
-                <div className="p-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-1.5 shadow-soft">
+                <div className="p-1.5 bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-1.5 shadow-soft">
                   <button
                     type="button"
                     onClick={() => setActiveTab("Request Tema / Cerita")}
                     className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-98 ${
                       activeTab === "Request Tema / Cerita"
-                        ? "bg-[#3E362E] dark:bg-[#C8A98E] text-[#FAF7F2] shadow-soft"
+                        ? "bg-gradient-to-r from-[#3E362E] to-[#52473D] dark:from-[#D4B59D] dark:via-[#C8A98E] dark:to-[#B9967A] text-[#FAF7F2] shadow-soft"
                         : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
                     }`}
                   >
@@ -177,7 +177,7 @@ export default function RequestSection() {
                     onClick={() => setActiveTab("Titip Kata-Kata Sendiri")}
                     className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-98 ${
                       activeTab === "Titip Kata-Kata Sendiri"
-                        ? "bg-[#3E362E] dark:bg-[#C8A98E] text-[#FAF7F2] shadow-soft"
+                        ? "bg-gradient-to-r from-[#3E362E] to-[#52473D] dark:from-[#D4B59D] dark:via-[#C8A98E] dark:to-[#B9967A] text-[#FAF7F2] shadow-soft"
                         : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
                     }`}
                   >
@@ -201,7 +201,7 @@ export default function RequestSection() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Contoh: Sahabat Nalar / @username / Hamba Allah"
-                  className="w-full px-4 py-3 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                  className="w-full px-4 py-3 rounded-2xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
                 />
                 <p className="text-[11px] text-[#7A6F64]/80 dark:text-[#A89F94]/80 mt-1.5">
                   Opsional — kosongkan jika ingin mengirim sebagai Anonim
@@ -221,8 +221,8 @@ export default function RequestSection() {
                       onClick={() => setNuance(option)}
                       className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all active:scale-95 ${
                         nuance === option
-                          ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E] shadow-soft font-semibold"
-                          : "bg-[#FAF7F2] dark:bg-[#1C1917] text-[#7A6F64] dark:text-[#A89F94] border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]/60 hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
+                          ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] border-[#C8A98E] shadow-soft font-semibold"
+                          : "bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] text-[#7A6F64] dark:text-[#A89F94] border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]/60 hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
                       }`}
                     >
                       {option}
@@ -252,13 +252,13 @@ export default function RequestSection() {
                       ? "Contoh: Tolong buatkan pengingat tentang ikhlas dan sabar saat rencana belum berjalan sesuai harapan..."
                       : "Tulis kalimat refleksimu di sini..."
                   }
-                  className="w-full px-4 py-3 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-y"
+                  className="w-full px-4 py-3 rounded-2xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-y"
                 />
               </div>
 
               {/* Error Alert jika terjadi kegagalan */}
               {errorMessage && (
-                <div className="p-4 rounded-2xl bg-[#EAE1D3]/80 dark:bg-[#322C27] border border-[#C8A98E] text-xs text-[#886950] dark:text-[#C8A98E] flex items-start gap-2.5 animate-fadeIn">
+                <div className="p-4 rounded-2xl bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:bg-[#322C27] border border-[#C8A98E] text-xs text-[#886950] dark:text-[#C8A98E] flex items-start gap-2.5 animate-fadeIn">
                   <AlertCircle className="w-4 h-4 text-[#C8A98E] shrink-0 mt-0.5" />
                   <p>{errorMessage}</p>
                 </div>
@@ -269,7 +269,7 @@ export default function RequestSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !message.trim()}
-                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:bg-[#B9967A] transition-all shadow-soft active:scale-98 disabled:opacity-60 disabled:cursor-not-allowed group"
+                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:brightness-105 transition-all shadow-soft active:scale-98 disabled:opacity-60 disabled:cursor-not-allowed group"
                 >
                   {isSubmitting ? (
                     <>

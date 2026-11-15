@@ -183,13 +183,13 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Cari kutipan, judul tema, atau tokoh (contoh: Rumi, Syafi'i, Ali, Bukhari, waktu)..."
-                className="w-full pl-10 sm:pl-11 pr-10 py-3 sm:py-3.5 rounded-2xl bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/70 dark:placeholder-[#A89F94]/70 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                className="w-full pl-10 sm:pl-11 pr-10 py-3 sm:py-3.5 rounded-2xl bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/70 dark:placeholder-[#A89F94]/70 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
                   aria-label="Bersihkan pencarian"
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#FAF7F2] dark:hover:bg-[#1C1917] active:scale-95 transition-all"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-[#7A6F64] hover:text-[#3E362E] hover:bg-white/70 dark:hover:bg-[#1C1917] active:scale-95 transition-all"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -198,14 +198,14 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
             {/* Filter Cepat Tipe Kutipan: "Semua Tipe", "Islami", dan "Umum" */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
-              <div className="inline-flex items-center p-1 bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-full shadow-soft">
+              <div className="inline-flex items-center p-1 bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] rounded-full shadow-soft">
                 {(["Semua", "Islami", "Umum"] as const).map((type) => (
                   <button
                     key={type}
                     onClick={() => setSelectedType(type)}
                     className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all active:scale-95 ${
                       selectedType === type
-                        ? "bg-[#C8A98E] text-[#FAF7F2] shadow-soft"
+                        ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] shadow-soft"
                         : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
                     }`}
                   >
@@ -227,8 +227,8 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all active:scale-95 ${
                     selectedCategory === cat
-                      ? "bg-[#3E362E] dark:bg-[#C8A98E] text-[#FAF7F2] shadow-soft"
-                      : "bg-[#F3EDE2] dark:bg-[#26221F] text-[#7A6F64] dark:text-[#A89F94] border border-[#E5DDD0] dark:border-[#3A332E] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E]/60"
+                      ? "bg-gradient-to-r from-[#3E362E] to-[#52473D] dark:from-[#C8A98E] dark:to-[#B9967A] text-[#FAF7F2] shadow-soft"
+                      : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] text-[#7A6F64] dark:text-[#A89F94] border border-[#E5DDD0] dark:border-[#3A332E] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E]/60"
                   }`}
                 >
                   {cat}
@@ -253,11 +253,11 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                 setSelectedModalQuote(item);
                 setIsModalCopied(false);
               }}
-              className="flex flex-col justify-between h-full p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none hover:shadow-[0_16px_36px_-10px_rgba(184,149,110,0.28)] hover:-translate-y-1 active:scale-[0.99] transition-all duration-300 relative group cursor-pointer text-left overflow-hidden"
+              className="flex flex-col justify-between h-full p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 shadow-[0_8px_24px_-8px_rgba(200,169,142,0.16)] dark:shadow-none hover:shadow-[0_14px_32px_-8px_rgba(200,169,142,0.26)] hover:-translate-y-1 active:scale-[0.99] transition-all duration-300 relative group cursor-pointer text-left overflow-hidden"
             >
               <div className="flex flex-col flex-1">
                 {/* Header Kartu: Label Kategori Kecil & Identitas Feed Instagram @nalarnanti */}
-                <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
+                <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <a
                       href={IG_PROFILE_URL}
@@ -267,7 +267,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       title="Kunjungi profil Instagram @nalarnanti"
                       className="flex items-center gap-1.5 group/ig hover:text-[#C8A98E] transition-colors"
                     >
-                      <div className="w-6 h-6 rounded-full overflow-hidden border border-[#E5D3B8] dark:border-[#3A332E] bg-white/80 dark:bg-[#1C1917] shrink-0 group-hover/ig:border-[#C8A98E] transition-colors">
+                      <div className="w-6 h-6 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] bg-white/90 dark:bg-[#1C1917] shrink-0 group-hover/ig:border-[#C8A98E] transition-colors shadow-xs">
                         <Image
                           src="/images/logo-hd.png"
                           alt="Nalar Nanti"
@@ -281,12 +281,12 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                         @nalarnanti
                       </span>
                     </a>
-                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm px-1.5 py-0.5 rounded-full border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full border border-[#E5DDD0]/70 dark:border-[#3A332E] whitespace-nowrap">
                       #{item.orderNumber}
                     </span>
                   </div>
 
-                  <span className="text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm border border-[#E5D3B8]/60 dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap">
+                  <span className="text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm border border-[#E5DDD0]/70 dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap">
                     {item.category}
                   </span>
                 </div>
@@ -308,10 +308,10 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
               </div>
 
               {/* Bagian Bawah Kartu: Pill/Kotak Sumber (source), Aksi Cepat, dan Petunjuk "Baca refleksi →" */}
-              <div className="mt-6 pt-4 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex flex-col gap-2.5">
+              <div className="mt-6 pt-4 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex flex-col gap-2.5">
                 <div className="flex items-center justify-between text-xs text-[#7A6F64] dark:text-[#A89F94] gap-2 min-w-0">
                   {/* Pill Sumber dengan Latar Soft Cream Hangat */}
-                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36] shadow-xs shrink min-w-0">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink min-w-0">
                     <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                     <span className="truncate max-w-[135px] sm:max-w-[160px]">{item.source}</span>
                   </span>
@@ -413,7 +413,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
           <div className="mt-10 sm:mt-12 text-center">
             <Link
               href="/koleksi"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] font-semibold text-xs sm:text-sm shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all group whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 font-semibold text-xs sm:text-sm shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all group whitespace-nowrap"
             >
               <span>Lihat Selengkapnya ({QUOTES_DATA.length} Kutipan)</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -423,7 +423,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
         {/* Empty State bila pencarian tidak ditemukan (Hanya di mode halaman penuh) */}
         {!isPreview && filteredQuotes.length === 0 && (
-          <div className="text-center py-14 sm:py-16 bg-[#F3EDE2] dark:bg-[#26221F] rounded-3xl border border-[#E5DDD0] dark:border-[#3A332E] max-w-md mx-auto mt-6 p-6">
+          <div className="text-center py-14 sm:py-16 bg-gradient-to-br from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1C1917] rounded-3xl border border-[#E5DDD0] dark:border-[#3A332E] max-w-md mx-auto mt-6 p-6 shadow-soft">
             <BookOpen className="w-8 h-8 text-[#C8A98E] mx-auto mb-3" />
             <p className="font-serif text-lg text-[#3E362E] dark:text-[#EDE6DC] mb-2 font-medium">
               Tidak ada kutipan yang sesuai
@@ -437,7 +437,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                 setSelectedType("Semua");
                 setSelectedCategory("Semua");
               }}
-              className="text-xs font-semibold px-5 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
+              className="text-xs font-semibold px-5 py-2.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 transition-all shadow-soft active:scale-95"
             >
               Reset Filter {"&"} Pencarian
             </button>
@@ -454,11 +454,11 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
           onClick={() => setSelectedModalQuote(null)}
         >
           <div
-            className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-8 max-w-xl w-full shadow-[0_20px_50px_-15px_rgba(184,149,110,0.25)] relative text-left max-h-[88vh] overflow-y-auto"
+            className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-5 sm:p-8 max-w-xl w-full shadow-[0_20px_50px_-15px_rgba(200,169,142,0.25)] relative text-left max-h-[88vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
               <div className="flex items-center gap-2">
                 <a
                   href={IG_PROFILE_URL}
@@ -467,7 +467,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   title="Kunjungi profil Instagram @nalarnanti"
                   className="flex items-center gap-2 group/modalig"
                 >
-                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5D3B8] dark:border-[#3A332E] bg-white/80 dark:bg-[#1C1917] shrink-0 group-hover/modalig:border-[#C8A98E] transition-all">
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] bg-white/90 dark:bg-[#1C1917] shrink-0 group-hover/modalig:border-[#C8A98E] transition-all shadow-xs">
                     <Image
                       src="/images/logo-hd.png"
                       alt="Nalar Nanti"
@@ -481,10 +481,10 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                     <span className="text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] group-hover/modalig:text-[#C8A98E] transition-colors">
                       @nalarnanti
                     </span>
-                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5DDD0]/70 dark:border-[#3A332E] whitespace-nowrap">
                       #{selectedModalQuote.orderNumber}
                     </span>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm text-[#8E9B8E] border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm text-[#8E9B8E] border border-[#E5DDD0]/70 dark:border-[#3A332E] whitespace-nowrap">
                       {selectedModalQuote.category}
                     </span>
                   </div>
@@ -520,7 +520,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
               {/* Pill/Badge Sumber (source) */}
               <div className="mt-4 flex items-center">
-                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3.5 py-1.5 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36] shadow-xs">
+                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3.5 py-1.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs">
                   <Feather className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
                   <span>{selectedModalQuote.source}</span>
                 </span>
@@ -528,7 +528,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
             </div>
 
             {/* Catatan Refleksi Lengkap */}
-            <div className="bg-white/60 dark:bg-[#1E1B18]/70 backdrop-blur-sm border border-[#E5D3B8]/70 dark:border-[#3A332E] rounded-2xl p-4 sm:p-6 mb-6">
+            <div className="bg-gradient-to-br from-white/70 to-[#FAF7F2]/60 dark:from-[#1E1B18]/70 dark:to-[#141210]/60 backdrop-blur-sm border border-[#E5DDD0]/70 dark:border-[#3A332E] rounded-2xl p-4 sm:p-6 mb-6">
               <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-2">
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>Catatan Refleksi</span>
@@ -546,8 +546,8 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   onClick={() => toggleSave(selectedModalQuote.id)}
                   className={`h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-all shadow-xs active:scale-95 whitespace-nowrap ${
                     isSaved(selectedModalQuote.id)
-                      ? "bg-[#C8A98E] text-[#FAF7F2]"
-                      : "bg-[#F3EDE2] dark:bg-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]"
+                      ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2]"
+                      : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]"
                   }`}
                   title={isSaved(selectedModalQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                   aria-label={isSaved(selectedModalQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
@@ -565,7 +565,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   onClick={() => handleCopyInModal(selectedModalQuote)}
                   title="Salin Kutipan"
                   aria-label="Salin Kutipan"
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#F3EDE2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
                   {isModalCopied ? (
                     <>
@@ -585,7 +585,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   onClick={() => handleShareWa(selectedModalQuote)}
                   title="Bagikan ke WhatsApp"
                   aria-label="Bagikan ke WhatsApp"
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-xs active:scale-95 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
                   <Share2 className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>WhatsApp</span>
@@ -597,7 +597,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   disabled={isModalDownloading}
                   title="Simpan Gambar 9:16"
                   aria-label="Simpan Gambar 9:16"
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#F3EDE2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
                 >
                   {isModalDownloading ? (
                     <>
@@ -617,7 +617,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   onClick={() => setEnvelopeQuote(selectedModalQuote)}
                   title="Kirim Amplop Pengingat"
                   aria-label="Kirim Amplop Pengingat"
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#F3EDE2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94]" />
                   <span>Amplop</span>

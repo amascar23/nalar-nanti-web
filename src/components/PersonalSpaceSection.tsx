@@ -271,7 +271,7 @@ export default function PersonalSpaceSection() {
     >
       {/* Header Utama Seksi */}
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
           <ShieldCheck className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
           <span>Ruang Jeda Pribadi • Aman &amp; Anonim</span>
         </div>
@@ -285,18 +285,18 @@ export default function PersonalSpaceSection() {
       </div>
 
       {/* Kontainer Kartu Utama */}
-      <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl shadow-[0_12px_36px_-10px_rgba(184,149,110,0.20)] dark:shadow-none p-5 sm:p-8 md:p-10 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none p-5 sm:p-8 md:p-10 relative overflow-hidden">
         {/* Dekorasi Garis Halus */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-[radial-gradient(#C8A98E_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
 
         {/* Tab Switcher: Tab 1 (Syukur) vs Tab 2 (Kapsul Waktu) */}
-        <div className="flex p-1.5 bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl max-w-md mx-auto mb-8 relative z-10">
+        <div className="flex p-1.5 bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1E1B18] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl max-w-md mx-auto mb-8 relative z-10 shadow-xs">
           <button
             type="button"
             onClick={() => setActiveTab("syukur")}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 active:scale-98 ${
               activeTab === "syukur"
-                ? "bg-[#FAF7F2] dark:bg-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] shadow-soft border border-[#E5DDD0] dark:border-[#3A332E]"
+                ? "bg-gradient-to-r from-white/95 to-[#FAF7F2]/95 dark:from-[#26221F] dark:to-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] shadow-soft border border-[#E5DDD0] dark:border-[#3A332E]"
                 : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
             }`}
           >
@@ -313,7 +313,7 @@ export default function PersonalSpaceSection() {
             onClick={() => setActiveTab("kapsul")}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 active:scale-98 ${
               activeTab === "kapsul"
-                ? "bg-[#FAF7F2] dark:bg-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] shadow-soft border border-[#E5DDD0] dark:border-[#3A332E]"
+                ? "bg-gradient-to-r from-white/95 to-[#FAF7F2]/95 dark:from-[#26221F] dark:to-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] shadow-soft border border-[#E5DDD0] dark:border-[#3A332E]"
                 : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
             }`}
           >
@@ -360,8 +360,8 @@ export default function PersonalSpaceSection() {
             <form onSubmit={handleSaveGratitude} className="space-y-3.5">
               <div className="space-y-2.5">
                 {/* Baris 1 */}
-                <div className="flex items-center gap-3 p-1.5 sm:p-2 bg-[#F3EDE2]/60 dark:bg-[#1E1B18]/60 border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl focus-within:border-[#C8A98E] focus-within:bg-[#FAF7F2] dark:focus-within:bg-[#1C1917] transition-all">
-                  <span className="w-7 h-7 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-serif font-bold flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3 p-1.5 sm:p-2 bg-gradient-to-r from-white/80 to-[#FAF7F2]/70 dark:from-[#1E1B18]/70 dark:to-[#141210]/70 border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl focus-within:border-[#C8A98E] focus-within:ring-1 focus-within:ring-[#C8A98E] transition-all shadow-xs">
+                  <span className="w-7 h-7 rounded-xl bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-serif font-bold flex items-center justify-center shrink-0 border border-[#DDD3C3]/60 dark:border-[#443C36]">
                     1.
                   </span>
                   <input
@@ -375,8 +375,8 @@ export default function PersonalSpaceSection() {
                 </div>
 
                 {/* Baris 2 */}
-                <div className="flex items-center gap-3 p-1.5 sm:p-2 bg-[#F3EDE2]/60 dark:bg-[#1E1B18]/60 border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl focus-within:border-[#C8A98E] focus-within:bg-[#FAF7F2] dark:focus-within:bg-[#1C1917] transition-all">
-                  <span className="w-7 h-7 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-serif font-bold flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3 p-1.5 sm:p-2 bg-gradient-to-r from-white/80 to-[#FAF7F2]/70 dark:from-[#1E1B18]/70 dark:to-[#141210]/70 border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl focus-within:border-[#C8A98E] focus-within:ring-1 focus-within:ring-[#C8A98E] transition-all shadow-xs">
+                  <span className="w-7 h-7 rounded-xl bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-serif font-bold flex items-center justify-center shrink-0 border border-[#DDD3C3]/60 dark:border-[#443C36]">
                     2.
                   </span>
                   <input
@@ -390,8 +390,8 @@ export default function PersonalSpaceSection() {
                 </div>
 
                 {/* Baris 3 */}
-                <div className="flex items-center gap-3 p-1.5 sm:p-2 bg-[#F3EDE2]/60 dark:bg-[#1E1B18]/60 border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl focus-within:border-[#C8A98E] focus-within:bg-[#FAF7F2] dark:focus-within:bg-[#1C1917] transition-all">
-                  <span className="w-7 h-7 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-serif font-bold flex items-center justify-center shrink-0">
+                <div className="flex items-center gap-3 p-1.5 sm:p-2 bg-gradient-to-r from-white/80 to-[#FAF7F2]/70 dark:from-[#1E1B18]/70 dark:to-[#141210]/70 border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl focus-within:border-[#C8A98E] focus-within:ring-1 focus-within:ring-[#C8A98E] transition-all shadow-xs">
+                  <span className="w-7 h-7 rounded-xl bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-serif font-bold flex items-center justify-center shrink-0 border border-[#DDD3C3]/60 dark:border-[#443C36]">
                     3.
                   </span>
                   <input
@@ -409,7 +409,7 @@ export default function PersonalSpaceSection() {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs sm:text-sm font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] text-xs sm:text-sm font-semibold hover:brightness-105 transition-all shadow-soft active:scale-95"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Simpan Jejak Hari Ini</span>
@@ -449,7 +449,7 @@ export default function PersonalSpaceSection() {
                   {gratitudeEntries.map((entry) => (
                     <div
                       key={entry.id}
-                      className="p-4 rounded-2xl bg-white/70 dark:bg-[#1E1B18]/80 border border-[#E5D3B8]/80 dark:border-[#3A332E] text-left relative group hover:border-[#C8A98E] hover:-translate-y-0.5 transition-all shadow-[0_4px_16px_-4px_rgba(184,149,110,0.12)] dark:shadow-none"
+                      className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:from-[#1E1B18]/80 dark:to-[#141210]/70 border border-[#E5DDD0] dark:border-[#3A332E] text-left relative group hover:border-[#C8A98E] hover:-translate-y-0.5 transition-all shadow-[0_4px_16px_-4px_rgba(200,169,142,0.12)] dark:shadow-none"
                     >
                       <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
                         <span className="text-[11px] font-semibold text-[#886950] dark:text-[#C8A98E]">
@@ -513,7 +513,7 @@ export default function PersonalSpaceSection() {
                   value={capsuleTitle}
                   onChange={(e) => setCapsuleTitle(e.target.value)}
                   placeholder="Contoh: Untuk diriku bulan depan / Pengingat saat lelah"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
                 />
               </div>
 
@@ -532,7 +532,7 @@ export default function PersonalSpaceSection() {
                   value={capsuleContent}
                   onChange={(e) => setCapsuleContent(e.target.value)}
                   placeholder="Ceritakan apa yang sedang kamu rasakan hari ini, apa yang sedang kamu doakan, dan apa yang ingin kamu ingatkan pada dirimu nanti..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-none"
                 />
               </div>
 
@@ -553,8 +553,8 @@ export default function PersonalSpaceSection() {
                       onClick={() => setCapsuleDays(option.days)}
                       className={`px-4 py-2 rounded-full text-xs font-semibold transition-all active:scale-95 border ${
                         capsuleDays === option.days
-                          ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E] shadow-soft"
-                          : "bg-[#F3EDE2] dark:bg-[#1E1B18] text-[#7A6F64] dark:text-[#A89F94] border-[#E5DDD0] dark:border-[#3A332E] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E]"
+                          ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] border-[#C8A98E] shadow-soft"
+                          : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1E1B18] dark:to-[#26221F] text-[#7A6F64] dark:text-[#A89F94] border-[#E5DDD0] dark:border-[#3A332E] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E]"
                       }`}
                     >
                       {option.label}
@@ -567,7 +567,7 @@ export default function PersonalSpaceSection() {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#3E362E] dark:bg-[#C8A98E] text-[#FAF7F2] text-xs sm:text-sm font-semibold hover:bg-[#2e2720] dark:hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#3E362E] to-[#52473D] dark:from-[#D4B59D] dark:via-[#C8A98E] dark:to-[#B9967A] text-[#FAF7F2] text-xs sm:text-sm font-semibold hover:brightness-105 transition-all shadow-soft active:scale-95 group"
                 >
                   <Lock className="w-4 h-4 text-[#C8A98E] dark:text-[#FAF7F2] group-hover:scale-110 transition-transform" />
                   <span>Segel Kapsul Waktu</span>
@@ -612,8 +612,8 @@ export default function PersonalSpaceSection() {
                         key={capsule.id}
                         className={`p-4 sm:p-5 rounded-2xl border text-left relative transition-all shadow-soft hover:-translate-y-0.5 ${
                           status.isUnlocked
-                            ? "bg-white/80 dark:bg-[#26221F] border-[#8E9B8E]/50 ring-1 ring-[#8E9B8E]/30"
-                            : "bg-white/70 dark:bg-[#1E1B18]/80 border-[#E5D3B8]/80 dark:border-[#3A332E]"
+                            ? "bg-gradient-to-br from-white/90 to-[#FAF7F2]/80 dark:bg-[#26221F] border-[#8E9B8E]/50 ring-1 ring-[#8E9B8E]/30"
+                            : "bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:from-[#1E1B18]/80 dark:to-[#141210]/70 border-[#E5DDD0] dark:border-[#3A332E]"
                         }`}
                       >
                         <div className="flex items-start justify-between gap-2 pb-2 mb-2 border-b border-[#E5DDD0] dark:border-[#3A332E]">
@@ -699,7 +699,7 @@ export default function PersonalSpaceSection() {
           onClick={() => setOpenedCapsule(null)}
         >
           <div
-            className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-floating relative text-left max-h-[90vh] overflow-y-auto"
+            className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-[0_20px_50px_-15px_rgba(200,169,142,0.25)] relative text-left max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header Modal Surat */}

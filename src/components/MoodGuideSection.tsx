@@ -136,7 +136,7 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 1. Header Seksi */}
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E] mb-3 shadow-soft">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E] mb-3 shadow-soft">
             <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
             <span>Teman Bicara Hati</span>
           </div>
@@ -161,8 +161,8 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                 onClick={() => setSelectedMoodId(mood.id)}
                 className={`inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all active:scale-95 duration-200 ${
                   isActive
-                    ? "bg-[#C8A98E] text-[#FAF7F2] border border-[#C8A98E] shadow-card scale-[1.02]"
-                    : "bg-[#F3EDE2] dark:bg-[#26221F] text-[#7A6F64] dark:text-[#A89F94] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]/70 hover:text-[#3E362E] dark:hover:text-[#EDE6DC] shadow-soft"
+                    ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] border border-[#C8A98E] shadow-card scale-[1.02]"
+                    : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] text-[#7A6F64] dark:text-[#A89F94] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]/70 hover:text-[#3E362E] dark:hover:text-[#EDE6DC] shadow-soft"
                 }`}
               >
                 <Icon
@@ -179,7 +179,7 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
         {/* 3. Kotak Sapaan Empatik yang Hangat */}
         <div
           key={activeMood.id}
-          className="p-5 sm:p-7 rounded-3xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none mb-8 sm:mb-12 text-center max-w-2xl mx-auto relative overflow-hidden animate-fadeIn"
+          className="p-5 sm:p-7 rounded-3xl bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 shadow-[0_10px_30px_-10px_rgba(200,169,142,0.18)] dark:shadow-none mb-8 sm:mb-12 text-center max-w-2xl mx-auto relative overflow-hidden animate-fadeIn"
         >
           <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-2.5">
             <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
@@ -195,16 +195,16 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
           {recommendedQuotes.map((quote) => (
             <div
               key={quote.id}
-              className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-6 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none hover:-translate-y-1 hover:shadow-[0_16px_36px_-10px_rgba(184,149,110,0.28)] transition-all duration-300 flex flex-col justify-between h-full group"
+              className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-5 sm:p-6 shadow-[0_8px_24px_-8px_rgba(200,169,142,0.16)] dark:shadow-none hover:-translate-y-1 hover:shadow-[0_14px_32px_-8px_rgba(200,169,142,0.26)] transition-all duration-300 flex flex-col justify-between h-full group"
             >
               {/* Bagian Atas & Tengah */}
               <div className="flex-1 flex flex-col">
                 {/* Header Kartu: Judul Tema & Kategori */}
                 <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm border border-[#E5D3B8]/60 dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap">
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm border border-[#E5DDD0]/70 dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap">
                     {quote.category}
                   </span>
-                  <span className="text-[10px] font-bold text-[#886950] dark:text-[#C8A98E] bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
+                  <span className="text-[10px] font-bold text-[#886950] dark:text-[#C8A98E] bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5DDD0]/70 dark:border-[#3A332E] whitespace-nowrap">
                     #{quote.orderNumber || quote.id}
                   </span>
                 </div>
@@ -224,9 +224,9 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
               </div>
 
               {/* Bagian Bawah: Satu Baris Sejajar Sumber & Lima Tombol Ikon */}
-              <div className="mt-5 pt-3.5 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex items-center justify-between gap-2 min-w-0">
+              <div className="mt-5 pt-3.5 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex items-center justify-between gap-2 min-w-0">
                 {/* Sisi Kiri: Source Pill Ringkas */}
-                <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36] shadow-xs shrink min-w-0">
+                <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink min-w-0">
                   <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                   <span className="truncate max-w-[135px] sm:max-w-[160px]">{quote.source}</span>
                 </span>

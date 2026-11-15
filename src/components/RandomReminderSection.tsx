@@ -44,7 +44,7 @@ export default function RandomReminderSection() {
   return (
     <section
       id="pengingat"
-      className="py-20 sm:py-28 bg-[#F3EDE2]/40 border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-20 sm:py-28 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
       {/* Decorative calm background elements */}
       <div className="absolute -top-24 right-0 w-80 h-80 bg-[#C8A98E]/10 rounded-full blur-3xl pointer-events-none" />
@@ -53,26 +53,26 @@ export default function RandomReminderSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#8E9B8E] mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#8E9B8E] mb-3 shadow-soft">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Fitur Interaktif</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-4">
             Pengingat Acak Hari Ini
           </h2>
-          <p className="font-sans text-sm sm:text-base text-[#7A6F64]">
+          <p className="font-sans text-sm sm:text-base text-[#7A6F64] dark:text-[#A89F94]">
             Setiap kali kamu merasa overwhelm, acak pengingat ini untuk menemukan kembali pusat ketenanganmu.
           </p>
         </div>
 
         {/* Central Card */}
-        <div className="relative bg-[#F3EDE2] border border-[#E5DDD0] rounded-3xl p-8 sm:p-12 shadow-card max-w-2xl mx-auto transition-all">
+        <div className="relative bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-8 sm:p-12 shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none max-w-2xl mx-auto transition-all">
           {/* Top category tag & Icon */}
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E5DDD0]/70">
-            <span className="text-xs uppercase tracking-wider font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] text-[#7A6F64] border border-[#E5DDD0]">
+          <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
+            <span className="text-xs uppercase tracking-wider font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] text-[#7A6F64] dark:text-[#A89F94] border border-[#E5DDD0] dark:border-[#3A332E]">
               {currentReminder.theme}
             </span>
-            <div className="flex items-center gap-1.5 text-xs text-[#7A6F64]">
+            <div className="flex items-center gap-1.5 text-xs text-[#7A6F64] dark:text-[#A89F94]">
               <Compass className="w-4 h-4 text-[#C8A98E]" />
               <span>Nalar Nanti</span>
             </div>
@@ -84,31 +84,31 @@ export default function RandomReminderSection() {
               isRotating ? "opacity-0 scale-95" : "opacity-100 scale-100"
             }`}
           >
-            <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] mb-5 leading-snug">
+            <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] dark:text-[#EDE6DC] mb-5 leading-snug">
               {currentReminder.title}
             </h3>
 
-            <p className="font-sans text-base sm:text-lg text-[#7A6F64] leading-relaxed mb-8">
+            <p className="font-sans text-base sm:text-lg text-[#7A6F64] dark:text-[#A89F94] leading-relaxed mb-8">
               {currentReminder.body}
             </p>
 
             {/* Micro action box */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] mb-8">
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-white/70 to-[#FAF7F2]/60 dark:from-[#1E1B18]/70 dark:to-[#141210]/60 border border-[#E5DDD0] dark:border-[#3A332E] mb-8">
               <p className="text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1.5">
                 Langkah Lembut Untukmu
               </p>
-              <p className="font-sans text-sm text-[#3E362E] font-medium">
+              <p className="font-sans text-sm text-[#3E362E] dark:text-[#EDE6DC] font-medium">
                 {currentReminder.actionPrompt}
               </p>
             </div>
           </div>
 
           {/* Action Row */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E5DDD0]/70">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E5DDD0]/70 dark:border-[#3A332E]">
             <button
               onClick={handleShuffle}
               disabled={isRotating}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 disabled:opacity-60"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:brightness-105 transition-all shadow-soft active:scale-95 disabled:opacity-60"
             >
               <RefreshCw
                 className={`w-4 h-4 ${isRotating ? "animate-spin" : ""}`}
@@ -119,7 +119,7 @@ export default function RandomReminderSection() {
             <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
               <button
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] hover:text-[#3E362E] hover:border-[#C8A98E] transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E] transition-all"
               >
                 {copied ? (
                   <>
@@ -136,7 +136,7 @@ export default function RandomReminderSection() {
 
               <button
                 onClick={handleShareWa}
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] hover:text-[#3E362E] hover:border-[#8E9B8E] transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#8E9B8E] transition-all"
               >
                 <Share2 className="w-3.5 h-3.5 text-[#8E9B8E]" />
                 <span>Bagikan</span>

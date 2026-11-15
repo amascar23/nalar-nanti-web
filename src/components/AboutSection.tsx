@@ -40,11 +40,11 @@ export default function AboutSection() {
         </div>
 
         {/* Narrative Box Filosofi */}
-        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-10 lg:p-12 mb-14 sm:mb-16 shadow-[0_12px_36px_-10px_rgba(184,149,110,0.18)] dark:shadow-none relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-5 sm:p-10 lg:p-12 mb-14 sm:mb-16 shadow-[0_12px_36px_-10px_rgba(200,169,142,0.18)] dark:shadow-none relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Kolom Narasi Kiri */}
             <div className="lg:col-span-7 space-y-4 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 dark:bg-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E] shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
                 <span>Bermula dari Titik Awal</span>
               </div>
@@ -66,7 +66,7 @@ export default function AboutSection() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                <div className="p-4 rounded-2xl bg-white/60 dark:bg-[#1C1917] border border-[#E5D3B8]/70 dark:border-[#3A332E]">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs">
                   <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
                     🌿 Menata Nalar
                   </span>
@@ -75,7 +75,7 @@ export default function AboutSection() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0]/80 dark:border-[#3A332E]">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs">
                   <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
                     🕊️ Merakit Asa
                   </span>
@@ -88,17 +88,17 @@ export default function AboutSection() {
 
             {/* Kolom Refleksi Kanan (Quote Postingan Pertama: Titik Awal) */}
             <div className="lg:col-span-5">
-              <div className="bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl p-7 sm:p-8 shadow-soft relative text-left">
+              <div className="bg-gradient-to-br from-white/90 to-[#FAF7F2]/80 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl p-7 sm:p-8 shadow-soft relative text-left">
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
                   <span className="text-[11px] font-semibold text-[#8E9B8E] uppercase tracking-wider whitespace-nowrap">
                     Jejak Awal Nalar Nanti
                   </span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] whitespace-nowrap">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] whitespace-nowrap">
                     Postingan #1
                   </span>
                 </div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft shrink-0 bg-[#FAF7F2] dark:bg-[#1C1917]">
+                  <div className="w-11 h-11 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft shrink-0 bg-white/90 dark:bg-[#1C1917]">
                     <Image
                       src="/images/logo-hd.png"
                       alt="Logo Nalar Nanti"
@@ -148,7 +148,7 @@ export default function AboutSection() {
           {/* ----------------------------------------------------------------------- */}
           {/* KARTU 1: INSTAGRAM (@nalarnanti) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
+          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 shadow-[0_8px_24px_-8px_rgba(200,169,142,0.16)] dark:shadow-none hover:shadow-[0_14px_32px_-8px_rgba(200,169,142,0.26)] hover:-translate-y-1.5 transition-all duration-300 relative group">
             <div>
               {/* Top Tag & Icon */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80 dark:border-[#3A332E]">
@@ -156,12 +156,12 @@ export default function AboutSection() {
                   href={IG_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft group-hover:scale-105 hover:border-[#C8A98E] transition-all"
+                  className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/90 to-[#FAF7F2]/80 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft group-hover:scale-105 hover:border-[#C8A98E] transition-all"
                   aria-label="Kunjungi profil Instagram @nalarnanti"
                 >
                   <Instagram className="w-6 h-6" />
                 </a>
-                <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#886950] dark:text-[#C8A98E] border border-[#E5DDD0] dark:border-[#3A332E]">
+                <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:bg-[#1C1917] text-[#886950] dark:text-[#C8A98E] border border-[#E5DDD0] dark:border-[#3A332E]">
                   Visual & Carousel
                 </span>
               </div>
@@ -216,7 +216,7 @@ export default function AboutSection() {
               href={IG_PROFILE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 px-6 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group/btn"
+              className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:brightness-105 transition-all shadow-soft active:scale-95 group/btn"
             >
               <Instagram className="w-4 h-4 text-[#FAF7F2]" />
               <span>Kunjungi Instagram @nalarnanti</span>
@@ -227,14 +227,14 @@ export default function AboutSection() {
           {/* ----------------------------------------------------------------------- */}
           {/* KARTU 2: SALURAN WHATSAPP (@NalarNanti) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
+          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 shadow-[0_8px_24px_-8px_rgba(200,169,142,0.16)] dark:shadow-none hover:shadow-[0_14px_32px_-8px_rgba(200,169,142,0.26)] hover:-translate-y-1.5 transition-all duration-300 relative group">
             <div>
               {/* Top Tag & Icon */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80 dark:border-[#3A332E]">
-                <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#8E9B8E] shadow-soft group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/90 to-[#FAF7F2]/80 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#8E9B8E] shadow-soft group-hover:scale-105 transition-transform">
                   <MessageCircle className="w-6 h-6" />
                 </div>
-                <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#637063] dark:text-[#8E9B8E] border border-[#E5DDD0] dark:border-[#3A332E]">
+                <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:bg-[#1C1917] text-[#637063] dark:text-[#8E9B8E] border border-[#E5DDD0] dark:border-[#3A332E]">
                   Pengingat Langsung
                 </span>
               </div>
@@ -273,7 +273,7 @@ export default function AboutSection() {
               href={WA_CHANNEL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 px-6 rounded-full bg-[#8E9B8E] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:bg-[#7D8C7D] transition-all shadow-soft active:scale-95 group/btn"
+              className="inline-flex items-center justify-center gap-2.5 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-[#9CB09C] via-[#8E9B8E] to-[#7D8C7D] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:brightness-105 transition-all shadow-soft active:scale-95 group/btn"
             >
               <MessageCircle className="w-4 h-4 text-[#FAF7F2]" />
               <span>Gabung Saluran WhatsApp</span>

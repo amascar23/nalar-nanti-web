@@ -17,7 +17,7 @@ export default function ThemeBackground() {
   return (
     <div
       aria-hidden="true"
-      className="fixed inset-0 pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center"
+      className="fixed inset-0 pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(200,169,142,0.12),rgba(250,247,242,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(200,169,142,0.06),rgba(28,25,23,0))]"
     >
       {/* Gambar Logo Lingkaran Nalar Nanti Tepat di Tengah Layar (HD Lossless) */}
       <div className="relative w-[340px] h-[340px] sm:w-[480px] sm:h-[480px] md:w-[580px] md:h-[580px] lg:w-[640px] lg:h-[640px] opacity-[0.12] sm:opacity-[0.14] mix-blend-multiply dark:invert dark:opacity-[0.05] dark:mix-blend-screen transition-all duration-500">

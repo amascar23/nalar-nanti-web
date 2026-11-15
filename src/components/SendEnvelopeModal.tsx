@@ -116,13 +116,13 @@ export default function SendEnvelopeModal({
       onClick={handleClose}
     >
       <div
-        className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-8 max-w-lg w-full shadow-[0_20px_50px_-15px_rgba(184,149,110,0.25)] relative text-left max-h-[90vh] overflow-y-auto"
+        className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-5 sm:p-8 max-w-lg w-full shadow-[0_20px_50px_-15px_rgba(200,169,142,0.25)] relative text-left max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Modal */}
-        <div className="flex items-center justify-between pb-3.5 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
+        <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-white/75 dark:bg-[#322C27] border border-[#E5D3B8] dark:border-[#443C36] flex items-center justify-center text-[#886950] dark:text-[#C8A98E] shrink-0">
+            <div className="w-8 h-8 rounded-full bg-white/90 dark:bg-[#322C27] border border-[#E5DDD0] dark:border-[#443C36] flex items-center justify-center text-[#886950] dark:text-[#C8A98E] shrink-0 shadow-xs">
               <Mail className="w-4 h-4 text-[#886950] dark:text-[#C8A98E]" />
             </div>
             <div>
@@ -145,7 +145,7 @@ export default function SendEnvelopeModal({
         </div>
 
         {/* Ringkasan Kutipan yang Dipilih */}
-        <div className="my-4 p-3.5 sm:p-4 rounded-2xl bg-white/60 dark:bg-[#1E1B18]/70 backdrop-blur-sm border border-[#E5D3B8]/70 dark:border-[#3A332E] text-xs text-[#3E362E] dark:text-[#EDE6DC] relative">
+        <div className="my-4 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-white/70 to-[#FAF7F2]/60 dark:from-[#1E1B18]/70 dark:to-[#141210]/60 backdrop-blur-sm border border-[#E5DDD0]/70 dark:border-[#3A332E] text-xs text-[#3E362E] dark:text-[#EDE6DC] relative">
           <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1">
             <QuoteIcon className="w-3 h-3 text-[#C8A98E]" />
             <span>Kutipan Pilihan (#{quoteItem.orderNumber || quoteItem.id})</span>
@@ -176,7 +176,7 @@ export default function SendEnvelopeModal({
                 value={recipient}
                 onChange={(e) => setRecipient(e.target.value)}
                 placeholder="Contoh: Sahabatku / Aisyah / Teman Baik"
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
               />
             </div>
 
@@ -194,7 +194,7 @@ export default function SendEnvelopeModal({
                 value={sender}
                 onChange={(e) => setSender(e.target.value)}
                 placeholder="Contoh: Seseorang yang peduli / [Namamu]"
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
               />
               <p className="text-[10px] text-[#7A6F64]/80 dark:text-[#A89F94]/80 mt-1">
                 Opsional — default: <em>"Seseorang yang peduli"</em>
@@ -221,7 +221,7 @@ export default function SendEnvelopeModal({
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="Lagi kepikiran kamu, semoga kalimat ini bisa sedikit menenangkan harimu ya."
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-none"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-none"
               />
             </div>
 
@@ -229,7 +229,7 @@ export default function SendEnvelopeModal({
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:bg-[#B9967A] transition-all shadow-soft active:scale-98 group"
+                className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] font-semibold text-xs sm:text-sm hover:brightness-105 transition-all shadow-soft active:scale-98 group"
               >
                 <Sparkles className="w-4 h-4 text-[#FAF7F2]" />
                 <span>Buat Link Amplop Pengingat</span>
@@ -254,7 +254,7 @@ export default function SendEnvelopeModal({
               <label className="block text-[11px] font-semibold text-[#7A6F64] dark:text-[#A89F94] mb-1">
                 Tautan Amplop Digital
               </label>
-              <div className="flex items-center gap-2 p-1.5 bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] rounded-xl">
+              <div className="flex items-center gap-2 p-1.5 bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1E1B18] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-xl">
                 <input
                   type="text"
                   readOnly
@@ -264,7 +264,7 @@ export default function SendEnvelopeModal({
                 <button
                   type="button"
                   onClick={handleCopyLink}
-                  className="min-h-[36px] inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shrink-0 active:scale-95"
+                  className="min-h-[36px] inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shrink-0 active:scale-95 shadow-xs"
                 >
                   {isCopied ? (
                     <>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { QuoteItem } from "@/data/quotes";
+import { getShareBaseUrl } from "@/lib/constants";
 import {
   Mail,
   X,
@@ -76,10 +77,7 @@ export default function SendEnvelopeModal({
     const fromName = sender.trim() || "Seseorang yang peduli";
     const personalNote = note.trim();
 
-    const origin =
-      typeof window !== "undefined"
-        ? window.location.origin
-        : "https://nalarnanti.com";
+    const origin = getShareBaseUrl();
 
     const params = new URLSearchParams();
     params.set("id", quoteItem.id);

@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
 import SendEnvelopeModal from "@/components/SendEnvelopeModal";
+import { getShareBaseUrl } from "@/lib/constants";
 
 interface MoodOption {
   id: string;
@@ -105,12 +106,13 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
   };
 
   const handleShareWa = (quote: QuoteItem) => {
+    const baseUrl = getShareBaseUrl();
     const text = encodeURIComponent(
       `🌿 *Pengingat Nalar Nanti — ${quote.themeTitle}*\n\n` +
       `“${quote.quote}”\n` +
       `— ${quote.source} (Nalar Nanti)\n\n` +
       `*Refleksi:* ${quote.reflection}\n\n` +
-      `— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`
+      `— Ruang Singgah untuk Menata Nalar & Merakit Asa\n${baseUrl}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };

@@ -8,6 +8,7 @@ import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import SendEnvelopeModal from "@/components/SendEnvelopeModal";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
+import { getShareBaseUrl } from "@/lib/constants";
 import {
   Mail,
   Sparkles,
@@ -69,12 +70,13 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
   };
 
   const handleShareWa = () => {
+    const baseUrl = getShareBaseUrl();
     const text = encodeURIComponent(
       `🌿 *Amplop Pengingat Nalar Nanti — Untuk ${recipientParam}*\n\n` +
         `“${quoteItem.quote}”\n` +
         `— ${quoteItem.source}\n\n` +
         (noteParam ? `*Catatan:* “${noteParam}”\n— ${senderParam}\n\n` : "") +
-        `https://nalarnanti.com/amplop?${searchParams.toString()}`
+        `${baseUrl}/amplop?${searchParams.toString()}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };

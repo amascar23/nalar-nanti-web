@@ -23,7 +23,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nalarnanti.com"),
+  metadataBase: new URL("https://nalar-nanti-web.vercel.app"),
   title: "Nalar Nanti — Menata Nalar, Merakit Asa",
   description:
     "Ruang singgah digital untuk Menata Nalar, Merakit Asa. Rumah digital resmi dari akun Instagram @nalarnanti dan Saluran WhatsApp @NalarNanti berisi kata motivasi Islami, pengingat harian, dan refleksi ketenangan diri.",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   creator: "Nalar Nanti",
   publisher: "Nalar Nanti",
   alternates: {
-    canonical: "https://nalarnanti.com",
+    canonical: "https://nalar-nanti-web.vercel.app",
   },
   icons: {
     icon: "/logo-hd.png",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Nalar Nanti — Menata Nalar, Merakit Asa",
     description:
       "Ruang singgah digital untuk Menata Nalar, Merakit Asa. Rumah digital resmi dari akun Instagram @nalarnanti dan Saluran WhatsApp @NalarNanti berisi kata motivasi Islami, pengingat harian, dan refleksi ketenangan diri.",
-    url: "https://nalarnanti.com",
+    url: "https://nalar-nanti-web.vercel.app",
     siteName: "Nalar Nanti",
     locale: "id_ID",
     type: "website",

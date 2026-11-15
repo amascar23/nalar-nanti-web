@@ -634,7 +634,7 @@ export async function downloadQuoteAsImage(
     '400 16px -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Segoe UI", Roboto, sans-serif';
   ctx.fillStyle = "#8A7E72";
   ctx.fillText(
-    "Ruang Teduh untuk Menata Nalar & Merakit Asa • nalarnanti.com",
+    "Ruang Teduh untuk Menata Nalar & Merakit Asa • nalar-nanti-web.vercel.app",
     540,
     cardY + cardH - 46
   );

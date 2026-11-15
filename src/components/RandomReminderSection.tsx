@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { REMINDERS_DATA, ReminderItem } from "@/data/reminders";
 import { RefreshCw, Copy, Check, Share2, Compass, Sparkles } from "lucide-react";
+import { getShareBaseUrl } from "@/lib/constants";
 
 export default function RandomReminderSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,7 +27,8 @@ export default function RandomReminderSection() {
   };
 
   const handleCopy = () => {
-    const text = `[Pengingat Nalar Nanti]\n${currentReminder.title}\n\n"${currentReminder.body}"\n\nAksi lembut: ${currentReminder.actionPrompt}\n\n— https://nalarnanti.com`;
+    const baseUrl = getShareBaseUrl();
+    const text = `[Pengingat Nalar Nanti]\n${currentReminder.title}\n\n"${currentReminder.body}"\n\nAksi lembut: ${currentReminder.actionPrompt}\n\n— ${baseUrl}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

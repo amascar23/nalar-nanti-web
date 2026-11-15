@@ -20,6 +20,7 @@ import {
   Type,
   User,
 } from "lucide-react";
+import { getShareBaseUrl } from "@/lib/constants";
 
 // Tipe untuk Nuansa Kertas
 export type PaperThemeId = "warm-cream" | "soft-sage" | "muted-latte";
@@ -163,9 +164,10 @@ export default function CustomCardStudio() {
 
   // Helper salin teks ke papan klip
   const handleCopyText = () => {
+    const baseUrl = getShareBaseUrl();
     const textToCopy = `${title ? `[${title}]\n\n` : ""}“${quoteText}”\n\n— ${
       author.trim() || "Sahabat Nalar"
-    }\n\n— Diracik di ruang teduh @nalarnanti (nalarnanti.com)`;
+    }\n\n— Diracik di ruang teduh @nalarnanti (${baseUrl})`;
     navigator.clipboard.writeText(textToCopy);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2500);
@@ -534,7 +536,7 @@ export default function CustomCardStudio() {
       ctx.fillStyle = conf.muted;
       ctx.font = "400 18px 'Plus Jakarta Sans', system-ui, sans-serif";
       ctx.fillText(
-        "Diracik di ruang teduh @nalarnanti • nalarnanti.com",
+        "Diracik di ruang teduh @nalarnanti • nalar-nanti-web.vercel.app",
         WIDTH / 2,
         footerY + 22
       );
@@ -908,7 +910,7 @@ export default function CustomCardStudio() {
                   className="text-[8px] font-sans opacity-70 block"
                   style={{ color: activeTheme.mutedHex }}
                 >
-                  Diracik di ruang teduh @nalarnanti • nalarnanti.com
+                  Diracik di ruang teduh @nalarnanti • nalar-nanti-web.vercel.app
                 </span>
               </div>
             </div>

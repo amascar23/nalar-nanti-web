@@ -20,6 +20,7 @@ import {
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
 import SendEnvelopeModal from "@/components/SendEnvelopeModal";
+import { getShareBaseUrl } from "@/lib/constants";
 
 interface HeroSectionProps {
   quotes?: QuoteItem[];
@@ -58,7 +59,8 @@ export default function HeroSection({ quotes = QUOTES_DATA }: HeroSectionProps) 
   };
 
   const handleShareWhatsApp = () => {
-    const message = `🌿 *Nalar Hari Ini — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source} (Nalar Nanti)\n\n_${currentQuote.reflection}_\n\n— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`;
+    const baseUrl = getShareBaseUrl();
+    const message = `🌿 *Nalar Hari Ini — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source} (Nalar Nanti)\n\n_${currentQuote.reflection}_\n\n— Ruang Singgah untuk Menata Nalar & Merakit Asa\n${baseUrl}`;
     const waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };

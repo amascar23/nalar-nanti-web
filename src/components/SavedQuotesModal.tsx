@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
+import { getShareBaseUrl } from "@/lib/constants";
 import {
   Bookmark,
   X,
@@ -66,12 +67,13 @@ export default function SavedQuotesModal() {
   };
 
   const handleShareWa = (quote: QuoteItem) => {
+    const baseUrl = getShareBaseUrl();
     const text = encodeURIComponent(
       `🌿 *Kutipan Saku Hati — ${quote.themeTitle}*\n\n` +
       `“${quote.quote}”\n` +
       `— ${quote.source} (Nalar Nanti)\n\n` +
       `*Refleksi:* ${quote.reflection}\n\n` +
-      `— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`
+      `— Ruang Singgah untuk Menata Nalar & Merakit Asa\n${baseUrl}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };

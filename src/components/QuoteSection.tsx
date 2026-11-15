@@ -24,6 +24,7 @@ import {
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
 import SendEnvelopeModal from "@/components/SendEnvelopeModal";
+import { getShareBaseUrl } from "@/lib/constants";
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
@@ -118,12 +119,13 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
   const handleShareWa = (quote: QuoteItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
+    const baseUrl = getShareBaseUrl();
     const text = encodeURIComponent(
       `🌿 *Nalar Nanti — ${quote.themeTitle}*\n\n` +
       `“${quote.quote}”\n` +
       `— ${quote.source} (Nalar Nanti)\n\n` +
       `*Refleksi:* ${quote.reflection}\n\n` +
-      `— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`
+      `— Ruang Singgah untuk Menata Nalar & Merakit Asa\n${baseUrl}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };

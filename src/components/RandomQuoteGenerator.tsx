@@ -20,6 +20,7 @@ import {
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
 import SendEnvelopeModal from "@/components/SendEnvelopeModal";
+import { getShareBaseUrl } from "@/lib/constants";
 
 interface RandomQuoteGeneratorProps {
   quotes?: QuoteItem[];
@@ -79,8 +80,9 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
   };
 
   const handleShareWhatsApp = () => {
+    const baseUrl = getShareBaseUrl();
     const text = encodeURIComponent(
-      `🌿 *Pengingat Nalar Nanti — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source} (Nalar Nanti)\n\n_${currentQuote.reflection}_\n\n— Ruang Singgah untuk Menata Nalar & Merakit Asa\nhttps://nalarnanti.com`
+      `🌿 *Pengingat Nalar Nanti — ${currentQuote.themeTitle}*\n\n“${currentQuote.quote}”\n— ${currentQuote.source} (Nalar Nanti)\n\n_${currentQuote.reflection}_\n\n— Ruang Singgah untuk Menata Nalar & Merakit Asa\n${baseUrl}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };

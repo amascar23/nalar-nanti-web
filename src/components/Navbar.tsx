@@ -15,14 +15,12 @@ export default function Navbar() {
   const { theme, toggleTheme, isMounted: isThemeMounted } = useTheme();
 
   const navLinks = [
-    { label: "Beranda", href: "/#beranda" },
+    { label: "Beranda", href: "/" },
     { label: "Suasana Hati", href: "/#suasana-hati" },
-    { label: "Pengingat Acak", href: "/#pengingat" },
     { label: "Koleksi Nalar", href: "/koleksi" },
     { label: "Racik Kartu", href: "/racik" },
     { label: "Ruang Jeda", href: "/#ruang-jeda" },
     { label: "Titip Nalar", href: "/#titip-nalar" },
-    { label: "Tentang", href: "/#tentang" },
   ];
 
   return (
@@ -30,7 +28,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-4">
         {/* 1. Zona Kiri: Identitas Brand */}
         <Link
-          href="/#beranda"
+          href="/"
           className="flex items-center gap-2.5 sm:gap-3 transition-opacity hover:opacity-90 active:scale-98 shrink-0"
         >
           <div className="w-9 h-9 rounded-xl bg-[#EAE1D3] border border-[#E5DDD0] flex items-center justify-center overflow-hidden shrink-0 shadow-soft">
@@ -64,7 +62,7 @@ export default function Navbar() {
 
         {/* 3. Zona Kanan: Tombol Utilitas & CTA Utama (Desktop) */}
         <div className="hidden lg:flex items-center gap-2.5 shrink-0">
-          {/* Tombol Saku Hati */}
+          {/* 1. Tombol Saku Hati */}
           <button
             onClick={openDrawer}
             aria-label="Buka Saku Hati"
@@ -80,19 +78,7 @@ export default function Navbar() {
             )}
           </button>
 
-          {/* Tombol Ikon Instagram */}
-          <a
-            href={IG_PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Kunjungi Instagram @nalarnanti"
-            aria-label="Kunjungi profil Instagram @nalarnanti"
-            className="w-9 h-9 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] flex items-center justify-center text-[#3E362E] shrink-0 transition-all shadow-soft active:scale-95 group"
-          >
-            <Instagram className="w-4 h-4 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-          </a>
-
-          {/* Tombol Mode Baca Malam (Dark Mode) */}
+          {/* 2. Tombol Mode Baca Malam (Dark Mode) */}
           <button
             onClick={toggleTheme}
             aria-label={
@@ -114,7 +100,19 @@ export default function Navbar() {
             )}
           </button>
 
-          {/* Tombol CTA Utama ("Tarik Napas") */}
+          {/* 3. Tombol Ikon Instagram */}
+          <a
+            href={IG_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Kunjungi Instagram @nalarnanti"
+            aria-label="Kunjungi profil Instagram @nalarnanti"
+            className="w-9 h-9 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] flex items-center justify-center text-[#3E362E] shrink-0 transition-all shadow-soft active:scale-95 group"
+          >
+            <Instagram className="w-4 h-4 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
+          </a>
+
+          {/* 4. Tombol CTA Utama ("Tarik Napas") */}
           <Link
             href="/#pengingat"
             className="h-9 px-4 rounded-xl bg-[#C8A98E] hover:bg-[#b8977a] text-[#FAF7F2] text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap shadow-soft transition-all active:scale-95 shrink-0"
@@ -192,6 +190,25 @@ export default function Navbar() {
           </nav>
 
           <div className="pt-2 space-y-2 border-t border-[#E5DDD0]/70 mt-2">
+            {/* Tombol Toggle Mode Baca Malam di Menu Mobile */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-[#F3EDE2]/70 border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] transition-all shadow-soft active:scale-98"
+            >
+              <div className="flex items-center gap-2">
+                {isThemeMounted && theme === "dark" ? (
+                  <Sun className="w-4 h-4 text-[#C8A98E]" />
+                ) : (
+                  <Moon className="w-4 h-4 text-[#7A6F64]" />
+                )}
+                <span>Mode Tampilan</span>
+              </div>
+              <span className="text-[11px] text-[#C8A98E] font-medium">
+                {isThemeMounted && theme === "dark" ? "Mode Malam (Espresso)" : "Mode Pagi (Cream)"}
+              </span>
+            </button>
+
             {/* Tombol CTA Tarik Napas */}
             <Link
               href="/#pengingat"

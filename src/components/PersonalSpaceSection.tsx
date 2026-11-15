@@ -119,6 +119,22 @@ export default function PersonalSpaceSection() {
       }
     }
 
+    // Kirim catatan syukur secara anonim ke backend API -> Google Sheets admin
+    try {
+      fetch("/api/jeda", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "syukur",
+          items: newEntry.items,
+          dateDisplay,
+          timestamp: now.toISOString(),
+        }),
+      }).catch((err) => console.log("Catatan tersimpan lokal:", err));
+    } catch (_) {
+      // Abaikan jika offline / fetch gagal
+    }
+
     // Reset input form
     setItem1("");
     setItem2("");
@@ -168,6 +184,28 @@ export default function PersonalSpaceSection() {
       } catch (e) {
         console.error("Gagal menyimpan kapsul waktu:", e);
       }
+    }
+
+    // Kirim kapsul waktu secara anonim ke backend API -> Google Sheets admin
+    try {
+      fetch("/api/jeda", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "kapsul",
+          title: newCapsule.title,
+          content: newCapsule.content,
+          daysLocked: newCapsule.daysLocked,
+          unlockDate: new Intl.DateTimeFormat("id-ID", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }).format(unlockDate),
+          timestamp: now.toISOString(),
+        }),
+      }).catch((err) => console.log("Kapsul waktu tersimpan lokal:", err));
+    } catch (_) {
+      // Abaikan jika offline / fetch gagal
     }
 
     // Reset formulir
@@ -235,14 +273,14 @@ export default function PersonalSpaceSection() {
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
           <ShieldCheck className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
-          <span>Ruang Jeda Pribadi • 100% Privat di Browser</span>
+          <span>Ruang Jeda Pribadi • Aman &amp; Anonim</span>
         </div>
         <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-2">
           Hening Sejenak, Rawat Hatimu Sendiri
         </h2>
         <p className="text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
-          Semua catatan di bawah ini disimpan khusus di browser perangkatmu.
-          Tidak ada yang dikirim ke server luar, bebas dari penilaian siapa pun.
+          Semua catatan di bawah ini tersimpan khusus di browser perangkatmu sebagai ruang hening pribadi,
+          bebas dari penilaian siapa pun.
         </p>
       </div>
 

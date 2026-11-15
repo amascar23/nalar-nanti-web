@@ -164,7 +164,7 @@ export default function SavedQuotesModal() {
                   {/* Top: Judul Tema & Tombol Hapus */}
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <div>
-                      <span className="text-[10px] font-semibold text-[#8E9B8E] uppercase tracking-wider block mb-0.5">
+                      <span className="text-[10px] font-semibold text-[#8E9B8E] uppercase tracking-wider block mb-0.5 whitespace-nowrap">
                         {quote.category}
                       </span>
                       <h4 className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] leading-snug">

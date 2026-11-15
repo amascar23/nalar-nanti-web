@@ -277,12 +277,12 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                         @nalarnanti
                       </span>
                     </a>
-                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#FAF7F2] dark:bg-[#1C1917] px-1.5 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E]">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#FAF7F2] dark:bg-[#1C1917] px-1.5 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap">
                       #{item.orderNumber}
                     </span>
                   </div>
 
-                  <span className="text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#8E9B8E]">
+                  <span className="text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap">
                     {item.category}
                   </span>
                 </div>
@@ -309,73 +309,82 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                   {/* Pill Sumber dengan Latar Soft Cream Hangat */}
                   <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs shrink min-w-0">
                     <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
-                    <span className="truncate max-w-[85px] xs:max-w-[125px] sm:max-w-[160px]">{item.source}</span>
+                    <span className="truncate max-w-[135px] sm:max-w-[160px]">{item.source}</span>
                   </span>
 
-                  {/* Tombol Mini Aksi */}
-                  <div className="flex items-center gap-1 shrink-0">
-                    <button
-                      onClick={(e) => handleCopy(item, e)}
-                      title="Salin kutipan"
-                      aria-label="Salin kutipan"
-                      className="p-1.5 rounded-lg text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#FAF7F2] dark:hover:bg-[#1C1917] active:scale-95 transition-all"
-                    >
-                      {copiedId === item.id ? (
-                        <Check className="w-3.5 h-3.5 text-[#8E9B8E]" />
-                      ) : (
-                        <Copy className="w-3.5 h-3.5" />
-                      )}
-                    </button>
-                    <button
-                      onClick={(e) => handleShareWa(item, e)}
-                      title="Bagikan ke WhatsApp"
-                      aria-label="Bagikan kutipan ke WhatsApp"
-                      className="p-1.5 rounded-lg text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#FAF7F2] dark:hover:bg-[#1C1917] active:scale-95 transition-all"
-                    >
-                      <Share2 className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={(e) => handleDownloadCard(item, e)}
-                      disabled={downloadingId === item.id}
-                      title="Unduh Kartu Gambar (9:16 Story/Status)"
-                      aria-label="Unduh gambar kutipan"
-                      className="p-1.5 rounded-lg text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#FAF7F2] dark:hover:bg-[#1C1917] active:scale-95 transition-all disabled:opacity-50"
-                    >
-                      {downloadingId === item.id ? (
-                        <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
-                      ) : (
-                        <Download className="w-3.5 h-3.5" />
-                      )}
-                    </button>
+                  {/* Tombol Mini Aksi: 5 Ikon Sejajar */}
+                  <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+                    {/* 1. Simpan (Saku Hati) */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleSave(item.id);
                       }}
                       title={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                      aria-label="Simpan ke Saku Hati"
-                      className={`p-1.5 rounded-lg transition-all active:scale-95 ${
+                      aria-label={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
                         isSaved(item.id)
                           ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
-                          : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#FAF7F2] dark:hover:bg-[#1C1917]"
+                          : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
                       }`}
                     >
                       <Bookmark
-                        className={`w-3.5 h-3.5 ${
+                        className={`w-[15px] h-[15px] ${
                           isSaved(item.id) ? "fill-[#C8A98E]" : ""
                         }`}
                       />
                     </button>
+
+                    {/* 2. Salin */}
+                    <button
+                      onClick={(e) => handleCopy(item, e)}
+                      title="Salin Kutipan"
+                      aria-label="Salin Kutipan"
+                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                    >
+                      {copiedId === item.id ? (
+                        <Check className="w-[15px] h-[15px] text-[#8E9B8E]" />
+                      ) : (
+                        <Copy className="w-[15px] h-[15px]" />
+                      )}
+                    </button>
+
+                    {/* 3. Bagikan WhatsApp */}
+                    <button
+                      onClick={(e) => handleShareWa(item, e)}
+                      title="Bagikan ke WhatsApp"
+                      aria-label="Bagikan ke WhatsApp"
+                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                    >
+                      <Share2 className="w-[15px] h-[15px]" />
+                    </button>
+
+                    {/* 4. Unduh Gambar 9:16 */}
+                    <button
+                      onClick={(e) => handleDownloadCard(item, e)}
+                      disabled={downloadingId === item.id}
+                      title="Simpan Gambar 9:16"
+                      aria-label="Simpan Gambar 9:16"
+                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95 disabled:opacity-50"
+                    >
+                      {downloadingId === item.id ? (
+                        <Loader2 className="w-[15px] h-[15px] animate-spin text-[#C8A98E]" />
+                      ) : (
+                        <Download className="w-[15px] h-[15px]" />
+                      )}
+                    </button>
+
+                    {/* 5. Kirim Amplop */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         setEnvelopeQuote(item);
                       }}
                       title="Kirim Amplop Pengingat"
-                      aria-label="Kirim amplop pengingat"
-                      className="p-1.5 rounded-lg text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#FAF7F2] dark:hover:bg-[#1C1917] active:scale-95 transition-all"
+                      aria-label="Kirim Amplop Pengingat"
+                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                     >
-                      <Mail className="w-3.5 h-3.5" />
+                      <Mail className="w-[15px] h-[15px]" />
                     </button>
                   </div>
                 </div>
@@ -468,10 +477,10 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                     <span className="text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] group-hover/modalig:text-[#C8A98E] transition-colors">
                       @nalarnanti
                     </span>
-                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#F3EDE2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E]">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#F3EDE2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap">
                       #{selectedModalQuote.orderNumber}
                     </span>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#8E9B8E]/15 text-[#637063] dark:text-[#8E9B8E]">
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#8E9B8E]/15 text-[#637063] dark:text-[#8E9B8E] whitespace-nowrap">
                       {selectedModalQuote.category}
                     </span>
                   </div>
@@ -537,6 +546,7 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                       : "bg-[#F3EDE2] dark:bg-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]"
                   }`}
                   title={isSaved(selectedModalQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                  aria-label={isSaved(selectedModalQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                 >
                   <Bookmark
                     className={`w-3.5 h-3.5 ${
@@ -549,6 +559,8 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                 {/* 2. Salin */}
                 <button
                   onClick={() => handleCopyInModal(selectedModalQuote)}
+                  title="Salin Kutipan"
+                  aria-label="Salin Kutipan"
                   className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#F3EDE2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
                   {isModalCopied ? (
@@ -567,6 +579,8 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                 {/* 3. WhatsApp */}
                 <button
                   onClick={() => handleShareWa(selectedModalQuote)}
+                  title="Bagikan ke WhatsApp"
+                  aria-label="Bagikan ke WhatsApp"
                   className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
                   <Share2 className="w-3.5 h-3.5 text-[#FAF7F2]" />
@@ -577,8 +591,9 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                 <button
                   onClick={() => handleDownloadModalQuote(selectedModalQuote)}
                   disabled={isModalDownloading}
+                  title="Simpan Gambar 9:16"
+                  aria-label="Simpan Gambar 9:16"
                   className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#F3EDE2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
-                  title="Unduh Kartu Gambar 9:16"
                 >
                   {isModalDownloading ? (
                     <>
@@ -596,8 +611,9 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
                 {/* 5. Kirim Amplop */}
                 <button
                   onClick={() => setEnvelopeQuote(selectedModalQuote)}
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#F3EDE2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                   title="Kirim Amplop Pengingat"
+                  aria-label="Kirim Amplop Pengingat"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#F3EDE2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94]" />
                   <span>Amplop</span>

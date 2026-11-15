@@ -118,15 +118,15 @@ export default function HeroSection() {
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E]">
+                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] whitespace-nowrap">
                       Nalar Hari Ini
                     </span>
-                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#FAF7F2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E]">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#FAF7F2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap">
                       #{currentQuote.orderNumber}
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#8E9B8E] border border-[#E5DDD0] dark:border-[#3A332E]"
+                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#8E9B8E] border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap"
                     >
                       {currentQuote.category}
                     </span>
@@ -178,95 +178,83 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* Bagian Bawah: Baris 1 Sumber & Baris 2 Lima Tombol Aksi Kompak */}
-            <div className="mt-6 pt-4 border-t border-[#E5DDD0] dark:border-[#3A332E] flex flex-col gap-3">
-              {/* Baris 1: Source Pill */}
-              <div className="flex items-center">
+            {/* Bagian Bawah: Satu Baris Sejajar Sumber & Lima Tombol Ikon */}
+            <div className="mt-5 pt-3.5 border-t border-[#E5DDD0] dark:border-[#3A332E] flex flex-col gap-2.5">
+              <div className="flex items-center justify-between gap-2 min-w-0">
+                {/* Sisi Kiri: Source Pill Ringkas */}
                 <span
                   suppressHydrationWarning
-                  className="inline-flex items-center gap-1.5 text-xs font-sans font-medium px-2.5 py-1 rounded-lg bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs truncate max-w-[240px]"
+                  className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs shrink min-w-0"
                 >
-                  <Feather className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E] shrink-0" />
-                  <span className="truncate">{currentQuote.source}</span>
+                  <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
+                  <span className="truncate max-w-[135px] sm:max-w-[160px]">{currentQuote.source}</span>
                 </span>
-              </div>
 
-              {/* Baris 2: Lima Tombol Aksi Kompak */}
-              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 w-full">
-                {/* 1. Simpan ke Saku Hati */}
-                <button
-                  onClick={() => toggleSave(currentQuote.id)}
-                  className={`h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-all shadow-xs active:scale-95 whitespace-nowrap border ${
-                    isSaved(currentQuote.id)
-                      ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
-                      : "bg-[#FAF7F2] dark:bg-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E] hover:text-[#C8A98E]"
-                  }`}
-                  title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                >
-                  <Bookmark
-                    className={`w-3.5 h-3.5 ${
-                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64] dark:text-[#A89F94]"
+                {/* Sisi Kanan: 5 Tombol Ikon Saja */}
+                <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+                  {/* 1. Simpan (Saku Hati) */}
+                  <button
+                    onClick={() => toggleSave(currentQuote.id)}
+                    title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                    aria-label={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
+                      isSaved(currentQuote.id)
+                        ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
+                        : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
                     }`}
-                  />
-                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Simpan"}</span>
-                </button>
+                  >
+                    <Bookmark className={`w-[15px] h-[15px] ${isSaved(currentQuote.id) ? "fill-[#C8A98E]" : ""}`} />
+                  </button>
 
-                {/* 2. Salin Kutipan */}
-                <button
-                  onClick={handleCopyQuote}
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group whitespace-nowrap"
-                >
-                  {isCopied ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-[#8E9B8E]" />
-                      <span className="text-[#8E9B8E]">Tersalin</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#C8A98E] transition-colors" />
-                      <span>Salin</span>
-                    </>
-                  )}
-                </button>
+                  {/* 2. Salin */}
+                  <button
+                    onClick={handleCopyQuote}
+                    title="Salin Kutipan"
+                    aria-label="Salin Kutipan"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                  >
+                    {isCopied ? (
+                      <Check className="w-[15px] h-[15px] text-[#8E9B8E]" />
+                    ) : (
+                      <Copy className="w-[15px] h-[15px]" />
+                    )}
+                  </button>
 
-                {/* 3. Bagikan ke WhatsApp */}
-                <button
-                  onClick={handleShareWhatsApp}
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-xs active:scale-95 whitespace-nowrap"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
-                  <span>WhatsApp</span>
-                </button>
+                  {/* 3. Bagikan WhatsApp */}
+                  <button
+                    onClick={handleShareWhatsApp}
+                    title="Bagikan ke WhatsApp"
+                    aria-label="Bagikan ke WhatsApp"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                  >
+                    <MessageCircle className="w-[15px] h-[15px]" />
+                  </button>
 
-                {/* 4. Simpan Gambar */}
-                <button
-                  onClick={handleDownloadCard}
-                  disabled={isDownloading}
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
-                  title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
-                >
-                  {isDownloading ? (
-                    <>
-                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
-                      <span>...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#C8A98E] transition-colors" />
-                      <span>Gambar</span>
-                    </>
-                  )}
-                </button>
+                  {/* 4. Unduh Gambar 9:16 */}
+                  <button
+                    onClick={handleDownloadCard}
+                    disabled={isDownloading}
+                    title="Simpan Gambar 9:16"
+                    aria-label="Simpan Gambar 9:16"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95 disabled:opacity-50"
+                  >
+                    {isDownloading ? (
+                      <Loader2 className="w-[15px] h-[15px] animate-spin text-[#C8A98E]" />
+                    ) : (
+                      <Download className="w-[15px] h-[15px]" />
+                    )}
+                  </button>
 
-                {/* 5. Kirim Amplop */}
-                <button
-                  onClick={() => setIsEnvelopeModalOpen(true)}
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group whitespace-nowrap"
-                  title="Kirim Amplop Pengingat ke teman atau orang tersayang"
-                >
-                  <Mail className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#C8A98E] transition-colors" />
-                  <span>Amplop</span>
-                </button>
+                  {/* 5. Kirim Amplop */}
+                  <button
+                    onClick={() => setIsEnvelopeModalOpen(true)}
+                    title="Kirim Amplop Pengingat"
+                    aria-label="Kirim Amplop Pengingat"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                  >
+                    <Mail className="w-[15px] h-[15px]" />
+                  </button>
+                </div>
               </div>
 
               {/* Tag Penutup Kredit & Pesan Feedback */}

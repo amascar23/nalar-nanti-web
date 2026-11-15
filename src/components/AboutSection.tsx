@@ -90,10 +90,10 @@ export default function AboutSection() {
             <div className="lg:col-span-5">
               <div className="bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl p-7 sm:p-8 shadow-soft relative text-left">
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
-                  <span className="text-[11px] font-semibold text-[#8E9B8E] uppercase tracking-wider">
+                  <span className="text-[11px] font-semibold text-[#8E9B8E] uppercase tracking-wider whitespace-nowrap">
                     Jejak Awal Nalar Nanti
                   </span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36]">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] whitespace-nowrap">
                     Postingan #1
                   </span>
                 </div>

@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#FAF7F2]/90 backdrop-blur-md border-b border-[#E5DDD0]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-4">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-4">
         {/* 1. Zona Kiri: Identitas Brand */}
         <Link
           href="/"
@@ -124,7 +124,23 @@ export default function Navbar() {
 
         {/* 4. Tampilan Mobile & Tablet (lg:hidden) */}
         <div className="flex lg:hidden items-center gap-2">
-          {/* Tombol Mode Baca Malam (Mobile) */}
+          {/* 1. Tombol Ringkas Saku Hati */}
+          <button
+            onClick={openDrawer}
+            aria-label="Buka Saku Hati"
+            title="Kutipan Tersimpan di Saku Hati"
+            className="h-9 px-2.5 sm:px-3 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] text-[#3E362E] text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all shadow-soft active:scale-95 shrink-0"
+          >
+            <Bookmark className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20 shrink-0" />
+            <span className="hidden xs:inline whitespace-nowrap">Saku Hati</span>
+            {isLoaded && savedCount > 0 && (
+              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[10px] font-bold shrink-0">
+                {savedCount}
+              </span>
+            )}
+          </button>
+
+          {/* 2. Tombol Mode Baca Malam (Mobile) */}
           <button
             onClick={toggleTheme}
             aria-label={
@@ -146,23 +162,7 @@ export default function Navbar() {
             )}
           </button>
 
-          {/* Tombol Ringkas Saku Hati */}
-          <button
-            onClick={openDrawer}
-            aria-label="Buka Saku Hati"
-            title="Kutipan Tersimpan di Saku Hati"
-            className="h-9 px-2.5 sm:px-3 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] text-[#3E362E] text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all shadow-soft active:scale-95 shrink-0"
-          >
-            <Bookmark className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20 shrink-0" />
-            <span className="hidden xs:inline whitespace-nowrap">Saku Hati</span>
-            {isLoaded && savedCount > 0 && (
-              <span className="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[10px] font-bold shrink-0">
-                {savedCount}
-              </span>
-            )}
-          </button>
-
-          {/* Tombol Menu Hamburger */}
+          {/* 3. Tombol Menu Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}

@@ -86,14 +86,14 @@ export default function EnvelopeView() {
       {/* TAMPILAN 1: AMPLOP BELUM DIBUKA (AESTHETIC WARM SAND ENVELOPE) */}
       {/* ========================================================================= */}
       {!isOpened ? (
-        <div className="w-full bg-[#F3EDE2] border border-[#DDD3C3] rounded-3xl p-6 sm:p-10 shadow-floating text-center relative overflow-hidden transition-all duration-500 animate-fadeIn">
+        <div className="w-full bg-[#F3EDE2] dark:bg-[#26221F] border border-[#DDD3C3] dark:border-[#3A332E] rounded-3xl p-6 sm:p-10 shadow-floating text-center relative overflow-hidden transition-all duration-500 animate-fadeIn">
           {/* Latar Belakang Garis & Serat Halus */}
           <div className="absolute inset-0 bg-[radial-gradient(#C8A98E_1px,transparent_1px)] [background-size:18px_18px] opacity-15 pointer-events-none" />
 
           {/* Lipatan Segitiga Amplop (Visual Flap Atas) */}
           <div className="relative mx-auto mb-6 flex flex-col items-center">
             {/* Bentuk Amplop Kertas */}
-            <div className="w-full max-w-sm h-48 sm:h-56 bg-[#FAF7F2] rounded-2xl border border-[#E5DDD0] shadow-soft relative flex flex-col items-center justify-center p-4 overflow-hidden">
+            <div className="w-full max-w-sm h-48 sm:h-56 bg-[#FAF7F2] dark:bg-[#1C1917] rounded-2xl border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft relative flex flex-col items-center justify-center p-4 overflow-hidden">
               {/* Garis lipatan amplop bersilang lembut */}
               <div className="absolute inset-0 pointer-events-none opacity-40">
                 <svg
@@ -125,7 +125,7 @@ export default function EnvelopeView() {
 
               {/* Segel Lilin / Wax Seal Nalar Nanti */}
               <div className="relative z-10 flex flex-col items-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#D8B99E] via-[#C8A98E] to-[#B28B6E] p-1 shadow-floating flex items-center justify-center border-2 border-[#FAF7F2] ring-4 ring-[#EAE1D3] animate-pulse">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#D8B99E] via-[#C8A98E] to-[#B28B6E] p-1 shadow-floating flex items-center justify-center border-2 border-[#FAF7F2] dark:border-[#1C1917] ring-4 ring-[#EAE1D3] dark:ring-[#322C27] animate-pulse">
                   <div className="w-full h-full rounded-full border border-[#FAF7F2]/40 flex items-center justify-center bg-[#C8A98E]/80 backdrop-blur-xs">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[#FAF7F2]/60">
                       <Image
@@ -140,7 +140,7 @@ export default function EnvelopeView() {
                   </div>
                 </div>
 
-                <span className="text-[10px] sm:text-[11px] font-serif italic text-[#886950] mt-3 font-semibold tracking-wide">
+                <span className="text-[10px] sm:text-[11px] font-serif italic text-[#886950] dark:text-[#C8A98E] mt-3 font-semibold tracking-wide">
                   Segel Lilin Nalar Nanti
                 </span>
               </div>
@@ -149,24 +149,24 @@ export default function EnvelopeView() {
 
           {/* Teks Penerima & Pengirim */}
           <div className="relative z-10 space-y-2 mb-6">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAE1D3] text-[#3E362E] text-[11px] sm:text-xs font-medium border border-[#DDD3C3]">
-              <Mail className="w-3.5 h-3.5 text-[#886950]" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-[11px] sm:text-xs font-medium border border-[#DDD3C3] dark:border-[#443C36]">
+              <Mail className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
               <span>Amplop Pengingat Digital</span>
             </span>
 
-            <p className="text-xs sm:text-sm text-[#7A6F64] pt-1">
+            <p className="text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] pt-1">
               Sebuah amplop pengingat titipan untuk:
             </p>
 
-            <h1 className="font-serif text-2xl sm:text-3xl font-semibold text-[#3E362E] tracking-tight">
+            <h1 className="font-serif text-2xl sm:text-3xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] tracking-tight">
               “{recipientParam}”
             </h1>
 
-            <p className="text-xs sm:text-sm text-[#7A6F64]">
-              Dari: <span className="font-medium text-[#3E362E]">{senderParam}</span>
+            <p className="text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94]">
+              Dari: <span className="font-medium text-[#3E362E] dark:text-[#EDE6DC]">{senderParam}</span>
             </p>
 
-            <p className="text-xs text-[#7A6F64]/80 max-w-sm mx-auto pt-1 leading-relaxed">
+            <p className="text-xs text-[#7A6F64]/80 dark:text-[#A89F94]/80 max-w-sm mx-auto pt-1 leading-relaxed">
               Ada satu kalimat pengingat teduh yang dipilih khusus untukmu. Ketuk tombol di bawah untuk membuka segelnya.
             </p>
           </div>
@@ -190,30 +190,30 @@ export default function EnvelopeView() {
         <div className="w-full space-y-6 animate-fadeIn">
           {/* Header Ucapan Pembuka Amplop */}
           <div className="text-center space-y-1.5 pb-1">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#8E9B8E]/15 text-[#637063] text-xs font-semibold border border-[#8E9B8E]/30">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#8E9B8E]/15 text-[#637063] dark:text-[#8E9B8E] text-xs font-semibold border border-[#8E9B8E]/30">
               <Sparkles className="w-3.5 h-3.5 text-[#8E9B8E]" />
               <span>Amplop Berhasil Dibuka</span>
             </span>
-            <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E]">
+            <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC]">
               Khusus untuk {recipientParam}
             </h2>
-            <p className="text-xs text-[#7A6F64]">
+            <p className="text-xs text-[#7A6F64] dark:text-[#A89F94]">
               Dititipkan dengan hangat oleh{" "}
-              <strong className="text-[#3E362E]">{senderParam}</strong>
+              <strong className="text-[#3E362E] dark:text-[#EDE6DC]">{senderParam}</strong>
             </p>
           </div>
 
           {/* 1. CATATAN HANGAT DARI PENGIRIM (Jika Ada Pesan) */}
           {noteParam && (
-            <div className="bg-[#FAF7F2] border border-[#E5DDD0] rounded-2xl p-5 sm:p-6 shadow-soft relative overflow-hidden">
+            <div className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl p-5 sm:p-6 shadow-soft relative overflow-hidden">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-2.5">
                 <Feather className="w-3.5 h-3.5 text-[#C8A98E]" />
                 <span>Pesan Hangat Dari {senderParam}</span>
               </div>
-              <p className="font-serif italic text-sm sm:text-base text-[#3E362E] leading-relaxed pl-1">
+              <p className="font-serif italic text-sm sm:text-base text-[#3E362E] dark:text-[#EDE6DC] leading-relaxed pl-1">
                 “{noteParam}”
               </p>
-              <div className="mt-3 pt-2.5 border-t border-[#E5DDD0]/60 flex items-center justify-between text-[11px] text-[#7A6F64]">
+              <div className="mt-3 pt-2.5 border-t border-[#E5DDD0]/60 dark:border-[#3A332E] flex items-center justify-between text-[11px] text-[#7A6F64] dark:text-[#A89F94]">
                 <span>— Catatan Pribadi</span>
                 <span className="italic font-serif">Nalar Nanti</span>
               </div>
@@ -221,16 +221,16 @@ export default function EnvelopeView() {
           )}
 
           {/* 2. KARTU KUTIPAN LENGKAP */}
-          <div className="bg-[#FAF7F2] border border-[#E5DDD0] rounded-3xl p-6 sm:p-8 shadow-floating text-left relative overflow-hidden">
+          <div className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl p-6 sm:p-8 shadow-floating text-left relative overflow-hidden">
             {/* Header Profil Brand */}
-            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0]">
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0] dark:border-[#3A332E]">
               <a
                 href={IG_PROFILE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 group"
               >
-                <div className="w-9 h-9 rounded-full overflow-hidden border border-[#E5DDD0] bg-[#FAF7F2] shrink-0 group-hover:border-[#C8A98E] transition-all">
+                <div className="w-9 h-9 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] bg-[#FAF7F2] dark:bg-[#1C1917] shrink-0 group-hover:border-[#C8A98E] transition-all">
                   <Image
                     src="/images/logo-hd.png"
                     alt="Nalar Nanti"
@@ -242,20 +242,20 @@ export default function EnvelopeView() {
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs sm:text-sm font-semibold text-[#3E362E] group-hover:text-[#C8A98E] transition-colors">
+                    <span className="text-xs sm:text-sm font-semibold text-[#3E362E] dark:text-[#EDE6DC] group-hover:text-[#C8A98E] transition-colors">
                       @nalarnanti
                     </span>
-                    <span className="text-[10px] text-[#886950] font-bold bg-[#F3EDE2] px-2 py-0.5 rounded-full border border-[#E5DDD0]">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#F3EDE2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E]">
                       #{quoteItem.orderNumber}
                     </span>
                   </div>
-                  <span className="text-[10px] text-[#7A6F64]">
+                  <span className="text-[10px] text-[#7A6F64] dark:text-[#A89F94]">
                     Ruang Singgah Nalar & Asa
                   </span>
                 </div>
               </a>
 
-              <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#8E9B8E]/15 text-[#637063]">
+              <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#8E9B8E]/15 text-[#637063] dark:text-[#8E9B8E]">
                 {quoteItem.category}
               </span>
             </div>
@@ -265,23 +265,23 @@ export default function EnvelopeView() {
               <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] block mb-1">
                 Tema Refleksi
               </span>
-              <h3 className="font-serif text-base sm:text-lg font-semibold text-[#3E362E]">
+              <h3 className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] dark:text-[#EDE6DC]">
                 {quoteItem.themeTitle}
               </h3>
             </div>
 
             {/* Kutipan Utama */}
-            <div className="my-5 p-5 sm:p-6 rounded-2xl bg-[#F3EDE2] border border-[#E5DDD0] relative">
+            <div className="my-5 p-5 sm:p-6 rounded-2xl bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] relative">
               <QuoteIcon className="w-8 h-8 text-[#C8A98E]/30 absolute top-3 right-4 rotate-180 pointer-events-none" />
-              <blockquote className="font-serif italic text-base sm:text-lg md:text-xl text-[#3E362E] leading-relaxed relative z-10">
+              <blockquote className="font-serif italic text-[16px] sm:text-[18px] md:text-[20px] text-[#3E362E] dark:text-[#EDE6DC] leading-[1.8] relative z-10">
                 “{quoteItem.quote}”
               </blockquote>
-              <div className="mt-4 pt-3 border-t border-[#E5DDD0]/80 flex items-center justify-between">
-                <span className="inline-flex items-center gap-1.5 text-xs font-sans font-medium px-3 py-1 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3]">
-                  <Feather className="w-3.5 h-3.5 text-[#886950]" />
+              <div className="mt-4 pt-3 border-t border-[#E5DDD0]/80 dark:border-[#3A332E] flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-xs font-sans font-medium px-3 py-1 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36]">
+                  <Feather className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
                   <span>{quoteItem.source}</span>
                 </span>
-                <span className="text-[10px] text-[#7A6F64]">
+                <span className="text-[10px] text-[#7A6F64] dark:text-[#A89F94]">
                   Nuansa {quoteItem.type}
                 </span>
               </div>
@@ -292,27 +292,27 @@ export default function EnvelopeView() {
               <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] block">
                 Catatan Refleksi
               </span>
-              <p className="font-sans text-xs sm:text-sm text-[#7A6F64] leading-relaxed">
+              <p className="font-sans text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
                 {quoteItem.reflection}
               </p>
             </div>
 
-            {/* Tombol Aksi Lengkap */}
-            <div className="pt-4 border-t border-[#E5DDD0] flex flex-col gap-2.5">
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 w-full">
+            {/* Tombol Aksi Lengkap: Kompak 5 Tombol */}
+            <div className="pt-4 border-t border-[#E5DDD0] dark:border-[#3A332E] flex flex-col gap-2.5">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 {/* Tombol Salin */}
                 <button
                   onClick={handleCopyQuote}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
                   {isCopied ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-[#8E9B8E]" />
-                      <span className="text-[#8E9B8E]">Tersalin!</span>
+                      <span className="text-[#8E9B8E]">Tersalin</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-[#7A6F64]" />
+                      <Copy className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94]" />
                       <span>Salin</span>
                     </>
                   )}
@@ -321,9 +321,9 @@ export default function EnvelopeView() {
                 {/* Tombol Bagikan ke WhatsApp */}
                 <button
                   onClick={handleShareWa}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-full bg-[#25D366] text-white text-xs font-semibold hover:bg-[#20ba59] transition-all shadow-soft active:scale-95 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                  <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>WhatsApp</span>
                 </button>
 
@@ -331,25 +331,25 @@ export default function EnvelopeView() {
                 <button
                   onClick={handleDownloadImage}
                   disabled={isDownloading}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
                   title="Unduh Kartu Gambar 9:16 untuk IG Story & Status WhatsApp"
                 >
                   {isDownloading ? (
                     <>
                       <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
-                      <span>Menyiapkan...</span>
+                      <span>...</span>
                     </>
                   ) : (
                     <>
-                      <Download className="w-3.5 h-3.5 text-[#7A6F64]" />
-                      <span>Simpan Gambar 9:16</span>
+                      <Download className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94]" />
+                      <span>Gambar 9:16</span>
                     </>
                   )}
                 </button>
               </div>
 
               {/* Tombol Balas & Navigasi Beranda */}
-              <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#E5DDD0]/60">
+              <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#E5DDD0]/60 dark:border-[#3A332E]">
                 <button
                   onClick={() => setIsReplyModalOpen(true)}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 whitespace-nowrap"
@@ -360,7 +360,7 @@ export default function EnvelopeView() {
 
                 <Link
                   href="/"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 text-xs font-medium text-[#7A6F64] hover:text-[#3E362E] px-4 py-2 rounded-full hover:bg-[#F3EDE2] transition-colors whitespace-nowrap"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] px-4 py-2 rounded-full hover:bg-[#F3EDE2] dark:hover:bg-[#1C1917] transition-colors whitespace-nowrap"
                 >
                   <span>Jelajahi Beranda Nalar Nanti</span>
                   <ArrowRight className="w-3.5 h-3.5" />

@@ -568,17 +568,17 @@ export default function CustomCardStudio() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto">
       {/* Header Pengantar Studio */}
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAE1D3] text-[#3E362E] text-xs font-semibold border border-[#DDD3C3] shadow-soft mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-[#886950]" />
+        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
+          <Sparkles className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
           <span>Studio Racik Kartu Nalar Nanti</span>
         </span>
-        <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3E362E] tracking-tight mb-2">
+        <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-2">
           Tuliskan Nalar, Unduh Sebagai Pengingat
         </h1>
-        <p className="text-xs sm:text-sm text-[#7A6F64] leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
           Tuangkan doa, kalimat penguat, atau renungan hatimu sendiri ke dalam
           kartu estetis berlapis gaya Nalar Nanti, lalu unduh dalam format vertikal
           Story 9:16 resolusi tinggi (1080 x 1920 piksel).

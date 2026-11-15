@@ -468,7 +468,7 @@ export default function AmbientSoundToggle() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-5 left-5 sm:bottom-8 sm:left-8 z-40">
+    <div className="fixed bottom-4 left-4 z-30">
       <button
         onClick={handleToggle}
         aria-label={
@@ -481,7 +481,7 @@ export default function AmbientSoundToggle() {
             ? "Klik untuk mematikan alunan instrumen"
             : "Dengarkan alunan instrumen syahdu untuk menemani membaca & menata nalar"
         }
-        className={`group flex items-center gap-2 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-full border transition-all duration-300 shadow-card hover:shadow-floating active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50 select-none ${
+        className={`group h-10 flex items-center gap-2 px-3.5 rounded-full border transition-all duration-300 shadow-card hover:shadow-floating active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50 select-none ${
           isPlaying
             ? "bg-[#C8A98E] border-[#C8A98E] text-[#FAF7F2] shadow-soft"
             : "bg-[#FAF7F2] border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E]"

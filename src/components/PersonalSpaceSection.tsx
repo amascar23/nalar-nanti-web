@@ -223,42 +223,42 @@ export default function PersonalSpaceSection() {
   return (
     <section
       id="ruang-jeda"
-      className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto scroll-mt-20"
+      className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 scroll-mt-20"
     >
       {/* Header Utama Seksi */}
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAE1D3] text-[#3E362E] text-xs font-semibold border border-[#DDD3C3] shadow-soft mb-3">
-          <ShieldCheck className="w-3.5 h-3.5 text-[#886950]" />
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
           <span>Ruang Jeda Pribadi • 100% Privat di Browser</span>
         </div>
-        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3E362E] tracking-tight mb-2">
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-2">
           Hening Sejenak, Rawat Hatimu Sendiri
         </h2>
-        <p className="text-xs sm:text-sm text-[#7A6F64] leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
           Semua catatan di bawah ini disimpan khusus di browser perangkatmu.
           Tidak ada yang dikirim ke server luar, bebas dari penilaian siapa pun.
         </p>
       </div>
 
       {/* Kontainer Kartu Utama */}
-      <div className="bg-[#FAF7F2] border border-[#E5DDD0] rounded-3xl shadow-floating p-5 sm:p-8 md:p-10 relative overflow-hidden">
+      <div className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl shadow-floating p-5 sm:p-8 md:p-10 relative overflow-hidden">
         {/* Dekorasi Garis Halus */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-[radial-gradient(#C8A98E_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
 
         {/* Tab Switcher: Tab 1 (Syukur) vs Tab 2 (Kapsul Waktu) */}
-        <div className="flex p-1.5 bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl max-w-md mx-auto mb-8 relative z-10">
+        <div className="flex p-1.5 bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl max-w-md mx-auto mb-8 relative z-10">
           <button
             type="button"
             onClick={() => setActiveTab("syukur")}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 active:scale-98 ${
               activeTab === "syukur"
-                ? "bg-[#FAF7F2] text-[#3E362E] shadow-soft border border-[#E5DDD0]"
-                : "text-[#7A6F64] hover:text-[#3E362E]"
+                ? "bg-[#FAF7F2] dark:bg-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] shadow-soft border border-[#E5DDD0] dark:border-[#3A332E]"
+                : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
             }`}
           >
             <Heart
               className={`w-4 h-4 ${
-                activeTab === "syukur" ? "text-[#C8A98E] fill-[#C8A98E]/20" : "text-[#7A6F64]"
+                activeTab === "syukur" ? "text-[#C8A98E] fill-[#C8A98E]/20" : "text-[#7A6F64] dark:text-[#A89F94]"
               }`}
             />
             <span>Jejak Jeda & Syukur</span>
@@ -269,13 +269,13 @@ export default function PersonalSpaceSection() {
             onClick={() => setActiveTab("kapsul")}
             className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 active:scale-98 ${
               activeTab === "kapsul"
-                ? "bg-[#FAF7F2] text-[#3E362E] shadow-soft border border-[#E5DDD0]"
-                : "text-[#7A6F64] hover:text-[#3E362E]"
+                ? "bg-[#FAF7F2] dark:bg-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] shadow-soft border border-[#E5DDD0] dark:border-[#3A332E]"
+                : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
             }`}
           >
             <Clock
               className={`w-4 h-4 ${
-                activeTab === "kapsul" ? "text-[#886950]" : "text-[#7A6F64]"
+                activeTab === "kapsul" ? "text-[#886950] dark:text-[#C8A98E]" : "text-[#7A6F64] dark:text-[#A89F94]"
               }`}
             />
             <span>Kapsul Waktu Nalar</span>

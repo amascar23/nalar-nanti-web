@@ -87,20 +87,20 @@ export default function RandomQuoteGenerator() {
   return (
     <section
       id="pengingat"
-      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
       <span id="pengingat-acak" className="sr-only" />
-      <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Header Bagian */}
         <div className="max-w-xl mx-auto mb-6 sm:mb-8 text-center">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 sm:mb-2.5">
             <Heart className="w-3.5 h-3.5 fill-[#8E9B8E]" />
             <span>Pesan untuk Jiwamu</span>
           </span>
-          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-2.5 sm:mb-3">
+          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-2.5 sm:mb-3">
             Butuh Satu Pengingat Hari Ini?
           </h2>
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
             Klik tombol di bawah untuk mengambil satu pesan acak yang mungkin sedang hatimu butuhkan.
           </p>
         </div>
@@ -125,7 +125,7 @@ export default function RandomQuoteGenerator() {
             />
           </button>
 
-          <p className="text-[11px] text-[#7A6F64]/70 mt-2 font-sans">
+          <p className="text-[11px] text-[#7A6F64]/70 dark:text-[#A89F94]/70 mt-2 font-sans">
             Telah diambil {shuffleCount} kali sesi hening
           </p>
         </div>
@@ -133,16 +133,16 @@ export default function RandomQuoteGenerator() {
         {/* Kartu Soft Cream dengan Format Selaras Kartu @nalarnanti */}
         <div className="max-w-2xl mx-auto text-left">
           <div
-            className={`bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-card transition-all duration-300 relative group overflow-hidden ${
+            className={`bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 shadow-card transition-all duration-300 relative group overflow-hidden ${
               isAnimating
                 ? "opacity-30 scale-[0.98] blur-[1px]"
                 : "opacity-100 scale-100 blur-0"
             }`}
           >
             {/* Header Kartu: Label Kategori, Nomor Urut & Judul Tema */}
-            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80">
+            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80 dark:border-[#3A332E]">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft shrink-0 bg-[#FAF7F2] dark:bg-[#1C1917]">
                   <Image
                     src="/images/logo-hd.png"
                     alt="Logo Nalar Nanti"
@@ -159,13 +159,13 @@ export default function RandomQuoteGenerator() {
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] text-[#886950] font-bold bg-[#FAF7F2] px-2 py-0.5 rounded-full border border-[#E5DDD0]"
+                      className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#FAF7F2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E]"
                     >
                       #{currentQuote.orderNumber}
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]"
+                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#8E9B8E] border border-[#E5DDD0] dark:border-[#3A332E]"
                     >
                       {currentQuote.category}
                     </span>
@@ -174,7 +174,7 @@ export default function RandomQuoteGenerator() {
                   {/* Judul Tema Kartu */}
                   <h3
                     suppressHydrationWarning
-                    className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] mt-1 leading-snug"
+                    className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] dark:text-[#EDE6DC] mt-1 leading-snug"
                   >
                     {currentQuote.themeTitle}
                   </h3>
@@ -183,7 +183,7 @@ export default function RandomQuoteGenerator() {
 
               <span
                 suppressHydrationWarning
-                className="hidden sm:inline-block text-[10px] font-medium px-2.5 py-1 rounded-full bg-[#C8A98E]/15 text-[#886950] shrink-0"
+                className="hidden sm:inline-block text-[10px] font-medium px-2.5 py-1 rounded-full bg-[#C8A98E]/15 text-[#886950] dark:text-[#C8A98E] shrink-0"
               >
                 Nuansa {currentQuote.type}
               </span>
@@ -194,117 +194,117 @@ export default function RandomQuoteGenerator() {
               <QuoteIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#C8A98E]/30 absolute -top-2.5 -left-1 sm:-left-2 -z-0" />
               <blockquote
                 suppressHydrationWarning
-                className="font-serif italic text-base sm:text-xl md:text-2xl text-[#3E362E] leading-relaxed relative z-10 pl-2"
+                className="font-serif italic text-[16px] sm:text-[18px] md:text-[20px] text-[#3E362E] dark:text-[#EDE6DC] leading-[1.8] relative z-10 pl-2"
               >
                 “{currentQuote.quote}”
               </blockquote>
 
-              {/* Badge Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
+              {/* Badge Sumber */}
               <div className="mt-3.5 pl-2 flex items-center">
                 <span
                   suppressHydrationWarning
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3 py-1 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs"
                 >
-                  <Feather className="w-3.5 h-3.5 text-[#886950] shrink-0" />
+                  <Feather className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                   <span>{currentQuote.source}</span>
                 </span>
               </div>
             </div>
 
             {/* Catatan Refleksi */}
-            <div className="bg-[#FAF7F2] rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 mb-5 sm:mb-7">
+            <div className="bg-[#FAF7F2] dark:bg-[#1E1B18] rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 dark:border-[#3A332E] mb-5 sm:mb-6">
               <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1">
                 Catatan Refleksi
               </p>
               <p
                 suppressHydrationWarning
-                className="font-sans text-xs sm:text-sm text-[#7A6F64] leading-relaxed"
+                className="font-sans text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed"
               >
                 {currentQuote.reflection}
               </p>
             </div>
 
-            {/* Footer Kartu: Tombol Aksi Responsif & Bebas Overflow di HP */}
-            <div className="pt-3.5 border-t border-[#E5DDD0]/80 flex flex-col gap-3">
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 w-full">
-                {/* Tombol Salin */}
-                <button
-                  onClick={handleCopy}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group whitespace-nowrap"
-                >
-                  {isCopied ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-[#8E9B8E]" />
-                      <span className="text-[#8E9B8E] font-semibold">Tersalin!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-                      <span>Salin</span>
-                    </>
-                  )}
-                </button>
-
-                {/* Tombol Bagikan ke WhatsApp */}
-                <button
-                  onClick={handleShareWhatsApp}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[11px] xs:text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 group whitespace-nowrap"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
-                  <span>WhatsApp</span>
-                </button>
-
-                {/* Tombol Simpan Gambar */}
-                <button
-                  onClick={handleDownloadCard}
-                  disabled={isDownloading}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group whitespace-nowrap"
-                  title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
-                >
-                  {isDownloading ? (
-                    <>
-                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
-                      <span>Menyiapkan...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-                      <span>Simpan Gambar</span>
-                    </>
-                  )}
-                </button>
-
-                {/* Tombol Simpan ke Saku Hati */}
+            {/* Footer Kartu: 5 Tombol Aksi Kompak */}
+            <div className="pt-3.5 border-t border-[#E5DDD0]/80 dark:border-[#3A332E] flex flex-col gap-3">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                {/* 1. Saku Hati / Simpan */}
                 <button
                   onClick={() => toggleSave(currentQuote.id)}
-                  className={`min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full border text-[11px] xs:text-xs font-semibold transition-all shadow-soft active:scale-95 whitespace-nowrap ${
+                  className={`h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-all shadow-xs active:scale-95 whitespace-nowrap ${
                     isSaved(currentQuote.id)
-                      ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
-                      : "bg-[#FAF7F2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
+                      ? "bg-[#C8A98E] text-[#FAF7F2]"
+                      : "bg-[#FAF7F2] dark:bg-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]"
                   }`}
                   title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                 >
                   <Bookmark
                     className={`w-3.5 h-3.5 ${
-                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
+                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64] dark:text-[#A89F94]"
                     }`}
                   />
-                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Saku Hati"}</span>
+                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Simpan"}</span>
                 </button>
 
-                {/* Tombol Kirim Amplop */}
+                {/* 2. Salin */}
+                <button
+                  onClick={handleCopy}
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
+                >
+                  {isCopied ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-[#8E9B8E]" />
+                      <span className="text-[#8E9B8E]">Tersalin</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94]" />
+                      <span>Salin</span>
+                    </>
+                  )}
+                </button>
+
+                {/* 3. WhatsApp */}
+                <button
+                  onClick={handleShareWhatsApp}
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-xs active:scale-95 whitespace-nowrap"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
+                  <span>WhatsApp</span>
+                </button>
+
+                {/* 4. Simpan Gambar */}
+                <button
+                  onClick={handleDownloadCard}
+                  disabled={isDownloading}
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
+                  title="Unduh Kartu Gambar 9:16"
+                >
+                  {isDownloading ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
+                      <span>...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Download className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94]" />
+                      <span>Gambar</span>
+                    </>
+                  )}
+                </button>
+
+                {/* 5. Kirim Amplop */}
                 <button
                   onClick={() => setIsEnvelopeModalOpen(true)}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group whitespace-nowrap"
-                  title="Kirim Amplop Pengingat ke teman atau orang tersayang"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 whitespace-nowrap"
+                  title="Kirim Amplop Pengingat"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-                  <span>Kirim Amplop</span>
+                  <Mail className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94]" />
+                  <span>Amplop</span>
                 </button>
               </div>
 
               {/* Tag Penutup Kredit & Feedback */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-1.5 text-[11px] text-[#7A6F64] pt-1">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-1.5 text-[11px] text-[#7A6F64] dark:text-[#A89F94] pt-1">
                 <span className="text-[10px] sm:text-[11px] text-[#8E9B8E] font-medium text-center sm:text-left">
                   {isCopied
                     ? "✓ Kutipan berhasil disalin ke papan klip!"

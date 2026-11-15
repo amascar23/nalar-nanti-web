@@ -73,7 +73,7 @@ export default function HeroSection() {
       id="beranda"
       className="relative pt-24 pb-14 sm:pt-36 sm:pb-20 overflow-hidden bg-transparent"
     >
-      <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Area Teks Hero */}
         <div className="relative max-w-3xl mx-auto mb-8 sm:mb-12">
           {/* 1. Tagline kecil yang hangat di atas judul */}
@@ -155,29 +155,18 @@ export default function HeroSection() {
             </div>
 
             {/* Kutipan Utama dengan Font Lora */}
-            <div className="relative mb-5 sm:mb-6">
-              <QuoteIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#C8A98E]/30 absolute -top-2.5 -left-1 sm:-left-2 -z-0" />
+            <div className="relative mb-4 sm:mb-5">
+              <QuoteIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A98E]/30 absolute -top-2 -left-1 sm:-left-2 -z-0" />
               <blockquote
                 suppressHydrationWarning
-                className="font-serif italic text-base sm:text-xl md:text-2xl text-[#3E362E] leading-relaxed relative z-10 pl-2"
+                className="font-serif italic text-[16px] sm:text-[18px] leading-[1.8] text-[#3E362E] relative z-10 pl-2"
               >
                 “{currentQuote.quote}”
               </blockquote>
-
-              {/* Badge Sumber dengan Latar Soft Cream Hangat (#EAE1D3) */}
-              <div className="mt-3.5 pl-2 flex items-center">
-                <span
-                  suppressHydrationWarning
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xl bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-soft"
-                >
-                  <Feather className="w-3.5 h-3.5 text-[#886950] shrink-0" />
-                  <span>{currentQuote.source}</span>
-                </span>
-              </div>
             </div>
 
             {/* Catatan Refleksi */}
-            <div className="bg-[#FAF7F2] rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 mb-5 sm:mb-8">
+            <div className="bg-[#FAF7F2] rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 mb-5">
               <p className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#8E9B8E] font-semibold mb-1">
                 Renungan Singkat
               </p>
@@ -189,20 +178,48 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* 4. Tombol Aksi Responsif & Kredit Kartu (Bebas Overflow & Rapi di HP) */}
-            <div className="pt-3.5 border-t border-[#E5DDD0]/80 flex flex-col gap-3">
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 w-full">
-                {/* Tombol Salin Kutipan */}
+            {/* Bagian Bawah: Baris 1 Sumber & Baris 2 Lima Tombol Aksi Kompak */}
+            <div className="mt-6 pt-4 border-t border-[#E5DDD0] dark:border-[#3A332E] flex flex-col gap-3">
+              {/* Baris 1: Source Pill */}
+              <div className="flex items-center">
+                <span
+                  suppressHydrationWarning
+                  className="inline-flex items-center gap-1.5 text-xs font-sans font-medium px-2.5 py-1 rounded-lg bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-xs truncate max-w-[240px]"
+                >
+                  <Feather className="w-3.5 h-3.5 text-[#886950] shrink-0" />
+                  <span className="truncate">{currentQuote.source}</span>
+                </span>
+              </div>
+
+              {/* Baris 2: Lima Tombol Aksi Kompak */}
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 w-full">
+                {/* 1. Simpan ke Saku Hati */}
+                <button
+                  onClick={() => toggleSave(currentQuote.id)}
+                  className={`h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-all shadow-xs active:scale-95 whitespace-nowrap border ${
+                    isSaved(currentQuote.id)
+                      ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
+                      : "bg-[#FAF7F2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
+                  }`}
+                  title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
+                >
+                  <Bookmark
+                    className={`w-3.5 h-3.5 ${
+                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
+                    }`}
+                  />
+                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Simpan"}</span>
+                </button>
+
+                {/* 2. Salin Kutipan */}
                 <button
                   onClick={handleCopyQuote}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group whitespace-nowrap"
                 >
                   {isCopied ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-[#8E9B8E]" />
-                      <span className="text-[#8E9B8E] font-semibold">
-                        Tersalin!
-                      </span>
+                      <span className="text-[#8E9B8E]">Tersalin</span>
                     </>
                   ) : (
                     <>
@@ -212,20 +229,20 @@ export default function HeroSection() {
                   )}
                 </button>
 
-                {/* Tombol Bagikan ke WhatsApp */}
+                {/* 3. Bagikan ke WhatsApp */}
                 <button
                   onClick={handleShareWhatsApp}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#C8A98E] text-[#FAF7F2] text-[11px] xs:text-xs font-semibold hover:bg-[#B9967A] transition-all shadow-soft active:scale-95 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#C8A98E] text-[#FAF7F2] hover:bg-[#B9967A] transition-all shadow-xs active:scale-95 whitespace-nowrap"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-[#FAF7F2]" />
                   <span>WhatsApp</span>
                 </button>
 
-                {/* Tombol Simpan Gambar (Unduh untuk Story & Status) */}
+                {/* 4. Simpan Gambar */}
                 <button
                   onClick={handleDownloadCard}
                   disabled={isDownloading}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 disabled:opacity-60 group whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
                   title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
                 >
                   {isDownloading ? (
@@ -241,28 +258,10 @@ export default function HeroSection() {
                   )}
                 </button>
 
-                {/* Tombol Simpan ke Saku Hati */}
-                <button
-                  onClick={() => toggleSave(currentQuote.id)}
-                  className={`min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full border text-[11px] xs:text-xs font-semibold transition-all shadow-soft active:scale-95 whitespace-nowrap ${
-                    isSaved(currentQuote.id)
-                      ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
-                      : "bg-[#FAF7F2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
-                  }`}
-                  title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                >
-                  <Bookmark
-                    className={`w-3.5 h-3.5 ${
-                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
-                    }`}
-                  />
-                  <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Saku Hati"}</span>
-                </button>
-
-                {/* Tombol Kirim Amplop */}
+                {/* 5. Kirim Amplop */}
                 <button
                   onClick={() => setIsEnvelopeModalOpen(true)}
-                  className="min-h-[42px] inline-flex items-center justify-center gap-1.5 sm:gap-2 px-2.5 xs:px-3.5 sm:px-4 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[11px] xs:text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-95 group whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group whitespace-nowrap"
                   title="Kirim Amplop Pengingat ke teman atau orang tersayang"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />

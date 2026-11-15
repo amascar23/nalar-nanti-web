@@ -20,9 +20,9 @@ export default function AboutSection() {
   return (
     <section
       id="tentang"
-      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto px-5 sm:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ========================================================================= */}
         {/* 1. CERITA FILOSOFI "NALAR NANTI" SEJAK TITIK AWAL */}
         {/* ========================================================================= */}
@@ -31,55 +31,55 @@ export default function AboutSection() {
             <Compass className="w-3.5 h-3.5" />
             <span>Filosofi & Ruang Teduh</span>
           </span>
-          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-3">
+          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-3">
             Tentang Nalar Nanti & Ruang Terhubung
           </h2>
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
             Bermula dari sebuah Titik Awal sederhana untuk Menata Nalar, Merakit Asa—sebuah rumah singgah digital untuk merawat ketenangan hati dan kejernihan pikiran.
           </p>
         </div>
 
         {/* Narrative Box Filosofi */}
-        <div className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 mb-14 sm:mb-16 shadow-soft relative overflow-hidden">
+        <div className="bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 mb-14 sm:mb-16 shadow-soft relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Kolom Narasi Kiri */}
             <div className="lg:col-span-7 space-y-4 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#886950]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E]">
                 <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
                 <span>Bermula dari Titik Awal</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] leading-snug">
+              <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] dark:text-[#EDE6DC] leading-snug">
                 Tidak semua hal harus dipahami <br className="hidden sm:inline" />
-                <span className="text-[#C8A98E] italic underline decoration-[#E5DDD0] underline-offset-4">
+                <span className="text-[#C8A98E] italic underline decoration-[#E5DDD0] dark:decoration-[#3A332E] underline-offset-4">
                   terburu-buru hari ini
                 </span>
                 .
               </h3>
 
-              <p className="font-sans text-sm sm:text-base text-[#7A6F64] leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
                 Perjalanan <strong>Nalar Nanti</strong> bermula dari sebuah <em>Titik Awal</em> sederhana: keberanian untuk berhenti sejenak dari keriuhan dunia, menata isi kepala yang penuh, dan melangkah kembali dengan niat yang jujur.
               </p>
 
-              <p className="font-sans text-sm sm:text-base text-[#7A6F64] leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
                 Kami meyakini esensi <strong>Menata Nalar, Merakit Asa</strong>—bahwa ada hal-hal dalam hidup yang tidak perlu dipaksa terjawab hari ini. Ada hal-hal yang perlu <strong>dinalar perlahan dengan hati yang tenang</strong>, dipeluk dengan <strong>doa yang cukup</strong>, dan dilalui dengan <strong>rasa ikhlas</strong>.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0]/80">
-                  <span className="font-serif text-base font-semibold text-[#3E362E] block mb-1">
+                <div className="p-4 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0]/80 dark:border-[#3A332E]">
+                  <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
                     🌿 Menata Nalar
                   </span>
-                  <p className="text-xs text-[#7A6F64] leading-relaxed">
+                  <p className="text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
                     Kejernihan akal dan kelapangan hati untuk memilah mana yang berada dalam kuasamu, melepaskan beban yang bukan milikmu, dan bertindak dengan tenang.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0]/80">
-                  <span className="font-serif text-base font-semibold text-[#3E362E] block mb-1">
+                <div className="p-4 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0]/80 dark:border-[#3A332E]">
+                  <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
                     🕊️ Merakit Asa
                   </span>
-                  <p className="text-xs text-[#7A6F64] leading-relaxed">
+                  <p className="text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
                     Harapan baik yang dirawat perlahan lewat doa dan prasangka baik, percaya bahwa ketetapan-Nya selalu mekar pada waktu yang paling tepat.
                   </p>
                 </div>
@@ -88,17 +88,17 @@ export default function AboutSection() {
 
             {/* Kolom Refleksi Kanan (Quote Postingan Pertama: Titik Awal) */}
             <div className="lg:col-span-5">
-              <div className="bg-[#FAF7F2] border border-[#E5DDD0] rounded-2xl p-7 sm:p-8 shadow-soft relative text-left">
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#E5DDD0]/70">
+              <div className="bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl p-7 sm:p-8 shadow-soft relative text-left">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
                   <span className="text-[11px] font-semibold text-[#8E9B8E] uppercase tracking-wider">
                     Jejak Awal Nalar Nanti
                   </span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3]">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36]">
                     Postingan #1
                   </span>
                 </div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
+                  <div className="w-11 h-11 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft shrink-0 bg-[#FAF7F2] dark:bg-[#1C1917]">
                     <Image
                       src="/images/logo-hd.png"
                       alt="Logo Nalar Nanti"
@@ -109,7 +109,7 @@ export default function AboutSection() {
                     />
                   </div>
                   <div>
-                    <span className="font-serif text-sm font-semibold text-[#3E362E] block">
+                    <span className="font-serif text-sm font-semibold text-[#3E362E] dark:text-[#EDE6DC] block">
                       Nalar Nanti
                     </span>
                     <span className="text-[11px] text-[#8E9B8E] font-medium block">
@@ -117,10 +117,10 @@ export default function AboutSection() {
                     </span>
                   </div>
                 </div>
-                <blockquote className="font-serif italic text-base sm:text-lg text-[#3E362E] leading-relaxed mb-4">
+                <blockquote className="font-serif italic text-base sm:text-lg text-[#3E362E] dark:text-[#EDE6DC] leading-relaxed mb-4">
                   “Setiap perjalanan panjang selalu dimulai dari satu titik awal yang sederhana: keberanian untuk berhenti sejenak, menata pikiran, dan melangkah dengan niat yang jujur.”
                 </blockquote>
-                <div className="pt-3 border-t border-[#E5DDD0]/70 flex items-center justify-between text-xs text-[#7A6F64]">
+                <div className="pt-3 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex items-center justify-between text-xs text-[#7A6F64] dark:text-[#A89F94]">
                   <span className="font-medium font-serif italic">— Titik Awal (Nalar Nanti)</span>
                   <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]" />
                 </div>
@@ -136,10 +136,10 @@ export default function AboutSection() {
           <span className="text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 block">
             Ruang Terhubung
           </span>
-          <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] tracking-tight mb-2">
+          <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-2">
             Mari Bertumbuh & Singgah Bersama
           </h3>
-          <p className="font-sans text-xs sm:text-sm text-[#7A6F64]">
+          <p className="font-sans text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94]">
             Pilih ruang yang paling nyaman untuk menghadirkan ketenangan di keseharianmu.
           </p>
         </div>
@@ -148,15 +148,15 @@ export default function AboutSection() {
           {/* ----------------------------------------------------------------------- */}
           {/* KARTU 1: INSTAGRAM (@nalarnanti) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
+          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
             <div>
               {/* Top Tag & Icon */}
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80 dark:border-[#3A332E]">
                 <a
                   href={IG_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#C8A98E] shadow-soft group-hover:scale-105 hover:border-[#C8A98E] transition-all"
+                  className="w-12 h-12 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft group-hover:scale-105 hover:border-[#C8A98E] transition-all"
                   aria-label="Kunjungi profil Instagram @nalarnanti"
                 >
                   <Instagram className="w-6 h-6" />

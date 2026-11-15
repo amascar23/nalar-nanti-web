@@ -96,35 +96,35 @@ export default function RequestSection() {
   return (
     <section
       id="titip-nalar"
-      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto px-5 sm:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Seksi */}
         <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
           {/* Badge Kecil */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-3 sm:mb-4 shadow-soft">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] mb-3 sm:mb-4 shadow-soft">
             <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
             <span>Ruang Berbagi Cerita</span>
           </div>
 
           {/* Judul Utama dengan Font Lora */}
-          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-3">
+          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-3">
             Titip Nalar & Request Kata
           </h2>
 
           {/* Subjudul Singkat */}
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
             Punya tema yang ingin dibahas atau kalimat refleksi yang ingin
             dititipkan? Kirimkan secara privat ke ruang admin Nalar Nanti.
           </p>
         </div>
 
         {/* Kartu Formulir Utama */}
-        <div className="max-w-2xl mx-auto bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-card relative">
+        <div className="max-w-2xl mx-auto bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-card relative">
           {isSubmitted ? (
             /* Kotak Konfirmasi Lembut (Success State) */
             <div className="py-8 sm:py-10 text-center animate-fadeIn">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#8E9B8E]/15 border border-[#8E9B8E]/30 flex items-center justify-center mx-auto mb-5 text-[#637063] shadow-soft">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#8E9B8E]/15 border border-[#8E9B8E]/30 flex items-center justify-center mx-auto mb-5 text-[#637063] dark:text-[#8E9B8E] shadow-soft">
                 <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-[#8E9B8E]" />
               </div>
 
@@ -132,11 +132,11 @@ export default function RequestSection() {
                 Pesan Terkirim
               </span>
 
-              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] mb-3">
+              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-3">
                 Terima kasih sudah menitipkan nalar.
               </h3>
 
-              <p className="font-sans text-xs sm:text-sm text-[#7A6F64] max-w-md mx-auto leading-relaxed mb-8">
+              <p className="font-sans text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] max-w-md mx-auto leading-relaxed mb-8">
                 Pesanmu sudah diterima secara privat oleh admin Nalar Nanti.
                 Setiap cerita dan titipan kata akan dibaca dengan tenang untuk
                 menjadi pengingat teduh bersama.
@@ -155,17 +155,17 @@ export default function RequestSection() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Dua Tab Pilihan Mode */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-[#7A6F64] mb-2.5">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-[#7A6F64] dark:text-[#A89F94] mb-2.5">
                   Pilih Jenis Kiriman
                 </label>
-                <div className="p-1.5 bg-[#FAF7F2] border border-[#E5DDD0] rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-1.5 shadow-soft">
+                <div className="p-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-1.5 shadow-soft">
                   <button
                     type="button"
                     onClick={() => setActiveTab("Request Tema / Cerita")}
                     className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-98 ${
                       activeTab === "Request Tema / Cerita"
-                        ? "bg-[#3E362E] text-[#FAF7F2] shadow-soft"
-                        : "text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#F3EDE2]/60"
+                        ? "bg-[#3E362E] dark:bg-[#C8A98E] text-[#FAF7F2] shadow-soft"
+                        : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
                     }`}
                   >
                     <Sparkles className="w-4 h-4" />
@@ -177,8 +177,8 @@ export default function RequestSection() {
                     onClick={() => setActiveTab("Titip Kata-Kata Sendiri")}
                     className={`flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all active:scale-98 ${
                       activeTab === "Titip Kata-Kata Sendiri"
-                        ? "bg-[#3E362E] text-[#FAF7F2] shadow-soft"
-                        : "text-[#7A6F64] hover:text-[#3E362E] hover:bg-[#F3EDE2]/60"
+                        ? "bg-[#3E362E] dark:bg-[#C8A98E] text-[#FAF7F2] shadow-soft"
+                        : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
                     }`}
                   >
                     <Feather className="w-4 h-4" />
@@ -191,7 +191,7 @@ export default function RequestSection() {
               <div>
                 <label
                   htmlFor="pengirim"
-                  className="block text-xs font-semibold text-[#3E362E] mb-1.5"
+                  className="block text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1.5"
                 >
                   Nama / Inisial / Username IG
                 </label>
@@ -201,16 +201,16 @@ export default function RequestSection() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Contoh: Sahabat Nalar / @username / Hamba Allah"
-                  className="w-full px-4 py-3 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] text-base sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                  className="w-full px-4 py-3 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
                 />
-                <p className="text-[11px] text-[#7A6F64]/80 mt-1.5">
+                <p className="text-[11px] text-[#7A6F64]/80 dark:text-[#A89F94]/80 mt-1.5">
                   Opsional — kosongkan jika ingin mengirim sebagai Anonim
                 </p>
               </div>
 
               {/* Isian 2: Nuansa Tulisan (Pill Options) */}
               <div>
-                <label className="block text-xs font-semibold text-[#3E362E] mb-2">
+                <label className="block text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-2">
                   Nuansa Tulisan
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -222,7 +222,7 @@ export default function RequestSection() {
                       className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all active:scale-95 ${
                         nuance === option
                           ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E] shadow-soft font-semibold"
-                          : "bg-[#FAF7F2] text-[#7A6F64] border-[#E5DDD0] hover:border-[#C8A98E]/60 hover:text-[#3E362E]"
+                          : "bg-[#FAF7F2] dark:bg-[#1C1917] text-[#7A6F64] dark:text-[#A89F94] border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]/60 hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
                       }`}
                     >
                       {option}
@@ -235,7 +235,7 @@ export default function RequestSection() {
               <div>
                 <label
                   htmlFor="pesan"
-                  className="block text-xs font-semibold text-[#3E362E] mb-1.5"
+                  className="block text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1.5"
                 >
                   {activeTab === "Request Tema / Cerita"
                     ? "Tema atau perasaan apa yang ingin dibahas? *"
@@ -252,7 +252,7 @@ export default function RequestSection() {
                       ? "Contoh: Tolong buatkan pengingat tentang ikhlas dan sabar saat rencana belum berjalan sesuai harapan..."
                       : "Tulis kalimat refleksimu di sini..."
                   }
-                  className="w-full px-4 py-3 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] text-base sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-y"
+                  className="w-full px-4 py-3 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-y"
                 />
               </div>
 

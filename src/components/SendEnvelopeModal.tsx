@@ -116,13 +116,13 @@ export default function SendEnvelopeModal({
       onClick={handleClose}
     >
       <div
-        className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl p-5 sm:p-8 max-w-lg w-full shadow-floating relative text-left max-h-[90vh] overflow-y-auto"
+        className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-8 max-w-lg w-full shadow-[0_20px_50px_-15px_rgba(184,149,110,0.25)] relative text-left max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Modal */}
-        <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0] dark:border-[#3A332E]">
+        <div className="flex items-center justify-between pb-3.5 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#EAE1D3] dark:bg-[#322C27] border border-[#E5DDD0] dark:border-[#443C36] flex items-center justify-center text-[#886950] dark:text-[#C8A98E] shrink-0">
+            <div className="w-8 h-8 rounded-full bg-white/75 dark:bg-[#322C27] border border-[#E5D3B8] dark:border-[#443C36] flex items-center justify-center text-[#886950] dark:text-[#C8A98E] shrink-0">
               <Mail className="w-4 h-4 text-[#886950] dark:text-[#C8A98E]" />
             </div>
             <div>
@@ -138,14 +138,14 @@ export default function SendEnvelopeModal({
           <button
             onClick={handleClose}
             aria-label="Tutup jendela"
-            className="p-1.5 rounded-full text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#F3EDE2] dark:hover:bg-[#1C1917] transition-colors"
+            className="p-1.5 rounded-full text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-white/70 dark:hover:bg-[#1C1917] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Ringkasan Kutipan yang Dipilih */}
-        <div className="my-4 p-3.5 sm:p-4 rounded-2xl bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs text-[#3E362E] dark:text-[#EDE6DC] relative">
+        <div className="my-4 p-3.5 sm:p-4 rounded-2xl bg-white/60 dark:bg-[#1E1B18]/70 backdrop-blur-sm border border-[#E5D3B8]/70 dark:border-[#3A332E] text-xs text-[#3E362E] dark:text-[#EDE6DC] relative">
           <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1">
             <QuoteIcon className="w-3 h-3 text-[#C8A98E]" />
             <span>Kutipan Pilihan (#{quoteItem.orderNumber || quoteItem.id})</span>

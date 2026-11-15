@@ -285,7 +285,7 @@ export default function PersonalSpaceSection() {
       </div>
 
       {/* Kontainer Kartu Utama */}
-      <div className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl shadow-floating p-5 sm:p-8 md:p-10 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl shadow-[0_12px_36px_-10px_rgba(184,149,110,0.20)] dark:shadow-none p-5 sm:p-8 md:p-10 relative overflow-hidden">
         {/* Dekorasi Garis Halus */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-[radial-gradient(#C8A98E_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
 
@@ -449,7 +449,7 @@ export default function PersonalSpaceSection() {
                   {gratitudeEntries.map((entry) => (
                     <div
                       key={entry.id}
-                      className="p-4 rounded-2xl bg-[#F3EDE2]/80 dark:bg-[#1E1B18]/80 border border-[#E5DDD0] dark:border-[#3A332E] text-left relative group hover:border-[#C8A98E] transition-all shadow-soft"
+                      className="p-4 rounded-2xl bg-white/70 dark:bg-[#1E1B18]/80 border border-[#E5D3B8]/80 dark:border-[#3A332E] text-left relative group hover:border-[#C8A98E] hover:-translate-y-0.5 transition-all shadow-[0_4px_16px_-4px_rgba(184,149,110,0.12)] dark:shadow-none"
                     >
                       <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
                         <span className="text-[11px] font-semibold text-[#886950] dark:text-[#C8A98E]">
@@ -610,10 +610,10 @@ export default function PersonalSpaceSection() {
                     return (
                       <div
                         key={capsule.id}
-                        className={`p-4 sm:p-5 rounded-2xl border text-left relative transition-all shadow-soft ${
+                        className={`p-4 sm:p-5 rounded-2xl border text-left relative transition-all shadow-soft hover:-translate-y-0.5 ${
                           status.isUnlocked
-                            ? "bg-[#FAF7F2] dark:bg-[#26221F] border-[#8E9B8E]/50 ring-1 ring-[#8E9B8E]/30"
-                            : "bg-[#F3EDE2]/80 dark:bg-[#1E1B18]/80 border-[#E5DDD0] dark:border-[#3A332E]"
+                            ? "bg-white/80 dark:bg-[#26221F] border-[#8E9B8E]/50 ring-1 ring-[#8E9B8E]/30"
+                            : "bg-white/70 dark:bg-[#1E1B18]/80 border-[#E5D3B8]/80 dark:border-[#3A332E]"
                         }`}
                       >
                         <div className="flex items-start justify-between gap-2 pb-2 mb-2 border-b border-[#E5DDD0] dark:border-[#3A332E]">

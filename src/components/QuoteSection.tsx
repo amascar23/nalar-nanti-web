@@ -253,11 +253,11 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                 setSelectedModalQuote(item);
                 setIsModalCopied(false);
               }}
-              className="flex flex-col justify-between h-full p-6 sm:p-7 rounded-3xl bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft hover:shadow-card hover:-translate-y-1.5 active:scale-[0.99] transition-all duration-300 relative group cursor-pointer text-left overflow-hidden"
+              className="flex flex-col justify-between h-full p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none hover:shadow-[0_16px_36px_-10px_rgba(184,149,110,0.28)] hover:-translate-y-1 active:scale-[0.99] transition-all duration-300 relative group cursor-pointer text-left overflow-hidden"
             >
               <div className="flex flex-col flex-1">
                 {/* Header Kartu: Label Kategori Kecil & Identitas Feed Instagram @nalarnanti */}
-                <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
+                <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <a
                       href={IG_PROFILE_URL}
@@ -267,7 +267,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       title="Kunjungi profil Instagram @nalarnanti"
                       className="flex items-center gap-1.5 group/ig hover:text-[#C8A98E] transition-colors"
                     >
-                      <div className="w-6 h-6 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] bg-[#FAF7F2] dark:bg-[#1C1917] shrink-0 group-hover/ig:border-[#C8A98E] transition-colors">
+                      <div className="w-6 h-6 rounded-full overflow-hidden border border-[#E5D3B8] dark:border-[#3A332E] bg-white/80 dark:bg-[#1C1917] shrink-0 group-hover/ig:border-[#C8A98E] transition-colors">
                         <Image
                           src="/images/logo-hd.png"
                           alt="Nalar Nanti"
@@ -281,12 +281,12 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                         @nalarnanti
                       </span>
                     </a>
-                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#FAF7F2] dark:bg-[#1C1917] px-1.5 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm px-1.5 py-0.5 rounded-full border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
                       #{item.orderNumber}
                     </span>
                   </div>
 
-                  <span className="text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap">
+                  <span className="text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm border border-[#E5D3B8]/60 dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap">
                     {item.category}
                   </span>
                 </div>
@@ -308,10 +308,10 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
               </div>
 
               {/* Bagian Bawah Kartu: Pill/Kotak Sumber (source), Aksi Cepat, dan Petunjuk "Baca refleksi →" */}
-              <div className="mt-6 pt-4 border-t border-[#E5DDD0] dark:border-[#3A332E] flex flex-col gap-2.5">
+              <div className="mt-6 pt-4 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex flex-col gap-2.5">
                 <div className="flex items-center justify-between text-xs text-[#7A6F64] dark:text-[#A89F94] gap-2 min-w-0">
                   {/* Pill Sumber dengan Latar Soft Cream Hangat */}
-                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs shrink min-w-0">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36] shadow-xs shrink min-w-0">
                     <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                     <span className="truncate max-w-[135px] sm:max-w-[160px]">{item.source}</span>
                   </span>
@@ -454,11 +454,11 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
           onClick={() => setSelectedModalQuote(null)}
         >
           <div
-            className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl p-5 sm:p-8 max-w-xl w-full shadow-floating relative text-left max-h-[88vh] overflow-y-auto"
+            className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-8 max-w-xl w-full shadow-[0_20px_50px_-15px_rgba(184,149,110,0.25)] relative text-left max-h-[88vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0] dark:border-[#3A332E]">
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
               <div className="flex items-center gap-2">
                 <a
                   href={IG_PROFILE_URL}
@@ -467,7 +467,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   title="Kunjungi profil Instagram @nalarnanti"
                   className="flex items-center gap-2 group/modalig"
                 >
-                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] bg-[#FAF7F2] dark:bg-[#1C1917] shrink-0 group-hover/modalig:border-[#C8A98E] transition-all">
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E5D3B8] dark:border-[#3A332E] bg-white/80 dark:bg-[#1C1917] shrink-0 group-hover/modalig:border-[#C8A98E] transition-all">
                     <Image
                       src="/images/logo-hd.png"
                       alt="Nalar Nanti"
@@ -481,10 +481,10 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                     <span className="text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] group-hover/modalig:text-[#C8A98E] transition-colors">
                       @nalarnanti
                     </span>
-                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#F3EDE2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
                       #{selectedModalQuote.orderNumber}
                     </span>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#8E9B8E]/15 text-[#637063] dark:text-[#8E9B8E] whitespace-nowrap">
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm text-[#8E9B8E] border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
                       {selectedModalQuote.category}
                     </span>
                   </div>
@@ -495,7 +495,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
               <button
                 onClick={() => setSelectedModalQuote(null)}
                 aria-label="Tutup jendela refleksi"
-                className="w-8 h-8 rounded-full flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#F3EDE2] dark:hover:bg-[#1C1917] active:scale-95 transition-all"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-white/70 dark:hover:bg-[#1C1917] active:scale-95 transition-all"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -520,7 +520,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
               {/* Pill/Badge Sumber (source) */}
               <div className="mt-4 flex items-center">
-                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3.5 py-1.5 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs">
+                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-sans font-medium px-3.5 py-1.5 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36] shadow-xs">
                   <Feather className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
                   <span>{selectedModalQuote.source}</span>
                 </span>
@@ -528,12 +528,12 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
             </div>
 
             {/* Catatan Refleksi Lengkap */}
-            <div className="bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl p-4 sm:p-6 mb-6">
+            <div className="bg-white/60 dark:bg-[#1E1B18]/70 backdrop-blur-sm border border-[#E5D3B8]/70 dark:border-[#3A332E] rounded-2xl p-4 sm:p-6 mb-6">
               <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-2">
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>Catatan Refleksi</span>
               </div>
-              <p className="font-sans text-xs sm:text-base text-[#3E362E] dark:text-[#EDE6DC] leading-relaxed">
+              <p className="font-sans text-xs sm:text-base text-[#6E5D4F] dark:text-[#EDE6DC] leading-relaxed">
                 {selectedModalQuote.reflection}
               </p>
             </div>

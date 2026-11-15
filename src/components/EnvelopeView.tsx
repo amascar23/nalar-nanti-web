@@ -99,14 +99,14 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
       {/* TAMPILAN 1: AMPLOP BELUM DIBUKA (AESTHETIC WARM SAND ENVELOPE) */}
       {/* ========================================================================= */}
       {!isOpened ? (
-        <div className="w-full bg-[#F3EDE2] dark:bg-[#26221F] border border-[#DDD3C3] dark:border-[#3A332E] rounded-3xl p-6 sm:p-10 shadow-floating text-center relative overflow-hidden transition-all duration-500 animate-fadeIn">
+        <div className="w-full bg-gradient-to-br from-[#FFFDF8] via-[#F7ECDA] to-[#EDD9BC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-6 sm:p-10 shadow-[0_12px_36px_-10px_rgba(184,149,110,0.22)] dark:shadow-none text-center relative overflow-hidden transition-all duration-500 animate-fadeIn">
           {/* Latar Belakang Garis & Serat Halus */}
           <div className="absolute inset-0 bg-[radial-gradient(#C8A98E_1px,transparent_1px)] [background-size:18px_18px] opacity-15 pointer-events-none" />
 
           {/* Lipatan Segitiga Amplop (Visual Flap Atas) */}
           <div className="relative mx-auto mb-6 flex flex-col items-center">
             {/* Bentuk Amplop Kertas */}
-            <div className="w-full max-w-sm h-48 sm:h-56 bg-[#FAF7F2] dark:bg-[#1C1917] rounded-2xl border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft relative flex flex-col items-center justify-center p-4 overflow-hidden">
+            <div className="w-full max-w-sm h-48 sm:h-56 bg-white/80 dark:bg-[#1C1917] rounded-2xl border border-[#E5D3B8]/80 dark:border-[#3A332E] shadow-soft relative flex flex-col items-center justify-center p-4 overflow-hidden">
               {/* Garis lipatan amplop bersilang lembut */}
               <div className="absolute inset-0 pointer-events-none opacity-40">
                 <svg
@@ -218,7 +218,7 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
 
           {/* 1. CATATAN HANGAT DARI PENGIRIM (Jika Ada Pesan) */}
           {noteParam && (
-            <div className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl p-5 sm:p-6 shadow-soft relative overflow-hidden">
+            <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-2xl p-5 sm:p-6 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none relative overflow-hidden">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-2.5">
                 <Feather className="w-3.5 h-3.5 text-[#C8A98E]" />
                 <span>Pesan Hangat Dari {senderParam}</span>
@@ -226,7 +226,7 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
               <p className="font-serif italic text-sm sm:text-base text-[#3E362E] dark:text-[#EDE6DC] leading-relaxed pl-1">
                 “{noteParam}”
               </p>
-              <div className="mt-3 pt-2.5 border-t border-[#E5DDD0]/60 dark:border-[#3A332E] flex items-center justify-between text-[11px] text-[#7A6F64] dark:text-[#A89F94]">
+              <div className="mt-3 pt-2.5 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex items-center justify-between text-[11px] text-[#7A6F64] dark:text-[#A89F94]">
                 <span>— Catatan Pribadi</span>
                 <span className="italic font-serif">Nalar Nanti</span>
               </div>
@@ -234,16 +234,16 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
           )}
 
           {/* 2. KARTU KUTIPAN LENGKAP */}
-          <div className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl p-6 sm:p-8 shadow-floating text-left relative overflow-hidden">
+          <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-6 sm:p-8 shadow-[0_12px_36px_-10px_rgba(184,149,110,0.22)] dark:shadow-none text-left relative overflow-hidden">
             {/* Header Profil Brand */}
-            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5DDD0] dark:border-[#3A332E]">
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
               <a
                 href={IG_PROFILE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 group"
               >
-                <div className="w-9 h-9 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] bg-[#FAF7F2] dark:bg-[#1C1917] shrink-0 group-hover:border-[#C8A98E] transition-all">
+                <div className="w-9 h-9 rounded-full overflow-hidden border border-[#E5D3B8] dark:border-[#3A332E] bg-white/80 dark:bg-[#1C1917] shrink-0 group-hover:border-[#C8A98E] transition-all">
                   <Image
                     src="/images/logo-hd.png"
                     alt="Nalar Nanti"
@@ -258,7 +258,7 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
                     <span className="text-xs sm:text-sm font-semibold text-[#3E362E] dark:text-[#EDE6DC] group-hover:text-[#C8A98E] transition-colors">
                       @nalarnanti
                     </span>
-                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#F3EDE2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
                       #{quoteItem.orderNumber}
                     </span>
                   </div>
@@ -268,7 +268,7 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
                 </div>
               </a>
 
-              <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-[#8E9B8E]/15 text-[#637063] dark:text-[#8E9B8E] whitespace-nowrap">
+              <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm text-[#8E9B8E] border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap">
                 {quoteItem.category}
               </span>
             </div>
@@ -284,7 +284,7 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
             </div>
 
             {/* Kutipan Utama */}
-            <div className="my-5 p-5 sm:p-6 rounded-2xl bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] relative">
+            <div className="my-5 p-5 sm:p-6 rounded-2xl bg-white/60 dark:bg-[#1E1B18]/70 backdrop-blur-sm border border-[#E5D3B8]/70 dark:border-[#3A332E] relative">
               <QuoteIcon className="w-8 h-8 text-[#C8A98E]/30 absolute top-3 right-4 rotate-180 pointer-events-none" />
               <blockquote className="font-serif italic text-[16px] sm:text-[18px] md:text-[20px] text-[#3E362E] dark:text-[#EDE6DC] leading-[1.8] relative z-10">
                 “{quoteItem.quote}”
@@ -296,16 +296,16 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
               <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] block">
                 Catatan Refleksi
               </span>
-              <p className="font-sans text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
+              <p className="font-sans text-xs sm:text-sm text-[#6E5D4F] dark:text-[#A89F94] leading-relaxed">
                 {quoteItem.reflection}
               </p>
             </div>
 
             {/* Tombol Aksi Lengkap: Satu Baris Sejajar Sumber & 5 Tombol Ikon */}
-            <div className="pt-4 border-t border-[#E5DDD0] dark:border-[#3A332E] flex flex-col gap-3">
+            <div className="pt-4 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex flex-col gap-3">
               <div className="flex items-center justify-between gap-2 min-w-0">
                 {/* Sisi Kiri: Source Pill Ringkas */}
-                <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs shrink min-w-0">
+                <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36] shadow-xs shrink min-w-0">
                   <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                   <span className="truncate max-w-[135px] sm:max-w-[160px]">{quoteItem.source}</span>
                 </span>

@@ -120,7 +120,7 @@ export default function RequestSection() {
         </div>
 
         {/* Kartu Formulir Utama */}
-        <div className="max-w-2xl mx-auto bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-card relative">
+        <div className="max-w-2xl mx-auto bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-6 sm:p-10 shadow-[0_12px_36px_-10px_rgba(184,149,110,0.20)] dark:shadow-none relative">
           {isSubmitted ? (
             /* Kotak Konfirmasi Lembut (Success State) */
             <div className="py-8 sm:py-10 text-center animate-fadeIn">

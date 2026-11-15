@@ -40,11 +40,11 @@ export default function AboutSection() {
         </div>
 
         {/* Narrative Box Filosofi */}
-        <div className="bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 mb-14 sm:mb-16 shadow-soft relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-10 lg:p-12 mb-14 sm:mb-16 shadow-[0_12px_36px_-10px_rgba(184,149,110,0.18)] dark:shadow-none relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Kolom Narasi Kiri */}
             <div className="lg:col-span-7 space-y-4 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 dark:bg-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E]">
                 <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
                 <span>Bermula dari Titik Awal</span>
               </div>
@@ -57,16 +57,16 @@ export default function AboutSection() {
                 .
               </h3>
 
-              <p className="font-sans text-sm sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-[#6E5D4F] dark:text-[#A89F94] leading-relaxed">
                 Perjalanan <strong>Nalar Nanti</strong> bermula dari sebuah <em>Titik Awal</em> sederhana: keberanian untuk berhenti sejenak dari keriuhan dunia, menata isi kepala yang penuh, dan melangkah kembali dengan niat yang jujur.
               </p>
 
-              <p className="font-sans text-sm sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
+              <p className="font-sans text-sm sm:text-base text-[#6E5D4F] dark:text-[#A89F94] leading-relaxed">
                 Kami meyakini esensi <strong>Menata Nalar, Merakit Asa</strong>—bahwa ada hal-hal dalam hidup yang tidak perlu dipaksa terjawab hari ini. Ada hal-hal yang perlu <strong>dinalar perlahan dengan hati yang tenang</strong>, dipeluk dengan <strong>doa yang cukup</strong>, dan dilalui dengan <strong>rasa ikhlas</strong>.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                <div className="p-4 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0]/80 dark:border-[#3A332E]">
+                <div className="p-4 rounded-2xl bg-white/60 dark:bg-[#1C1917] border border-[#E5D3B8]/70 dark:border-[#3A332E]">
                   <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
                     🌿 Menata Nalar
                   </span>

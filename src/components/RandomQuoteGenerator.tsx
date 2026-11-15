@@ -145,15 +145,15 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
         {/* Kartu Soft Cream dengan Format Selaras Kartu @nalarnanti */}
         <div className="max-w-2xl mx-auto text-left">
           <div
-            className={`bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 shadow-card transition-all duration-300 relative group overflow-hidden ${isAnimating
+            className={`bg-gradient-to-br from-[#FFFDF8] via-[#F7ECDA] to-[#EDD9BC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-3xl p-5 sm:p-8 md:p-9 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none hover:-translate-y-1 hover:shadow-[0_16px_36px_-10px_rgba(184,149,110,0.28)] transition-all duration-300 relative group overflow-hidden ${isAnimating
               ? "opacity-30 scale-[0.98] blur-[1px]"
               : "opacity-100 scale-100 blur-0"
               }`}
           >
             {/* Header Kartu: Label Kategori, Nomor Urut & Judul Tema */}
-            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80 dark:border-[#3A332E]">
+            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5D3B8]/60 dark:border-[#3A332E]">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft shrink-0 bg-[#FAF7F2] dark:bg-[#1C1917]">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5D3B8] dark:border-[#3A332E] shadow-soft shrink-0 bg-white/80 dark:bg-[#1C1917]">
                   <Image
                     src="/images/logo-hd.png"
                     alt="Logo Nalar Nanti"
@@ -170,13 +170,13 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#FAF7F2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap"
+                      className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap"
                     >
                       #{currentQuote.orderNumber}
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#8E9B8E] border border-[#E5DDD0] dark:border-[#3A332E] whitespace-nowrap"
+                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm text-[#8E9B8E] border border-[#E5D3B8]/60 dark:border-[#3A332E] whitespace-nowrap"
                     >
                       {currentQuote.category}
                     </span>
@@ -194,7 +194,7 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
 
               <span
                 suppressHydrationWarning
-                className="hidden sm:inline-block text-[10px] font-medium px-2.5 py-1 rounded-full bg-[#C8A98E]/15 text-[#886950] dark:text-[#C8A98E] shrink-0 whitespace-nowrap"
+                className="hidden sm:inline-block text-[10px] font-medium px-2.5 py-1 rounded-full bg-white/65 dark:bg-[#1C1917]/70 backdrop-blur-sm text-[#886950] dark:text-[#C8A98E] border border-[#E5D3B8]/60 dark:border-[#3A332E] shrink-0 whitespace-nowrap"
               >
                 Nuansa {currentQuote.type}
               </span>
@@ -202,7 +202,7 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
 
             {/* Teks Kutipan Utama (Lora Serif) */}
             <div className="relative mb-5 sm:mb-6">
-              <QuoteIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#C8A98E]/30 absolute -top-2.5 -left-1 sm:-left-2 -z-0" />
+              <QuoteIcon className="w-6 h-6 sm:w-8 sm:h-8 text-[#C8A98E]/40 absolute -top-2.5 -left-1 sm:-left-2 -z-0" />
               <blockquote
                 suppressHydrationWarning
                 className="font-serif italic text-[16px] sm:text-[18px] md:text-[20px] text-[#3E362E] dark:text-[#EDE6DC] leading-[1.8] relative z-10 pl-2"
@@ -212,25 +212,25 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
             </div>
 
             {/* Catatan Refleksi */}
-            <div className="bg-[#FAF7F2] dark:bg-[#1E1B18] rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 dark:border-[#3A332E] mb-5 sm:mb-6">
+            <div className="bg-white/60 dark:bg-[#1E1B18]/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-[#E5D3B8]/70 dark:border-[#3A332E] mb-5 sm:mb-6">
               <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1">
                 Catatan Refleksi
               </p>
               <p
                 suppressHydrationWarning
-                className="font-sans text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed"
+                className="font-sans text-xs sm:text-sm text-[#6E5D4F] dark:text-[#A89F94] leading-relaxed"
               >
                 {currentQuote.reflection}
               </p>
             </div>
 
             {/* Footer Kartu: Satu Baris Sejajar Sumber & 5 Tombol Ikon */}
-            <div className="pt-3.5 border-t border-[#E5DDD0]/80 dark:border-[#3A332E] flex flex-col gap-2.5">
+            <div className="pt-3.5 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex flex-col gap-2.5">
               <div className="flex items-center justify-between gap-2 min-w-0">
                 {/* Sisi Kiri: Source Pill Ringkas */}
                 <span
                   suppressHydrationWarning
-                  className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-xl bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs shrink min-w-0"
+                  className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36] shadow-xs shrink min-w-0"
                 >
                   <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                   <span className="truncate max-w-[135px] sm:max-w-[160px]">{currentQuote.source}</span>

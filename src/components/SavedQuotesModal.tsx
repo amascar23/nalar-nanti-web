@@ -135,8 +135,8 @@ export default function SavedQuotesModal() {
           <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
             {savedQuotes.length === 0 ? (
               // Tampilan jika Saku Hati masih kosong
-              <div className="h-full min-h-[360px] flex flex-col items-center justify-center text-center p-6 rounded-3xl bg-[#F3EDE2]/70 dark:bg-[#26221F]/70 border border-[#E5DDD0] dark:border-[#3A332E] my-auto">
-                <div className="w-14 h-14 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft mb-4">
+              <div className="h-full min-h-[360px] flex flex-col items-center justify-center text-center p-6 rounded-3xl bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 my-auto shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none">
+                <div className="w-14 h-14 rounded-full bg-white/80 dark:bg-[#1C1917] border border-[#E5D3B8] dark:border-[#3A332E] flex items-center justify-center text-[#C8A98E] shadow-soft mb-4">
                   <Bookmark className="w-6 h-6 stroke-[1.5]" />
                 </div>
                 <h3 className="font-serif text-lg font-medium text-[#3E362E] dark:text-[#EDE6DC] mb-2">
@@ -162,7 +162,7 @@ export default function SavedQuotesModal() {
               savedQuotes.map((quote) => (
                 <div
                   key={quote.id}
-                  className="bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl p-4 sm:p-5 shadow-soft hover:shadow-card transition-all"
+                  className="bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E6] to-[#F2E3CC] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5D3B8]/80 dark:border-[#3A332E] ring-1 ring-inset ring-white/75 dark:ring-white/5 rounded-2xl p-4 sm:p-5 shadow-[0_10px_30px_-10px_rgba(184,149,110,0.18)] dark:shadow-none hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-10px_rgba(184,149,110,0.25)] transition-all"
                 >
                   {/* Top: Judul Tema & Tombol Hapus */}
                   <div className="flex items-start justify-between gap-2 mb-2">
@@ -178,7 +178,7 @@ export default function SavedQuotesModal() {
                       onClick={() => removeSaved(quote.id)}
                       title="Hapus dari Saku Hati"
                       aria-label="Hapus dari Saku Hati"
-                      className="p-1.5 rounded-lg text-[#7A6F64] dark:text-[#A89F94] hover:text-rose-600 hover:bg-[#FAF7F2] dark:hover:bg-[#1C1917] transition-colors shrink-0"
+                      className="p-1.5 rounded-lg text-[#7A6F64] dark:text-[#A89F94] hover:text-rose-600 hover:bg-white/70 dark:hover:bg-[#1C1917] transition-colors shrink-0"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -193,14 +193,14 @@ export default function SavedQuotesModal() {
 
                   {/* Source Pill */}
                   <div className="mb-3.5">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-sans font-medium px-2 py-0.5 rounded-lg bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36]">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-sans font-medium px-2.5 py-0.5 rounded-full bg-white/70 dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5D3B8]/80 dark:border-[#443C36]">
                       <Feather className="w-2.5 h-2.5 text-[#886950] dark:text-[#C8A98E]" />
                       <span className="truncate max-w-[180px]">{quote.source}</span>
                     </span>
                   </div>
 
                   {/* Actions: Salin, Bagikan WA, Simpan Gambar */}
-                  <div className="pt-2.5 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex items-center justify-between gap-2">
+                  <div className="pt-2.5 border-t border-[#E5D3B8]/60 dark:border-[#3A332E] flex items-center justify-between gap-2">
                     <div className="flex items-center gap-1.5">
                       {/* Salin */}
                       <button

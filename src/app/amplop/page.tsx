@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getQuotes } from "@/lib/getQuotes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -29,7 +30,9 @@ function EnvelopeLoadingFallback() {
   );
 }
 
-export default function AmplopPage() {
+export default async function AmplopPage() {
+  const quotes = await getQuotes();
+
   return (
     <div className="flex flex-col min-h-screen text-[#3E362E] dark:text-[#EDE6DC] relative selection:bg-[#C8A98E]/30 selection:text-[#3E362E] overflow-x-hidden">
       <Navbar />
@@ -48,7 +51,7 @@ export default function AmplopPage() {
 
         {/* Komponen Amplop dengan Pembaca Query Params di dalam Suspense */}
         <Suspense fallback={<EnvelopeLoadingFallback />}>
-          <EnvelopeView />
+          <EnvelopeView quotes={quotes} />
         </Suspense>
       </main>
 

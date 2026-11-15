@@ -1,3 +1,4 @@
+import { getQuotes } from "@/lib/getQuotes";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MoodGuideSection from "@/components/MoodGuideSection";
@@ -9,15 +10,17 @@ import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const quotes = await getQuotes();
+
   return (
     <div className="flex flex-col min-h-screen text-[#3E362E] dark:text-[#EDE6DC] relative selection:bg-[#C8A98E]/30 selection:text-[#3E362E] overflow-x-hidden">
       <Navbar />
       <main className="flex-grow relative z-10">
-        <HeroSection />
-        <MoodGuideSection />
-        <RandomQuoteGenerator />
-        <QuoteSection isPreview={true} />
+        <HeroSection quotes={quotes} />
+        <MoodGuideSection quotes={quotes} />
+        <RandomQuoteGenerator quotes={quotes} />
+        <QuoteSection isPreview={true} quotes={quotes} />
         <PersonalSpaceSection />
         <RequestSection />
         <AboutSection />

@@ -29,9 +29,11 @@ const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
 interface QuoteSectionProps {
   isPreview?: boolean;
+  quotes?: QuoteItem[];
 }
 
-export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
+export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }: QuoteSectionProps) {
+  const quoteList = quotes && quotes.length > 0 ? quotes : QUOTES_DATA;
   const [selectedType, setSelectedType] = useState<"Semua" | "Islami" | "Umum">("Semua");
   const [selectedCategory, setSelectedCategory] = useState<string>("Semua");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -76,7 +78,7 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
   }, []);
 
   // Filter kutipan cerdas: berdasarkan tipe, kategori, dan kata kunci (isi, judul tema, atau tokoh/sumber)
-  const filteredQuotes = QUOTES_DATA.filter((item) => {
+  const filteredQuotes = quoteList.filter((item) => {
     const matchType = selectedType === "Semua" || item.type === selectedType;
     const matchCat = selectedCategory === "Semua" || item.category === selectedCategory;
 
@@ -93,7 +95,7 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
   });
 
   // Tampilkan 3 kutipan terbaru untuk mode preview landing page, atau hasil filter untuk halaman penuh
-  const displayedQuotes = isPreview ? QUOTES_DATA.slice(0, 3) : filteredQuotes;
+  const displayedQuotes = isPreview ? quoteList.slice(0, 3) : filteredQuotes;
 
   const handleCopy = (quote: QuoteItem, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
@@ -164,7 +166,7 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
             {isPreview
               ? "Kumpulan kata penenang, motivasi Islami, dan renungan kehidupan dari postingan pilihan @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya."
-              : "Kumpulan kata-kata penenang, motivasi Islami, dan renungan kehidupan dari seluruh 18 postingan asli @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya."}
+              : `Kumpulan kata-kata penenang, motivasi Islami, dan renungan kehidupan dari seluruh ${quoteList.length} postingan asli @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya.`}
           </p>
         </div>
 
@@ -211,7 +213,7 @@ export default function QuoteSection({ isPreview = false }: QuoteSectionProps) {
               </div>
 
               <p className="text-xs text-[#7A6F64] dark:text-[#A89F94] font-medium">
-                Menampilkan {filteredQuotes.length} dari {QUOTES_DATA.length} kutipan
+                Menampilkan {filteredQuotes.length} dari {quoteList.length} kutipan
               </p>
             </div>
 

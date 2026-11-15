@@ -29,18 +29,26 @@ import {
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
-export default function EnvelopeView() {
+interface EnvelopeViewProps {
+  quotes?: QuoteItem[];
+}
+
+export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps) {
+  const quoteList = quotes && quotes.length > 0 ? quotes : QUOTES_DATA;
   const searchParams = useSearchParams();
 
   // Membaca parameter dari query URL (database-free)
-  const idParam = searchParams.get("id") || "18";
+  const idParam = searchParams.get("id") || quoteList[0]?.id || "18";
   const recipientParam = searchParams.get("untuk") || "Sahabatku";
   const senderParam = searchParams.get("dari") || "Seseorang yang peduli";
   const noteParam = searchParams.get("pesan") || "";
 
   // Cari kutipan yang sesuai ID atau fallback ke kutipan pertama
   const quoteItem: QuoteItem =
-    QUOTES_DATA.find((q) => q.id === idParam) || QUOTES_DATA[0];
+    quoteList.find((q) => q.id === idParam) ||
+    QUOTES_DATA.find((q) => q.id === idParam) ||
+    quoteList[0] ||
+    QUOTES_DATA[0];
 
   const [isOpened, setIsOpened] = useState(false);
   const [isCopied, setIsCopied] = useState(false);

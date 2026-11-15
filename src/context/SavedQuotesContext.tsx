@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
 
 interface SavedQuotesContextType {
   savedIds: string[];
@@ -12,6 +13,8 @@ interface SavedQuotesContextType {
   openDrawer: () => void;
   closeDrawer: () => void;
   isLoaded: boolean;
+  allQuotes: QuoteItem[];
+  setAllQuotes: (quotes: QuoteItem[]) => void;
 }
 
 const STORAGE_KEY = "nalar_nanti_saku_hati";
@@ -22,12 +25,24 @@ const SavedQuotesContext = createContext<SavedQuotesContextType | undefined>(
 
 export function SavedQuotesProvider({
   children,
+  initialQuotes,
 }: {
   children: React.ReactNode;
+  initialQuotes?: QuoteItem[];
 }) {
   const [savedIds, setSavedIds] = useState<string[]>([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [allQuotes, setAllQuotes] = useState<QuoteItem[]>(
+    initialQuotes && initialQuotes.length > 0 ? initialQuotes : QUOTES_DATA
+  );
+
+  // Perbarui allQuotes jika initialQuotes berubah
+  useEffect(() => {
+    if (initialQuotes && initialQuotes.length > 0) {
+      setAllQuotes(initialQuotes);
+    }
+  }, [initialQuotes]);
 
   // Baca dari localStorage hanya di sisi client (useEffect) agar 100% aman dari hydration mismatch
   useEffect(() => {
@@ -96,6 +111,8 @@ export function SavedQuotesProvider({
         openDrawer,
         closeDrawer,
         isLoaded,
+        allQuotes,
+        setAllQuotes,
       }}
     >
       {children}
@@ -112,4 +129,3 @@ export function useSavedQuotes() {
   }
   return context;
 }
-

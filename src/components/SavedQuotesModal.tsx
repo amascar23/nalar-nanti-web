@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 export default function SavedQuotesModal() {
-  const { isDrawerOpen, closeDrawer, savedIds, removeSaved } = useSavedQuotes();
+  const { isDrawerOpen, closeDrawer, savedIds, removeSaved, allQuotes } = useSavedQuotes();
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
 
@@ -51,10 +51,11 @@ export default function SavedQuotesModal() {
 
   if (!isDrawerOpen) return null;
 
-  // Cari data lengkap kutipan yang tersimpan (urutan sesuai urutan penyimpanan terbaru di atas)
+  // Cari data lengkap kutipan yang tersimpan (menggunakan allQuotes terbaru dari Google Sheets dengan fallback ke QUOTES_DATA)
+  const quoteCatalog = allQuotes && allQuotes.length > 0 ? allQuotes : QUOTES_DATA;
   const savedQuotes: QuoteItem[] = [...savedIds]
     .reverse()
-    .map((id) => QUOTES_DATA.find((q) => q.id === id))
+    .map((id) => quoteCatalog.find((q) => q.id === id) || QUOTES_DATA.find((q) => q.id === id))
     .filter((q): q is QuoteItem => Boolean(q));
 
   const handleCopy = (quote: QuoteItem) => {

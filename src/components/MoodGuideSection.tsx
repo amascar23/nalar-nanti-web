@@ -75,7 +75,12 @@ const MOOD_OPTIONS: MoodOption[] = [
   },
 ];
 
-export default function MoodGuideSection() {
+interface MoodGuideSectionProps {
+  quotes?: QuoteItem[];
+}
+
+export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSectionProps) {
+  const quoteList = quotes && quotes.length > 0 ? quotes : QUOTES_DATA;
   const [selectedMoodId, setSelectedMoodId] = useState<string>("penuh-lelah");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
@@ -87,7 +92,7 @@ export default function MoodGuideSection() {
 
   // Ambil data kutipan lengkap berdasarkan ID yang direkomendasikan
   const recommendedQuotes: QuoteItem[] = activeMood.quoteIds
-    .map((id) => QUOTES_DATA.find((q) => q.id === id))
+    .map((id) => quoteList.find((q) => q.id === id) || QUOTES_DATA.find((q) => q.id === id))
     .filter((q): q is QuoteItem => Boolean(q));
 
   const handleCopy = (quote: QuoteItem) => {

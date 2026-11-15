@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getQuotes } from "@/lib/getQuotes";
 import Navbar from "@/components/Navbar";
 import QuoteSection from "@/components/QuoteSection";
 import Footer from "@/components/Footer";
@@ -9,10 +10,12 @@ import { ArrowLeft } from "lucide-react";
 export const metadata: Metadata = {
   title: "Koleksi Nalar Lengkap — Nalar Nanti",
   description:
-    "Arsip lengkap seluruh 18 kutipan renungan, motivasi Islami, dan refleksi ketenangan hidup dari Nalar Nanti (@nalarnanti).",
+    "Arsip lengkap seluruh kutipan renungan, motivasi Islami, dan refleksi ketenangan hidup dari Nalar Nanti (@nalarnanti).",
 };
 
-export default function KoleksiPage() {
+export default async function KoleksiPage() {
+  const quotes = await getQuotes();
+
   return (
     <div className="flex flex-col min-h-screen text-[#3E362E] dark:text-[#EDE6DC] relative selection:bg-[#C8A98E]/30 selection:text-[#3E362E] overflow-x-hidden">
       <Navbar />
@@ -28,7 +31,7 @@ export default function KoleksiPage() {
           </Link>
         </div>
 
-        <QuoteSection isPreview={false} />
+        <QuoteSection isPreview={false} quotes={quotes} />
       </main>
       <Footer />
       <ScrollToTop />

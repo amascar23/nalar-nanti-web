@@ -21,9 +21,14 @@ import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
 import SendEnvelopeModal from "@/components/SendEnvelopeModal";
 
-export default function RandomQuoteGenerator() {
+interface RandomQuoteGeneratorProps {
+  quotes?: QuoteItem[];
+}
+
+export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuoteGeneratorProps) {
+  const quoteList = quotes && quotes.length > 0 ? quotes : QUOTES_DATA;
   // Inisialisasi deterministik agar SSR & Client render identik 100% tanpa hydration mismatch
-  const [currentQuote, setCurrentQuote] = useState<QuoteItem>(QUOTES_DATA[0]);
+  const [currentQuote, setCurrentQuote] = useState<QuoteItem>(quoteList[0] || QUOTES_DATA[0]);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
@@ -37,21 +42,28 @@ export default function RandomQuoteGenerator() {
     setIsMounted(true);
   }, []);
 
+  // Sinkronkan kutipan awal saat data quotes baru tiba
+  useEffect(() => {
+    if (quoteList && quoteList.length > 0) {
+      setCurrentQuote(quoteList[0]);
+    }
+  }, [quotes]);
+
   const handleGetRandomQuote = () => {
     if (isAnimating) return;
     setIsAnimating(true);
 
-    // Pastikan tidak mengulang kutipan yang sama persis berturut-turut dari 18 kutipan asli
+    // Pastikan tidak mengulang kutipan yang sama persis berturut-turut dari koleksi kutipan
     let nextIndex = 0;
     do {
-      nextIndex = Math.floor(Math.random() * QUOTES_DATA.length);
+      nextIndex = Math.floor(Math.random() * quoteList.length);
     } while (
-      QUOTES_DATA.length > 1 &&
-      QUOTES_DATA[nextIndex].id === currentQuote.id
+      quoteList.length > 1 &&
+      quoteList[nextIndex].id === currentQuote.id
     );
 
     setTimeout(() => {
-      setCurrentQuote(QUOTES_DATA[nextIndex]);
+      setCurrentQuote(quoteList[nextIndex]);
       setIsAnimating(false);
       setIsCopied(false);
       setShuffleCount((prev) => prev + 1);
@@ -113,15 +125,13 @@ export default function RandomQuoteGenerator() {
             className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-9 sm:py-4 rounded-full bg-[#C8A98E] text-[#FAF7F2] font-semibold text-xs sm:text-base hover:bg-[#B9967A] transition-all duration-300 shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:opacity-70 group min-h-[48px]"
           >
             <Sparkles
-              className={`w-4 h-4 sm:w-5 sm:h-5 text-[#FAF7F2] ${
-                isAnimating ? "animate-spin" : "group-hover:rotate-12 transition-transform"
-              }`}
+              className={`w-4 h-4 sm:w-5 sm:h-5 text-[#FAF7F2] ${isAnimating ? "animate-spin" : "group-hover:rotate-12 transition-transform"
+                }`}
             />
             <span>Ambil Satu Pengingat</span>
             <RefreshCw
-              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FAF7F2]/80 ml-0.5 sm:ml-1 ${
-                isAnimating ? "animate-spin" : ""
-              }`}
+              className={`w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FAF7F2]/80 ml-0.5 sm:ml-1 ${isAnimating ? "animate-spin" : ""
+                }`}
             />
           </button>
 
@@ -133,11 +143,10 @@ export default function RandomQuoteGenerator() {
         {/* Kartu Soft Cream dengan Format Selaras Kartu @nalarnanti */}
         <div className="max-w-2xl mx-auto text-left">
           <div
-            className={`bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 shadow-card transition-all duration-300 relative group overflow-hidden ${
-              isAnimating
-                ? "opacity-30 scale-[0.98] blur-[1px]"
-                : "opacity-100 scale-100 blur-0"
-            }`}
+            className={`bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-9 shadow-card transition-all duration-300 relative group overflow-hidden ${isAnimating
+              ? "opacity-30 scale-[0.98] blur-[1px]"
+              : "opacity-100 scale-100 blur-0"
+              }`}
           >
             {/* Header Kartu: Label Kategori, Nomor Urut & Judul Tema */}
             <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80 dark:border-[#3A332E]">
@@ -232,11 +241,10 @@ export default function RandomQuoteGenerator() {
                     onClick={() => toggleSave(currentQuote.id)}
                     title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                     aria-label={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
-                      isSaved(currentQuote.id)
-                        ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
-                        : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
-                    }`}
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${isSaved(currentQuote.id)
+                      ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
+                      : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
+                      }`}
                   >
                     <Bookmark className={`w-[15px] h-[15px] ${isSaved(currentQuote.id) ? "fill-[#C8A98E]" : ""}`} />
                   </button>

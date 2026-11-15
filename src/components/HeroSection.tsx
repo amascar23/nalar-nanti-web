@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
 import {
@@ -21,18 +21,31 @@ import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
 import SendEnvelopeModal from "@/components/SendEnvelopeModal";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  quotes?: QuoteItem[];
+}
+
+export default function HeroSection({ quotes = QUOTES_DATA }: HeroSectionProps) {
+  const quoteList = quotes && quotes.length > 0 ? quotes : QUOTES_DATA;
+  const { isSaved, toggleSave, setAllQuotes } = useSavedQuotes();
+
+  // Sinkronkan quotes terbaru ke SavedQuotesContext
+  useEffect(() => {
+    if (quotes && quotes.length > 0) {
+      setAllQuotes(quotes);
+    }
+  }, [quotes, setAllQuotes]);
+
   // Ambil kutipan-kutipan yang ditandai isFeatured: true
-  const featuredQuotes = QUOTES_DATA.filter((q) => q.isFeatured);
+  const featuredQuotes = quoteList.filter((q) => q.isFeatured);
   const [activeFeaturedIndex, setActiveFeaturedIndex] = useState(0);
   const [isCopied, setIsCopied] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [isEnvelopeModalOpen, setIsEnvelopeModalOpen] = useState(false);
-  const { isSaved, toggleSave } = useSavedQuotes();
 
   // Fallback jika tidak ada featured
   const currentQuote: QuoteItem =
-    featuredQuotes[activeFeaturedIndex] || QUOTES_DATA[0];
+    featuredQuotes[activeFeaturedIndex] || quoteList[0] || QUOTES_DATA[0];
 
   const handleCopyQuote = () => {
     // Format: "<kutipan>" — <source> (Nalar Nanti)
@@ -197,11 +210,10 @@ export default function HeroSection() {
                     onClick={() => toggleSave(currentQuote.id)}
                     title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                     aria-label={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
-                      isSaved(currentQuote.id)
-                        ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
-                        : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
-                    }`}
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${isSaved(currentQuote.id)
+                      ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
+                      : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
+                      }`}
                   >
                     <Bookmark className={`w-[15px] h-[15px] ${isSaved(currentQuote.id) ? "fill-[#C8A98E]" : ""}`} />
                   </button>

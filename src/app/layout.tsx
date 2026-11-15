@@ -6,6 +6,7 @@ import { SavedQuotesProvider } from "@/context/SavedQuotesContext";
 import SavedQuotesModal from "@/components/SavedQuotesModal";
 import AmbientSoundToggle from "@/components/AmbientSoundToggle";
 import ThemeBackground from "@/components/ThemeBackground";
+import { getQuotes } from "@/lib/getQuotes";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -81,11 +82,13 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const quotes = await getQuotes();
+
   return (
     <html lang="id" className={`${lora.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
       <body
@@ -94,7 +97,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <ThemeBackground />
-          <SavedQuotesProvider>
+          <SavedQuotesProvider initialQuotes={quotes}>
             {children}
             <SavedQuotesModal />
             <AmbientSoundToggle />

@@ -71,16 +71,16 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="#beranda" className="hover:text-[#3E362E] transition-colors">
+            <Link href="/#beranda" className="hover:text-[#3E362E] transition-colors whitespace-nowrap">
               Beranda
             </Link>
-            <Link href="#pengingat" className="hover:text-[#3E362E] transition-colors">
+            <Link href="/#pengingat" className="hover:text-[#3E362E] transition-colors whitespace-nowrap">
               Pengingat Acak
             </Link>
-            <Link href="#kutipan" className="hover:text-[#3E362E] transition-colors">
+            <Link href="/koleksi" className="hover:text-[#3E362E] transition-colors whitespace-nowrap">
               Koleksi Nalar
             </Link>
-            <Link href="#tentang" className="hover:text-[#3E362E] transition-colors">
+            <Link href="/#tentang" className="hover:text-[#3E362E] transition-colors whitespace-nowrap">
               Tentang Kami
             </Link>
           </div>

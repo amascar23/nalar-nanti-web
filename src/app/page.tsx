@@ -11,7 +11,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen text-[#3E362E] relative selection:bg-[#C8A98E]/30 selection:text-[#3E362E] overflow-x-hidden">
+    <div className="flex flex-col min-h-screen text-[#3E362E] dark:text-[#EDE6DC] relative selection:bg-[#C8A98E]/30 selection:text-[#3E362E] overflow-x-hidden">
       <Navbar />
       <main className="flex-grow relative z-10">
         <HeroSection />

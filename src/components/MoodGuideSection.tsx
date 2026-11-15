@@ -124,21 +124,21 @@ export default function MoodGuideSection() {
   return (
     <section
       id="suasana-hati"
-      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 relative overflow-hidden"
+      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 1. Header Seksi */}
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-semibold text-[#886950] mb-3 shadow-soft">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E] mb-3 shadow-soft">
             <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
             <span>Teman Bicara Hati</span>
           </div>
 
-          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] tracking-tight mb-3">
+          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-3">
             Lagi Merasa Apa Hari Ini?
           </h2>
 
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] leading-relaxed max-w-xl mx-auto">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
             Pilih suasana hatimu saat ini, biarkan Nalar Nanti menyuguhkan pengingat yang paling pas untuk menemanimu.
           </p>
         </div>
@@ -155,12 +155,12 @@ export default function MoodGuideSection() {
                 className={`inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all active:scale-95 duration-200 ${
                   isActive
                     ? "bg-[#C8A98E] text-[#FAF7F2] border border-[#C8A98E] shadow-card scale-[1.02]"
-                    : "bg-[#F3EDE2] text-[#7A6F64] border border-[#E5DDD0] hover:border-[#C8A98E]/70 hover:text-[#3E362E] shadow-soft"
+                    : "bg-[#F3EDE2] dark:bg-[#26221F] text-[#7A6F64] dark:text-[#A89F94] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]/70 hover:text-[#3E362E] dark:hover:text-[#EDE6DC] shadow-soft"
                 }`}
               >
                 <Icon
                   className={`w-4 h-4 shrink-0 ${
-                    isActive ? "text-[#FAF7F2]" : "text-[#886950]"
+                    isActive ? "text-[#FAF7F2]" : "text-[#886950] dark:text-[#C8A98E]"
                   }`}
                 />
                 <span>{mood.label}</span>
@@ -172,13 +172,13 @@ export default function MoodGuideSection() {
         {/* 3. Kotak Sapaan Empatik yang Hangat */}
         <div
           key={activeMood.id}
-          className="p-5 sm:p-7 rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft mb-8 sm:mb-12 text-center max-w-2xl mx-auto relative overflow-hidden animate-fadeIn"
+          className="p-5 sm:p-7 rounded-3xl bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft mb-8 sm:mb-12 text-center max-w-2xl mx-auto relative overflow-hidden animate-fadeIn"
         >
           <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#8E9B8E] mb-2.5">
             <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
             <span>Pesan Hangat untukmu</span>
           </div>
-          <p className="font-serif italic text-base sm:text-lg text-[#3E362E] leading-relaxed max-w-xl mx-auto">
+          <p className="font-serif italic text-base sm:text-lg text-[#3E362E] dark:text-[#EDE6DC] leading-relaxed max-w-xl mx-auto">
             “{activeMood.empathyMessage}”
           </p>
         </div>
@@ -188,29 +188,29 @@ export default function MoodGuideSection() {
           {recommendedQuotes.map((quote) => (
             <div
               key={quote.id}
-              className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-soft hover:shadow-card hover:border-[#C8A98E]/50 transition-all duration-300 flex flex-col justify-between h-full group"
+              className="bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-soft hover:shadow-card hover:border-[#C8A98E]/50 transition-all duration-300 flex flex-col justify-between h-full group"
             >
               {/* Bagian Atas & Tengah */}
               <div className="flex-1 flex flex-col">
                 {/* Header Kartu: Judul Tema & Kategori */}
                 <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-[#8E9B8E]">
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#8E9B8E]">
                     {quote.category}
                   </span>
-                  <span className="text-[10px] font-bold text-[#886950] bg-[#FAF7F2] px-2 py-0.5 rounded-full border border-[#E5DDD0]">
+                  <span className="text-[10px] font-bold text-[#886950] dark:text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E]">
                     #{quote.id}
                   </span>
                 </div>
 
                 {/* Judul Tema Kartu */}
-                <h3 className="font-serif text-sm sm:text-base font-semibold text-[#3E362E] mb-3 group-hover:text-[#886950] transition-colors leading-snug">
+                <h3 className="font-serif text-sm sm:text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-3 group-hover:text-[#886950] dark:group-hover:text-[#C8A98E] transition-colors leading-snug">
                   {quote.themeTitle}
                 </h3>
 
                 {/* Teks Kutipan Utama */}
                 <div className="relative mb-4 flex-1">
                   <QuoteIcon className="w-4 h-4 sm:w-5 sm:h-5 text-[#C8A98E]/40 mb-1.5 group-hover:text-[#C8A98E] transition-colors" />
-                  <p className="font-serif italic text-[16px] sm:text-[18px] leading-[1.8] text-[#3E362E]">
+                  <p className="font-serif italic text-[16px] sm:text-[18px] leading-[1.8] text-[#3E362E] dark:text-[#EDE6DC]">
                     “{quote.quote}”
                   </p>
                 </div>
@@ -220,8 +220,8 @@ export default function MoodGuideSection() {
               <div className="mt-6 pt-4 border-t border-[#E5DDD0] dark:border-[#3A332E] flex flex-col gap-2.5">
                 {/* Baris 1: Source Pill */}
                 <div className="flex items-center">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-sans font-medium px-2.5 py-1 rounded-lg bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-xs truncate max-w-[220px]">
-                    <Feather className="w-3.5 h-3.5 text-[#886950] shrink-0" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-sans font-medium px-2.5 py-1 rounded-lg bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs truncate max-w-[220px]">
+                    <Feather className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                     <span className="truncate">{quote.source}</span>
                   </span>
                 </div>
@@ -235,17 +235,17 @@ export default function MoodGuideSection() {
                     className={`h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-all shadow-xs active:scale-95 whitespace-nowrap border ${
                       isSaved(quote.id)
                         ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
-                        : "bg-[#FAF7F2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
+                        : "bg-[#FAF7F2] dark:bg-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E] hover:text-[#C8A98E]"
                     }`}
                   >
-                    <Bookmark className={`w-3.5 h-3.5 ${isSaved(quote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"}`} />
+                    <Bookmark className={`w-3.5 h-3.5 ${isSaved(quote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64] dark:text-[#A89F94]"}`} />
                     <span>{isSaved(quote.id) ? "Tersimpan" : "Simpan"}</span>
                   </button>
 
                   {/* 2. Salin */}
                   <button
                     onClick={() => handleCopy(quote)}
-                    className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group/copy whitespace-nowrap"
+                    className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group/copy whitespace-nowrap"
                     title="Salin kutipan"
                   >
                     {copiedId === quote.id ? (
@@ -255,7 +255,7 @@ export default function MoodGuideSection() {
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3.5 h-3.5 text-[#7A6F64] group-hover/copy:text-[#C8A98E] transition-colors" />
+                        <Copy className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover/copy:text-[#C8A98E] transition-colors" />
                         <span>Salin</span>
                       </>
                     )}
@@ -275,7 +275,7 @@ export default function MoodGuideSection() {
                   <button
                     onClick={() => handleDownload(quote)}
                     disabled={downloadingId === quote.id}
-                    className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-50 group/download whitespace-nowrap"
+                    className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-50 group/download whitespace-nowrap"
                     title="Unduh Kartu Gambar untuk Story & Status"
                   >
                     {downloadingId === quote.id ? (
@@ -285,7 +285,7 @@ export default function MoodGuideSection() {
                       </>
                     ) : (
                       <>
-                        <Download className="w-3.5 h-3.5 text-[#7A6F64] group-hover/download:text-[#C8A98E] transition-colors" />
+                        <Download className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover/download:text-[#C8A98E] transition-colors" />
                         <span>Gambar</span>
                       </>
                     )}
@@ -294,10 +294,10 @@ export default function MoodGuideSection() {
                   {/* 5. Kirim Amplop */}
                   <button
                     onClick={() => setEnvelopeQuote(quote)}
-                    className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group/envelope whitespace-nowrap"
+                    className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group/envelope whitespace-nowrap"
                     title="Kirim amplop pengingat ke teman atau orang tersayang"
                   >
-                    <Mail className="w-3.5 h-3.5 text-[#7A6F64] group-hover/envelope:text-[#C8A98E] transition-colors" />
+                    <Mail className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover/envelope:text-[#C8A98E] transition-colors" />
                     <span>Amplop</span>
                   </button>
                 </div>

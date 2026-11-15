@@ -258,7 +258,7 @@ export default function RequestSection() {
 
               {/* Error Alert jika terjadi kegagalan */}
               {errorMessage && (
-                <div className="p-4 rounded-2xl bg-[#EAE1D3]/80 border border-[#C8A98E] text-xs text-[#886950] flex items-start gap-2.5 animate-fadeIn">
+                <div className="p-4 rounded-2xl bg-[#EAE1D3]/80 dark:bg-[#322C27] border border-[#C8A98E] text-xs text-[#886950] dark:text-[#C8A98E] flex items-start gap-2.5 animate-fadeIn">
                   <AlertCircle className="w-4 h-4 text-[#C8A98E] shrink-0 mt-0.5" />
                   <p>{errorMessage}</p>
                 </div>
@@ -284,7 +284,7 @@ export default function RequestSection() {
                   )}
                 </button>
 
-                <div className="flex items-center justify-center gap-1.5 mt-3 text-[11px] text-[#7A6F64]">
+                <div className="flex items-center justify-center gap-1.5 mt-3 text-[11px] text-[#7A6F64] dark:text-[#A89F94]">
                   <Lock className="w-3 h-3 text-[#8E9B8E]" />
                   <span>
                     Pesan dikirimkan secara privat dan aman langsung ke ruang admin.

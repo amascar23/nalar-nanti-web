@@ -161,13 +161,13 @@ export default function AboutSection() {
                 >
                   <Instagram className="w-6 h-6" />
                 </a>
-                <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] text-[#886950] border border-[#E5DDD0]">
+                <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#886950] dark:text-[#C8A98E] border border-[#E5DDD0] dark:border-[#3A332E]">
                   Visual & Carousel
                 </span>
               </div>
 
               {/* Title & Description */}
-              <h4 className="font-serif text-2xl font-semibold text-[#3E362E] mb-1">
+              <h4 className="font-serif text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1">
                 <a
                   href={IG_PROFILE_URL}
                   target="_blank"
@@ -181,13 +181,13 @@ export default function AboutSection() {
                 Arsip visual desain kartu soft cream & seri kutipan lengkap
               </p>
 
-              <p className="font-sans text-sm text-[#7A6F64] leading-relaxed mb-6">
+              <p className="font-sans text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed mb-6">
                 Ikuti akun Instagram{" "}
                 <a
                   href={IG_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold text-[#3E362E] hover:text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 transition-colors"
+                  className="font-bold text-[#3E362E] dark:text-[#EDE6DC] hover:text-[#C8A98E] underline decoration-[#E5DDD0] dark:decoration-[#3A332E] underline-offset-4 transition-colors"
                 >
                   @nalarnanti
                 </a>{" "}
@@ -195,7 +195,7 @@ export default function AboutSection() {
               </p>
 
               {/* Keunggulan / Fitur */}
-              <ul className="space-y-2.5 mb-8 text-xs text-[#3E362E] font-medium">
+              <ul className="space-y-2.5 mb-8 text-xs text-[#3E362E] dark:text-[#EDE6DC] font-medium">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#8E9B8E] shrink-0" />
                   <span>Arsip visual desain kartu cream yang tenang dan rapi di feed</span>
@@ -227,32 +227,32 @@ export default function AboutSection() {
           {/* ----------------------------------------------------------------------- */}
           {/* KARTU 2: SALURAN WHATSAPP (@NalarNanti) */}
           {/* ----------------------------------------------------------------------- */}
-          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#F3EDE2] border border-[#E5DDD0] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
+          <div className="flex flex-col justify-between p-6 sm:p-9 rounded-2xl sm:rounded-3xl bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft hover:shadow-card hover:-translate-y-1.5 transition-all duration-300 relative group">
             <div>
               {/* Top Tag & Icon */}
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80">
-                <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#E5DDD0] flex items-center justify-center text-[#8E9B8E] shadow-soft group-hover:scale-105 transition-transform">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#E5DDD0]/80 dark:border-[#3A332E]">
+                <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#8E9B8E] shadow-soft group-hover:scale-105 transition-transform">
                   <MessageCircle className="w-6 h-6" />
                 </div>
-                <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] text-[#637063] border border-[#E5DDD0]">
+                <span className="text-[11px] font-semibold px-3 py-1 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#637063] dark:text-[#8E9B8E] border border-[#E5DDD0] dark:border-[#3A332E]">
                   Pengingat Langsung
                 </span>
               </div>
 
               {/* Title & Description */}
-              <h4 className="font-serif text-2xl font-semibold text-[#3E362E] mb-1">
+              <h4 className="font-serif text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1">
                 Saluran WhatsApp @NalarNanti
               </h4>
               <p className="text-xs text-[#8E9B8E] font-medium mb-4">
                 Pengingat harian langsung di notifikasi ponselmu
               </p>
 
-              <p className="font-sans text-sm text-[#7A6F64] leading-relaxed mb-6">
+              <p className="font-sans text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed mb-6">
                 Bergabunglah ke Saluran WhatsApp <strong>@NalarNanti</strong> untuk menerima satu pesan pengingat penyejuk hati setiap hari langsung di ponselmu. Hening tanpa notifikasi berisik, tanpa spam, dan nomor teleponmu tetap 100% terjaga aman.
               </p>
 
               {/* Keunggulan / Fitur */}
-              <ul className="space-y-2.5 mb-8 text-xs text-[#3E362E] font-medium">
+              <ul className="space-y-2.5 mb-8 text-xs text-[#3E362E] dark:text-[#EDE6DC] font-medium">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#8E9B8E] shrink-0" />
                   <span>Satu pesan penenang batin saat memulai atau mengakhiri hari</span>

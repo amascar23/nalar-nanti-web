@@ -77,17 +77,17 @@ export default function HeroSection() {
         {/* Area Teks Hero */}
         <div className="relative max-w-3xl mx-auto mb-8 sm:mb-12">
           {/* 1. Tagline kecil yang hangat di atas judul */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2]/90 backdrop-blur-xs border border-[#E5DDD0] text-xs font-medium text-[#7A6F64] mb-5 sm:mb-7 shadow-soft">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-[#F3EDE2]/90 dark:bg-[#26221F]/90 backdrop-blur-xs border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] mb-5 sm:mb-7 shadow-soft">
             <span className="w-2 h-2 rounded-full bg-[#8E9B8E] animate-pulse shrink-0" />
             <span>Ruang Teduh • Menata Nalar, Merakit Asa</span>
           </div>
 
           {/* 2. Judul utama yang puitis dengan font Lora & deskripsi singkat */}
-          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.25] mb-4 sm:mb-6">
+          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] dark:text-[#EDE6DC] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.25] mb-4 sm:mb-6">
             <span className="block">Beri jeda sejenak,</span>
             <span className="block mt-1 sm:mt-1.5">
               biarkan nalar dan hati menemukan{" "}
-              <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] underline-offset-4 sm:underline-offset-8">
+              <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] dark:decoration-[#3A332E] underline-offset-4 sm:underline-offset-8">
                 keteduhannya
               </span>
               .
@@ -95,18 +95,18 @@ export default function HeroSection() {
           </h1>
 
           {/* 3. Paragraf Pengenalan Ringkas & Hangat */}
-          <p className="font-sans text-xs sm:text-base text-[#7A6F64] max-w-xl mx-auto leading-relaxed">
+          <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] max-w-xl mx-auto leading-relaxed">
             Tidak semua hal harus dipahami terburu-buru hari ini. Singgahlah sejenak untuk membaca pengingat Islami dan refleksi kehidupan—menemani langkahmu bernapas lebih lega, menerima proses, dan berprasangka baik pada setiap ketetapan.
           </p>
         </div>
 
         {/* 3. Kartu Sorotan Utama: "Nalar Hari Ini" (Mobile-friendly Padding) */}
         <div className="max-w-2xl mx-auto text-left relative">
-          <div className="bg-[#F3EDE2] border border-[#E5DDD0] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-card transition-all duration-300 relative group overflow-hidden">
+          <div className="bg-[#F3EDE2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-card transition-all duration-300 relative group overflow-hidden">
             {/* Header Kartu: Judul Tema di Bagian Atas Kartu */}
-            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80">
+            <div className="flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-6 pb-3.5 sm:pb-4 border-b border-[#E5DDD0]/80 dark:border-[#3A332E]">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] shadow-soft shrink-0 bg-[#FAF7F2]">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#E5DDD0] dark:border-[#3A332E] shadow-soft shrink-0 bg-[#FAF7F2] dark:bg-[#1C1917]">
                   <Image
                     src="/images/logo-hd.png"
                     alt="Logo Nalar Nanti"
@@ -121,12 +121,12 @@ export default function HeroSection() {
                     <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E]">
                       Nalar Hari Ini
                     </span>
-                    <span className="text-[10px] text-[#886950] font-bold bg-[#FAF7F2] px-2 py-0.5 rounded-full border border-[#E5DDD0]">
+                    <span className="text-[10px] text-[#886950] dark:text-[#C8A98E] font-bold bg-[#FAF7F2] dark:bg-[#1C1917] px-2 py-0.5 rounded-full border border-[#E5DDD0] dark:border-[#3A332E]">
                       #{currentQuote.orderNumber}
                     </span>
                     <span
                       suppressHydrationWarning
-                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] text-[#8E9B8E] border border-[#E5DDD0]"
+                      className="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] text-[#8E9B8E] border border-[#E5DDD0] dark:border-[#3A332E]"
                     >
                       {currentQuote.category}
                     </span>
@@ -134,7 +134,7 @@ export default function HeroSection() {
                   {/* Judul Tema Kartu */}
                   <h2
                     suppressHydrationWarning
-                    className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] mt-1 leading-snug"
+                    className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] dark:text-[#EDE6DC] mt-1 leading-snug"
                   >
                     {currentQuote.themeTitle}
                   </h2>
@@ -146,7 +146,7 @@ export default function HeroSection() {
                   onClick={handleNextFeatured}
                   title="Lihat kutipan pilihan lainnya"
                   aria-label="Lihat kutipan pilihan berikutnya"
-                  className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-[#7A6F64] hover:text-[#3E362E] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] hover:border-[#C8A98E] active:scale-95 transition-all shadow-soft shrink-0"
+                  className="inline-flex items-center gap-1 text-[11px] sm:text-xs text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E] active:scale-95 transition-all shadow-soft shrink-0"
                 >
                   <RefreshCw className="w-3 h-3" />
                   <span className="hidden sm:inline">Pilihan Lain</span>
@@ -159,20 +159,20 @@ export default function HeroSection() {
               <QuoteIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#C8A98E]/30 absolute -top-2 -left-1 sm:-left-2 -z-0" />
               <blockquote
                 suppressHydrationWarning
-                className="font-serif italic text-[16px] sm:text-[18px] leading-[1.8] text-[#3E362E] relative z-10 pl-2"
+                className="font-serif italic text-[16px] sm:text-[18px] leading-[1.8] text-[#3E362E] dark:text-[#EDE6DC] relative z-10 pl-2"
               >
                 “{currentQuote.quote}”
               </blockquote>
             </div>
 
             {/* Catatan Refleksi */}
-            <div className="bg-[#FAF7F2] rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 mb-5">
+            <div className="bg-[#FAF7F2] dark:bg-[#1E1B18] rounded-2xl p-4 sm:p-5 border border-[#E5DDD0]/80 dark:border-[#3A332E] mb-5">
               <p className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#8E9B8E] font-semibold mb-1">
                 Renungan Singkat
               </p>
               <p
                 suppressHydrationWarning
-                className="font-sans text-xs sm:text-sm text-[#7A6F64] leading-relaxed"
+                className="font-sans text-xs sm:text-sm text-[#7A6F64] dark:text-[#A89F94] leading-relaxed"
               >
                 {currentQuote.reflection}
               </p>
@@ -184,9 +184,9 @@ export default function HeroSection() {
               <div className="flex items-center">
                 <span
                   suppressHydrationWarning
-                  className="inline-flex items-center gap-1.5 text-xs font-sans font-medium px-2.5 py-1 rounded-lg bg-[#EAE1D3] text-[#3E362E] border border-[#DDD3C3] shadow-xs truncate max-w-[240px]"
+                  className="inline-flex items-center gap-1.5 text-xs font-sans font-medium px-2.5 py-1 rounded-lg bg-[#EAE1D3] dark:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#DDD3C3] dark:border-[#443C36] shadow-xs truncate max-w-[240px]"
                 >
-                  <Feather className="w-3.5 h-3.5 text-[#886950] shrink-0" />
+                  <Feather className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                   <span className="truncate">{currentQuote.source}</span>
                 </span>
               </div>
@@ -199,13 +199,13 @@ export default function HeroSection() {
                   className={`h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-all shadow-xs active:scale-95 whitespace-nowrap border ${
                     isSaved(currentQuote.id)
                       ? "bg-[#C8A98E] text-[#FAF7F2] border-[#C8A98E]"
-                      : "bg-[#FAF7F2] text-[#3E362E] border-[#E5DDD0] hover:border-[#C8A98E] hover:text-[#C8A98E]"
+                      : "bg-[#FAF7F2] dark:bg-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E] hover:text-[#C8A98E]"
                   }`}
                   title={isSaved(currentQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                 >
                   <Bookmark
                     className={`w-3.5 h-3.5 ${
-                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64]"
+                      isSaved(currentQuote.id) ? "fill-[#FAF7F2] text-[#FAF7F2]" : "text-[#7A6F64] dark:text-[#A89F94]"
                     }`}
                   />
                   <span>{isSaved(currentQuote.id) ? "Tersimpan" : "Simpan"}</span>
@@ -214,7 +214,7 @@ export default function HeroSection() {
                 {/* 2. Salin Kutipan */}
                 <button
                   onClick={handleCopyQuote}
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group whitespace-nowrap"
                 >
                   {isCopied ? (
                     <>
@@ -223,7 +223,7 @@ export default function HeroSection() {
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
+                      <Copy className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#C8A98E] transition-colors" />
                       <span>Salin</span>
                     </>
                   )}
@@ -242,18 +242,18 @@ export default function HeroSection() {
                 <button
                   onClick={handleDownloadCard}
                   disabled={isDownloading}
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 disabled:opacity-60 whitespace-nowrap"
                   title="Unduh Kartu Kutipan untuk IG Story & Status WhatsApp"
                 >
                   {isDownloading ? (
                     <>
                       <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
-                      <span>Menyiapkan...</span>
+                      <span>...</span>
                     </>
                   ) : (
                     <>
-                      <Download className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-                      <span>Simpan Gambar</span>
+                      <Download className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#C8A98E] transition-colors" />
+                      <span>Gambar</span>
                     </>
                   )}
                 </button>
@@ -261,16 +261,16 @@ export default function HeroSection() {
                 {/* 5. Kirim Amplop */}
                 <button
                   onClick={() => setIsEnvelopeModalOpen(true)}
-                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] border border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group whitespace-nowrap"
+                  className="h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-xs active:scale-95 group whitespace-nowrap"
                   title="Kirim Amplop Pengingat ke teman atau orang tersayang"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-                  <span>Kirim Amplop</span>
+                  <Mail className="w-3.5 h-3.5 text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#C8A98E] transition-colors" />
+                  <span>Amplop</span>
                 </button>
               </div>
 
               {/* Tag Penutup Kredit & Pesan Feedback */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-1.5 text-[11px] text-[#7A6F64] pt-1">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-1.5 text-[11px] text-[#7A6F64] dark:text-[#A89F94] pt-1">
                 <span className="text-[10px] sm:text-[11px] text-[#8E9B8E] font-medium text-center sm:text-left">
                   {isCopied
                     ? "✓ Kutipan berhasil disalin ke papan klip!"
@@ -294,18 +294,18 @@ export default function HeroSection() {
         </div>
 
         {/* Tombol Navigasi Lembut ke Bagian Bawah */}
-        <div className="mt-10 sm:mt-14 flex items-center justify-center gap-4 sm:gap-5 text-xs text-[#7A6F64]">
+        <div className="mt-10 sm:mt-14 flex items-center justify-center gap-4 sm:gap-5 text-xs text-[#7A6F64] dark:text-[#A89F94]">
           <a
             href="#pengingat"
-            className="hover:text-[#3E362E] transition-colors inline-flex items-center gap-1.5"
+            className="hover:text-[#3E362E] dark:hover:text-[#EDE6DC] transition-colors inline-flex items-center gap-1.5"
           >
             <span>Ambil Pengingat</span>
             <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
           </a>
-          <span className="text-[#E5DDD0]">•</span>
+          <span className="text-[#E5DDD0] dark:text-[#3A332E]">•</span>
           <a
             href="#kutipan"
-            className="hover:text-[#3E362E] transition-colors"
+            className="hover:text-[#3E362E] dark:hover:text-[#EDE6DC] transition-colors"
           >
             Koleksi Nalar
           </a>

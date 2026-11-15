@@ -89,7 +89,7 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${lora.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
       <body
-        className="font-sans bg-[#FAF7F2] text-[#3E362E] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] touch-manipulation relative transition-colors duration-300"
+        className="font-sans bg-[#FAF7F2] dark:bg-[#1C1917] text-[#3E362E] dark:text-[#EDE6DC] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] dark:selection:text-[#EDE6DC] touch-manipulation relative transition-colors duration-300"
         suppressHydrationWarning
       >
         <ThemeProvider>

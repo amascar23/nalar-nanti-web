@@ -484,7 +484,7 @@ export default function AmbientSoundToggle() {
         className={`group h-10 flex items-center gap-2 px-3.5 rounded-full border transition-all duration-300 shadow-card hover:shadow-floating active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50 select-none ${
           isPlaying
             ? "bg-[#C8A98E] border-[#C8A98E] text-[#FAF7F2] shadow-soft"
-            : "bg-[#FAF7F2] border-[#E5DDD0] text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E]"
+            : "bg-[#FAF7F2] dark:bg-[#26221F] border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] dark:hover:border-[#C8A98E] hover:text-[#C8A98E] dark:hover:text-[#C8A98E]"
         }`}
       >
         {isPlaying ? (
@@ -502,8 +502,8 @@ export default function AmbientSoundToggle() {
         ) : (
           // Tampilan Default OFF
           <>
-            <Music2 className="w-4 h-4 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
-            <span className="text-xs font-semibold text-[#7A6F64] group-hover:text-[#3E362E] transition-colors">
+            <Music2 className="w-4 h-4 text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#C8A98E] transition-colors" />
+            <span className="text-xs font-semibold text-[#7A6F64] dark:text-[#A89F94] group-hover:text-[#3E362E] dark:group-hover:text-[#EDE6DC] transition-colors">
               Instrumen Teduh
             </span>
           </>

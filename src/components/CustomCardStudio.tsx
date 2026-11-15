@@ -591,11 +591,11 @@ export default function CustomCardStudio() {
         {/* PANEL EDITOR DI SISI KIRI (lg:col-span-6) */}
         {/* ========================================================================= */}
         <div className="lg:col-span-6 space-y-6">
-          <div className="bg-[#FAF7F2] border border-[#E5DDD0] rounded-3xl p-6 sm:p-8 shadow-floating">
-            <div className="flex items-center justify-between pb-4 border-b border-[#E5DDD0] mb-5">
+          <div className="bg-[#FAF7F2] dark:bg-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] rounded-3xl p-6 sm:p-8 shadow-floating">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E5DDD0] dark:border-[#3A332E] mb-5">
               <div className="flex items-center gap-2">
                 <Sliders className="w-4 h-4 text-[#C8A98E]" />
-                <h2 className="font-serif text-base sm:text-lg font-semibold text-[#3E362E]">
+                <h2 className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] dark:text-[#EDE6DC]">
                   Panel Racik Kalimat
                 </h2>
               </div>
@@ -606,7 +606,7 @@ export default function CustomCardStudio() {
                   setQuoteText("");
                   setAuthor("");
                 }}
-                className="text-[11px] text-[#7A6F64] hover:text-[#3E362E] inline-flex items-center gap-1 transition-colors"
+                className="text-[11px] text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] inline-flex items-center gap-1 transition-colors"
                 title="Kosongkan formulir"
               >
                 <RotateCcw className="w-3 h-3" />
@@ -628,7 +628,7 @@ export default function CustomCardStudio() {
                       setTitle(preset.title);
                       setQuoteText(preset.text);
                     }}
-                    className="text-xs px-3 py-1.5 rounded-full bg-[#F3EDE2] hover:bg-[#EAE1D3] text-[#3E362E] border border-[#E5DDD0] transition-all active:scale-95 shadow-soft"
+                    className="text-xs px-3 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-[#1E1B18] hover:bg-[#EAE1D3] dark:hover:bg-[#322C27] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] transition-all active:scale-95 shadow-soft"
                   >
                     + {preset.label}
                   </button>
@@ -641,9 +641,9 @@ export default function CustomCardStudio() {
               <div>
                 <label
                   htmlFor="card-title"
-                  className="block text-xs font-semibold text-[#3E362E] mb-1.5"
+                  className="block text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1.5"
                 >
-                  Judul Singkat <span className="text-[#7A6F64] font-normal">(Opsional)</span>
+                  Judul Singkat <span className="text-[#7A6F64] dark:text-[#A89F94] font-normal">(Opsional)</span>
                 </label>
                 <input
                   id="card-title"
@@ -652,7 +652,7 @@ export default function CustomCardStudio() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="Contoh: Catatan Malam Ini / Ruang Doa"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] border border-[#E5DDD0] text-xs sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
                 />
               </div>
 
@@ -661,7 +661,7 @@ export default function CustomCardStudio() {
                 <div className="flex items-center justify-between mb-1.5">
                   <label
                     htmlFor="card-quote"
-                    className="block text-xs font-semibold text-[#3E362E]"
+                    className="block text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC]"
                   >
                     Tuliskan Kalimat Refleksi atau Doamu{" "}
                     <span className="text-[#C8A98E]">*</span>
@@ -670,7 +670,7 @@ export default function CustomCardStudio() {
                     className={`text-[10px] font-mono ${
                       quoteText.length >= 200
                         ? "text-[#C8A98E] font-bold"
-                        : "text-[#7A6F64]"
+                        : "text-[#7A6F64] dark:text-[#A89F94]"
                     }`}
                   >
                     {quoteText.length}/220
@@ -684,7 +684,7 @@ export default function CustomCardStudio() {
                   value={quoteText}
                   onChange={(e) => setQuoteText(e.target.value)}
                   placeholder="Tuliskan renungan, kalimat penguat, atau bait doa yang ingin kamu simpan..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] border border-[#E5DDD0] text-xs sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft leading-relaxed resize-none"
                 />
               </div>
 
@@ -692,9 +692,9 @@ export default function CustomCardStudio() {
               <div>
                 <label
                   htmlFor="card-author"
-                  className="block text-xs font-semibold text-[#3E362E] mb-1.5"
+                  className="block text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1.5"
                 >
-                  Nama / Penulis <span className="text-[#7A6F64] font-normal">(Opsional)</span>
+                  Nama / Penulis <span className="text-[#7A6F64] dark:text-[#A89F94] font-normal">(Opsional)</span>
                 </label>
                 <input
                   id="card-author"
@@ -703,16 +703,16 @@ export default function CustomCardStudio() {
                   value={author}
                   onChange={(e) => setAuthor(e.target.value)}
                   placeholder="Contoh: Sahabat Nalar / [Namamu]"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] border border-[#E5DDD0] text-xs sm:text-sm text-[#3E362E] placeholder-[#7A6F64]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-soft"
                 />
-                <p className="text-[10px] text-[#7A6F64]/80 mt-1">
+                <p className="text-[10px] text-[#7A6F64]/80 dark:text-[#A89F94]/80 mt-1">
                   Default jika kosong: <em>"Sahabat Nalar"</em>
                 </p>
               </div>
 
               {/* Input 4: Pilihan 3 Nuansa Kertas Estetik (Color Swatches) */}
               <div className="pt-2">
-                <label className="block text-xs font-semibold text-[#3E362E] mb-2.5">
+                <label className="block text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-2.5">
                   Pilih Nuansa Kertas Estetik:
                 </label>
                 <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
@@ -726,8 +726,8 @@ export default function CustomCardStudio() {
                         onClick={() => setSelectedThemeId(tId)}
                         className={`p-3 rounded-2xl border text-left transition-all active:scale-95 flex flex-col justify-between relative ${
                           isSelected
-                            ? "border-[#3E362E] ring-2 ring-[#C8A98E] shadow-floating"
-                            : "border-[#E5DDD0] hover:border-[#C8A98E]/70 shadow-soft"
+                            ? "border-[#3E362E] dark:border-[#C8A98E] ring-2 ring-[#C8A98E] shadow-floating"
+                            : "border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]/70 shadow-soft"
                         }`}
                         style={{ backgroundColor: theme.cardHex }}
                       >
@@ -768,7 +768,7 @@ export default function CustomCardStudio() {
         {/* ========================================================================= */}
         <div className="lg:col-span-6 flex flex-col items-center">
           <div className="w-full flex items-center justify-between mb-3 px-1">
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#7A6F64]">
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-[#7A6F64] dark:text-[#A89F94]">
               <Eye className="w-4 h-4 text-[#C8A98E]" />
               <span>Pratinjau Langsung (Story 9:16)</span>
             </div>
@@ -913,7 +913,7 @@ export default function CustomCardStudio() {
               type="button"
               onClick={handleCopyText}
               disabled={!quoteText.trim()}
-              className="w-full min-h-[42px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#FAF7F2] border border-[#E5DDD0] text-xs font-semibold text-[#3E362E] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-98"
+              className="w-full min-h-[42px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#FAF7F2] dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] hover:text-[#C8A98E] transition-all shadow-soft active:scale-98 disabled:opacity-50"
             >
               {isCopied ? (
                 <>

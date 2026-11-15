@@ -267,10 +267,10 @@ export default function PersonalSpaceSection() {
   return (
     <section
       id="ruang-jeda"
-      className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 scroll-mt-20"
+      className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 scroll-mt-20"
     >
       {/* Header Utama Seksi */}
-      <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+      <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
           <ShieldCheck className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
           <span>Ruang Jeda Pribadi • Aman &amp; Anonim</span>

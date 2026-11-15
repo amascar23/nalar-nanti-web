@@ -11,7 +11,7 @@ const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-[#F3EDE2] via-[#EFE8DC] to-[#EAE1D3] dark:from-[#1E1B18] dark:via-[#1A1715] dark:to-[#161412] border-t border-[#E5DDD0] dark:border-[#3A332E] pt-14 pb-12 text-[#7A6F64] dark:text-[#A89F94]">
+    <footer className="bg-gradient-to-b from-[#F3EDE2] via-[#EFE8DC] to-[#EAE1D3] dark:from-[#1E1B18] dark:via-[#1A1715] dark:to-[#161412] border-t border-[#E5DDD0] dark:border-[#3A332E] pt-16 sm:pt-20 pb-14 sm:pb-16 text-[#7A6F64] dark:text-[#A89F94]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-[#E5DDD0] dark:border-[#3A332E]">
           {/* Brand Info */}

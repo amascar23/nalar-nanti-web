@@ -101,12 +101,12 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
   return (
     <section
       id="pengingat"
-      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
+      className="py-16 sm:py-24 lg:py-28 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
       <span id="pengingat-acak" className="sr-only" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Header Bagian */}
-        <div className="max-w-xl mx-auto mb-6 sm:mb-8 text-center">
+        <div className="max-w-xl mx-auto mb-8 sm:mb-10 text-center">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 sm:mb-2.5">
             <Heart className="w-3.5 h-3.5 fill-[#8E9B8E]" />
             <span>Pesan untuk Jiwamu</span>
@@ -120,7 +120,7 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
         </div>
 
         {/* Tombol Bergaya Pill dengan Warna Aksen Gradasi Terracotta */}
-        <div className="mb-8 sm:mb-10">
+        <div className="mb-10 sm:mb-14">
           <button
             onClick={handleGetRandomQuote}
             disabled={isAnimating}

@@ -96,11 +96,11 @@ export default function RequestSection() {
   return (
     <section
       id="titip-nalar"
-      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
+      className="py-16 sm:py-24 lg:py-28 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Seksi */}
-        <div className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
+        <div className="text-center max-w-xl mx-auto mb-10 sm:mb-14">
           {/* Badge Kecil */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] mb-3 sm:mb-4 shadow-soft">
             <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />

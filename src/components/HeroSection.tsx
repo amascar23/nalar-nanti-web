@@ -86,11 +86,11 @@ export default function HeroSection({ quotes = QUOTES_DATA }: HeroSectionProps) 
   return (
     <section
       id="beranda"
-      className="relative pt-24 pb-14 sm:pt-36 sm:pb-20 overflow-hidden bg-transparent"
+      className="relative pt-24 pb-16 sm:pt-36 sm:pb-24 lg:pb-28 overflow-hidden bg-transparent"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Area Teks Hero */}
-        <div className="relative max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div className="relative max-w-3xl mx-auto mb-10 sm:mb-14">
           {/* 1. Tagline kecil yang hangat di atas judul */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 rounded-full bg-gradient-to-r from-[#FAF7F2]/95 via-[#F3EDE2]/90 to-[#EAE1D3]/85 dark:from-[#26221F]/95 dark:via-[#221E1B]/90 dark:to-[#1C1917]/85 backdrop-blur-xs border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] mb-5 sm:mb-7 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#8E9B8E] animate-pulse shrink-0" />

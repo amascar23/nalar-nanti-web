@@ -25,13 +25,13 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-gradient-to-b from-[#FAF7F2]/95 via-[#FAF7F2]/90 to-[#FAF7F2]/80 dark:from-[#1C1917]/95 dark:via-[#1C1917]/90 dark:to-[#1C1917]/80 backdrop-blur-md border-b border-[#E5DDD0] dark:border-[#3A332E]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4 lg:gap-8">
         {/* 1. Zona Kiri: Identitas Brand */}
         <Link
           href="/"
           className="flex items-center gap-2.5 sm:gap-3 transition-opacity hover:opacity-90 active:scale-98 shrink-0"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center overflow-hidden shrink-0 shadow-soft">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center overflow-hidden shrink-0 shadow-soft">
             <Image
               src="/images/logo-hd.png"
               alt="Logo Nalar Nanti"
@@ -48,7 +48,7 @@ export default function Navbar() {
         </Link>
 
         {/* 2. Zona Tengah: Menu Navigasi Satu Baris Rapi (Desktop) */}
-        <nav className="hidden lg:flex items-center gap-6 text-[13.5px] font-medium text-[#7A6F64] dark:text-[#A89F94]">
+        <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 text-[13.5px] font-medium text-[#7A6F64] dark:text-[#A89F94] flex-1 max-w-xl mx-auto">
           {navLinks.map((item) => (
             <Link
               key={item.href}
@@ -61,7 +61,7 @@ export default function Navbar() {
         </nav>
 
         {/* 3. Zona Kanan: Tombol Utilitas & CTA Utama (Desktop) */}
-        <div className="hidden lg:flex items-center gap-2.5 shrink-0">
+        <div className="hidden lg:flex items-center justify-end gap-2.5 sm:gap-3 shrink-0">
           {/* 1. Tombol Saku Hati */}
           <button
             onClick={openDrawer}

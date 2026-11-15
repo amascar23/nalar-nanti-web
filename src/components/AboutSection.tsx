@@ -20,13 +20,13 @@ export default function AboutSection() {
   return (
     <section
       id="tentang"
-      className="py-14 sm:py-20 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
+      className="py-16 sm:py-24 lg:py-28 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ========================================================================= */}
         {/* 1. CERITA FILOSOFI "NALAR NANTI" SEJAK TITIK AWAL */}
         {/* ========================================================================= */}
-        <div className="text-center max-w-xl mx-auto mb-12 sm:mb-14">
+        <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2.5">
             <Compass className="w-3.5 h-3.5" />
             <span>Filosofi & Ruang Teduh</span>
@@ -66,7 +66,7 @@ export default function AboutSection() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs hover:-translate-y-1 transition-all duration-300">
                   <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
                     🌿 Menata Nalar
                   </span>
@@ -75,7 +75,7 @@ export default function AboutSection() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs hover:-translate-y-1 transition-all duration-300">
                   <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
                     🕊️ Merakit Asa
                   </span>

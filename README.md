@@ -67,7 +67,24 @@ Website modern, hangat, dan minimalis untuk brand **Nalar Nanti**, dibangun meng
 10. **Pratinjau Tautan Dinamis (OpenGraph & Social Share)**:
     * Kartu pratinjau sosial otomatis berukuran 1200 x 630 piksel via `next/og` saat dibagikan ke WhatsApp, Instagram DM, dan media sosial lainnya.
 
-11. **Footer Bersih & Terhubung**:
+11. **Kirim Amplop Pengingat Digital (`/amplop`)**:
+    * Mendedikasikan kutipan kepada sahabat atau orang tersayang melalui tautan unik tanpa database (`/amplop?id=...&untuk=...&dari=...&pesan=...`).
+    * Disertai ilustrasi amplop kertas berstempel lilin logo Nalar Nanti dan animasi buka amplop (*fade & slide-up*).
+
+12. **Racik Kartu Sendiri 9:16 (`/racik`)**:
+    * Studio interaktif bagi pengunjung untuk meracik kalimat renungan atau doa pribadi.
+    * Pratinjau langsung real-time dengan 3 pilihan nuansa kertas (*Warm Cream*, *Soft Sage*, *Muted Latte*).
+    * Unduhan gambar vertikal beresolusi 1080 x 1920 piksel via HTML5 Canvas dengan tekstur serat kertas halus dan watermark.
+
+13. **Ruang Jeda Pribadi (Jejak Syukur & Kapsul Waktu)**:
+    * **Jejak Jeda & Syukur**: Check-in 3 hal sederhana harian dengan penghitung hari jeda otomatis.
+    * **Kapsul Waktu Nalar**: Surat tersegel untuk diri sendiri di masa depan (pilihan 7, 14, atau 30 hari lagi) yang tersimpan aman & 100% privat di `localStorage`.
+
+14. **Mode Baca Malam (Warm Espresso Dark Mode)**:
+    * Mode gelap bernuansa hangat (*Warm Espresso* `#1C1917`, *Dark Roast* `#26221F`, *Warm Ivory* `#EDE6DC`) yang ramah di mata untuk membaca di malam hari.
+    * Dilengkapi tombol pengalih cepat di Navbar desktop dan menu mobile.
+
+15. **Footer Bersih & Terhubung**:
     * Identitas resmi: **"Nalar Nanti — Ruang Teduh untuk Berpikir & Merasa"**.
     * Tautan langsung ke media sosial:
       * **Instagram**: [@nalarnanti](https://www.instagram.com/nalarnanti/)

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { SavedQuotesProvider } from "@/context/SavedQuotesContext";
 import SavedQuotesModal from "@/components/SavedQuotesModal";
 import AmbientSoundToggle from "@/components/AmbientSoundToggle";
@@ -88,15 +89,17 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${lora.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
       <body
-        className="font-sans bg-[#FAF7F2] text-[#3E362E] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] touch-manipulation relative"
+        className="font-sans bg-[#FAF7F2] text-[#3E362E] min-h-screen flex flex-col antialiased selection:bg-[#C8A98E]/30 selection:text-[#3E362E] touch-manipulation relative transition-colors duration-300"
         suppressHydrationWarning
       >
-        <ThemeBackground />
-        <SavedQuotesProvider>
-          {children}
-          <SavedQuotesModal />
-          <AmbientSoundToggle />
-        </SavedQuotesProvider>
+        <ThemeProvider>
+          <ThemeBackground />
+          <SavedQuotesProvider>
+            {children}
+            <SavedQuotesModal />
+            <AmbientSoundToggle />
+          </SavedQuotesProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

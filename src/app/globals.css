@@ -84,3 +84,129 @@ button, a {
 .animate-breathe {
   animation: breathGlow 6s ease-in-out infinite;
 }
+
+/* ========================================================================= */
+/* MODE BACA MALAM (WARM ESPRESSO DARK MODE) */
+/* ========================================================================= */
+html.dark {
+  --color-cream-base: #1C1917;
+  --color-cream-card: #26221F;
+  --color-cream-border: #3A332E;
+  --color-cream-dark: #EDE6DC;
+  --color-cream-muted: #A89F94;
+  --color-cream-accent: #C8A98E;
+  --color-cream-sage: #8E9B8E;
+  background-color: #1C1917;
+  color: #EDE6DC;
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #1C1917;
+  color: #EDE6DC;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #1C1917;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #3A332E;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #C8A98E;
+}
+
+/* Latar Belakang Utama Halaman (Warm Espresso #1C1917) */
+html.dark .bg-\[\#FAF7F2\] {
+  background-color: #1C1917 !important;
+}
+html.dark .bg-\[\#FAF7F2\]\/90 {
+  background-color: rgba(28, 25, 23, 0.92) !important;
+}
+html.dark .bg-\[\#FAF7F2\]\/80 {
+  background-color: rgba(28, 25, 23, 0.82) !important;
+}
+html.dark .bg-\[\#FAF7F2\]\/70 {
+  background-color: rgba(28, 25, 23, 0.72) !important;
+}
+html.dark .bg-\[\#FAF7F2\]\/50 {
+  background-color: rgba(28, 25, 23, 0.52) !important;
+}
+
+/* Latar Kartu & Modal (Dark Roast #26221F) */
+html.dark .bg-\[\#F3EDE2\],
+html.dark .bg-\[\#F3EDE2\]\/80,
+html.dark .bg-\[\#F3EDE2\]\/70,
+html.dark .bg-\[\#F3EDE2\]\/60,
+html.dark .bg-\[\#F3EDE2\]\/50,
+html.dark .bg-\[\#EAE1D3\],
+html.dark .bg-\[\#EAE1D3\]\/80,
+html.dark .bg-\[\#EAE1D3\]\/70,
+html.dark .bg-\[\#EAE1D3\]\/60,
+html.dark .bg-\[\#EAE1D3\]\/50,
+html.dark .bg-\[\#F8F3EB\],
+html.dark .bg-\[\#F2EAE0\] {
+  background-color: #26221F !important;
+}
+
+/* Border & Garis Pemisah Halus (#3A332E) */
+html.dark .border-\[\#E5DDD0\],
+html.dark .border-\[\#E5DDD0\]\/80,
+html.dark .border-\[\#E5DDD0\]\/70,
+html.dark .border-\[\#E5DDD0\]\/60,
+html.dark .border-\[\#DDD3C3\],
+html.dark .border-\[\#D6C7B2\],
+html.dark .border-\[\#D8CBB6\] {
+  border-color: #3A332E !important;
+}
+
+/* Teks Utama (Warm Ivory #EDE6DC) */
+html.dark .text-\[\#3E362E\] {
+  color: #EDE6DC !important;
+}
+
+/* Teks Sekunder (Muted Sand #A89F94) */
+html.dark .text-\[\#7A6F64\],
+html.dark .text-\[\#7A6F64\]\/80,
+html.dark .text-\[\#7A6F64\]\/70,
+html.dark .text-\[\#7A6F64\]\/60 {
+  color: #A89F94 !important;
+}
+
+/* Hover States di Mode Malam */
+html.dark .hover\:bg-\[\#F3EDE2\]:hover,
+html.dark .hover\:bg-\[\#EAE1D3\]:hover {
+  background-color: #322C27 !important;
+}
+html.dark .hover\:bg-\[\#FAF7F2\]:hover {
+  background-color: #221E1C !important;
+}
+html.dark .hover\:text-\[\#3E362E\]:hover {
+  color: #FAF7F2 !important;
+}
+
+/* Input & Textarea di Mode Malam */
+html.dark input,
+html.dark textarea {
+  color: #EDE6DC !important;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #7A6F64 !important;
+}
+
+/* Overlay Modal Backdrop */
+html.dark .bg-\[\#3E362E\]\/50 {
+  background-color: rgba(10, 8, 7, 0.75) !important;
+}
+
+/* Penyesuaian Shadow pada Dark Mode */
+html.dark .shadow-soft {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35) !important;
+}
+html.dark .shadow-floating {
+  box-shadow: 0 14px 40px -6px rgba(0, 0, 0, 0.5) !important;
+}
+

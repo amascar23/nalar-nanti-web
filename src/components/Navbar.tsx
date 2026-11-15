@@ -3,14 +3,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Sparkles, Instagram, Bookmark } from "lucide-react";
+import { Menu, X, Sparkles, Instagram, Bookmark, Moon, Sun } from "lucide-react";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
+import { useTheme } from "@/context/ThemeContext";
 
 const IG_PROFILE_URL = "https://www.instagram.com/nalarnanti/";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { savedCount, openDrawer, isLoaded } = useSavedQuotes();
+  const { theme, toggleTheme, isMounted: isThemeMounted } = useTheme();
 
   const navLinks = [
     { label: "Beranda", href: "/#beranda" },
@@ -90,6 +92,28 @@ export default function Navbar() {
             <Instagram className="w-4 h-4 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
           </a>
 
+          {/* Tombol Mode Baca Malam (Dark Mode) */}
+          <button
+            onClick={toggleTheme}
+            aria-label={
+              isThemeMounted && theme === "dark"
+                ? "Beralih ke Mode Pagi (Soft Cream)"
+                : "Beralih ke Mode Baca Malam (Warm Espresso)"
+            }
+            title={
+              isThemeMounted && theme === "dark"
+                ? "Beralih ke Mode Pagi (Soft Cream)"
+                : "Beralih ke Mode Baca Malam (Warm Espresso)"
+            }
+            className="w-9 h-9 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] flex items-center justify-center text-[#3E362E] shrink-0 transition-all shadow-soft active:scale-95 group"
+          >
+            {isThemeMounted && theme === "dark" ? (
+              <Sun className="w-4 h-4 text-[#C8A98E] group-hover:rotate-45 transition-transform" />
+            ) : (
+              <Moon className="w-4 h-4 text-[#7A6F64] group-hover:text-[#C8A98E] transition-colors" />
+            )}
+          </button>
+
           {/* Tombol CTA Utama ("Tarik Napas") */}
           <Link
             href="/#pengingat"
@@ -102,6 +126,28 @@ export default function Navbar() {
 
         {/* 4. Tampilan Mobile & Tablet (lg:hidden) */}
         <div className="flex lg:hidden items-center gap-2">
+          {/* Tombol Mode Baca Malam (Mobile) */}
+          <button
+            onClick={toggleTheme}
+            aria-label={
+              isThemeMounted && theme === "dark"
+                ? "Beralih ke Mode Pagi"
+                : "Beralih ke Mode Baca Malam"
+            }
+            title={
+              isThemeMounted && theme === "dark"
+                ? "Beralih ke Mode Pagi"
+                : "Beralih ke Mode Baca Malam"
+            }
+            className="w-9 h-9 rounded-xl border border-[#E5DDD0] bg-[#F3EDE2]/70 hover:bg-[#EAE1D3] flex items-center justify-center text-[#3E362E] transition-all shadow-soft active:scale-95 shrink-0 group"
+          >
+            {isThemeMounted && theme === "dark" ? (
+              <Sun className="w-4 h-4 text-[#C8A98E]" />
+            ) : (
+              <Moon className="w-4 h-4 text-[#7A6F64] group-hover:text-[#C8A98E]" />
+            )}
+          </button>
+
           {/* Tombol Ringkas Saku Hati */}
           <button
             onClick={openDrawer}

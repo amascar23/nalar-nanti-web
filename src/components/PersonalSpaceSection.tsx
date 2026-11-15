@@ -300,7 +300,7 @@ export default function PersonalSpaceSection() {
                   Daily Gratitude Check-in
                 </span>
                 <p className="font-serif text-sm sm:text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] leading-relaxed">
-                  Sebelum hari ini ditutup, tuliskan 3 hal sederhana yang patut disyukuri hari ini.
+                  Sebelum hari berganti, luangkan sejenak untuk menuliskan 3 hal sederhana yang patut disyukuri.
                 </p>
               </div>
 

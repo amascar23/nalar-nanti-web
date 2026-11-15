@@ -150,7 +150,7 @@ export default function SendEnvelopeModal({
         <div className="my-4 p-3.5 sm:p-4 rounded-2xl bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs text-[#3E362E] dark:text-[#EDE6DC] relative">
           <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#8E9B8E] mb-1">
             <QuoteIcon className="w-3 h-3 text-[#C8A98E]" />
-            <span>Kutipan yang Didonasikan (#{quoteItem.orderNumber || quoteItem.id})</span>
+            <span>Kutipan Pilihan (#{quoteItem.orderNumber || quoteItem.id})</span>
           </div>
           <p className="font-serif italic text-xs sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] line-clamp-2 leading-relaxed">
             “{quoteItem.quote}”

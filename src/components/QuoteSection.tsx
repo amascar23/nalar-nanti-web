@@ -165,8 +165,8 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
           </h2>
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
             {isPreview
-              ? "Kumpulan kata penenang, motivasi Islami, dan renungan kehidupan dari postingan pilihan @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya."
-              : `Kumpulan kata-kata penenang, motivasi Islami, dan renungan kehidupan dari seluruh ${quoteList.length} postingan asli @nalarnanti. Klik salah satu kartu untuk membaca catatan refleksi lengkapnya.`}
+              ? "Untaian kata penyejuk, hikmah Islami, dan renungan hidup pilihan @nalarnanti. Ketuk salah satu kartu untuk menyimak catatan refleksi selengkapnya."
+              : `Arsip lengkap ${quoteList.length} kutipan penyejuk, hikmah Islami, dan renungan hidup dari @nalarnanti. Ketuk salah satu kartu untuk menyimak catatan refleksi selengkapnya.`}
           </p>
         </div>
 

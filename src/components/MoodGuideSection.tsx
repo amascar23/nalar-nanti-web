@@ -144,7 +144,7 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
           </h2>
 
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
-            Pilih suasana hatimu saat ini, biarkan Nalar Nanti menyuguhkan pengingat yang paling pas untuk menemanimu.
+            Pilih apa yang sedang berkecamuk di dalam benakmu, lalu temukan untaian nasihat teduh untuk meredakannya.
           </p>
         </div>
 

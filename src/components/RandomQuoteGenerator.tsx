@@ -110,10 +110,10 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
             <span>Pesan untuk Jiwamu</span>
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-2.5 sm:mb-3">
-            Butuh Satu Pengingat Hari Ini?
+            Butuh Penyejuk di Tengah Riuh?
           </h2>
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
-            Klik tombol di bawah untuk mengambil satu pesan acak yang mungkin sedang hatimu butuhkan.
+            Ketuk tombol di bawah untuk menyaring sepenggal hikmah acak yang mungkin sedang dinanti oleh nuranimu.
           </p>
         </div>
 

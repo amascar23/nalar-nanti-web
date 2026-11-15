@@ -32,10 +32,10 @@ export default function AboutSection() {
             <span>Filosofi & Ruang Teduh</span>
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-3">
-            Tentang Nalar Nanti & Ruang Terhubung
+            Mengenal Nalar Nanti
           </h2>
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
-            Bermula dari sebuah Titik Awal sederhana untuk Menata Nalar, Merakit Asa—sebuah rumah singgah digital untuk merawat ketenangan hati dan kejernihan pikiran.
+            Lahir dari Titik Awal sederhana untuk Menata Nalar, Merakit Asa—ruang singgah digital untuk merawat keteduhan batin dan kejernihan nurani.
           </p>
         </div>
 
@@ -50,9 +50,9 @@ export default function AboutSection() {
               </div>
 
               <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#3E362E] dark:text-[#EDE6DC] leading-snug">
-                Tidak semua hal harus dipahami <br className="hidden sm:inline" />
+                Tidak semua tanya hidup <br className="hidden sm:inline" />
                 <span className="text-[#C8A98E] italic underline decoration-[#E5DDD0] dark:decoration-[#3A332E] underline-offset-4">
-                  terburu-buru hari ini
+                  harus tuntas hari ini
                 </span>
                 .
               </h3>

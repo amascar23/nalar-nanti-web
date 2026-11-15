@@ -99,7 +99,7 @@ export default function HeroSection({ quotes = QUOTES_DATA }: HeroSectionProps) 
           <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#3E362E] dark:text-[#EDE6DC] max-w-3xl mx-auto leading-[1.3] sm:leading-[1.25] mb-4 sm:mb-6">
             <span className="block">Beri jeda sejenak,</span>
             <span className="block mt-1 sm:mt-1.5">
-              biarkan nalar dan hati menemukan{" "}
+              biarkan nalar dan nurani menemukan{" "}
               <span className="italic font-normal text-[#C8A98E] underline decoration-[#E5DDD0] dark:decoration-[#3A332E] underline-offset-4 sm:underline-offset-8">
                 keteduhannya
               </span>
@@ -109,7 +109,7 @@ export default function HeroSection({ quotes = QUOTES_DATA }: HeroSectionProps) 
 
           {/* 3. Paragraf Pengenalan Ringkas & Hangat */}
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] max-w-xl mx-auto leading-relaxed">
-            Tidak semua hal harus dipahami terburu-buru hari ini. Singgahlah sejenak untuk membaca pengingat Islami dan refleksi kehidupan—menemani langkahmu bernapas lebih lega, menerima proses, dan berprasangka baik pada setiap ketetapan.
+            Singgahlah untuk menyimak untaian pengingat Islami dan renungan hidup—menemani harimu bernapas lebih lapang, berdamai dengan proses, dan berprasangka baik pada setiap ketetapan.
           </p>
         </div>
 

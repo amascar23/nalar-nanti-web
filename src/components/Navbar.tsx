@@ -18,6 +18,7 @@ export default function Navbar() {
     { label: "Pengingat Acak", href: "/#pengingat" },
     { label: "Koleksi Nalar", href: "/koleksi" },
     { label: "Racik Kartu", href: "/racik" },
+    { label: "Ruang Jeda", href: "/#ruang-jeda" },
     { label: "Titip Nalar", href: "/#titip-nalar" },
     { label: "Tentang", href: "/#tentang" },
   ];

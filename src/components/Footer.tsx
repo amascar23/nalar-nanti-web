@@ -83,6 +83,9 @@ export default function Footer() {
             <Link href="/racik" className="hover:text-[#3E362E] transition-colors whitespace-nowrap">
               Racik Kartu
             </Link>
+            <Link href="/#ruang-jeda" className="hover:text-[#3E362E] transition-colors whitespace-nowrap">
+              Ruang Jeda
+            </Link>
             <Link href="/#tentang" className="hover:text-[#3E362E] transition-colors whitespace-nowrap">
               Tentang Kami
             </Link>

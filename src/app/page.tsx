@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import MoodGuideSection from "@/components/MoodGuideSection";
 import RandomQuoteGenerator from "@/components/RandomQuoteGenerator";
 import QuoteSection from "@/components/QuoteSection";
+import PersonalSpaceSection from "@/components/PersonalSpaceSection";
 import RequestSection from "@/components/RequestSection";
 import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
@@ -17,6 +18,7 @@ export default function HomePage() {
         <MoodGuideSection />
         <RandomQuoteGenerator />
         <QuoteSection isPreview={true} />
+        <PersonalSpaceSection />
         <RequestSection />
         <AboutSection />
       </main>

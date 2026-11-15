@@ -24,13 +24,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setIsMounted(true);
     try {
-      const savedTheme = localStorage.getItem(STORAGE_KEY) as Theme | null;
-      if (savedTheme === "dark") {
-        setThemeState("dark");
-        document.documentElement.classList.add("dark");
-      } else {
-        setThemeState("light");
-        document.documentElement.classList.remove("dark");
+      if (typeof window !== "undefined") {
+        const savedTheme = localStorage.getItem(STORAGE_KEY) as Theme | null;
+        if (savedTheme === "dark") {
+          setThemeState("dark");
+          document.documentElement.classList.add("dark");
+        } else {
+          setThemeState("light");
+          document.documentElement.classList.remove("dark");
+        }
       }
     } catch (e) {
       console.warn("Gagal membaca tema dari localStorage", e);
@@ -40,11 +42,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
     try {
-      localStorage.setItem(STORAGE_KEY, newTheme);
-      if (newTheme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
+      if (typeof window !== "undefined") {
+        localStorage.setItem(STORAGE_KEY, newTheme);
+        if (newTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
       }
     } catch (e) {
       console.warn("Gagal menyimpan tema ke localStorage", e);

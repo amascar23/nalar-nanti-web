@@ -66,21 +66,19 @@ export default function PersonalSpaceSection() {
     setIsMounted(true);
 
     try {
-      const rawSyukur = localStorage.getItem(STORAGE_KEY_SYUKUR);
-      if (rawSyukur) {
-        setGratitudeEntries(JSON.parse(rawSyukur));
-      }
-    } catch (e) {
-      console.warn("Gagal membaca riwayat syukur dari localStorage", e);
-    }
+      if (typeof window !== "undefined") {
+        const rawSyukur = localStorage.getItem(STORAGE_KEY_SYUKUR);
+        if (rawSyukur) {
+          setGratitudeEntries(JSON.parse(rawSyukur));
+        }
 
-    try {
-      const rawKapsul = localStorage.getItem(STORAGE_KEY_KAPSUL);
-      if (rawKapsul) {
-        setCapsuleEntries(JSON.parse(rawKapsul));
+        const rawKapsul = localStorage.getItem(STORAGE_KEY_KAPSUL);
+        if (rawKapsul) {
+          setCapsuleEntries(JSON.parse(rawKapsul));
+        }
       }
     } catch (e) {
-      console.warn("Gagal membaca kapsul waktu dari localStorage", e);
+      console.warn("Gagal membaca data jeda dari localStorage", e);
     }
   }, []);
 
@@ -113,10 +111,12 @@ export default function PersonalSpaceSection() {
 
     const updated = [newEntry, ...gratitudeEntries];
     setGratitudeEntries(updated);
-    try {
-      localStorage.setItem(STORAGE_KEY_SYUKUR, JSON.stringify(updated));
-    } catch (e) {
-      console.error(e);
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem(STORAGE_KEY_SYUKUR, JSON.stringify(updated));
+      } catch (e) {
+        console.error("Gagal menyimpan riwayat syukur:", e);
+      }
     }
 
     // Reset input form
@@ -131,10 +131,12 @@ export default function PersonalSpaceSection() {
   const handleDeleteGratitude = (id: string) => {
     const updated = gratitudeEntries.filter((item) => item.id !== id);
     setGratitudeEntries(updated);
-    try {
-      localStorage.setItem(STORAGE_KEY_SYUKUR, JSON.stringify(updated));
-    } catch (e) {
-      console.error(e);
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem(STORAGE_KEY_SYUKUR, JSON.stringify(updated));
+      } catch (e) {
+        console.error("Gagal menghapus entri syukur:", e);
+      }
     }
   };
 
@@ -160,10 +162,12 @@ export default function PersonalSpaceSection() {
 
     const updated = [newCapsule, ...capsuleEntries];
     setCapsuleEntries(updated);
-    try {
-      localStorage.setItem(STORAGE_KEY_KAPSUL, JSON.stringify(updated));
-    } catch (e) {
-      console.error(e);
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem(STORAGE_KEY_KAPSUL, JSON.stringify(updated));
+      } catch (e) {
+        console.error("Gagal menyimpan kapsul waktu:", e);
+      }
     }
 
     // Reset formulir
@@ -178,10 +182,12 @@ export default function PersonalSpaceSection() {
     if (confirm("Apakah kamu yakin ingin menghapus surat kapsul waktu ini?")) {
       const updated = capsuleEntries.filter((item) => item.id !== id);
       setCapsuleEntries(updated);
-      try {
-        localStorage.setItem(STORAGE_KEY_KAPSUL, JSON.stringify(updated));
-      } catch (e) {
-        console.error(e);
+      if (typeof window !== "undefined") {
+        try {
+          localStorage.setItem(STORAGE_KEY_KAPSUL, JSON.stringify(updated));
+        } catch (e) {
+          console.error("Gagal menghapus kapsul waktu:", e);
+        }
       }
       if (openedCapsule?.id === id) {
         setOpenedCapsule(null);
@@ -288,20 +294,23 @@ export default function PersonalSpaceSection() {
         {activeTab === "syukur" && (
           <div className="space-y-6 sm:space-y-8 animate-fadeIn">
             {/* Header Tab & Penghitung Hari */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-[#E5DDD0]">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-[#E5DDD0] dark:border-[#3A332E]">
               <div>
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] block mb-1">
                   Daily Gratitude Check-in
                 </span>
-                <p className="font-serif text-sm sm:text-base font-semibold text-[#3E362E] leading-relaxed">
+                <p className="font-serif text-sm sm:text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] leading-relaxed">
                   Sebelum hari ini ditutup, tuliskan 3 hal sederhana yang patut disyukuri hari ini.
                 </p>
               </div>
 
               {/* Penghitung Hari Lembut */}
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] border border-[#E5DDD0] text-xs font-medium text-[#3E362E] shrink-0">
+              <div
+                suppressHydrationWarning
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#3E362E] dark:text-[#EDE6DC] shrink-0"
+              >
                 <span className="text-sm">🌿</span>
-                <span>
+                <span suppressHydrationWarning>
                   {isMounted && uniqueDaysCount > 0
                     ? `Sudah ${uniqueDaysCount} hari kamu meluangkan jeda`
                     : "Mulai jejak jeda pertamamu"}
@@ -389,7 +398,11 @@ export default function PersonalSpaceSection() {
                 </span>
               </div>
 
-              {isMounted && gratitudeEntries.length === 0 ? (
+              {!isMounted ? (
+                <div className="p-6 text-center rounded-2xl bg-[#F3EDE2]/60 dark:bg-[#1E1B18]/60 border border-[#E5DDD0] dark:border-[#3A332E] text-xs text-[#7A6F64] dark:text-[#A89F94] animate-pulse">
+                  Memuat catatan riwayat syukur...
+                </div>
+              ) : gratitudeEntries.length === 0 ? (
                 <div className="p-6 text-center rounded-2xl bg-[#F3EDE2]/60 dark:bg-[#1E1B18]/60 border border-[#E5DDD0] dark:border-[#3A332E] text-xs text-[#7A6F64] dark:text-[#A89F94]">
                   Belum ada jejak syukur yang tersimpan. Tuliskan 3 hal sederhana hari ini untuk memulai kebiasaan heningmu.
                 </div>
@@ -543,7 +556,11 @@ export default function PersonalSpaceSection() {
                 </span>
               </div>
 
-              {isMounted && capsuleEntries.length === 0 ? (
+              {!isMounted ? (
+                <div className="p-6 text-center rounded-2xl bg-[#F3EDE2]/60 dark:bg-[#1E1B18]/60 border border-[#E5DDD0] dark:border-[#3A332E] text-xs text-[#7A6F64] dark:text-[#A89F94] animate-pulse">
+                  Memuat surat kapsul waktu...
+                </div>
+              ) : capsuleEntries.length === 0 ? (
                 <div className="p-6 text-center rounded-2xl bg-[#F3EDE2]/60 dark:bg-[#1E1B18]/60 border border-[#E5DDD0] dark:border-[#3A332E] text-xs text-[#7A6F64] dark:text-[#A89F94]">
                   Belum ada surat masa depan yang disegel. Tuliskan pesan untuk dirimu beberapa hari ke depan.
                 </div>

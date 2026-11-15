@@ -139,7 +139,34 @@ class ContemplativeSoundEngine {
       this.stopTimeout = null;
     }
 
+    if (this.timerId) {
+      clearInterval(this.timerId);
+      this.timerId = null;
+    }
+
     try {
+      if (this.droneOsc1) {
+        try {
+          this.droneOsc1.stop();
+          this.droneOsc1.disconnect();
+        } catch {}
+        this.droneOsc1 = null;
+      }
+      if (this.droneOsc2) {
+        try {
+          this.droneOsc2.stop();
+          this.droneOsc2.disconnect();
+        } catch {}
+        this.droneOsc2 = null;
+      }
+      if (this.lfoOsc) {
+        try {
+          this.lfoOsc.stop();
+          this.lfoOsc.disconnect();
+        } catch {}
+        this.lfoOsc = null;
+      }
+
       const AudioCtx =
         window.AudioContext ||
         (window as unknown as { webkitAudioContext: typeof AudioContext })

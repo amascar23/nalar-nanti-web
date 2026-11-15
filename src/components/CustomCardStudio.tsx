@@ -171,17 +171,28 @@ export default function CustomCardStudio() {
     setTimeout(() => setIsCopied(false), 2500);
   };
 
-  // Helper memuat gambar logo Nalar Nanti
+  // Helper memuat gambar logo Nalar Nanti dengan fallback & safety timeout
   const loadLogoImage = (): Promise<HTMLImageElement | null> => {
     return new Promise((resolve) => {
+      const timer = setTimeout(() => resolve(null), 2000);
       const img = new window.Image();
       img.crossOrigin = "anonymous";
-      img.onload = () => resolve(img);
+      img.onload = () => {
+        clearTimeout(timer);
+        resolve(img);
+      };
       img.onerror = () => {
         const fallback = new window.Image();
-        fallback.onload = () => resolve(fallback);
-        fallback.onerror = () => resolve(null);
-        fallback.src = "/images/logo.png";
+        fallback.crossOrigin = "anonymous";
+        fallback.onload = () => {
+          clearTimeout(timer);
+          resolve(fallback);
+        };
+        fallback.onerror = () => {
+          clearTimeout(timer);
+          resolve(null);
+        };
+        fallback.src = "/logo-hd.png";
       };
       img.src = "/images/logo-hd.png";
     });
@@ -538,28 +549,43 @@ export default function CustomCardStudio() {
       ctx.font = "italic 16px 'Lora', serif";
       ctx.fillText(`Disimpan pada ${todayStr}`, WIDTH / 2, footerY + 52);
 
-      // 10. TRIGGER DOWNLOAD
-      canvas.toBlob(
-        (blob) => {
-          if (!blob) {
-            throw new Error("Gagal mengekspor kanvas ke blob gambar");
-          }
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          const safeSlug = title.trim()
-            ? title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
-            : "refleksi";
-          a.download = `nalar-nanti-${safeSlug}.png`;
-          a.href = url;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-          setIsDownloading(false);
-        },
-        "image/png",
-        1.0
-      );
+      // 10. TRIGGER DOWNLOAD (DENGAN FALLBACK DATA-URL AMAN)
+      const safeSlug = title.trim()
+        ? title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+        : "refleksi";
+      const filename = `nalar-nanti-${safeSlug}.png`;
+
+      const triggerDownload = (downloadUrl: string, revokeUrl?: string) => {
+        const a = document.createElement("a");
+        a.download = filename;
+        a.href = downloadUrl;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        if (revokeUrl) {
+          URL.revokeObjectURL(revokeUrl);
+        }
+        setIsDownloading(false);
+      };
+
+      if (typeof canvas.toBlob === "function") {
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              const url = URL.createObjectURL(blob);
+              triggerDownload(url, url);
+            } else {
+              const dataUrl = canvas.toDataURL("image/png", 1.0);
+              triggerDownload(dataUrl);
+            }
+          },
+          "image/png",
+          1.0
+        );
+      } else {
+        const dataUrl = canvas.toDataURL("image/png", 1.0);
+        triggerDownload(dataUrl);
+      }
     } catch (err) {
       console.error("Gagal mengunduh kartu custom:", err);
       alert("Terjadi kendala saat menyiapkan gambar. Silakan coba kembali.");

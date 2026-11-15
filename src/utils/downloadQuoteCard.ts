@@ -230,19 +230,29 @@ function drawInstagramIcon(
 }
 
 /**
- * Muat logo Nalar Nanti secara aman dengan fallback
+ * Muat logo Nalar Nanti secara aman dengan fallback dan safety timeout
  */
 function loadLogoImage(): Promise<HTMLImageElement | null> {
   return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(null), 2000);
     const img = new Image();
     img.crossOrigin = "anonymous";
-    img.onload = () => resolve(img);
+    img.onload = () => {
+      clearTimeout(timer);
+      resolve(img);
+    };
     img.onerror = () => {
       // Coba path alternatif jika path pertama gagal
       const fallbackImg = new Image();
       fallbackImg.crossOrigin = "anonymous";
-      fallbackImg.onload = () => resolve(fallbackImg);
-      fallbackImg.onerror = () => resolve(null);
+      fallbackImg.onload = () => {
+        clearTimeout(timer);
+        resolve(fallbackImg);
+      };
+      fallbackImg.onerror = () => {
+        clearTimeout(timer);
+        resolve(null);
+      };
       fallbackImg.src = "/logo-hd.png";
     };
     img.src = "/images/logo-hd.png";
@@ -804,23 +814,40 @@ export async function downloadQuoteAsImage(
   }
 
   // =========================================================================
-  // 7. KONVERSI KE PNG & OTOMATIS UNDUH
+  // 7. KONVERSI KE PNG & OTOMATIS UNDUH (DENGAN FALLBACK DATA-URL AMAN)
   // =========================================================================
   return new Promise<void>((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      if (!blob) {
-        reject(new Error("Gagal membuat gambar kartu kutipan"));
-        return;
+    try {
+      const triggerDownload = (downloadUrl: string, revokeUrl?: string) => {
+        const downloadLink = document.createElement("a");
+        downloadLink.href = downloadUrl;
+        downloadLink.download = `nalar-nanti-${quoteItem.id}.png`;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+        if (revokeUrl) {
+          setTimeout(() => URL.revokeObjectURL(revokeUrl), 2000);
+        }
+        resolve();
+      };
+
+      if (typeof canvas.toBlob === "function") {
+        canvas.toBlob((blob) => {
+          if (blob) {
+            const url = URL.createObjectURL(blob);
+            triggerDownload(url, url);
+          } else {
+            // Fallback ke toDataURL jika blob bernilai null
+            const dataUrl = canvas.toDataURL("image/png");
+            triggerDownload(dataUrl);
+          }
+        }, "image/png");
+      } else {
+        const dataUrl = canvas.toDataURL("image/png");
+        triggerDownload(dataUrl);
       }
-      const url = URL.createObjectURL(blob);
-      const downloadLink = document.createElement("a");
-      downloadLink.href = url;
-      downloadLink.download = `nalar-nanti-${quoteItem.id}.png`;
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-      setTimeout(() => URL.revokeObjectURL(url), 2000);
-      resolve();
-    }, "image/png");
+    } catch (err) {
+      reject(err);
+    }
   });
 }

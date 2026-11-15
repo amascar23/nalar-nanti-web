@@ -32,11 +32,13 @@ export function SavedQuotesProvider({
   // Baca dari localStorage hanya di sisi client (useEffect) agar 100% aman dari hydration mismatch
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed)) {
-          setSavedIds(parsed);
+      if (typeof window !== "undefined") {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed)) {
+            setSavedIds(parsed);
+          }
         }
       }
     } catch (err) {
@@ -50,10 +52,12 @@ export function SavedQuotesProvider({
     setSavedIds((prev) => {
       const exists = prev.includes(id);
       const next = exists ? prev.filter((item) => item !== id) : [...prev, id];
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      } catch (err) {
-        console.error("Gagal menyimpan Saku Hati ke localStorage:", err);
+      if (typeof window !== "undefined") {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+        } catch (err) {
+          console.error("Gagal menyimpan Saku Hati ke localStorage:", err);
+        }
       }
       return next;
     });
@@ -62,10 +66,12 @@ export function SavedQuotesProvider({
   const removeSaved = (id: string) => {
     setSavedIds((prev) => {
       const next = prev.filter((item) => item !== id);
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      } catch (err) {
-        console.error("Gagal menghapus dari Saku Hati:", err);
+      if (typeof window !== "undefined") {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+        } catch (err) {
+          console.error("Gagal menghapus dari Saku Hati:", err);
+        }
       }
       return next;
     });

@@ -341,16 +341,14 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       }}
                       title={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                       aria-label={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                      className={`w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
-                        isSaved(item.id)
+                      className={`w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg flex items-center justify-center transition-all active:scale-95 ${isSaved(item.id)
                           ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917] shadow-xs"
                           : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
-                      }`}
+                        }`}
                     >
                       <Bookmark
-                        className={`w-3.5 h-3.5 ${
-                          isSaved(item.id) ? "fill-[#C8A98E]" : ""
-                        }`}
+                        className={`w-3.5 h-3.5 ${isSaved(item.id) ? "fill-[#C8A98E]" : ""
+                          }`}
                       />
                     </button>
 

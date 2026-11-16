@@ -77,6 +77,9 @@ export default function Footer() {
             <Link href="/#pengingat" className="hover:text-[#3E362E] dark:hover:text-[#EDE6DC] transition-colors whitespace-nowrap">
               Pengingat Acak
             </Link>
+            <Link href="/#toples-nalar" className="hover:text-[#3E362E] dark:hover:text-[#EDE6DC] transition-colors whitespace-nowrap">
+              Toples Nalar
+            </Link>
             <Link href="/koleksi" className="hover:text-[#3E362E] dark:hover:text-[#EDE6DC] transition-colors whitespace-nowrap">
               Koleksi Nalar
             </Link>

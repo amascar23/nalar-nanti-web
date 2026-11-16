@@ -17,11 +17,11 @@ export default function Navbar() {
   const navLinks = [
     { label: "Beranda", href: "/" },
     { label: "Suasana Hati", href: "/#suasana-hati" },
+    { label: "Toples Nalar", href: "/#toples-nalar" },
     { label: "Koleksi Nalar", href: "/koleksi" },
     { label: "Racik Kartu", href: "/racik" },
-    { label: "Ruang Jeda", href: "/#ruang-jeda" },
     { label: "Ruang Cerita", href: "/ruang-cerita" },
-    { label: "Titip Nalar", href: "/#titip-nalar" },
+    { label: "Ruang Jeda", href: "/#ruang-jeda" },
   ];
 
   return (

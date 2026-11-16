@@ -193,20 +193,20 @@ export default function HeroSection({ quotes = QUOTES_DATA }: HeroSectionProps) 
               </p>
             </div>
 
-            {/* Bagian Bawah: Satu Baris Sejajar Sumber & Lima Tombol Ikon */}
+            {/* Bagian Bawah: Sumber Penulis & Lima Tombol Ikon */}
             <div className="mt-5 pt-3.5 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex flex-col gap-2.5">
-              <div className="flex items-center justify-between gap-2 min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                 {/* Sisi Kiri: Source Pill Ringkas */}
                 <span
                   suppressHydrationWarning
-                  className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink min-w-0"
+                  className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink-0 self-start sm:self-auto"
                 >
                   <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
-                  <span className="truncate max-w-[135px] sm:max-w-[160px]">{currentQuote.source}</span>
+                  <span className="truncate">{currentQuote.source}</span>
                 </span>
 
                 {/* Sisi Kanan: 5 Tombol Ikon Saja */}
-                <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+                <div className="flex items-center justify-end gap-1 sm:gap-1.5 shrink-0">
                   {/* 1. Simpan (Saku Hati) */}
                   <button
                     onClick={() => toggleSave(currentQuote.id)}

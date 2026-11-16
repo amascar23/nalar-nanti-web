@@ -309,12 +309,24 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
               {/* Bagian Bawah Kartu: Pill/Kotak Sumber (source), Aksi Cepat, dan Petunjuk "Baca refleksi →" */}
               <div className="mt-6 pt-4 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex flex-col gap-2.5">
+                {/* Baris 1: Sumber Kutipan (Utuh & Nyaman Dibaca) & Nuansa */}
                 <div className="flex items-center justify-between text-xs text-[#7A6F64] dark:text-[#A89F94] gap-2 min-w-0">
-                  {/* Pill Sumber dengan Latar Soft Cream Hangat */}
-                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink min-w-0">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink-0 max-w-[70%]">
                     <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
-                    <span className="truncate max-w-[135px] sm:max-w-[160px]">{item.source}</span>
+                    <span className="truncate">{item.source}</span>
                   </span>
+
+                  <span className="text-[10px] text-[#7A6F64]/70 dark:text-[#A89F94]/70 font-sans whitespace-nowrap">
+                    Nuansa {item.type}
+                  </span>
+                </div>
+
+                {/* Baris 2: Petunjuk "Baca refleksi →" di Kiri & 5 Tombol Aksi di Kanan */}
+                <div className="flex items-center justify-between gap-2 pt-1">
+                  <div className="flex items-center gap-1 text-xs font-semibold text-[#C8A98E] group-hover:text-[#B9967A] transition-colors shrink-0">
+                    <span>Baca refleksi</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
 
                   {/* Tombol Mini Aksi: 5 Ikon Sejajar */}
                   <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
@@ -391,17 +403,6 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       <Mail className="w-[15px] h-[15px]" />
                     </button>
                   </div>
-                </div>
-
-                {/* Petunjuk "Baca refleksi →" */}
-                <div className="flex items-center justify-between pt-1">
-                  <div className="flex items-center gap-1 text-xs font-semibold text-[#C8A98E] group-hover:text-[#B9967A] transition-colors">
-                    <span>Baca refleksi</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                  <span className="text-[10px] text-[#7A6F64]/70 dark:text-[#A89F94]/70 font-sans">
-                    Nuansa {item.type}
-                  </span>
                 </div>
               </div>
             </div>

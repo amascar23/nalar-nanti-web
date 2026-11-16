@@ -190,68 +190,63 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
           </p>
         </div>
 
-        {/* 4. Tiga Kartu Kutipan Rekomendasi (Bentuk Kubah Lengkung / Arch Cards) */}
+        {/* 4. Tiga Kartu Kutipan Rekomendasi (Proporsional, Bersih, & Nyaman Dibaca) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
           {recommendedQuotes.map((quote) => (
             <div
               key={quote.id}
-              className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-t-full rounded-b-3xl pt-10 sm:pt-12 px-5 sm:px-6 pb-6 shadow-[0_8px_24px_-8px_rgba(200,169,142,0.16)] dark:shadow-none hover:-translate-y-1 hover:shadow-[0_16px_36px_-8px_rgba(200,169,142,0.26)] transition-all duration-300 flex flex-col justify-between h-full group"
+              className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-6 sm:p-7 shadow-[0_8px_24px_-8px_rgba(200,169,142,0.16)] dark:shadow-none hover:-translate-y-1 hover:shadow-[0_16px_36px_-8px_rgba(200,169,142,0.26)] transition-all duration-300 flex flex-col justify-between h-full group"
             >
               {/* Bagian Atas & Tengah */}
               <div className="flex-1 flex flex-col">
-                {/* Header Kartu: Judul Tema & Kategori */}
-                <div className="flex items-center justify-between gap-2 mb-3 px-1">
-                  <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm border border-[#E5DDD0]/70 dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap">
+                {/* Header Kartu: Kategori & Nomor Urut */}
+                <div className="flex items-center justify-between gap-2 mb-3.5 pb-2.5 border-b border-[#E5DDD0]/70 dark:border-[#3A332E]">
+                  <span className="text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-white/75 dark:bg-[#1C1917]/80 backdrop-blur-sm border border-[#E5DDD0]/80 dark:border-[#3A332E] text-[#8E9B8E] whitespace-nowrap shadow-xs">
                     {quote.category}
                   </span>
-                  <span className="text-[10px] font-bold text-[#886950] dark:text-[#C8A98E] bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#1C1917]/80 dark:to-[#26221F]/80 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5DDD0]/70 dark:border-[#3A332E] whitespace-nowrap">
+                  <span className="text-[10px] sm:text-[11px] font-bold text-[#886950] dark:text-[#C8A98E] bg-white/75 dark:bg-[#1C1917]/80 backdrop-blur-sm px-2 py-0.5 rounded-full border border-[#E5DDD0]/80 dark:border-[#3A332E] whitespace-nowrap shadow-xs">
                     #{quote.orderNumber || quote.id}
                   </span>
                 </div>
 
                 {/* Judul Tema Kartu */}
-                <h3 className="font-serif text-sm sm:text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-3 group-hover:text-[#886950] dark:group-hover:text-[#C8A98E] transition-colors leading-snug">
+                <h3 className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-3 group-hover:text-[#886950] dark:group-hover:text-[#C8A98E] transition-colors leading-snug">
                   {quote.themeTitle}
                 </h3>
 
                 {/* Teks Kutipan Utama */}
-                <div className="relative mb-4 flex-1">
-                  <QuoteIcon className="w-4 h-4 sm:w-5 sm:h-5 text-[#C8A98E]/40 mb-1.5 group-hover:text-[#C8A98E] transition-colors" />
-                  <p className="font-serif italic text-[16px] sm:text-[18px] leading-[1.8] text-[#3E362E] dark:text-[#EDE6DC]">
+                <div className="relative mb-5 flex-1">
+                  <QuoteIcon className="w-4 h-4 sm:w-5 sm:h-5 text-[#C8A98E]/40 mb-2 group-hover:text-[#C8A98E] transition-colors" />
+                  <p className="font-serif italic text-[15px] sm:text-[17px] leading-[1.8] text-[#3E362E] dark:text-[#EDE6DC]">
                     “{quote.quote}”
                   </p>
                 </div>
-
-                {/* Lencana Ikon Bulat Kecil di Bagian Tengah/Bawah */}
-                <div className="flex justify-center my-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-white/90 to-[#FAF7F2]/90 dark:from-[#322C27] dark:to-[#26221F] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:border-[#C8A98E]/60 transition-all">
-                    <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
-                  </div>
-                </div>
               </div>
 
-              {/* Bagian Bawah: Satu Baris Sejajar Sumber & Lima Tombol Ikon */}
-              <div className="mt-4 pt-3.5 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex items-center justify-between gap-2 min-w-0">
-                {/* Sisi Kiri: Source Pill Ringkas */}
-                <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink min-w-0">
-                  <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
-                  <span className="truncate max-w-[135px] sm:max-w-[160px]">{quote.source}</span>
-                </span>
+              {/* Bagian Bawah: Sumber Penulis & Tombol Aksi Lengkap (Tidak Terpotong) */}
+              <div className="mt-5 pt-3.5 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex flex-col gap-2.5">
+                {/* Baris 1: Sumber Kutipan (Jelas & Utuh) */}
+                <div className="flex items-center justify-between gap-2 min-w-0">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink-0 max-w-full">
+                    <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
+                    <span className="truncate">{quote.source}</span>
+                  </span>
+                </div>
 
-                {/* Sisi Kanan: 5 Tombol Ikon Saja */}
-                <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+                {/* Baris 2: Tombol Aksi Lengkap (Lega & Nyaman Diklik) */}
+                <div className="flex items-center justify-end gap-1.5 sm:gap-2">
                   {/* 1. Simpan (Saku Hati) */}
                   <button
                     onClick={() => toggleSave(quote.id)}
                     title={isSaved(quote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                     aria-label={isSaved(quote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
                       isSaved(quote.id)
-                        ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
+                        ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917] shadow-xs"
                         : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
                     }`}
                   >
-                    <Bookmark className={`w-[15px] h-[15px] ${isSaved(quote.id) ? "fill-[#C8A98E]" : ""}`} />
+                    <Bookmark className={`w-4 h-4 ${isSaved(quote.id) ? "fill-[#C8A98E]" : ""}`} />
                   </button>
 
                   {/* 2. Salin */}
@@ -259,12 +254,12 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                     onClick={() => handleCopy(quote)}
                     title="Salin Kutipan"
                     aria-label="Salin Kutipan"
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                   >
                     {copiedId === quote.id ? (
-                      <Check className="w-[15px] h-[15px] text-[#8E9B8E]" />
+                      <Check className="w-4 h-4 text-[#8E9B8E]" />
                     ) : (
-                      <Copy className="w-[15px] h-[15px]" />
+                      <Copy className="w-4 h-4" />
                     )}
                   </button>
 
@@ -273,9 +268,9 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                     onClick={() => handleShareWa(quote)}
                     title="Bagikan ke WhatsApp"
                     aria-label="Bagikan ke WhatsApp"
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                   >
-                    <MessageCircle className="w-[15px] h-[15px]" />
+                    <MessageCircle className="w-4 h-4" />
                   </button>
 
                   {/* 4. Unduh Gambar 9:16 */}
@@ -284,12 +279,12 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                     disabled={downloadingId === quote.id}
                     title="Simpan Gambar 9:16"
                     aria-label="Simpan Gambar 9:16"
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95 disabled:opacity-50"
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95 disabled:opacity-50"
                   >
                     {downloadingId === quote.id ? (
-                      <Loader2 className="w-[15px] h-[15px] animate-spin text-[#C8A98E]" />
+                      <Loader2 className="w-4 h-4 animate-spin text-[#C8A98E]" />
                     ) : (
-                      <Download className="w-[15px] h-[15px]" />
+                      <Download className="w-4 h-4" />
                     )}
                   </button>
 
@@ -298,9 +293,9 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                     onClick={() => setEnvelopeQuote(quote)}
                     title="Kirim Amplop Pengingat"
                     aria-label="Kirim Amplop Pengingat"
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                    className="w-8 h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                   >
-                    <Mail className="w-[15px] h-[15px]" />
+                    <Mail className="w-4 h-4" />
                   </button>
                 </div>
               </div>

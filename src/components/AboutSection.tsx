@@ -65,23 +65,38 @@ export default function AboutSection() {
                 Kami meyakini esensi <strong>Menata Nalar, Merakit Asa</strong>—bahwa ada hal-hal dalam hidup yang tidak perlu dipaksa terjawab hari ini. Ada hal-hal yang perlu <strong>dinalar perlahan dengan hati yang tenang</strong>, dipeluk dengan <strong>doa yang cukup</strong>, dan dilalui dengan <strong>rasa ikhlas</strong>.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs hover:-translate-y-1 transition-all duration-300">
-                  <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
-                    🌿 Menata Nalar
-                  </span>
-                  <p className="text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
-                    Kejernihan akal dan kelapangan hati untuk memilah mana yang berada dalam kuasamu, melepaskan beban yang bukan milikmu, dan bertindak dengan tenang.
-                  </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
+                      🌿 Menata Nalar
+                    </span>
+                    <p className="text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
+                      Kejernihan akal dan kelapangan pikiran untuk memilah mana yang berada dalam kuasamu, melepaskan beban yang bukan milikmu, dan bertindak dengan tenang.
+                    </p>
+                  </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs hover:-translate-y-1 transition-all duration-300">
-                  <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
-                    🕊️ Merakit Asa
-                  </span>
-                  <p className="text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
-                    Harapan baik yang dirawat perlahan lewat doa dan prasangka baik, percaya bahwa ketetapan-Nya selalu mekar pada waktu yang paling tepat.
-                  </p>
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
+                      🕊️ Merakit Asa
+                    </span>
+                    <p className="text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
+                      Harapan baik yang dirawat perlahan lewat doa dan prasangka baik, percaya bahwa ketetapan-Nya selalu mekar pada waktu yang paling tepat.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-white/80 to-[#FAF7F2]/75 dark:bg-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] shadow-xs hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <span className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] block mb-1">
+                      🤍 Merawat Rasa
+                    </span>
+                    <p className="text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed">
+                      Kelembutan hati, empati yang tulus, dan penerimaan diri tanpa cela—karena setiap jiwa berhak merasa aman, didengar, dan dihargai.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -113,7 +128,7 @@ export default function AboutSection() {
                       Nalar Nanti
                     </span>
                     <span className="text-[11px] text-[#8E9B8E] font-medium block">
-                      menata nalar, merakit rasa.
+                      Menata Nalar, Merakit Asa
                     </span>
                   </div>
                 </div>

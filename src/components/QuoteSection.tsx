@@ -162,9 +162,15 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
           <span className="text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 block">
             Ruang Refleksi
           </span>
-          <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-3">
-            Koleksi Nalar
-          </h2>
+          {isPreview ? (
+            <h2 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-3">
+              Koleksi Nalar
+            </h2>
+          ) : (
+            <h1 className="font-serif text-2xl sm:text-4xl font-medium text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-3">
+              Koleksi Nalar
+            </h1>
+          )}
           <p className="font-sans text-xs sm:text-base text-[#7A6F64] dark:text-[#A89F94] leading-relaxed max-w-xl mx-auto">
             {isPreview
               ? "Untaian kata penyejuk, hikmah Islami, dan renungan hidup pilihan @nalarnanti. Ketuk salah satu kartu untuk menyimak catatan refleksi selengkapnya."
@@ -204,8 +210,8 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                     key={type}
                     onClick={() => setSelectedType(type)}
                     className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all active:scale-95 ${selectedType === type
-                        ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] shadow-soft"
-                        : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
+                      ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] shadow-soft"
+                      : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC]"
                       }`}
                   >
                     {type === "Semua" ? "Semua Tipe" : type}
@@ -225,8 +231,8 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-medium transition-all active:scale-95 ${selectedCategory === cat
-                      ? "bg-gradient-to-r from-[#3E362E] to-[#52473D] dark:from-[#C8A98E] dark:to-[#B9967A] text-[#FAF7F2] shadow-soft"
-                      : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] text-[#7A6F64] dark:text-[#A89F94] border border-[#E5DDD0] dark:border-[#3A332E] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E]/60"
+                    ? "bg-gradient-to-r from-[#3E362E] to-[#52473D] dark:from-[#C8A98E] dark:to-[#B9967A] text-[#FAF7F2] shadow-soft"
+                    : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] text-[#7A6F64] dark:text-[#A89F94] border border-[#E5DDD0] dark:border-[#3A332E] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:border-[#C8A98E]/60"
                     }`}
                 >
                   {cat}
@@ -238,11 +244,10 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
         {/* Grid Kartu Koleksi Nalar: 3 kolom di laptop saat preview (1 baris), atau 3/2/1 kolom saat halaman penuh */}
         <div
-          className={`grid gap-4 sm:gap-7 lg:gap-8 ${
-            isPreview
+          className={`grid gap-4 sm:gap-7 lg:gap-8 ${isPreview
               ? "grid-cols-1 md:grid-cols-3"
               : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-          }`}
+            }`}
         >
           {displayedQuotes.map((item) => (
             <div
@@ -337,8 +342,8 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       title={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                       aria-label={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                       className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${isSaved(item.id)
-                          ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
-                          : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
+                        ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
+                        : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
                         }`}
                     >
                       <Bookmark
@@ -447,6 +452,9 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
       {/* ========================================================================= */}
       {selectedModalQuote && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-quote-title"
           className="fixed inset-0 z-50 bg-[#3E362E]/50 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
           onClick={() => setSelectedModalQuote(null)}
         >
@@ -503,7 +511,7 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
               <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E9B8E] block mb-1">
                 Tema Refleksi
               </span>
-              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] leading-snug">
+              <h3 id="modal-quote-title" className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] leading-snug">
                 {selectedModalQuote.themeTitle}
               </h3>
             </div>
@@ -542,8 +550,8 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                 <button
                   onClick={() => toggleSave(selectedModalQuote.id)}
                   className={`h-8 px-2.5 rounded-lg text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-all shadow-xs active:scale-95 whitespace-nowrap ${isSaved(selectedModalQuote.id)
-                      ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2]"
-                      : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]"
+                    ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2]"
+                    : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#1C1917] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#3A332E] hover:border-[#C8A98E]"
                     }`}
                   title={isSaved(selectedModalQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                   aria-label={isSaved(selectedModalQuote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}

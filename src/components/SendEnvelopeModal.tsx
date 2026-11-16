@@ -112,6 +112,9 @@ export default function SendEnvelopeModal({
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="send-envelope-title"
       className="fixed inset-0 z-50 bg-[#3E362E]/50 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
       onClick={handleClose}
     >
@@ -126,7 +129,7 @@ export default function SendEnvelopeModal({
               <Mail className="w-4 h-4 text-[#886950] dark:text-[#C8A98E]" />
             </div>
             <div>
-              <h3 className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] dark:text-[#EDE6DC] leading-tight">
+              <h3 id="send-envelope-title" className="font-serif text-base sm:text-lg font-semibold text-[#3E362E] dark:text-[#EDE6DC] leading-tight">
                 Kirim Amplop Pengingat
               </h3>
               <p className="text-[11px] text-[#7A6F64] dark:text-[#A89F94]">

@@ -271,7 +271,7 @@ export default function RuangCeritaForm() {
           <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-semibold text-[#886950] dark:text-[#C8A98E] mb-3 shadow-soft">
               <ShieldCheck className="w-3.5 h-3.5 text-[#C8A98E]" />
-              <span>Ruang Privat • 100% Rahasia &amp; Aman</span>
+              <span>Kerahasiaan Terjaga • Dibaca Khusus oleh Admin Nalar Nanti</span>
             </div>
 
             <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] tracking-tight mb-3">
@@ -294,6 +294,16 @@ export default function RuangCeritaForm() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
+            {/* Anti-bot Honeypot Web3Forms */}
+            <input
+              type="checkbox"
+              name="botcheck"
+              className="hidden"
+              style={{ display: "none" }}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+
             {/* 1. Nama / Sapaan (Opsional) */}
             <div>
               <div className="flex items-center justify-between mb-2">
@@ -307,7 +317,7 @@ export default function RuangCeritaForm() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Boleh dikosongkan jika ingin anonim (misal: Sahabat Nalar)"
-                className="w-full px-4 py-3 sm:py-3.5 rounded-2xl bg-white/85 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-xs"
+                className="w-full px-4 py-3 sm:py-3.5 rounded-2xl bg-white/85 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-xs"
               />
             </div>
 
@@ -376,7 +386,7 @@ export default function RuangCeritaForm() {
                 required
                 rows={7}
                 placeholder="Tuliskan apa saja yang sedang memberatkan pundakmu, mengganjal di dadamu, atau yang sedang kamu doakan. Tidak ada kata yang salah di sini..."
-                className="w-full px-4 py-3.5 rounded-2xl bg-white/85 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all resize-y shadow-xs leading-relaxed"
+                className="w-full px-4 py-3.5 rounded-2xl bg-white/85 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all resize-y shadow-xs leading-relaxed"
               />
             </div>
 
@@ -395,7 +405,7 @@ export default function RuangCeritaForm() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="nama@email.com (opsional)"
-                  className="w-full pl-11 pr-4 py-3 sm:py-3.5 rounded-2xl bg-white/85 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-xs"
+                  className="w-full pl-11 pr-4 py-3 sm:py-3.5 rounded-2xl bg-white/85 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-base sm:text-sm text-[#3E362E] dark:text-[#EDE6DC] placeholder-[#7A6F64]/60 dark:placeholder-[#A89F94]/60 focus:outline-none focus:border-[#C8A98E] focus:ring-1 focus:ring-[#C8A98E] transition-all shadow-xs"
                 />
               </div>
               <p className="font-sans text-[11px] text-[#7A6F64] dark:text-[#A89F94] leading-relaxed mt-2 pl-1">

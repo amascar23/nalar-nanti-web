@@ -159,6 +159,7 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
               <button
                 key={mood.id}
                 onClick={() => setSelectedMoodId(mood.id)}
+                aria-pressed={isActive}
                 className={`inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2 sm:px-5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all active:scale-95 duration-200 ${
                   isActive
                     ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] border border-[#C8A98E] shadow-card scale-[1.02]"

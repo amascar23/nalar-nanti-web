@@ -498,6 +498,7 @@ export default function AmbientSoundToggle() {
     <div className="fixed bottom-4 left-4 z-30">
       <button
         onClick={handleToggle}
+        aria-pressed={isPlaying}
         aria-label={
           isPlaying
             ? "Hentikan alunan instrumen teduh"
@@ -508,7 +509,7 @@ export default function AmbientSoundToggle() {
             ? "Klik untuk mematikan alunan instrumen"
             : "Dengarkan alunan instrumen syahdu untuk menemani membaca & menata nalar"
         }
-        className={`group h-10 flex items-center gap-2 px-3.5 rounded-full border transition-all duration-300 shadow-card hover:shadow-floating active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50 select-none ${
+        className={`group h-11 min-h-[44px] flex items-center gap-2 px-4 rounded-full border transition-all duration-300 shadow-card hover:shadow-floating active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#C8A98E]/50 select-none ${
           isPlaying
             ? "bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] border-[#C8A98E] text-[#FAF7F2] shadow-soft"
             : "bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1C1917] border-[#E5DDD0] dark:border-[#3A332E] text-[#3E362E] dark:text-[#EDE6DC] hover:border-[#C8A98E] dark:hover:border-[#C8A98E] hover:text-[#C8A98E] dark:hover:text-[#C8A98E]"

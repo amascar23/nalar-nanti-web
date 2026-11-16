@@ -30,6 +30,7 @@ export default function RequestSection() {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isMobileExpanded, setIsMobileExpanded] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [honey, setHoney] = useState<string>("");
 
   const nuanceOptions: NuanceOption[] = [
     "Refleksi Islami",
@@ -40,6 +41,7 @@ export default function RequestSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (honey.trim()) return; // Honeypot anti-spam bot
     if (!message.trim()) return;
 
     setIsSubmitting(true);
@@ -127,14 +129,16 @@ export default function RequestSection() {
               <Feather className="w-5 h-5 text-[#886950] dark:text-[#C8A98E]" />
             </div>
             <h3 className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1.5">
-              Titip Nalar & Request Kata
+              Buka Ruang Titipan Kata
             </h3>
             <p className="font-sans text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed mb-4">
-              Punya tema yang ingin dibahas atau kalimat refleksi yang ingin dititipkan ke admin Nalar Nanti?
+              Bagikan ide tema, cerita, atau kalimat renunganmu secara privat langsung ke kotak masuk admin.
             </p>
             <button
               type="button"
               onClick={() => setIsMobileExpanded(true)}
+              aria-expanded={isMobileExpanded}
+              aria-controls="request-form-container"
               className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 font-semibold text-xs shadow-soft active:scale-95 transition-all"
             >
               <span>Buka Formulir Titip Nalar</span>
@@ -144,7 +148,10 @@ export default function RequestSection() {
         )}
 
         {/* Kartu Formulir Utama */}
-        <div className={`max-w-2xl mx-auto bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-6 sm:p-10 shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none relative ${!isMobileExpanded && !isSubmitted ? "hidden md:block" : "block animate-fadeIn"}`}>
+        <div
+          id="request-form-container"
+          className={`max-w-2xl mx-auto bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-6 sm:p-10 shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none relative ${!isMobileExpanded && !isSubmitted ? "hidden md:block" : "block animate-fadeIn"}`}
+        >
           {isSubmitted ? (
             /* Kotak Konfirmasi Lembut (Success State) */
             <div className="py-8 sm:py-10 text-center animate-fadeIn">
@@ -177,6 +184,17 @@ export default function RequestSection() {
           ) : (
             /* Formulir Input */
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Anti-spam honeypot */}
+              <input
+                type="text"
+                name="_honey"
+                value={honey}
+                onChange={(e) => setHoney(e.target.value)}
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
               {/* Dua Tab Pilihan Mode */}
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#7A6F64] dark:text-[#A89F94] mb-2.5">

@@ -59,7 +59,7 @@ export const QUOTES_DATA: QuoteItem[] = [
     themeTitle: "Rintis Mulai demi Keikhlasan",
     quote:
       "Mulailah memperbaiki diri sendiri sebelum kamu menuntut perubahan dari dunia di sekitarmu. Sesungguhnya, nalar yang jernih selalu tahu di mana ia harus mulai melangkah dan mengambil tanggung jawab.",
-    source: "Ali bin Abi Thalib RA",
+    source: "Sayyidina Ali bin Abi Thalib RA",
     category: "Proses & Bertumbuh",
     type: "Islami",
     reflection:
@@ -124,7 +124,7 @@ export const QUOTES_DATA: QuoteItem[] = [
     themeTitle: "Relakan Harap demi Ketenangan",
     quote:
       "Aku sudah merasakan semua pahitnya kehidupan dan yang paling pahit adalah berharap kepada manusia. Maka gantungkan segala harapanmu hanya kepada Allah, agar hatimu selalu menemukan ketenangan.",
-    source: "Sayyidina Ali bin Abi Thalib",
+    source: "Sayyidina Ali bin Abi Thalib RA",
     category: "Refleksi Islami",
     type: "Islami",
     reflection:

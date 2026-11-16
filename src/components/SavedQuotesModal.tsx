@@ -90,7 +90,12 @@ export default function SavedQuotesModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="saved-quotes-title"
+      className="fixed inset-0 z-50 overflow-hidden"
+    >
       {/* Backdrop Gelap Transparan */}
       <div
         onClick={closeDrawer}
@@ -109,7 +114,7 @@ export default function SavedQuotesModal() {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] tracking-tight">
+                  <h2 id="saved-quotes-title" className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC] tracking-tight">
                     Saku Hati
                   </h2>
                   <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2]">

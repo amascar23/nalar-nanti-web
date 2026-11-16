@@ -120,22 +120,6 @@ export default function PersonalSpaceSection() {
       }
     }
 
-    // Kirim catatan syukur secara anonim ke backend API -> Google Sheets admin
-    try {
-      fetch("/api/jeda", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "syukur",
-          items: newEntry.items,
-          dateDisplay,
-          timestamp: now.toISOString(),
-        }),
-      }).catch((err) => console.log("Catatan tersimpan lokal:", err));
-    } catch (_) {
-      // Abaikan jika offline / fetch gagal
-    }
-
     // Reset input form
     setItem1("");
     setItem2("");
@@ -185,28 +169,6 @@ export default function PersonalSpaceSection() {
       } catch (e) {
         console.error("Gagal menyimpan kapsul waktu:", e);
       }
-    }
-
-    // Kirim kapsul waktu secara anonim ke backend API -> Google Sheets admin
-    try {
-      fetch("/api/jeda", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "kapsul",
-          title: newCapsule.title,
-          content: newCapsule.content,
-          daysLocked: newCapsule.daysLocked,
-          unlockDate: new Intl.DateTimeFormat("id-ID", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          }).format(unlockDate),
-          timestamp: now.toISOString(),
-        }),
-      }).catch((err) => console.log("Kapsul waktu tersimpan lokal:", err));
-    } catch (_) {
-      // Abaikan jika offline / fetch gagal
     }
 
     // Reset formulir
@@ -300,6 +262,8 @@ export default function PersonalSpaceSection() {
           <button
             type="button"
             onClick={() => setIsMobileExpanded(true)}
+            aria-expanded={isMobileExpanded}
+            aria-controls="personal-space-content"
             className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 font-semibold text-xs shadow-soft active:scale-95 transition-all"
           >
             <span>Buka Ruang Jeda Selengkapnya</span>
@@ -309,7 +273,10 @@ export default function PersonalSpaceSection() {
       )}
 
       {/* Kontainer Kartu Utama */}
-      <div className={`bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none p-5 sm:p-8 md:p-10 relative overflow-hidden ${!isMobileExpanded ? "hidden md:block" : "block animate-fadeIn"}`}>
+      <div
+        id="personal-space-content"
+        className={`bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none p-5 sm:p-8 md:p-10 relative overflow-hidden ${!isMobileExpanded ? "hidden md:block" : "block animate-fadeIn"}`}
+      >
         {/* Dekorasi Garis Halus */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-[radial-gradient(#C8A98E_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
 

@@ -44,7 +44,7 @@ export default function RuangCeritaBanner() {
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/70 dark:bg-[#1E1B18]/70 border border-[#E5DDD0]/70 dark:border-[#3A332E]">
               <Sparkles className="w-3.5 h-3.5 text-[#C8A98E]" />
-              <span>100% Privat</span>
+              <span>Kerahasiaan Terjaga</span>
             </span>
           </div>
 

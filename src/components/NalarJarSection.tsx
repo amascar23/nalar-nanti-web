@@ -166,15 +166,27 @@ export default function NalarJarSection() {
     }
   };
 
-  // Kunci scroll body saat modal surat terbuka
+  // Kunci scroll body saat modal surat terbuka & dengarkan tombol ESC
   useEffect(() => {
     if (isOpeningLetter) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpeningLetter(false);
+      }
+    };
+
+    if (isOpeningLetter) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
     return () => {
       document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpeningLetter]);
 
@@ -534,6 +546,9 @@ export default function NalarJarSection() {
       {/* ========================================================================= */}
       {isOpeningLetter && activeQuote && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Surat Gulungan Toples Nalar"
           className="fixed inset-0 z-50 bg-[#3E362E]/60 dark:bg-black/75 backdrop-blur-sm flex items-center justify-center p-3.5 sm:p-6 animate-fadeIn overflow-y-auto"
           onClick={() => setIsOpeningLetter(false)}
         >

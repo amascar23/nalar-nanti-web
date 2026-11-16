@@ -38,11 +38,16 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
   const quoteList = quotes && quotes.length > 0 ? quotes : QUOTES_DATA;
   const searchParams = useSearchParams();
 
-  // Membaca parameter dari query URL (database-free)
+  // Membaca parameter dari query URL (database-free) dengan sanitasi & batasan panjang
   const idParam = searchParams.get("id") || quoteList[0]?.id || "18";
-  const recipientParam = searchParams.get("untuk") || "Sahabatku";
-  const senderParam = searchParams.get("dari") || "Seseorang yang peduli";
-  const noteParam = searchParams.get("pesan") || "";
+  const rawRecipient = searchParams.get("untuk") || "Sahabatku";
+  const rawSender = searchParams.get("dari") || "Seseorang yang peduli";
+  const rawNote = searchParams.get("pesan") || "";
+
+  // Sanitasi & pembatasan panjang karakter agar tata letak tetap proporsional dan aman
+  const recipientParam = rawRecipient.slice(0, 60).replace(/[<>]/g, "");
+  const senderParam = rawSender.slice(0, 60).replace(/[<>]/g, "");
+  const noteParam = rawNote.slice(0, 300).replace(/[<>]/g, "");
 
   // Cari kutipan yang sesuai ID atau fallback ke kutipan pertama
   const quoteItem: QuoteItem =
@@ -207,9 +212,9 @@ export default function EnvelopeView({ quotes = QUOTES_DATA }: EnvelopeViewProps
               <Sparkles className="w-3.5 h-3.5 text-[#8E9B8E]" />
               <span>Amplop Berhasil Dibuka</span>
             </span>
-            <h2 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC]">
+            <h1 className="font-serif text-xl sm:text-2xl font-semibold text-[#3E362E] dark:text-[#EDE6DC]">
               Khusus untuk {recipientParam}
-            </h2>
+            </h1>
             <p className="text-xs text-[#7A6F64] dark:text-[#A89F94]">
               Dititipkan dengan hangat oleh{" "}
               <strong className="text-[#3E362E] dark:text-[#EDE6DC]">{senderParam}</strong>

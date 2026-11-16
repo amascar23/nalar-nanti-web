@@ -245,8 +245,8 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
         {/* Grid Kartu Koleksi Nalar: 3 kolom di laptop saat preview (1 baris), atau 3/2/1 kolom saat halaman penuh */}
         <div
           className={`grid gap-4 sm:gap-7 lg:gap-8 ${isPreview
-              ? "grid-cols-1 md:grid-cols-3"
-              : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            ? "grid-cols-1 md:grid-cols-3"
+            : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
             }`}
         >
           {displayedQuotes.map((item) => (
@@ -310,29 +310,29 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                 </div>
               </div>
 
-              {/* Bagian Bawah Kartu: Pill/Kotak Sumber (source), Aksi Cepat, dan Petunjuk "Baca refleksi →" */}
-              <div className="mt-6 pt-4 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex flex-col gap-2.5">
-                {/* Baris 1: Sumber Kutipan (Utuh & Nyaman Dibaca) & Nuansa */}
+              {/* Bagian Bawah Kartu: Sumber & Baca Refleksi di Atas, Nuansa & 5 Tombol Aksi Lengkap di Bawah */}
+              <div className="mt-5 pt-3.5 border-t border-[#E5DDD0]/70 dark:border-[#3A332E] flex flex-col gap-2.5">
+                {/* Baris 1: Sumber Kutipan di Kiri & Petunjuk "Baca refleksi →" di Kanan */}
                 <div className="flex items-center justify-between text-xs text-[#7A6F64] dark:text-[#A89F94] gap-2 min-w-0">
-                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs shrink-0 max-w-[70%]">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-sans font-medium px-2.5 py-1 rounded-full bg-gradient-to-r from-white/80 to-[#FAF7F2]/80 dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] border border-[#E5DDD0] dark:border-[#443C36] shadow-xs max-w-[62%] truncate">
                     <Feather className="w-3 h-3 text-[#886950] dark:text-[#C8A98E] shrink-0" />
                     <span className="truncate">{item.source}</span>
                   </span>
 
-                  <span className="text-[10px] text-[#7A6F64]/70 dark:text-[#A89F94]/70 font-sans whitespace-nowrap">
-                    Nuansa {item.type}
-                  </span>
-                </div>
-
-                {/* Baris 2: Petunjuk "Baca refleksi →" di Kiri & 5 Tombol Aksi di Kanan */}
-                <div className="flex items-center justify-between gap-2 pt-1">
-                  <div className="flex items-center gap-1 text-xs font-semibold text-[#C8A98E] group-hover:text-[#B9967A] transition-colors shrink-0">
+                  <div className="flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-[#C8A98E] group-hover:text-[#B9967A] transition-colors shrink-0">
                     <span>Baca refleksi</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
+                </div>
 
-                  {/* Tombol Mini Aksi: 5 Ikon Sejajar */}
-                  <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+                {/* Baris 2: Nuansa di Kiri & 5 Tombol Aksi Lengkap di Kanan (Muat Utuh Tanpa Terpotong) */}
+                <div className="flex items-center justify-between gap-2 pt-1 border-t border-[#E5DDD0]/50 dark:border-[#3A332E]/50">
+                  <span className="text-[10px] text-[#7A6F64]/70 dark:text-[#A89F94]/70 font-sans whitespace-nowrap">
+                    Nuansa {item.type}
+                  </span>
+
+                  {/* Tombol Mini Aksi: 5 Ikon Sejajar (w-7 h-7, gap-1, seluruhnya muat dalam kartu) */}
+                  <div className="flex items-center gap-1 shrink-0 flex-wrap justify-end">
                     {/* 1. Simpan (Saku Hati) */}
                     <button
                       onClick={(e) => {
@@ -341,14 +341,16 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       }}
                       title={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                       aria-label={isSaved(item.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${isSaved(item.id)
-                        ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917]"
-                        : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
-                        }`}
+                      className={`w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
+                        isSaved(item.id)
+                          ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917] shadow-xs"
+                          : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
+                      }`}
                     >
                       <Bookmark
-                        className={`w-[15px] h-[15px] ${isSaved(item.id) ? "fill-[#C8A98E]" : ""
-                          }`}
+                        className={`w-3.5 h-3.5 ${
+                          isSaved(item.id) ? "fill-[#C8A98E]" : ""
+                        }`}
                       />
                     </button>
 
@@ -357,12 +359,12 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       onClick={(e) => handleCopy(item, e)}
                       title="Salin Kutipan"
                       aria-label="Salin Kutipan"
-                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                      className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                     >
                       {copiedId === item.id ? (
-                        <Check className="w-[15px] h-[15px] text-[#8E9B8E]" />
+                        <Check className="w-3.5 h-3.5 text-[#8E9B8E]" />
                       ) : (
-                        <Copy className="w-[15px] h-[15px]" />
+                        <Copy className="w-3.5 h-3.5" />
                       )}
                     </button>
 
@@ -371,9 +373,9 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       onClick={(e) => handleShareWa(item, e)}
                       title="Bagikan ke WhatsApp"
                       aria-label="Bagikan ke WhatsApp"
-                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                      className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                     >
-                      <Share2 className="w-[15px] h-[15px]" />
+                      <Share2 className="w-3.5 h-3.5" />
                     </button>
 
                     {/* 4. Unduh Gambar 9:16 */}
@@ -382,12 +384,12 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       disabled={downloadingId === item.id}
                       title="Simpan Gambar 9:16"
                       aria-label="Simpan Gambar 9:16"
-                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95 disabled:opacity-50"
+                      className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95 disabled:opacity-50"
                     >
                       {downloadingId === item.id ? (
-                        <Loader2 className="w-[15px] h-[15px] animate-spin text-[#C8A98E]" />
+                        <Loader2 className="w-3.5 h-3.5 animate-spin text-[#C8A98E]" />
                       ) : (
-                        <Download className="w-[15px] h-[15px]" />
+                        <Download className="w-3.5 h-3.5" />
                       )}
                     </button>
 
@@ -399,9 +401,9 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
                       }}
                       title="Kirim Amplop Pengingat"
                       aria-label="Kirim Amplop Pengingat"
-                      className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                      className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                     >
-                      <Mail className="w-[15px] h-[15px]" />
+                      <Mail className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>

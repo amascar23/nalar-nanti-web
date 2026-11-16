@@ -13,6 +13,7 @@ import {
   Feather,
 } from "lucide-react";
 import { JAR_QUOTES, JarQuoteItem } from "@/data/jarQuotes";
+import { getShareBaseUrl } from "@/lib/constants";
 
 // Data 15 gulungan kertas mini di dalam perut toples
 interface MiniScrollData {
@@ -202,7 +203,7 @@ export default function NalarJarSection() {
   // Bagikan ke WhatsApp
   const handleShareWhatsApp = () => {
     if (!activeQuote) return;
-    const origin = typeof window !== "undefined" ? window.location.origin : "";
+    const origin = getShareBaseUrl();
     const message =
       `📜 *Toples Nalar — ${activeQuote.tag}*\n\n` +
       `“${activeQuote.quote}”\n\n` +

@@ -220,7 +220,7 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                 {/* Teks Kutipan Utama */}
                 <div className="relative mb-3 sm:mb-5 flex-1">
                   <QuoteIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#C8A98E]/40 mb-1 sm:mb-2 group-hover:text-[#C8A98E] transition-colors" />
-                  <p className="font-serif italic text-xs sm:text-[16px] leading-[1.65] sm:leading-[1.8] text-[#3E362E] dark:text-[#EDE6DC]">
+                  <p className="font-serif italic text-xs sm:text-[16px] leading-[1.65] sm:leading-[1.8] text-[#3E362E] dark:text-[#EDE6DC] line-clamp-4">
                     “{quote.quote}”
                   </p>
                 </div>
@@ -236,20 +236,20 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                   </span>
                 </div>
 
-                {/* Baris 2: Tombol Aksi Lengkap (Lega & Nyaman Diklik) */}
-                <div className="flex items-center justify-end gap-1 sm:gap-1.5">
+                {/* Baris 2: Tombol Aksi Lengkap (Lega & Nyaman Diklik, Muat Utuh) */}
+                <div className="flex items-center justify-end gap-1 flex-wrap">
                   {/* 1. Simpan (Saku Hati) */}
                   <button
                     onClick={() => toggleSave(quote.id)}
                     title={isSaved(quote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
                     aria-label={isSaved(quote.id) ? "Hapus dari Saku Hati" : "Simpan ke Saku Hati"}
-                    className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
+                    className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center transition-all active:scale-95 ${
                       isSaved(quote.id)
                         ? "text-[#C8A98E] bg-[#FAF7F2] dark:bg-[#1C1917] shadow-xs"
                         : "text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70"
                     }`}
                   >
-                    <Bookmark className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isSaved(quote.id) ? "fill-[#C8A98E]" : ""}`} />
+                    <Bookmark className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${isSaved(quote.id) ? "fill-[#C8A98E]" : ""}`} />
                   </button>
 
                   {/* 2. Salin */}
@@ -257,12 +257,12 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                     onClick={() => handleCopy(quote)}
                     title="Salin Kutipan"
                     aria-label="Salin Kutipan"
-                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                    className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                   >
                     {copiedId === quote.id ? (
-                      <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8E9B8E]" />
+                      <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8E9B8E]" />
                     ) : (
-                      <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      <Copy className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     )}
                   </button>
 
@@ -271,9 +271,9 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                     onClick={() => handleShareWa(quote)}
                     title="Bagikan ke WhatsApp"
                     aria-label="Bagikan ke WhatsApp"
-                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                    className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <MessageCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </button>
 
                   {/* 4. Unduh Gambar 9:16 */}
@@ -282,12 +282,12 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                     disabled={downloadingId === quote.id}
                     title="Simpan Gambar 9:16"
                     aria-label="Simpan Gambar 9:16"
-                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95 disabled:opacity-50"
+                    className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95 disabled:opacity-50"
                   >
                     {downloadingId === quote.id ? (
-                      <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin text-[#C8A98E]" />
+                      <Loader2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 animate-spin text-[#C8A98E]" />
                     ) : (
-                      <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     )}
                   </button>
 
@@ -296,9 +296,9 @@ export default function MoodGuideSection({ quotes = QUOTES_DATA }: MoodGuideSect
                     onClick={() => setEnvelopeQuote(quote)}
                     title="Kirim Amplop Pengingat"
                     aria-label="Kirim Amplop Pengingat"
-                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
+                    className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center text-[#7A6F64] dark:text-[#A89F94] hover:text-[#C8A98E] hover:bg-[#EAE1D3]/70 dark:hover:bg-[#3A332E]/70 transition-all active:scale-95"
                   >
-                    <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </button>
                 </div>
               </div>

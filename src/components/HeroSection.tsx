@@ -86,7 +86,7 @@ export default function HeroSection({ quotes = QUOTES_DATA }: HeroSectionProps) 
   return (
     <section
       id="beranda"
-      className="relative pt-24 pb-16 sm:pt-36 sm:pb-24 lg:pb-28 overflow-hidden bg-transparent"
+      className="relative pt-20 pb-10 sm:pt-32 sm:pb-16 md:pt-36 md:pb-24 lg:pb-28 overflow-hidden bg-transparent"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Area Teks Hero */}

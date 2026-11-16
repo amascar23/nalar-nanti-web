@@ -154,11 +154,11 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
   };
 
   return (
-    <section id="kutipan" className="py-16 sm:py-24 lg:py-28 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative">
+    <section id="kutipan" className="py-10 sm:py-16 md:py-20 lg:py-24 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative">
       <span id="koleksi" className="sr-only" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-xl mx-auto mb-6 sm:mb-10 md:mb-12">
           <span className="text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 block">
             Ruang Refleksi
           </span>
@@ -238,10 +238,11 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
         {/* Grid Kartu Koleksi Nalar: 3 kolom di laptop saat preview (1 baris), atau 3/2/1 kolom saat halaman penuh */}
         <div
-          className={`grid gap-6 sm:gap-7 lg:gap-8 ${isPreview
+          className={`grid gap-4 sm:gap-7 lg:gap-8 ${
+            isPreview
               ? "grid-cols-1 md:grid-cols-3"
               : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-            }`}
+          }`}
         >
           {displayedQuotes.map((item) => (
             <div
@@ -406,12 +407,12 @@ export default function QuoteSection({ isPreview = false, quotes = QUOTES_DATA }
 
         {/* Tombol Lihat Selengkapnya (Hanya Tampil di Mode Preview Landing Page) */}
         {isPreview && (
-          <div className="mt-12 sm:mt-16 text-center">
+          <div className="mt-8 sm:mt-12 text-center">
             <Link
               href="/koleksi"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 font-semibold text-xs sm:text-sm shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all group whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 font-semibold text-xs sm:text-sm shadow-soft hover:shadow-card hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all group whitespace-nowrap"
             >
-              <span>Lihat Selengkapnya ({QUOTES_DATA.length} Kutipan)</span>
+              <span>Lihat Selengkapnya ({quoteList.length} Kutipan)</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

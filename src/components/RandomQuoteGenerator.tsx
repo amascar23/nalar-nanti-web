@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { QUOTES_DATA, QuoteItem } from "@/data/quotes";
 import {
   Sparkles,
@@ -16,6 +17,7 @@ import {
   Loader2,
   Bookmark,
   Mail,
+  ArrowRight,
 } from "lucide-react";
 import { downloadQuoteAsImage } from "@/utils/downloadQuoteCard";
 import { useSavedQuotes } from "@/context/SavedQuotesContext";
@@ -101,12 +103,12 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
   return (
     <section
       id="pengingat"
-      className="py-16 sm:py-24 lg:py-28 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
+      className="py-10 sm:py-16 md:py-20 lg:py-24 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
       <span id="pengingat-acak" className="sr-only" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Header Bagian */}
-        <div className="max-w-xl mx-auto mb-8 sm:mb-10 text-center">
+        <div className="max-w-xl mx-auto mb-6 sm:mb-8 md:mb-10 text-center">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#8E9B8E] mb-2 sm:mb-2.5">
             <Heart className="w-3.5 h-3.5 fill-[#8E9B8E]" />
             <span>Pesan untuk Jiwamu</span>
@@ -120,7 +122,7 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
         </div>
 
         {/* Tombol Bergaya Pill dengan Warna Aksen Gradasi Terracotta */}
-        <div className="mb-10 sm:mb-14">
+        <div className="mb-6 sm:mb-10 md:mb-12">
           <button
             onClick={handleGetRandomQuote}
             disabled={isAnimating}
@@ -324,6 +326,17 @@ export default function RandomQuoteGenerator({ quotes = QUOTES_DATA }: RandomQuo
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Tautan Menuju Studio Racik Kartu */}
+        <div className="mt-6 sm:mt-10 text-center">
+          <Link
+            href="/racik"
+            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:px-7 sm:py-3 rounded-full bg-gradient-to-r from-white/90 to-[#FAF7F2]/90 dark:from-[#26221F] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] text-xs sm:text-sm font-semibold text-[#886950] dark:text-[#C8A98E] hover:border-[#C8A98E] shadow-soft hover:shadow-card hover:-translate-y-0.5 active:scale-95 transition-all group"
+          >
+            <span>Ingin meracik kata versimu sendiri? Buka Studio Racik Kartu</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
 

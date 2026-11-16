@@ -45,6 +45,7 @@ const STORAGE_KEY_KAPSUL = "nalar_nanti_kapsul";
 export default function PersonalSpaceSection() {
   const [activeTab, setActiveTab] = useState<"syukur" | "kapsul">("syukur");
   const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isMobileExpanded, setIsMobileExpanded] = useState<boolean>(false);
 
   // State untuk Tab 1 (Syukur)
   const [gratitudeEntries, setGratitudeEntries] = useState<GratitudeEntry[]>([]);
@@ -267,10 +268,10 @@ export default function PersonalSpaceSection() {
   return (
     <section
       id="ruang-jeda"
-      className="py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 scroll-mt-20"
+      className="py-10 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 scroll-mt-20"
     >
       {/* Header Utama Seksi */}
-      <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+      <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10 md:mb-14">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#EAE1D3] dark:from-[#322C27] dark:to-[#26221F] text-[#3E362E] dark:text-[#EDE6DC] text-xs font-semibold border border-[#DDD3C3] dark:border-[#443C36] shadow-soft mb-3">
           <ShieldCheck className="w-3.5 h-3.5 text-[#886950] dark:text-[#C8A98E]" />
           <span>Ruang Jeda Pribadi • Aman &amp; Anonim</span>
@@ -284,8 +285,31 @@ export default function PersonalSpaceSection() {
         </p>
       </div>
 
+      {/* Kartu Pratinjau Ringkas Mobile (Tampil di Layar HP bila belum dibuka) */}
+      {!isMobileExpanded && (
+        <div className="md:hidden text-center py-7 px-5 bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl shadow-[0_8px_24px_-8px_rgba(200,169,142,0.18)]">
+          <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-white/80 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#886950] dark:text-[#C8A98E] shadow-soft">
+            <Heart className="w-6 h-6 text-[#C8A98E] fill-[#C8A98E]/20" />
+          </div>
+          <h3 className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1.5">
+            Jejak Jeda & Kapsul Waktu
+          </h3>
+          <p className="font-sans text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed mb-4 max-w-xs mx-auto">
+            Tuliskan 3 hal syukur hari ini atau titipkan surat harapan ke masa depan dalam kapsul waktu yang aman & anonim.
+          </p>
+          <button
+            type="button"
+            onClick={() => setIsMobileExpanded(true)}
+            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 font-semibold text-xs shadow-soft active:scale-95 transition-all"
+          >
+            <span>Buka Ruang Jeda Selengkapnya</span>
+            <Sparkles className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
+
       {/* Kontainer Kartu Utama */}
-      <div className="bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none p-5 sm:p-8 md:p-10 relative overflow-hidden">
+      <div className={`bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none p-5 sm:p-8 md:p-10 relative overflow-hidden ${!isMobileExpanded ? "hidden md:block" : "block animate-fadeIn"}`}>
         {/* Dekorasi Garis Halus */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-[radial-gradient(#C8A98E_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
 
@@ -686,6 +710,19 @@ export default function PersonalSpaceSection() {
                 </div>
               )}
             </div>
+          </div>
+        )}
+
+        {/* Tombol Tutup Kembali di Layar HP */}
+        {isMobileExpanded && (
+          <div className="md:hidden text-center mt-6 pt-4 border-t border-[#E5DDD0]/70 dark:border-[#3A332E]">
+            <button
+              type="button"
+              onClick={() => setIsMobileExpanded(false)}
+              className="text-xs text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] underline font-medium"
+            >
+              ↑ Tutup Ruang Jeda
+            </button>
           </div>
         )}
       </div>

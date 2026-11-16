@@ -28,6 +28,7 @@ export default function RequestSection() {
   const [message, setMessage] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isMobileExpanded, setIsMobileExpanded] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const nuanceOptions: NuanceOption[] = [
@@ -96,11 +97,11 @@ export default function RequestSection() {
   return (
     <section
       id="titip-nalar"
-      className="py-16 sm:py-24 lg:py-28 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
+      className="py-10 sm:py-16 md:py-20 lg:py-24 bg-transparent border-t border-[#E5DDD0]/60 dark:border-[#3A332E]/60 relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Seksi */}
-        <div className="text-center max-w-xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-xl mx-auto mb-6 sm:mb-10 md:mb-14">
           {/* Badge Kecil */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FAF7F2] to-[#F3EDE2] dark:from-[#26221F] dark:to-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] text-xs font-medium text-[#7A6F64] dark:text-[#A89F94] mb-3 sm:mb-4 shadow-soft">
             <Heart className="w-3.5 h-3.5 text-[#C8A98E] fill-[#C8A98E]/20" />
@@ -119,8 +120,31 @@ export default function RequestSection() {
           </p>
         </div>
 
+        {/* Kartu Pratinjau Ringkas Mobile (Tampil di Layar HP bila belum dibuka) */}
+        {!isMobileExpanded && !isSubmitted && (
+          <div className="md:hidden text-center py-7 px-5 bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl shadow-[0_8px_24px_-8px_rgba(200,169,142,0.18)] max-w-sm mx-auto">
+            <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-white/80 dark:bg-[#1E1B18] border border-[#E5DDD0] dark:border-[#3A332E] flex items-center justify-center text-[#886950] dark:text-[#C8A98E] shadow-soft">
+              <Feather className="w-5 h-5 text-[#886950] dark:text-[#C8A98E]" />
+            </div>
+            <h3 className="font-serif text-base font-semibold text-[#3E362E] dark:text-[#EDE6DC] mb-1.5">
+              Titip Nalar & Request Kata
+            </h3>
+            <p className="font-sans text-xs text-[#7A6F64] dark:text-[#A89F94] leading-relaxed mb-4">
+              Punya tema yang ingin dibahas atau kalimat refleksi yang ingin dititipkan ke admin Nalar Nanti?
+            </p>
+            <button
+              type="button"
+              onClick={() => setIsMobileExpanded(true)}
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#D4B59D] via-[#C8A98E] to-[#B9967A] text-[#FAF7F2] hover:brightness-105 font-semibold text-xs shadow-soft active:scale-95 transition-all"
+            >
+              <span>Buka Formulir Titip Nalar</span>
+              <Send className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
+
         {/* Kartu Formulir Utama */}
-        <div className="max-w-2xl mx-auto bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-6 sm:p-10 shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none relative">
+        <div className={`max-w-2xl mx-auto bg-gradient-to-br from-[#FAF7F2] via-[#F3EDE2] to-[#EAE1D3] dark:from-[#26221F] dark:via-[#221E1B] dark:to-[#1C1917] border border-[#E5DDD0] dark:border-[#3A332E] ring-1 ring-inset ring-white/70 dark:ring-white/5 rounded-3xl p-6 sm:p-10 shadow-[0_12px_36px_-10px_rgba(200,169,142,0.20)] dark:shadow-none relative ${!isMobileExpanded && !isSubmitted ? "hidden md:block" : "block animate-fadeIn"}`}>
           {isSubmitted ? (
             /* Kotak Konfirmasi Lembut (Success State) */
             <div className="py-8 sm:py-10 text-center animate-fadeIn">
@@ -292,6 +316,19 @@ export default function RequestSection() {
                 </div>
               </div>
             </form>
+          )}
+
+          {/* Tombol Tutup Kembali di Layar HP */}
+          {isMobileExpanded && !isSubmitted && (
+            <div className="md:hidden text-center mt-5 pt-3 border-t border-[#E5DDD0]/70 dark:border-[#3A332E]">
+              <button
+                type="button"
+                onClick={() => setIsMobileExpanded(false)}
+                className="text-xs text-[#7A6F64] dark:text-[#A89F94] hover:text-[#3E362E] dark:hover:text-[#EDE6DC] underline font-medium"
+              >
+                ↑ Tutup Formulir
+              </button>
+            </div>
           )}
         </div>
       </div>

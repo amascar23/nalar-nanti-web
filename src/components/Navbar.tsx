@@ -20,6 +20,7 @@ export default function Navbar() {
     { label: "Koleksi Nalar", href: "/koleksi" },
     { label: "Racik Kartu", href: "/racik" },
     { label: "Ruang Jeda", href: "/#ruang-jeda" },
+    { label: "Ruang Cerita", href: "/ruang-cerita" },
     { label: "Titip Nalar", href: "/#titip-nalar" },
   ];
 
@@ -48,7 +49,7 @@ export default function Navbar() {
         </Link>
 
         {/* 2. Zona Tengah: Menu Navigasi Satu Baris Rapi (Desktop) */}
-        <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 text-[13.5px] font-medium text-[#7A6F64] dark:text-[#A89F94] flex-1 max-w-xl mx-auto">
+        <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-6 text-[13px] xl:text-[13.5px] font-medium text-[#7A6F64] dark:text-[#A89F94] flex-1 max-w-2xl mx-auto">
           {navLinks.map((item) => (
             <Link
               key={item.href}

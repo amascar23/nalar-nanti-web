@@ -1,6 +1,11 @@
 export const LIVE_SITE_URL = "https://nalar-nanti-web.vercel.app";
 
 /**
+ * Access Key Web3Forms untuk pengiriman formulir Ruang Bercerita ke email admin
+ */
+export const WEB3FORMS_ACCESS_KEY = "750a4a6e-a121-4a5d-a8ad-26699d044f63";
+
+/**
  * Webhook Google Apps Script untuk merekam catatan Jejak Jeda & Syukur serta Kapsul Waktu ke Google Sheets admin.
  * Dapat diatur melalui environment variable GOOGLE_SHEETS_JEDA_WEBHOOK_URL atau langsung di sini.
  */

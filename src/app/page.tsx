@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import MoodGuideSection from "@/components/MoodGuideSection";
 import RandomQuoteGenerator from "@/components/RandomQuoteGenerator";
 import QuoteSection from "@/components/QuoteSection";
+import RuangCeritaBanner from "@/components/RuangCeritaBanner";
 import PersonalSpaceSection from "@/components/PersonalSpaceSection";
 import RequestSection from "@/components/RequestSection";
 import AboutSection from "@/components/AboutSection";
@@ -21,6 +22,7 @@ export default async function HomePage() {
         <MoodGuideSection quotes={quotes} />
         <RandomQuoteGenerator quotes={quotes} />
         <QuoteSection isPreview={true} quotes={quotes} />
+        <RuangCeritaBanner />
         <PersonalSpaceSection />
         <RequestSection />
         <AboutSection />
